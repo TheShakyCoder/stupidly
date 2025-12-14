@@ -22,3 +22,14 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+Route::get('/topics', function () {
+    return response()->json([
+        'data' => [
+            [
+                'id' => 1,
+                'name' => 'Topic 1',
+            ]
+        ],
+    ]);
+});
