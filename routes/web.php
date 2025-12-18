@@ -28,3 +28,9 @@ Route::get('/topics', function () {
         'topics' => \App\Models\Topic::paginate(10),
     ]);
 });
+
+Route::get('/tutors', function () {
+    return Inertia::render('Tutor/Index', [
+        'tutors' => \App\Models\Tutor::paginate(10),
+    ]);
+});
