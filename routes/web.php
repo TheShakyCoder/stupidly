@@ -24,12 +24,7 @@ Route::middleware([
 });
 
 Route::get('/topics', function () {
-    return response()->json([
-        'data' => [
-            [
-                'id' => 1,
-                'name' => 'Topic 1',
-            ]
-        ],
+    return Inertia::render('Topic/Index', [
+        'topics' => \App\Models\Topic::paginate(10),
     ]);
 });
