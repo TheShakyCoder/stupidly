@@ -9,8 +9,10 @@ test('a collection of topics can be fetched', function () {
 
     $response->assertStatus(200);
     $response->assertInertia(fn(AssertableInertia $in) => $in
+        ->component('Topic/Index')
         ->has('topics', fn(AssertableInertia $in) => $in
             ->has('data', 10)
+            ->where('total', 15)
             ->etc()
         )
     );
