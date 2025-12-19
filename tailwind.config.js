@@ -14,8 +14,23 @@ export default {
 
     theme: {
         extend: {
+            colors: {
+                "primary": "#3b82f6",
+                "secondary": "#10b981",
+                "accent": "#0ea5e9",
+                "background-light": "#f0f9ff",
+                "background-dark": "#0f172a",
+                "surface-dark": "#1e293b",
+                "surface-light": "#ffffff",
+            },
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
             },
         },
     },
