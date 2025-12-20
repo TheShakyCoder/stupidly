@@ -20,6 +20,8 @@ class CourseFactory extends Factory
             'key' => $this->faker->unique()->slug(),
             'title' => $this->faker->sentence(),
             'description' => $this->faker->paragraph(),
+            'user_id' => \App\Models\User::factory(),
+            'level' => $this->faker->randomElement(['Beginner', 'Intermediate', 'Advanced']),
         ];
     }
 }
