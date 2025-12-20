@@ -22,6 +22,12 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::get('/courses/{course:key}', function (\App\Models\Course $course) {
+    return Inertia::render('Course/Show', [
+        'course' => $course
+    ]);
+})->name('courses.show');
+
 Route::get('/topics', function () {
     return Inertia::render('Topic/Index', [
         'topics' => \App\Models\Topic::paginate(10),
