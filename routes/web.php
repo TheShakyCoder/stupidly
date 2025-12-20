@@ -22,12 +22,8 @@ Route::middleware([
     })->name('dashboard');
 });
 
-// Route::get('/courses/{course:key}', function (\App\Models\Course $course) {
-//     return Inertia::render('Course/Show', [
-//         'course' => $course
-//     ]);
-// })->name('courses.show');
 Route::resource('courses', \App\Http\Controllers\CourseController::class)->only(['index','show']);
+Route::resource('skills', \App\Http\Controllers\SkillController::class)->only(['index']);
 
 Route::get('/topics', function () {
     return Inertia::render('Topic/Index', [
