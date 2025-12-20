@@ -21,5 +21,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        $courses = collect(config('seeder.courses'));
+        foreach ($courses as $courseKey => $courseData) {
+            $course = \App\Models\Course::create(array_merge(['key' => $courseKey], $courseData));
+        }
     }
 }
