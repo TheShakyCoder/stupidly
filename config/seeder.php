@@ -2,6 +2,13 @@
 
 return [
 
+    'users' => [
+        [
+            'name' => 'Sharif Khan',
+            'email' => 'sharif.khan@stupidly.uk',
+        ],
+    ],
+
     'courses' => [
         'tic-tac-toe' => [
             'title' => 'Tic Tac Toe Game',
