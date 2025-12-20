@@ -10,7 +10,7 @@ class CourseController extends Controller
 {
     public function index() {
         return Inertia::render('Course/Index', [
-            'courses' => Course::paginate(perPage: 12),
+            'courses' => Course::all(),
         ]);
     }
 

@@ -2,7 +2,7 @@
 import PublicLayout from '@/Layouts/PublicLayout.vue';
 
 defineProps({
-    courses: Object,
+    courses: Array,
 });
 </script>
 
