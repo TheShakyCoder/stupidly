@@ -27,7 +27,7 @@ Route::middleware([
 //         'course' => $course
 //     ]);
 // })->name('courses.show');
-Route::resource('courses', \App\Http\Controllers\CourseController::class)->only(['show']);
+Route::resource('courses', \App\Http\Controllers\CourseController::class)->only(['index','show']);
 
 Route::get('/topics', function () {
     return Inertia::render('Topic/Index', [
