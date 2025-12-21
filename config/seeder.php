@@ -15,14 +15,14 @@ return [
             'description' => 'Build a classic Tic Tac Toe game using VueJS, HTML, and CSS.',
             'level' => 'Beginner',
             'tutor' => 'Sharif Khan',
-            'skills' => ['JavaScript', 'VueJS', 'HTML', 'CSS'],
+            'skills' => ['JavaScript / VueJS', 'HTML', 'CSS'],
         ],
         'simple-simon' => [
             'title' => 'Simple Simon Game',
             'description' => 'Create a fun memory game.',
             'level' => 'Beginner',
             'tutor' => 'Sharif Khan',
-            'skills' => ['JavaScript', 'VueJS', 'HTML', 'CSS'],
+            'skills' => ['JavaScript / VueJS', 'HTML', 'CSS'],
         ],
 
         'game-of-life' => [
@@ -30,14 +30,14 @@ return [
             'description' => 'Build Conway\'s Game of Life.',
             'level' => 'Intermediate',
             'tutor' => 'Sharif Khan',
-            'skills' => ['JavaScript', 'VueJS', 'P5.js','HTML', 'CSS', 'Tailwind CSS'],
+            'skills' => ['JavaScript / VueJS', 'P5.js','HTML', 'CSS', 'Tailwind CSS'],
         ],
         'black-jack' => [
             'title' => 'Black Jack Game',
             'description' => 'Learn to build a classic Black Jack card game.',
             'level' => 'Intermediate',
             'tutor' => 'Sharif Khan',
-            'skills' => ['JavaScript', 'VueJS', 'HTML', 'Tailwind CSS'],
+            'skills' => ['JavaScript / VueJS', 'HTML', 'Tailwind CSS'],
         ],
 
         'convoy' => [
@@ -45,7 +45,7 @@ return [
             'description' => 'Use a map to keep track of friends in your convoy.',
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
-            'skills' => ['Laravel / Inertia.js', 'JavaScript', 'VueJS', 'HTML', 'Tailwind CSS', 'APIs'],
+            'skills' => ['Laravel / Inertia.js', 'JavaScript / VueJS', 'HTML', 'Tailwind CSS', 'APIs'],
         ],
 
         'game-of-lives-1' => [
@@ -69,21 +69,21 @@ return [
             'description' => 'Build a classic Texas Hold\'em card game for multiple players.',
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
-            'skills' => ['JavaScript', 'VueJS', 'HTML', 'Tailwind CSS', 'WebSockets', 'NodeJS'],
+            'skills' => ['JavaScript / VueJS', 'HTML', 'Tailwind CSS', 'WebSockets', 'NodeJS'],
         ],
         'live-chat' => [
             'title' => 'Live Chat App',
             'description' => 'Use JavaScript to build a real-time live chat application.',
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
-            'skills' => ['JavaScript', 'VueJS', 'NodeJS', 'HTML', 'Tailwind CSS', 'WebSockets', 'NodeJS'],
+            'skills' => ['JavaScript / VueJS', 'NodeJS', 'HTML', 'Tailwind CSS', 'WebSockets', 'NodeJS'],
         ],
         'bookkeeping' => [
             'title' => 'Bookkeeping App',
             'description' => 'Understand NoSQL databases by building a bookkeeping app using PouchDB.',
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
-            'skills' => ['JavaScript', 'VueJS', 'HTML', 'Tailwind CSS', 'NoSQL'],
+            'skills' => ['JavaScript / VueJS', 'HTML', 'Tailwind CSS', 'NoSQL'],
         ],
         'food-delivery' => [
             'title' => 'Food Delivery App',
