@@ -1,5 +1,6 @@
 <script setup>
 import NavLink from '@/Components/NavLink.vue';
+import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
@@ -27,14 +28,15 @@ import NavLink from '@/Components/NavLink.vue';
                                 href="#">About</a>
                         </div>
                         <div class="flex gap-2">
-                            <button
+                            <Link
+                                href="/dashboard"
                                 class="hidden sm:flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-transparent border border-gray-300 dark:border-blue-800 hover:bg-gray-100 dark:hover:bg-blue-900/50 text-sm font-bold leading-normal transition-colors dark:text-white text-gray-900">
                                 <span class="truncate">Login</span>
-                            </button>
-                            <button
+                            </Link>
+                            <Link href="/register"
                                 class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-gradient-to-r from-secondary to-primary hover:from-green-400 hover:to-blue-400 text-white text-sm font-bold leading-normal shadow-[0_4px_14px_0_rgba(59,130,246,0.39)] transition-all">
                                 <span class="truncate">Start for Free</span>
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </header>
