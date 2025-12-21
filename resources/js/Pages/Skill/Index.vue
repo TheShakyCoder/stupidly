@@ -46,28 +46,7 @@ const props = defineProps({
                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuANDVwazWeNKB3QtQvb0xW-5plNsM5fGOLt29NuPBEDVK41Q7WMZZ171R8fMpWWbAh8EieAyiz2wwwXPPE0QaVdABNWQfCVv3IFzi0xLuJbDmYnqgUCyOfar0dRI61z2QUdxNCrLBdHXOKNXUIBunpy3eC2pua1-uCDPhvpNrGk5CL95tmXykIleElNaJjC572nB8zespvwCoC-VguPMnEStKKmPUa-oNk5VWYTje1OKJ4MeMxPEQNcbm7Bzxud4W1m9p2L9L8fesY");'>
                     </div>
                 </div>
-                <div class="flex items-center gap-3 overflow-x-auto pb-2 no-scrollbar">
-                    <button
-                        class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-white text-sm font-bold shadow-md shadow-primary/20 shrink-0">
-                        <span class="material-symbols-outlined text-[20px]">apps</span>
-                        All Topics
-                    </button>
-                    <button
-                        class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b] text-sm font-medium transition-colors shrink-0">
-                        <span class="material-symbols-outlined text-[20px]">new_releases</span>
-                        Newest
-                    </button>
-                    <button
-                        class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b] text-sm font-medium transition-colors shrink-0">
-                        <span class="material-symbols-outlined text-[20px] fill-1">favorite</span>
-                        Popular
-                    </button>
-                    <button
-                        class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b] text-sm font-medium transition-colors shrink-0">
-                        <span class="material-symbols-outlined text-[20px]">signal_cellular_alt</span>
-                        Difficulty
-                    </button>
-                </div>
+                
             </div>
             <div v-for="group in props.skills" :key="group.name" class="mb-16">
                 <div class="flex items-center gap-4 mb-6">

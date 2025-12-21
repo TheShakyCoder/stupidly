@@ -69,7 +69,7 @@ return [
             'description' => 'Build a classic Texas Hold\'em card game for multiple players.',
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
-            'skills' => ['VueJS', 'HTML', 'Tailwind CSS', 'WebSockets', 'NodeJS'],
+            'skills' => ['VueJS', 'HTML', 'Tailwind CSS', 'WebSockets', 'NodeJS', 'AI'],
         ],
         'live-chat' => [
             'title' => 'Live Chat App',
