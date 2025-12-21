@@ -15,14 +15,14 @@ return [
             'description' => 'Build a classic Tic Tac Toe game using VueJS, HTML, and CSS.',
             'level' => 'Beginner',
             'tutor' => 'Sharif Khan',
-            'skills' => ['JavaScript / VueJS', 'HTML', 'CSS'],
+            'skills' => ['VueJS', 'HTML', 'Tailwind CSS'],
         ],
         'simple-simon' => [
             'title' => 'Simple Simon Game',
             'description' => 'Create a fun memory game.',
             'level' => 'Beginner',
             'tutor' => 'Sharif Khan',
-            'skills' => ['JavaScript / VueJS', 'HTML', 'CSS'],
+            'skills' => ['VueJS', 'HTML', 'Tailwind CSS'],
         ],
 
         'game-of-life' => [
@@ -30,14 +30,14 @@ return [
             'description' => 'Build Conway\'s Game of Life.',
             'level' => 'Intermediate',
             'tutor' => 'Sharif Khan',
-            'skills' => ['JavaScript / VueJS', 'P5.js','HTML', 'CSS', 'Tailwind CSS'],
+            'skills' => ['VueJS', 'P5.js','HTML', 'Tailwind CSS'],
         ],
         'black-jack' => [
             'title' => 'Black Jack Game',
             'description' => 'Learn to build a classic Black Jack card game.',
             'level' => 'Intermediate',
             'tutor' => 'Sharif Khan',
-            'skills' => ['JavaScript / VueJS', 'HTML', 'Tailwind CSS'],
+            'skills' => ['VueJS', 'HTML', 'Tailwind CSS'],
         ],
 
         'convoy' => [
@@ -45,23 +45,23 @@ return [
             'description' => 'Use a map to keep track of friends in your convoy.',
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
-            'skills' => ['Laravel / Inertia.js', 'JavaScript / VueJS', 'HTML', 'Tailwind CSS', 'APIs'],
+            'skills' => ['Laravel / Inertia.js', 'VueJS', 'HTML', 'Tailwind CSS', 'APIs'],
         ],
 
         'game-of-lives-1' => [
-            'title' => 'Multi-player Game of Life Simulation',
-            'description' => 'Create a multi-player version of Conway\'s Game of Life using Lua.',
+            'title' => 'Multi-player Game of Life',
+            'description' => 'Use Lua to remake this classic.',
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
             'skills' => ['Lua', 'WebSockets'],
         ],
 
         'game-of-lives-2' => [
-            'title' => 'Multi-player Game of Life Simulation',
-            'description' => 'Create a multi-player version of Conway\'s Game of Life using P5.js.',
+            'title' => 'Multi-player Game of Life',
+            'description' => 'Use P5.js to remake this classic.',
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
-            'skills' => ['Html', 'VueJS','P5.js', 'WebSockets', 'NodeJS'],
+            'skills' => ['Html', 'VueJS', 'P5.js', 'WebSockets', 'NodeJS'],
         ],
 
         'texas-hold-em' => [
@@ -69,28 +69,28 @@ return [
             'description' => 'Build a classic Texas Hold\'em card game for multiple players.',
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
-            'skills' => ['JavaScript / VueJS', 'HTML', 'Tailwind CSS', 'WebSockets', 'NodeJS'],
+            'skills' => ['VueJS', 'HTML', 'Tailwind CSS', 'WebSockets', 'NodeJS'],
         ],
         'live-chat' => [
             'title' => 'Live Chat App',
             'description' => 'Use JavaScript to build a real-time live chat application.',
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
-            'skills' => ['JavaScript / VueJS', 'NodeJS', 'HTML', 'Tailwind CSS', 'WebSockets', 'NodeJS'],
+            'skills' => ['VueJS', 'NodeJS', 'HTML', 'Tailwind CSS', 'WebSockets'],
         ],
         'bookkeeping' => [
             'title' => 'Bookkeeping App',
             'description' => 'Understand NoSQL databases by building a bookkeeping app using PouchDB.',
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
-            'skills' => ['JavaScript / VueJS', 'HTML', 'Tailwind CSS', 'NoSQL'],
+            'skills' => ['VueJS', 'HTML', 'Tailwind CSS', 'NoSQL', 'AI'],
         ],
         'food-delivery' => [
             'title' => 'Food Delivery App',
             'description' => 'Create a food delivery application with Flutter.',
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
-            'skills' => ['Dart', 'Flutter', 'NoSQL'],
+            'skills' => ['Dart / Flutter', 'NoSQL', 'AI'],
         ],
 
 
