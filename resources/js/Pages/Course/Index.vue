@@ -2,7 +2,7 @@
 import PublicLayout from '@/Layouts/PublicLayout.vue';
 
 const props = defineProps({
-    courses: {
+    skills: {
         type: Array,
         default: () => [],
     },
@@ -69,13 +69,13 @@ const props = defineProps({
                 </button>
             </div>
         </div>
-        <div v-for="group in props.courses" :key="group.skill" class="mb-16">
+        <div v-for="group in props.skills" :key="group.name" class="mb-16">
             <div class="flex items-center gap-4 mb-6">
                 <div class="size-12 rounded-2xl bg-blue-500/20 flex items-center justify-center text-blue-400">
                     <span class="material-symbols-outlined text-3xl">layers</span>
                 </div>
                 <div>
-                    <h2 class="text-2xl font-bold">{{ group.skill }}</h2>
+                    <h2 class="text-2xl font-bold">{{ group.name }}</h2>
                     <p class="text-slate-500 dark:text-slate-400 text-sm">Courses grouped by skill.</p>
                 </div>
             </div>
