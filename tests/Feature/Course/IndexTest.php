@@ -5,7 +5,11 @@ use Inertia\Testing\AssertableInertia;
 
 test('anyone can view the list of courses', function () {
     $skills = \App\Models\Skill::factory()->count(5)->create();
-    $courses = Course::factory()->recycle($skills)->count(15)->create();
+    $courses = Course::factory()
+        ->recycle($skills)
+        ->has(\App\Models\Lesson::factory()->count(rand(0, 1)))
+        ->count(15)
+        ->create();
 
     $response = $this->get('/courses');
 
@@ -20,7 +24,7 @@ test('anyone can view the list of courses', function () {
             ->whereType('description', 'string')
             ->whereType('level', 'string')
             ->whereType('user_id', 'integer')
-
+            ->has('lessons',  count($courses[0]->lessons) ?? 0)
             ->etc()
         )
     );

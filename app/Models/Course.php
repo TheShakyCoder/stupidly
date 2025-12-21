@@ -24,6 +24,11 @@ class Course extends Model
         return $this->hasMany(Cover::class);
     }
 
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class);
+    }
+
     public function getRouteKeyName(): string
     {
         return 'key';
