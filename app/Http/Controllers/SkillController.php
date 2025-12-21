@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 class SkillController extends Controller
 {
     public function index() {
-        return inertia('Skill/Index');
+        return inertia('Skill/Index', [
+            'skills' => \App\Models\Skill::all(),
+        ]);
     }
 }
