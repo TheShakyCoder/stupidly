@@ -25,12 +25,6 @@ Route::middleware([
 Route::resource('courses', \App\Http\Controllers\CourseController::class)->only(['index','show']);
 Route::resource('skills', \App\Http\Controllers\SkillController::class)->only(['index']);
 
-Route::get('/topics', function () {
-    return Inertia::render('Topic/Index', [
-        'topics' => \App\Models\Topic::paginate(10),
-    ]);
-});
-
 Route::get('/tutors', function () {
     return Inertia::render('Tutor/Index', [
         'tutors' => \App\Models\Tutor::paginate(10),
