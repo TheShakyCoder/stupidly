@@ -9,16 +9,10 @@ use App\Models\Course;
 
 class CourseController extends Controller
 {
-    public function index() {
-        $skills = Skill::with('courses')->get()->map(function ($skill) {
-            return [
-                'name' => $skill->name,
-                'courses' => $skill->courses,
-            ];
-        });
-
+    public function index()
+    {
         return Inertia::render('Course/Index', [
-            'skills' => $skills,
+            'courses' => Course::paginate(12),
         ]);
     }
 

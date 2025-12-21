@@ -6,15 +6,14 @@ use Inertia\Testing\AssertableInertia;
 test('anyone can view the list of courses', function () {
     $skills = \App\Models\Skill::factory()->count(5)->create();
     $courses = Course::factory()->recycle($skills)->count(15)->create();
-// dd($courses->toArray());
+
     $response = $this->get('/courses');
 
     $response->assertStatus(200)
     ->assertInertia(fn(AssertableInertia $ai) => $ai
         ->component('Course/Index')
-        ->has('skills', 5, fn(AssertableInertia $ai) => $ai
-            ->where('name', $skills[0]->name)
-            ->has('courses')
+        ->has('courses', fn(AssertableInertia $ai) => $ai
+            ->has('data', 12)
             ->etc()
         )
         // ->has('courses', 15, fn(AssertableInertia $ai) => $ai
