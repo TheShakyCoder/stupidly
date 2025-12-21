@@ -1,11 +1,34 @@
 <script setup>
 import PublicLayout from '@/Layouts/PublicLayout.vue';
+import { ref, computed } from 'vue';
 
 const props = defineProps({
     courses: {
-        type: Object,
+        type: Array,
         default: () => [],
     },
+});
+
+const levels = { Beginner: 'text-green-500', Intermediate: 'text-yellow-500', Advanced: 'text-red-500' };
+
+const activeFilter = ref('all');
+
+const filteredCourses = computed(() => {
+    if (activeFilter.value === 'available') {
+        return (props.courses || []).filter(course => {
+            const lessonCount = course.lessons || course.lessons_count || 0;
+            return lessonCount > 0;
+        });
+    }
+
+    if (activeFilter.value === 'coming') {
+        return (props.courses || []).filter(course => {
+            const lessonCount = course.lessons || course.lessons_count || 0;
+            return lessonCount === 0;
+        });
+    }
+
+    return props.courses || [];
 });
 </script>
 
@@ -48,31 +71,44 @@ const props = defineProps({
                 </div>
                 <div class="flex items-center gap-3 overflow-x-auto pb-2 no-scrollbar">
                     <button
-                        class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-white text-sm font-bold shadow-md shadow-primary/20 shrink-0">
+                        @click="activeFilter = 'all'"
+                        :class="[
+                            'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold shadow-md shrink-0 transition-all',
+                            activeFilter === 'all'
+                                ? 'bg-primary text-white shadow-primary/20'
+                                : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
+                        ]">
                         <span class="material-symbols-outlined text-[20px]">apps</span>
-                        All Topics
+                        All Courses
                     </button>
                     <button
-                        class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b] text-sm font-medium transition-colors shrink-0">
+                        @click="activeFilter = 'available'"
+                        :class="[
+                            'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all shrink-0',
+                            activeFilter === 'available'
+                                ? 'bg-primary text-white shadow-md shadow-primary/20'
+                                : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
+                        ]">
                         <span class="material-symbols-outlined text-[20px]">new_releases</span>
-                        Newest
+                        Available Now
                     </button>
                     <button
-                        class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b] text-sm font-medium transition-colors shrink-0">
+                        @click="activeFilter = 'coming'"
+                        :class="[
+                            'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all shrink-0',
+                            activeFilter === 'coming'
+                                ? 'bg-primary text-white shadow-md shadow-primary/20'
+                                : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
+                        ]">
                         <span class="material-symbols-outlined text-[20px] fill-1">favorite</span>
-                        Popular
-                    </button>
-                    <button
-                        class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b] text-sm font-medium transition-colors shrink-0">
-                        <span class="material-symbols-outlined text-[20px]">signal_cellular_alt</span>
-                        Difficulty
+                        Coming Soon
                     </button>
                 </div>
             </div>
 
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <div v-for="course in courses.data" :key="course.id || course.key || course.title"
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div v-for="course in filteredCourses" :key="course.id || course.key || course.title"
                         class="group flex flex-col bg-surface-light dark:bg-[#1a2230] rounded-2xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300 border border-slate-200 dark:border-slate-800 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
                         <div class="aspect-video w-full bg-slate-800 relative overflow-hidden">
                             <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -86,7 +122,8 @@ const props = defineProps({
                         <div class="p-5 flex flex-col flex-1">
                             <div class="flex items-center gap-2 mb-3">
                                 <span
-                                    class="px-2.5 py-1 rounded-md bg-green-500/10 text-green-500 text-xs font-bold uppercase tracking-wider">{{ course.level || 'Beginner' }}</span>
+                                    class="px-2.5 py-1 rounded-md bg-green-500/10 text-xs font-bold uppercase tracking-wider"
+                                    :class="levels[course.level]">{{ course.level }}</span>
                                 <span
                                     class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-xs font-bold flex items-center gap-1">
                                     <span class="material-symbols-outlined text-xs">book</span> {{ course.lessons || course.lessons_count || '—' }} Lessons
