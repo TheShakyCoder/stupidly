@@ -16,15 +16,13 @@ const activeFilter = ref('all');
 const filteredCourses = computed(() => {
     if (activeFilter.value === 'available') {
         return (props.courses || []).filter(course => {
-            const lessonCount = course.lessons || course.lessons_count || 0;
-            return lessonCount > 0;
+            return course.lessons.length || 0 > 0;
         });
     }
 
     if (activeFilter.value === 'coming') {
         return (props.courses || []).filter(course => {
-            const lessonCount = course.lessons || course.lessons_count || 0;
-            return lessonCount === 0;
+            return course.lessons.length || 0 === 0;
         });
     }
 
@@ -34,7 +32,7 @@ const filteredCourses = computed(() => {
 
 <template>
     <PublicLayout>
-
+        <pre>{{ activeFilter }}</pre>
         <div class="max-w-4xl mx-auto py-6 md:py-6 lg:py-12 pb-24">
             <div class="flex flex-col gap-8 mb-12">
                 <div
