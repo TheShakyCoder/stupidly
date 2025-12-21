@@ -45,7 +45,7 @@ return [
             'description' => 'Use a map to keep track of friends in your convoy.',
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
-            'skills' => ['Laravel', 'Inertia.js', 'JavaScript', 'VueJS', 'HTML', 'Tailwind CSS', 'APIs'],
+            'skills' => ['Laravel / Inertia.js', 'JavaScript', 'VueJS', 'HTML', 'Tailwind CSS', 'APIs'],
         ],
 
         'game-of-lives-1' => [
