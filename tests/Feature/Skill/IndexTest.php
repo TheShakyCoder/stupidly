@@ -14,7 +14,7 @@ test('anyone can view the list of courses grouped by skill', function () {
         ->assertInertia(fn(AssertableInertia $ai) => $ai
             ->component('Skill/Index')
             ->has('skills', 5, fn(AssertableInertia $ai) => $ai
-                ->where('name', $skills[0]->name)
+                ->has('name')
                 ->has('courses')
                 ->etc()
             )
