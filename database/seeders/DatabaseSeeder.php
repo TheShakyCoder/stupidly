@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,15 +16,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
         $users = collect(config('seeder.users'));
         foreach ($users as $userData) {
             User::create([
                 ...$userData,
-                'password' => bcrypt(rand(100000, 999999)),
+                'password' => Hash::make(config('auth.user.password')),
             ]);
         }
+
 
         $courses = collect(config('seeder.courses'));
         foreach ($courses as $courseKey => $courseData) {
