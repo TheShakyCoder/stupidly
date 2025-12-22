@@ -19,8 +19,8 @@ import { Link } from '@inertiajs/vue3';
                     </NavLink>
                     <div class="flex flex-1 justify-end items-center gap-4 sm:gap-8">
                         <div class="hidden md:flex items-center gap-6">
-                            <NavLink class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700"
-                                href="/courses">Courses</NavLink>
+                            <NavLink class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700" href="/courses">Courses</NavLink>
+                            <NavLink class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700" href="/skills">Skills</NavLink>
                             <NavLink
                                 class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700"
                                 href="/pricing">Pricing</NavLink>
