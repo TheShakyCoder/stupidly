@@ -24,6 +24,7 @@ Route::middleware([
 
 Route::resource('courses', \App\Http\Controllers\CourseController::class)->only(['index','show']);
 Route::resource('skills', \App\Http\Controllers\SkillController::class)->only(['index']);
+Route::resource('lessons', \App\Http\Controllers\LessonController::class)->only(['show']);
 
 Route::get('/tutors', function () {
     return Inertia::render('Tutor/Index', [
