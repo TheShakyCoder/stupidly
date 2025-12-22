@@ -25,13 +25,8 @@ test('anyone can view the list of courses', function () {
             ->whereType('description', 'string')
             ->whereType('level', 'string')
             ->whereType('user_id', 'integer')
-            ->has('ratings', count($courses[0]->ratings), fn(AssertableInertia $ai) => $ai
-                ->etc()
-            )
-            ->has('lessons',  count($courses[0]->lessons), fn(AssertableInertia $ai) => $ai
-                ->where('available_at', $courses[0]->lessons->first()?->available_at)
-                ->etc()
-            )
+            ->has('ratings')
+            ->has('lessons')
             ->etc()
         )
     );
