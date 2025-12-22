@@ -10,7 +10,7 @@ class SkillController extends Controller
 {
     public function index()
     {
-        $skills = Skill::with('courses')->get()->map(function ($skill) {
+        $skills = Skill::with('courses')->orderBy('name')->get()->map(function ($skill) {
             return [
                 'name' => $skill->name,
                 'courses' => $skill->courses,
