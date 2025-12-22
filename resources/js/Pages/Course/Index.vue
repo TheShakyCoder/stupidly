@@ -32,7 +32,6 @@ const filteredCourses = computed(() => {
 
 <template>
     <PublicLayout>
-        <pre>{{ activeFilter }}</pre>
         <div class="max-w-4xl mx-auto py-6 md:py-6 lg:py-12 pb-24">
             <div class="flex flex-col gap-8 mb-12">
                 <div
@@ -114,7 +113,7 @@ const filteredCourses = computed(() => {
                             <div
                                 class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 border border-white/10">
                                 <span class="material-symbols-outlined text-yellow-400 text-sm fill-1">star</span>
-                                <span class="text-xs font-bold text-white">{{ course.rating ?? '—' }}</span>
+                                <span class="text-xs font-bold text-white">{{ (course.ratings && course.ratings.length) ? (course.ratings.reduce((sum, r) => sum + (r.score ?? 0), 0) / course.ratings.length).toFixed(1) : '—' }}</span>
                             </div>
                         </div>
                         <div class="p-5 flex flex-col flex-1">

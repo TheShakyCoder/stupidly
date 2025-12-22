@@ -17,7 +17,9 @@ class RatingFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'course_id' => \App\Models\Course::factory(),
+            'user_id' => \App\Models\User::factory(),
+            'score' => $this->faker->numberBetween(1, 5),
         ];
     }
 }
