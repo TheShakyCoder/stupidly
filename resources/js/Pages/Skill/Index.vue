@@ -7,6 +7,9 @@ const props = defineProps({
         default: () => [],
     },
 });
+
+const levels = { Beginner: 'text-green-500', Intermediate: 'text-yellow-500', Advanced: 'text-red-500' };
+
 </script>
 
 <template>
@@ -46,7 +49,7 @@ const props = defineProps({
                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuANDVwazWeNKB3QtQvb0xW-5plNsM5fGOLt29NuPBEDVK41Q7WMZZ171R8fMpWWbAh8EieAyiz2wwwXPPE0QaVdABNWQfCVv3IFzi0xLuJbDmYnqgUCyOfar0dRI61z2QUdxNCrLBdHXOKNXUIBunpy3eC2pua1-uCDPhvpNrGk5CL95tmXykIleElNaJjC572nB8zespvwCoC-VguPMnEStKKmPUa-oNk5VWYTje1OKJ4MeMxPEQNcbm7Bzxud4W1m9p2L9L8fesY");'>
                     </div>
                 </div>
-                
+
             </div>
             <div v-for="group in props.skills" :key="group.name" class="mb-16">
                 <div class="flex items-center gap-4 mb-6">
@@ -73,9 +76,11 @@ const props = defineProps({
                         <div class="p-5 flex flex-col flex-1">
                             <div class="flex items-center gap-2 mb-3">
                                 <span
-                                    class="px-2.5 py-1 rounded-md bg-green-500/10 text-green-500 text-xs font-bold uppercase tracking-wider">{{ course.level || 'Beginner' }}</span>
+                                    class="px-2.5 py-1 rounded-md bg-green-500/10 text-xs font-bold uppercase tracking-wider"
+                                    :class="levels[course.level]"
+                                >{{ course.level || 'Beginner' }}</span>
                                 <span
-                                    class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-xs font-bold flex items-center gap-1">
+                                    class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-700 dark:text-slate-400 text-xs font-bold flex items-center gap-1">
                                     <span class="material-symbols-outlined text-xs">book</span> {{ course.lessons || course.lessons_count || '—' }} Lessons
                                 </span>
                             </div>
