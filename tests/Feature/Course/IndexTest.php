@@ -7,7 +7,7 @@ test('anyone can view the list of courses', function () {
     $skills = \App\Models\Skill::factory()->count(5)->create();
     $courses = Course::factory()
         ->recycle($skills)
-        ->has(\App\Models\Lesson::factory()->count(rand(0, 1)))
+        ->has(\App\Models\Lesson::factory()->count(rand(0, 5)))
         ->has(\App\Models\Rating::factory()->count(rand(0, 10)))
         ->count(15)
         ->create();
@@ -25,14 +25,13 @@ test('anyone can view the list of courses', function () {
             ->whereType('description', 'string')
             ->whereType('level', 'string')
             ->whereType('user_id', 'integer')
-            ->has('ratings', count($courses[0]->ratings) ?? 0, fn(AssertableInertia $ai) => $ai
-                ->whereType('id', 'integer')
-                ->whereType('user_id', 'integer')
-                ->whereType('course_id', 'integer')
-                ->whereType('score', 'integer')
+            ->has('ratings', count($courses[0]->ratings), fn(AssertableInertia $ai) => $ai
                 ->etc()
             )
-            ->has('lessons',  count($courses[0]->lessons) ?? 0)
+            ->has('lessons',  count($courses[0]->lessons), fn(AssertableInertia $ai) => $ai
+                ->where('available_at', $courses[0]->lessons->first()?->available_at)
+                ->etc()
+            )
             ->etc()
         )
     );

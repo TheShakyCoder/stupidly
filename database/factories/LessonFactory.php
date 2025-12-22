@@ -17,7 +17,7 @@ class LessonFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'available_at' => $this->faker->dateTimeBetween('-1 month', '+1 month'),
         ];
     }
 }
