@@ -12,7 +12,11 @@ function handleImageError() {
 
 <template>
 
-    <Head title="Welcome" />
+    <Head title="Welcome to StupidlySmart" description="Coding skills for home-educated children" />
+    <Head>
+        <title>Welcome to StupidlySmart</title>
+        <meta name="description" content="Coding skills for home-educated children">
+    </Head>
 
     <PublicLayout>
         <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">

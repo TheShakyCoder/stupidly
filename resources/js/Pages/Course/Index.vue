@@ -1,7 +1,8 @@
 <script setup>
+import { ref, computed } from 'vue';
+import { Head } from '@inertiajs/vue3';
 import Course from '@/Components/Course.vue';
 import PublicLayout from '@/Layouts/PublicLayout.vue';
-import { ref, computed } from 'vue';
 
 const props = defineProps({
     courses: {
@@ -30,6 +31,11 @@ const filteredCourses = computed(() => {
 </script>
 
 <template>
+    <Head>
+        <title>Courses available @ StupidlySmart</title>
+        <meta name="description" content="Courses available @ StupidlySmart">
+    </Head>
+
     <PublicLayout>
         <div class="max-w-4xl mx-auto py-6 md:py-6 lg:py-12 pb-24">
             <div class="flex flex-col gap-8 mb-12">

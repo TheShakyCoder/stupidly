@@ -1,4 +1,5 @@
 <script setup>
+import { Head } from '@inertiajs/vue3'
 import Course from '@/Components/Course.vue';
 import PublicLayout from '@/Layouts/PublicLayout.vue';
 
@@ -14,6 +15,12 @@ const levels = { Beginner: 'text-green-500', Intermediate: 'text-yellow-500', Ad
 </script>
 
 <template>
+
+    <Head>
+        <title>Skills to learn @ StupidlySmart</title>
+        <meta name="description" content="Skills to learn @ StupidlySmart">
+    </Head>
+
     <PublicLayout>
         <div class="max-w-4xl mx-auto py-6 md:py-6 lg:py-12 pb-24">
             <div class="flex flex-col gap-8 mb-12">
