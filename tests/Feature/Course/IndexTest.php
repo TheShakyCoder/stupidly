@@ -8,6 +8,7 @@ test('anyone can view the list of courses', function () {
     $courses = Course::factory()
         ->recycle($skills)
         ->has(\App\Models\Lesson::factory()->count(rand(0, 1)))
+        ->has(\App\Models\Rating::factory()->count(rand(0, 10)))
         ->count(15)
         ->create();
 
@@ -24,6 +25,7 @@ test('anyone can view the list of courses', function () {
             ->whereType('description', 'string')
             ->whereType('level', 'string')
             ->whereType('user_id', 'integer')
+            ->has('ratings', count($courses[0]->ratings) ?? 0)
             ->has('lessons',  count($courses[0]->lessons) ?? 0)
             ->etc()
         )

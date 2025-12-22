@@ -14,6 +14,11 @@ class Course extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
+    }
+
     public function skills()
     {
         return $this->belongsToMany(Skill::class, 'covers')->using(Cover::class);
