@@ -11,4 +11,19 @@ class Cover extends Pivot
     use HasFactory;
 
     protected $table = 'covers';
+
+    protected $fillable = [
+        'skill_id',
+        'course_id',
+    ];
+
+    public function skill()
+    {
+        return $this->belongsTo(Skill::class);
+    }
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
 }

@@ -15,7 +15,6 @@ const levels = { Beginner: 'text-green-500', Intermediate: 'text-yellow-500', Ad
 
 <template>
     <PublicLayout>
-
         <div class="max-w-4xl mx-auto py-6 md:py-6 lg:py-12 pb-24">
             <div class="flex flex-col gap-8 mb-12">
                 <div
