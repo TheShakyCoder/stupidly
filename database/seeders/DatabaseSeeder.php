@@ -29,7 +29,8 @@ class DatabaseSeeder extends Seeder
         foreach ($courses as $courseKey => $courseData) {
             $tutor = $courseData['tutor'] ?? null;
             $skills = $courseData['skills'] ?? [];
-            unset($courseData['tutor'], $courseData['skills']);
+            $lessons = $courseData['lessons'] ?? [];
+            unset($courseData['tutor'], $courseData['skills'], $courseData['lessons']);
 
             $course = \App\Models\Course::create(
                 array_merge(['key' => $courseKey, 'user_id' => User::where('name', $tutor)->first()->id], $courseData)
@@ -44,6 +45,12 @@ class DatabaseSeeder extends Seeder
             foreach ($skills as $skillName) {
                 $skillModel = \App\Models\Skill::firstOrCreate(['name' => $skillName]);
                 $course->skills()->attach($skillModel);
+            }
+            foreach ($lessons as $lessonData) {
+                $course->lessons()->create([
+                    'available_at' => $lessonData['available_at'],
+                    'title' => $lessonData['title']
+                ]);
             }
         }
     }

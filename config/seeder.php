@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 return [
 
     'users' => [
@@ -15,14 +17,28 @@ return [
             'description' => 'Build a classic Tic Tac Toe game using VueJS, HTML, and CSS.',
             'level' => 'Beginner',
             'tutor' => 'Sharif Khan',
-            'skills' => ['VueJS', 'HTML', 'Tailwind CSS'],
+            'skills' => ['VueJS', 'HTML', 'CSS'],
+            'lessons' => [
+                [
+                    'available_at' => '2026-01-05 09:30:00',
+                    'title' => 'Lesson 1'
+                ],
+                [
+                    'available_at' => '2026-01-12 09:30:00',
+                    'title' => 'Lesson 2'
+                ],
+                [
+                    'available_at' => '2026-01-19 09:30:00',
+                    'title' => 'Lesson 3'
+                ],
+            ]
         ],
         'simple-simon' => [
             'title' => 'Simple Simon Game',
             'description' => 'Create a fun memory game.',
             'level' => 'Beginner',
             'tutor' => 'Sharif Khan',
-            'skills' => ['VueJS', 'HTML', 'Tailwind CSS'],
+            'skills' => ['VueJS', 'HTML', 'CSS'],
         ],
 
         'game-of-life' => [
