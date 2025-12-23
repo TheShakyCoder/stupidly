@@ -3,6 +3,7 @@ import { ref, computed } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import Course from '@/Components/Course.vue';
 import PublicLayout from '@/Layouts/PublicLayout.vue';
+import dayjs from 'dayjs'
 
 const props = defineProps({
     courses: {
@@ -14,15 +15,26 @@ const props = defineProps({
 const activeFilter = ref('all');
 
 const filteredCourses = computed(() => {
+
+    if(activeFilter.value === 'all') {
+        return (props.courses || [])
+    }
+
     if (activeFilter.value === 'available') {
         return (props.courses || []).filter(course => {
-            return course.lessons.length || 0 > 0;
+            return course.lessons.filter(l => l.available_at < dayjs().format('YYYY-MM-DD HH:mm:ss')).length > 0;
+        });
+    }
+
+    if (activeFilter.value === 'scheduled') {
+        return (props.courses || []).filter(course => {
+            return course.lessons.filter(l => l.available_at > dayjs().format('YYYY-MM-DD HH:mm:ss')).length > 0;
         });
     }
 
     if (activeFilter.value === 'coming') {
         return (props.courses || []).filter(course => {
-            return course.lessons.length || 0 === 0;
+            return course.lessons.length === 0;
         });
     }
 
@@ -37,6 +49,7 @@ const filteredCourses = computed(() => {
     </Head>
 
     <PublicLayout>
+
         <div class="max-w-4xl mx-auto py-6 md:py-6 lg:py-12 pb-24">
             <div class="flex flex-col gap-8 mb-12">
                 <div
@@ -81,7 +94,8 @@ const filteredCourses = computed(() => {
                                 : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
                         ]">
                         <span class="material-symbols-outlined text-[20px]">apps</span>
-                        All Courses
+
+                        <span class="hidden sm:inline">All Courses</span>
                     </button>
                     <button
                         @click="activeFilter = 'available'"
@@ -91,8 +105,21 @@ const filteredCourses = computed(() => {
                                 ? 'bg-primary text-white shadow-md shadow-primary/20'
                                 : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
                         ]">
-                        <span class="material-symbols-outlined text-[20px]">new_releases</span>
-                        Available Now
+                        <span class="material-symbols-outlined text-[20px]">check</span>
+
+                        <span class="hidden sm:inline">Available Now</span>
+                    </button>
+                    <button
+                        @click="activeFilter = 'scheduled'"
+                        :class="[
+                            'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all shrink-0',
+                            activeFilter === 'scheduled'
+                                ? 'bg-primary text-white shadow-md shadow-primary/20'
+                                : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
+                        ]">
+                        <span class="material-symbols-outlined text-[20px] fill-1">calendar_check</span>
+
+                        <span class="hidden sm:inline">Scheduled</span>
                     </button>
                     <button
                         @click="activeFilter = 'coming'"
@@ -102,8 +129,8 @@ const filteredCourses = computed(() => {
                                 ? 'bg-primary text-white shadow-md shadow-primary/20'
                                 : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
                         ]">
-                        <span class="material-symbols-outlined text-[20px] fill-1">favorite</span>
-                        Coming Soon
+                        <span class="material-symbols-outlined text-[20px] fill-1">calendar_clock</span>
+                        <span class="hidden sm:inline">Coming Soon</span>
                     </button>
                 </div>
             </div>
