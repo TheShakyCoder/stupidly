@@ -36,13 +36,13 @@ const levels = { Beginner: 'text-green-500', Intermediate: 'text-yellow-500', Ad
             <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2 mb-4">{{ course.description || '' }}</p>
             <div class="mt-auto pt-4 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-between">
                 <div class="flex -space-x-2">
-                    <div v-if="course.avatars && course.avatars[0]"
+                    <!--<div v-if="course.avatars && course.avatars[0]"
                         class="size-6 rounded-full border-2 border-white dark:border-[#1a2230] bg-gray-300 bg-cover"
                         :style="{ backgroundImage: `url(${course.avatars[0]})` }"></div>
                     <div v-else class="size-6 rounded-full border-2 border-white dark:border-[#1a2230] bg-gray-300"></div>
                     <div
                         class="size-6 rounded-full border-2 border-white dark:border-[#1a2230] bg-slate-700 text-[10px] text-white flex items-center justify-center font-bold">
-                        +{{ course.enrolled_count || '1k' }}</div>
+                        +{{ course.enrolled_count || '1k' }}</div>-->
                 </div>
                 <Link :href="`/courses/{{ course.id }}`"
                     class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-colors">
