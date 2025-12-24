@@ -87,7 +87,7 @@ const filteredCourses = computed(() => {
                                 <input
                                     v-model="searchQuery"
                                     class="w-full bg-transparent border-none text-slate-900 dark:text-white placeholder:text-slate-400 focus:ring-0 ml-2"
-                                    placeholder="Search topics like 'Python' or 'Game'..." type="text" />
+                                    placeholder="Search topics like 'CSS' or 'Game'..." type="text" />
                             </div>
 
                         </label>
