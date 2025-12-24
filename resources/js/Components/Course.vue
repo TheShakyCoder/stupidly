@@ -15,7 +15,7 @@ const levels = { Beginner: 'text-green-500', Intermediate: 'text-yellow-500', Ad
     <div class="group flex flex-col bg-surface-light dark:bg-[#1a2230] rounded-2xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300 border border-slate-200 dark:border-slate-800 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
         <div class="aspect-video w-full bg-slate-800 relative overflow-hidden">
             <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                :style="{ backgroundImage: `url(${course.image || course.thumbnail || course.cover_url || 'https://via.placeholder.com/800x450'})` }"></div>
+                :style="{ backgroundImage: `url(${course.image || course.thumbnail || course.cover_url || course.image})` }"></div>
             <div
                 class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 border border-white/10">
                 <span class="material-symbols-outlined text-yellow-400 text-sm fill-1">star</span>

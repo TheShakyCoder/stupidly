@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('key')->unique();
             $table->string('title');
             $table->text('description');
+            $table->string('image')->nullable();
             $table->foreignId('user_id');
             $table->enum('level', ['Beginner', 'Intermediate', 'Advanced'])->default('Beginner');
             $table->timestamps();
