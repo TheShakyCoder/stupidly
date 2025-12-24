@@ -27,6 +27,7 @@ test('anyone can view the list of courses', function () {
             ->whereType('user_id', 'integer')
             ->has('ratings')
             ->has('lessons')
+            ->has('skills')
             ->etc()
         )
     );
