@@ -190,9 +190,9 @@ function handleImageError() {
                             <h2
                                 class="text-2xl md:text-3xl font-bold leading-tight tracking-tight dark:text-white text-gray-900">
                                 Popular Courses</h2>
-                            <a class="flex items-center gap-1 text-primary font-bold hover:underline" href="#">
+                            <Link class="flex items-center gap-1 text-primary font-bold hover:underline" href="/courses">
                                 View all <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                            </a>
+                            </Link>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                             <div

@@ -35,7 +35,7 @@ import { Link } from '@inertiajs/vue3';
                             </Link>
                             <Link href="/register"
                                 class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-gradient-to-r from-secondary to-primary hover:from-green-400 hover:to-blue-400 text-white text-sm font-bold leading-normal shadow-[0_4px_14px_0_rgba(59,130,246,0.39)] transition-all">
-                                <span class="truncate">Start for Free</span>
+                                <span class="truncate">Register</span>
                             </Link>
                         </div>
                     </div>
