@@ -50,6 +50,24 @@ return [
             'tutor' => 'Sharif Khan',
             'skills' => ['VueJS', 'P5.js', 'HTML / Tailwind CSS'],
             'image' => '/images/courses/SpaceshipFormation.gif',
+            'lessons' => [
+                [
+                    'available_at' => '2026-01-05 11:00:00',
+                    'title' => 'Lesson 1'
+                ],
+                [
+                    'available_at' => '2026-01-12 11:00:00',
+                    'title' => 'Lesson 2'
+                ],
+                [
+                    'available_at' => '2026-01-19 11:00:00',
+                    'title' => 'Lesson 3'
+                ],
+                [
+                    'available_at' => '2026-01-26 11:00:00',
+                    'title' => 'Lesson 4'
+                ],
+            ]
         ],
         'black-jack' => [
             'title' => 'Black Jack Game',
@@ -83,6 +101,24 @@ return [
             'tutor' => 'Sharif Khan',
             'skills' => ['VueJS', 'P5.js', 'WebSockets', 'NodeJS'],
             'image' => '/images/courses/cffc6424ce-vue.png',
+            'lessons' => [
+                [
+                    'available_at' => '2026-01-05 14:00:00',
+                    'title' => 'Lesson 1'
+                ],
+                [
+                    'available_at' => '2026-01-12 14:00:00',
+                    'title' => 'Lesson 2'
+                ],
+                [
+                    'available_at' => '2026-01-19 14:00:00',
+                    'title' => 'Lesson 3'
+                ],
+                [
+                    'available_at' => '2026-01-26 14:00:00',
+                    'title' => 'Lesson 3'
+                ],
+            ]
         ],
         'super-bomberman' => [
             'title' => 'Super Bomberman Game',
@@ -123,6 +159,24 @@ return [
             'tutor' => 'Sharif Khan',
             'skills' => ['Babylon.js'],
             'image' => '/images/courses/paul-pastourmatzis-5FGsEWRn2NQ-unsplash.jpg',
+            'lessons' => [
+                [
+                    'available_at' => '2026-01-05 15:30:00',
+                    'title' => 'Lesson 1'
+                ],
+                [
+                    'available_at' => '2026-01-12 15:30:00',
+                    'title' => 'Lesson 2'
+                ],
+                [
+                    'available_at' => '2026-01-19 15:30:00',
+                    'title' => 'Lesson 3'
+                ],
+                [
+                    'available_at' => '2026-01-26 15:30:00',
+                    'title' => 'Lesson 4'
+                ],
+            ]
         ]
     ],
 
