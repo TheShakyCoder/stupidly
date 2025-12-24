@@ -13,32 +13,47 @@ const props = defineProps({
 });
 
 const activeFilter = ref('all');
+const searchQuery = ref('');
 
 const filteredCourses = computed(() => {
+    let courses = props.courses || [];
 
+    // Apply search filter first
+    if (searchQuery.value.trim()) {
+        const query = searchQuery.value.toLowerCase();
+        console.log(query, courses)
+        courses = courses.filter(course =>
+            course.title.toLowerCase().includes(query)
+            || course.description.toLowerCase().includes(query)
+            || course.level.toLowerCase().includes(query)
+            || course.skills?.some(skill => skill.name.toLowerCase().includes(query))
+        );
+    }
+
+    // Apply active filter
     if(activeFilter.value === 'all') {
-        return (props.courses || [])
+        return courses;
     }
 
     if (activeFilter.value === 'available') {
-        return (props.courses || []).filter(course => {
+        return courses.filter(course => {
             return course.lessons.filter(l => l.available_at < dayjs().format('YYYY-MM-DD HH:mm:ss')).length > 0;
         });
     }
 
     if (activeFilter.value === 'scheduled') {
-        return (props.courses || []).filter(course => {
+        return courses.filter(course => {
             return course.lessons.filter(l => l.available_at > dayjs().format('YYYY-MM-DD HH:mm:ss')).length > 0;
         });
     }
 
     if (activeFilter.value === 'coming') {
-        return (props.courses || []).filter(course => {
+        return courses.filter(course => {
             return course.lessons.length === 0;
         });
     }
 
-    return props.courses || [];
+    return courses;
 });
 </script>
 
@@ -53,7 +68,7 @@ const filteredCourses = computed(() => {
         <div class="max-w-4xl mx-auto py-6 md:py-6 lg:py-12 pb-24">
             <div class="flex flex-col gap-8 mb-12">
                 <div
-                    class="flex flex-col md:flex-row gap-6 items-center bg-surface-light dark:bg-[#1a2230] p-8 rounded-2xl md:rounded-3xl border border-slate-200 dark:border-slate-800 relative overflow-hidden">
+                    class="flex flex-col md:flex-row gap-6 items-center bg-surface-light dark:bg-[#1a2230] p-8 mx-4 rounded-2xl md:rounded-3xl border border-slate-200 dark:border-slate-800 relative overflow-hidden">
                     <div
                         class="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none">
                     </div>
@@ -67,23 +82,22 @@ const filteredCourses = computed(() => {
                             coding adventures designed just for you. From simple blocks to real code.</p>
                         <label class="flex flex-col sm:flex-row w-full max-w-[500px] h-auto sm:h-14 gap-2 sm:gap-0">
                             <div
-                                class="flex w-full flex-1 items-center rounded-xl sm:rounded-r-none bg-slate-100 dark:bg-[#243047] h-12 sm:h-full px-4 border border-transparent focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+                                class="flex w-full flex-1 items-center rounded-xl bg-slate-100 dark:bg-[#243047] h-12 sm:h-full px-4 border border-transparent focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all">
                                 <span class="material-symbols-outlined text-slate-400">search</span>
                                 <input
+                                    v-model="searchQuery"
                                     class="w-full bg-transparent border-none text-slate-900 dark:text-white placeholder:text-slate-400 focus:ring-0 ml-2"
                                     placeholder="Search topics like 'Python' or 'Game'..." type="text" />
                             </div>
-                            <button
-                                class="h-12 sm:h-full px-8 rounded-xl sm:rounded-l-none bg-primary hover:bg-blue-600 text-white font-bold transition-colors shadow-lg shadow-primary/30">
-                                Search
-                            </button>
+
                         </label>
                     </div>
-                    <div class="w-full max-w-xl md:w-1/3 aspect-square md:aspect-[4/3] rounded-2xl bg-cover bg-center shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500"
+                    <div class="w-full max-w-xl hidden md:inline md:w-1/3 aspect-square md:aspect-[4/3] rounded-2xl bg-cover bg-center shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500"
                         data-alt="3D illustration of a friendly robot teaching code"
                         style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuANDVwazWeNKB3QtQvb0xW-5plNsM5fGOLt29NuPBEDVK41Q7WMZZ171R8fMpWWbAh8EieAyiz2wwwXPPE0QaVdABNWQfCVv3IFzi0xLuJbDmYnqgUCyOfar0dRI61z2QUdxNCrLBdHXOKNXUIBunpy3eC2pua1-uCDPhvpNrGk5CL95tmXykIleElNaJjC572nB8zespvwCoC-VguPMnEStKKmPUa-oNk5VWYTje1OKJ4MeMxPEQNcbm7Bzxud4W1m9p2L9L8fesY");'>
                     </div>
                 </div>
+
                 <div class="flex items-center gap-3 overflow-x-auto pb-2 no-scrollbar">
                     <button
                         @click="activeFilter = 'all'"
