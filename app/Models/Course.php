@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Course extends Model
 {
@@ -33,6 +34,11 @@ class Course extends Model
     public function skills()
     {
         return $this->belongsToMany(Skill::class, 'covers')->using(Cover::class);
+    }
+
+    public function bullets(): HasMany
+    {
+        return $this->hasMany(Bullet::class);
     }
 
     public function covers()

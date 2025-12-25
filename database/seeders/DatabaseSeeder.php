@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
             $tutor = $courseData['tutor'] ?? null;
             $skills = $courseData['skills'] ?? [];
             $lessons = $courseData['lessons'] ?? [];
-            unset($courseData['tutor'], $courseData['skills'], $courseData['lessons']);
+            $bullets = $courseData['bullets'] ?? [];
+            unset($courseData['tutor'], $courseData['skills'], $courseData['lessons'], $courseData['bullets']);
 
             $course = \App\Models\Course::create(
                 array_merge(['key' => $courseKey, 'user_id' => User::where('name', $tutor)->first()->id], $courseData)
@@ -51,6 +52,9 @@ class DatabaseSeeder extends Seeder
                     'available_at' => $lessonData['available_at'],
                     'title' => $lessonData['title']
                 ]);
+            }
+            foreach ($bullets as $bulletData) {
+                $course->bullets()->create(['name' => $bulletData]);
             }
         }
     }

@@ -16,9 +16,10 @@ class CourseController extends Controller
         ]);
     }
 
-    public function show(Course $course) {
+    public function show(Course $course)
+    {
         return Inertia::render('Course/Show', [
-            'course' => $course->load('skills'),
+            'course' => $course->load('skills', 'bullets', 'lessons'),
         ]);
     }
 }

@@ -14,8 +14,14 @@ return [
     'courses' => [
         'tic-tac-toe' => [
             'title' => 'Tic Tac Toe Game',
-            'description' => 'Build a classic Tic Tac Toe game using VueJS, HTML, and CSS.',
-            'synopsis' => 'Learn the fundamentals of game development by creating a classic Tic Tac Toe game. You\'ll master VueJS components, game state management, and interactive UI design while building a fully functional two-player game.',
+            'synopsis' => 'Build a classic Tic Tac Toe game using VueJS, HTML, and CSS.',
+            'description' => 'Learn the fundamentals of game development by creating a classic Tic Tac Toe game. You\'ll master VueJS components, game state management, and interactive UI design while building a fully functional two-player game.',
+            'bullets' => [
+                'what a constant is, and what a variable is',
+                'the basics of computer logic',
+                'what a loop is and when to use it',
+                'what a condition is and the different ways to code it'
+            ],
             'level' => 'Beginner',
             'tutor' => 'Sharif Khan',
             'skills' => ['VueJS', 'HTML / CSS'],
@@ -36,10 +42,16 @@ return [
                 ],
             ]
         ],
-        'simple-simon' => [
+        'fun-with-flags' => [
             'title' => 'Fun With Flags',
             'description' => 'Create a fun memory game.',
             'synopsis' => 'Develop your memory and pattern recognition skills by building an engaging flag-matching game. Learn VueJS reactivity, CSS animations, and game logic while creating colorful, interactive memory cards.',
+            'bullets' => [
+                'the basics of computer logic',
+                'what a constant is, and what a variable is',
+                'what a loop is and when to use it',
+                'how to manage state to keep track of the application'
+            ],
             'level' => 'Beginner',
             'tutor' => 'Sharif Khan',
             'skills' => ['VueJS', 'HTML / CSS'],

@@ -54,7 +54,7 @@ const playPreviewVideo = () => {
                                 <span class="material-symbols-outlined text-lg fill-1">star</span>
                                 <span class="text-slate-900 dark:text-white font-bold text-sm">{{ ratings }}</span>
                                 <span class="text-slate-500 dark:text-slate-400 font-normal text-sm ml-1">({{ students
-                                    }}
+                                }}
                                     students)</span>
                             </div>
                             <div class="h-4 w-px bg-slate-300 dark:bg-slate-700 hidden sm:block"></div>
@@ -116,48 +116,14 @@ const playPreviewVideo = () => {
                             </div>
                             What you will master
                         </h2>
-                        <div class="grid sm:grid-cols-2 gap-y-4 gap-x-6">
-                            <div class="flex gap-3 items-start">
+                        <ul class="grid sm:grid-cols-2 gap-y-4 gap-x-6">
+                            <li v-for="bullet in course.bullets" class="flex gap-3 items-start">
                                 <span
                                     class="material-symbols-outlined text-green-500 shrink-0 mt-0.5">check_circle</span>
-                                <span class="text-slate-600 dark:text-slate-300 font-body">Understand how
-                                    computer
-                                    logic and sequences work</span>
-                            </div>
-                            <div class="flex gap-3 items-start">
-                                <span
-                                    class="material-symbols-outlined text-green-500 shrink-0 mt-0.5">check_circle</span>
-                                <span class="text-slate-600 dark:text-slate-300 font-body">Create moving
-                                    characters
-                                    (Sprites) and backgrounds</span>
-                            </div>
-                            <div class="flex gap-3 items-start">
-                                <span
-                                    class="material-symbols-outlined text-green-500 shrink-0 mt-0.5">check_circle</span>
-                                <span class="text-slate-600 dark:text-slate-300 font-body">Use loops to repeat
-                                    actions without extra code</span>
-                            </div>
-                            <div class="flex gap-3 items-start">
-                                <span
-                                    class="material-symbols-outlined text-green-500 shrink-0 mt-0.5">check_circle</span>
-                                <span class="text-slate-600 dark:text-slate-300 font-body">Handle events like
-                                    mouse
-                                    clicks and key presses</span>
-                            </div>
-                            <div class="flex gap-3 items-start">
-                                <span
-                                    class="material-symbols-outlined text-green-500 shrink-0 mt-0.5">check_circle</span>
-                                <span class="text-slate-600 dark:text-slate-300 font-body">Build a scoring
-                                    system
-                                    using variables</span>
-                            </div>
-                            <div class="flex gap-3 items-start">
-                                <span
-                                    class="material-symbols-outlined text-green-500 shrink-0 mt-0.5">check_circle</span>
-                                <span class="text-slate-600 dark:text-slate-300 font-body">Publish your game for
-                                    friends to play</span>
-                            </div>
-                        </div>
+                                <span class="text-slate-600 dark:text-slate-300 font-body">{{ bullet.name }}</span>
+                            </li>
+
+                        </ul>
                     </div>
                     <div
                         class="bg-surface-light dark:bg-[#1a2230] rounded-3xl p-8 border border-slate-200 dark:border-slate-800">
@@ -166,27 +132,10 @@ const playPreviewVideo = () => {
                                 class="size-10 rounded-xl bg-orange-500/20 text-orange-500 flex items-center justify-center">
                                 <span class="material-symbols-outlined">description</span>
                             </div>
-                            About this Adventure
+                            About this Course
                         </h2>
                         <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 font-body">
-                            <p class="mb-4">
-                                Have you ever wanted to create your own video game? In this course, we use
-                                <strong>Scratch</strong>, a visual coding language developed by MIT, to make
-                                coding
-                                as easy as snapping building blocks together.
-                            </p>
-                            <p class="mb-4">
-                                We start from the very beginning. You'll meet "Scratchy" the cat and learn how
-                                to
-                                make him talk and move. By the end of the course, you'll have built a fully
-                                functional "Space Shooter" game where you pilot a rocket, dodge asteroids, and
-                                collect power-ups!
-                            </p>
-                            <p>
-                                This course is perfect for creative minds who love games and want to see how
-                                they
-                                are made. No previous math or coding knowledge is needed.
-                            </p>
+                            {{ course.description }}
                         </div>
                     </div>
                     <div
@@ -196,10 +145,12 @@ const playPreviewVideo = () => {
                                 class="size-10 rounded-xl bg-purple-500/20 text-purple-500 flex items-center justify-center">
                                 <span class="material-symbols-outlined">list_alt</span>
                             </div>
-                            Mission Log (8 Lessons)
+                            {{ course.lessons.length }}{{ course.is_ended ? '' : '+' }} Lessons
                         </h2>
-                        <div class="space-y-4">
-                            <div
+                        <ul class="space-y-4">
+
+
+                            <li v-for="lesson in course.lessons"
                                 class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-[#243047]/30 border border-primary/30 hover:bg-slate-100 dark:hover:bg-[#243047]/60 transition-colors cursor-pointer group">
                                 <div
                                     class="size-10 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-sm shrink-0 shadow-sm">
@@ -207,7 +158,7 @@ const playPreviewVideo = () => {
                                 <div class="flex-1">
                                     <h4
                                         class="font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
-                                        Introduction to Space</h4>
+                                        {{ lesson.title }}</h4>
                                     <div class="flex items-center gap-3 mt-1">
                                         <span
                                             class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1"><span
@@ -219,67 +170,8 @@ const playPreviewVideo = () => {
                                 </div>
                                 <span
                                     class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">play_circle</span>
-                            </div>
-                            <div
-                                class="flex items-center gap-4 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-[#243047]/30 transition-all opacity-80 hover:opacity-100 cursor-not-allowed">
-                                <div
-                                    class="size-10 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-500 flex items-center justify-center font-bold text-sm shrink-0">
-                                    02</div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-slate-700 dark:text-slate-300">Designing Your Ship
-                                    </h4>
-                                    <div class="flex items-center gap-3 mt-1">
-                                        <span
-                                            class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1"><span
-                                                class="material-symbols-outlined text-[14px]">videogame_asset</span>
-                                            Interactive</span>
-                                        <span class="text-xs text-slate-500 dark:text-slate-400">•</span>
-                                        <span class="text-xs text-slate-500 dark:text-slate-400">15 mins</span>
-                                    </div>
-                                </div>
-                                <span class="material-symbols-outlined text-slate-400">lock</span>
-                            </div>
-                            <div
-                                class="flex items-center gap-4 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-[#243047]/30 transition-all opacity-80 hover:opacity-100 cursor-not-allowed">
-                                <div
-                                    class="size-10 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-500 flex items-center justify-center font-bold text-sm shrink-0">
-                                    03</div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-slate-700 dark:text-slate-300">Asteroids &amp;
-                                        Enemies
-                                    </h4>
-                                    <div class="flex items-center gap-3 mt-1">
-                                        <span
-                                            class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1"><span
-                                                class="material-symbols-outlined text-[14px]">videogame_asset</span>
-                                            Interactive</span>
-                                        <span class="text-xs text-slate-500 dark:text-slate-400">•</span>
-                                        <span class="text-xs text-slate-500 dark:text-slate-400">20 mins</span>
-                                    </div>
-                                </div>
-                                <span class="material-symbols-outlined text-slate-400">lock</span>
-                            </div>
-                            <div
-                                class="flex items-center gap-4 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-[#243047]/30 transition-all opacity-80 hover:opacity-100 cursor-not-allowed">
-                                <div
-                                    class="size-10 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-500 flex items-center justify-center font-bold text-sm shrink-0">
-                                    04</div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-slate-700 dark:text-slate-300">Pew Pew! Lasers
-                                        &amp;
-                                        Projectiles</h4>
-                                    <div class="flex items-center gap-3 mt-1">
-                                        <span
-                                            class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1"><span
-                                                class="material-symbols-outlined text-[14px]">videogame_asset</span>
-                                            Interactive</span>
-                                        <span class="text-xs text-slate-500 dark:text-slate-400">•</span>
-                                        <span class="text-xs text-slate-500 dark:text-slate-400">25 mins</span>
-                                    </div>
-                                </div>
-                                <span class="material-symbols-outlined text-slate-400">lock</span>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
                         <button
                             class="w-full mt-4 py-3 text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-primary transition-colors flex items-center justify-center gap-1">
                             Show all 8 lessons
