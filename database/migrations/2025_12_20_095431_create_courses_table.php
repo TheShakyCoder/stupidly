@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('key')->unique();
             $table->string('title');
             $table->text('description');
+            $table->text('synopsis')->nullable();
             $table->string('image')->nullable();
             $table->string('preview')->nullable();
             $table->foreignId('user_id');
