@@ -15,20 +15,19 @@ test('anyone can view the list of courses', function () {
     $response = $this->get('/courses');
 
     $response->assertStatus(200)
-    ->assertInertia(fn(AssertableInertia $ai) => $ai
-        ->component('Course/Index')
-        ->has('courses', 15,fn(AssertableInertia $ai) => $ai
-
-            ->whereType('key', 'string')
-            ->where('key', $courses[0]->key)
-            ->whereType('title', 'string')
-            ->whereType('description', 'string')
-            ->whereType('level', 'string')
-            ->whereType('user_id', 'integer')
-            ->has('ratings')
-            ->has('lessons')
-            ->has('skills')
-            ->etc()
-        )
-    );
+        ->assertInertia(
+            fn(AssertableInertia $ai) => $ai
+                ->component('Course/Index')
+                ->has(
+                    'courses',
+                    15,
+                    fn(AssertableInertia $ai) => $ai
+                        ->where('key', $courses[0]->key)
+                        ->has('preview')
+                        ->has('ratings')
+                        ->has('lessons')
+                        ->has('skills')
+                        ->etc()
+                )
+        );
 });

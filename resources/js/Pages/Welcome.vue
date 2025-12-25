@@ -48,16 +48,11 @@ function handleImageError() {
                                         </h2>
                                     </div>
                                     <div class="flex flex-wrap gap-4">
-                                        <button
-                                            class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-secondary hover:bg-green-400 text-white text-base font-bold leading-normal tracking-[0.015em] shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:scale-105">
-                                            <span class="truncate">Try First Lesson Free</span>
+                                        <button class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-secondary hover:bg-green-400 text-white text-base font-bold leading-normal tracking-[0.015em] shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:scale-105">
+                                            <span class="material-symbols-outlined group-hover:text-primary transition-colors">play_circle</span>
+                                            <span class="truncate ml-2">Free Lesson</span>
                                         </button>
-                                        <button
-                                            class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-blue-800 hover:border-primary/50 text-base font-bold leading-normal dark:text-white text-gray-900 transition-all flex gap-2 group">
-                                            <span
-                                                class="material-symbols-outlined group-hover:text-primary transition-colors">play_circle</span>
-                                            <span class="truncate">Watch Demo</span>
-                                        </button>
+
                                     </div>
 
                                     <div class="flex items-center gap-4 pt-2">
@@ -75,8 +70,7 @@ function handleImageError() {
                                                 style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOb3vObBCuSfZ0O8EpyUXSyEzUGG9Y2Sg-cfeAvwZkW4d3RomKLiCkb6qSYL6kCNEkAr-uryaUlaSjFZUrK010ix6vujNKKT2R8faLiZHFFIAPhwX7_LZGrAi4wdGByvLF1YygQju-sdhL6b2lK_EzJ5oXQGMW2aK0uIbs5b4lqjZgOecnBuolHm63IIaN172FBZf6jnWFZkWZQoluXw6XOHj91ZjtMZdSriMMPMjHHWKcRniP1CkPDCj9PQeRmEB6Bkm89ZQS7L4");'>
                                             </div>
                                         </div>
-                                        <p class="text-sm font-medium dark:text-blue-200 text-gray-600">Trusted by
-                                            10,000+ homeschool families</p>
+                                        <p class="text-sm font-medium dark:text-blue-200 text-gray-600">Trusted by home-educated families</p>
                                     </div>
 
                                 </div>
@@ -99,10 +93,8 @@ function handleImageError() {
                                             </div>
                                             <div>
                                                 <p
-                                                    class="text-xs text-gray-500 dark:text-blue-200 font-bold uppercase tracking-wider">
-                                                    Just Completed</p>
-                                                <p class="text-sm font-bold dark:text-white text-gray-900">Variables
-                                                    &amp; Data Types</p>
+                                                    class="text-xs text-gray-500 dark:text-blue-200 font-bold uppercase tracking-wider">Coming Soon</p>
+                                                <p class="text-sm font-bold dark:text-white text-gray-900">Tic-Tac-Toe Game</p>
                                             </div>
                                             <div class="ml-auto">
                                                 <span

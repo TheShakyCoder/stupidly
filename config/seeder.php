@@ -19,6 +19,7 @@ return [
             'tutor' => 'Sharif Khan',
             'skills' => ['VueJS', 'HTML / CSS'],
             'image' => '/images/courses/solstice-hannan--yhBOqHOr0c-unsplash.jpg',
+            'preview' => 'https://www.youtube.com/embed/aqz-KE-bpKQ?si=byy4vWLPje2zWu5F',
             'lessons' => [
                 [
                     'available_at' => '2026-01-05 09:30:00',
