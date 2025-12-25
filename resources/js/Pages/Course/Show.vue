@@ -54,7 +54,7 @@ const playPreviewVideo = () => {
                                 <span class="material-symbols-outlined text-lg fill-1">star</span>
                                 <span class="text-slate-900 dark:text-white font-bold text-sm">{{ ratings }}</span>
                                 <span class="text-slate-500 dark:text-slate-400 font-normal text-sm ml-1">({{ students
-                                }}
+                                    }}
                                     students)</span>
                             </div>
                             <div class="h-4 w-px bg-slate-300 dark:bg-slate-700 hidden sm:block"></div>
@@ -68,9 +68,7 @@ const playPreviewVideo = () => {
                             {{ course.title }}
                         </h1>
                         <p class="text-slate-600 dark:text-slate-300 text-lg mb-8 leading-relaxed max-w-2xl font-body">
-                            Blast off into the world of coding! Learn the basics of logic, loops, and events by
-                            building your very own space arcade game. No typing required—just drag, drop, and
-                            play.
+                            {{ course.synopsis }}
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4">
                             <Link href="/register"
