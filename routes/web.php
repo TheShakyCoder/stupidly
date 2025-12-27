@@ -64,3 +64,5 @@ Route::middleware([
 
 });
 
+// Stripe webhook
+Route::post('/stripe/callback', [\App\Http\Controllers\StripeController::class, 'stripeCallback']);
