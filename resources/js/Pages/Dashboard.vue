@@ -27,7 +27,7 @@ defineProps({
 
                     <div class="rounded-xl p-8">
                         <h2 class="text-2xl font-bold">Current Month</h2>
-                        <div v-if="currentMonth.payment">{{ currentMonth.payment }}</div>
+                        <div v-if="currentMonth?.payment">{{ currentMonth.payment }}</div>
                         <div v-else>
                             You are not subscribed to the current month.
                             <Form action="/basket" method="post">
