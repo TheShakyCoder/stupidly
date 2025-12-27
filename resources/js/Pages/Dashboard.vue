@@ -22,13 +22,13 @@ defineProps({
                 Dashboard
             </h2>
         </template>
-        {{ currentMonth }}
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg max-w-4xl mx-auto">
 
                     <div class="rounded-xl p-8">
                         <h2 class="text-2xl font-bold">Current Month</h2>
+                        {{ currentMonth }}
                         <div v-if="currentMonth?.payment">{{ currentMonth.payment }}</div>
                         <div v-else>
                             You are not subscribed to the current month.
