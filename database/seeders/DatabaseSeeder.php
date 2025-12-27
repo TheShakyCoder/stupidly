@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Month;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -56,6 +57,11 @@ class DatabaseSeeder extends Seeder
             foreach ($bullets as $bulletData) {
                 $course->bullets()->create(['name' => $bulletData]);
             }
+        }
+
+        $months = collect(config('seeder.months'));
+        foreach ($months as $month) {
+            Month::create($month);
         }
     }
 }

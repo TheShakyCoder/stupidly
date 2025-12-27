@@ -13,12 +13,24 @@ class StripeController
     public function stripeCallback(Request $request)
     {
         // $input = $request->all();
-        $payload = json_decode($request->getContent(), true);
+        // $payload = json_decode($request->getContent(), true);
+        \Stripe\Stripe::setApiKey(config('cashier.secret'));
+        $payload = @file_get_contents('php://input');
+        try {
+            $event = \Stripe\Event::constructFrom(
+                json_decode($payload, true)
+            );
+        } catch (\UnexpectedValueException $e) {
+            // Invalid payload
+            echo '⚠️  Webhook error while parsing basic request.';
+            http_response_code(400);
+            exit();
+        }
 
         //  check meta if for this site
-        \Log::info($payload);
+        \Log::info($event);
 
-        $method = 'handle' . Str::studly(str_replace('.', '_', $payload['type']));
+        // $method = 'handle' . Str::studly(str_replace('.', '_', $payload['type']));
 
 
 
