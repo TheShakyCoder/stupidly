@@ -46,18 +46,21 @@ Route::middleware([
 ])->group(function () {
 
     Route::get('/dashboard', function () {
+        $currentMonth = Month
+            ::whereBetween('started_at', [
+                Carbon::now()->startOfMonth(),
+                Carbon::now()->endOfMonth()
+            ])
+            ->with([
+                'payments' => function ($q) {
+                    $q->where('user_id', request()->user()->id);
+                }
+            ])
+            ->first();
+
+        \Log::info($currentMonth);
         return Inertia::render('Dashboard', [
-            'currentMonth' => Month
-                ::whereBetween('started_at', [
-                    Carbon::now()->startOfMonth(),
-                    Carbon::now()->endOfMonth()
-                ])
-                ->with([
-                    'payments' => function ($q) {
-                        $q->where('user_id', request()->user()->id);
-                    }
-                ])
-                ->first(),
+            'currentMonth' => $currentMonth,
             'months' => Month::orderBy('started_at')->get(),
         ]);
     })->name('dashboard');
