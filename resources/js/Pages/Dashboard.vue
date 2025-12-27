@@ -1,4 +1,5 @@
 <script setup>
+import { Form } from '@inertiajs/vue3'
 import AppLayout from '@/Layouts/AppLayout.vue';
 
 defineProps({
@@ -31,6 +32,10 @@ defineProps({
                         <div v-if="currentMonth.payment">{{ currentMonth.payment }}</div>
                         <div v-else>
                             You are not subscribed to the current month.
+                            <Form action="/basket" method="post">
+                                <input type="hidden" name="month_id" :value="currentMonth.id" />
+                                <button type="submit">Add to Basket</button>
+                            </Form>
                         </div>
                     </div>
 

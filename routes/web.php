@@ -3,6 +3,7 @@
 use App\Models\Course;
 use App\Models\Month;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -61,6 +62,56 @@ Route::middleware([
             'months' => Month::orderBy('started_at')->get(),
         ]);
     })->name('dashboard');
+
+    Route::post('/basket', function (Request $request) {
+        $months = session('months', []);
+        array_push($months, $request->month_id);
+
+        session(['months' => array_unique($months)]);
+        return redirect('/basket');
+    });
+
+    Route::get('/basket', function () {
+        $months = collect(session('months', []))->map(function ($month) {
+            return ['month_id' => $month];
+        });
+        return Inertia::render('Basket', [
+            'months' => $months
+        ]);
+    })->name('basket');
+
+    Route::post('/checkout', function (Request $request) {
+        $months = session('months', []);
+        \Stripe\Stripe::setApiKey(config('stripe.secret'));
+
+        $lineItems = collect($months)->map(function ($month) {
+            return [
+                'metadata' => [
+                    'month_id' => $month,
+                ],
+                'price' => 'price_1SiwvSGKr7wrsq183cHns0nd',
+                'quantity' => 1
+            ];
+        })->toArray();
+
+
+
+        $session = \Stripe\Checkout\Session::create([
+            'line_items' => $lineItems,
+            'mode' => 'payment',
+            'success_url' => route('basket'),
+            'cancel_url' => route('checkout')
+        ]);
+
+        return redirect()->away($session->url);
+    });
+
+    Route::get('/checkout', function () {
+        $months = session('months', []);
+        return Inertia::render('Checkout', [
+            'months' => $months
+        ]);
+    })->name('checkout');
 
 });
 

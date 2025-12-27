@@ -16,6 +16,7 @@ class StripeController
         // $payload = json_decode($request->getContent(), true);
         \Stripe\Stripe::setApiKey(config('cashier.secret'));
         $payload = @file_get_contents('php://input');
+        \Log::info($payload);
         try {
             $event = \Stripe\Event::constructFrom(
                 json_decode($payload, true)
