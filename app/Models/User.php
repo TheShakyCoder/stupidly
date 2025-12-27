@@ -64,4 +64,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function months()
+    {
+        return $this->belongsToMany(Month::class, 'covers')->using(Cover::class);
+    }
 }

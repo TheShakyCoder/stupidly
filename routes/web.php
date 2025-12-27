@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\Course;
+use App\Models\Month;
 use Carbon\Carbon;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -43,8 +43,24 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
+        return Inertia::render('Dashboard', [
+            'currentMonth' => Month
+                ::query()
+                ->whereBetween('started_at', [
+                    Carbon::now()->startOfMonth(),
+                    Carbon::now()->endOfMonth()
+                ])
+                ->with([
+                    'payments' => function ($q) {
+                        $q->where('user_id', request()->user()->id);
+                    }
+                ])
+                ->first(),
+            'months' => Month::orderBy('started_at')->get(),
+        ]);
     })->name('dashboard');
+
 });
 
