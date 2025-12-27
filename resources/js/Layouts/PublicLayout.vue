@@ -19,8 +19,12 @@ import { Link } from '@inertiajs/vue3';
                     </NavLink>
                     <div class="flex flex-1 justify-end items-center gap-4 sm:gap-8">
                         <div class="hidden md:flex items-center gap-6">
-                            <NavLink class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700" href="/courses">Courses</NavLink>
-                            <NavLink class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700" href="/skills">Skills</NavLink>
+                            <NavLink
+                                class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700"
+                                href="/courses">Courses</NavLink>
+                            <NavLink
+                                class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700"
+                                href="/skills">Skills</NavLink>
                             <NavLink
                                 class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700"
                                 href="/pricing">Pricing</NavLink>
@@ -28,8 +32,7 @@ import { Link } from '@inertiajs/vue3';
                                 href="#">About</a>
                         </div>
                         <div class="flex gap-2">
-                            <Link
-                                href="/dashboard"
+                            <Link href="/dashboard"
                                 class="hidden sm:flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-transparent border border-gray-300 dark:border-blue-800 hover:bg-gray-100 dark:hover:bg-blue-900/50 text-sm font-bold leading-normal transition-colors dark:text-white text-gray-900">
                                 <span class="truncate">Login</span>
                             </Link>
@@ -58,17 +61,21 @@ import { Link } from '@inertiajs/vue3';
                     </svg>
                 </div>
                 <div class="flex flex-wrap items-center justify-center gap-6 md:gap-12 mb-8">
-                    <a class="text-slate-500 dark:text-text-secondary hover:text-primary transition-colors text-sm font-medium"
-                        href="#">Privacy Policy</a>
-                    <a class="text-slate-500 dark:text-text-secondary hover:text-primary transition-colors text-sm font-medium"
-                        href="#">Terms of Use</a>
-                    <a class="text-slate-500 dark:text-text-secondary hover:text-primary transition-colors text-sm font-medium"
-                        href="#">Parent Guide</a>
-                    <a class="text-slate-500 dark:text-text-secondary hover:text-primary transition-colors text-sm font-medium"
-                        href="#">Contact Support</a>
+                    <Link
+                        class="text-slate-500 dark:text-text-secondary hover:text-primary transition-colors text-sm font-medium"
+                        href="/privacy">Privacy Policy</Link>
+                    <Link
+                        class="text-slate-500 dark:text-text-secondary hover:text-primary transition-colors text-sm font-medium"
+                        href="/terms">Terms of Use</Link>
+                    <Link
+                        class="text-slate-500 dark:text-text-secondary hover:text-primary transition-colors text-sm font-medium"
+                        href="/parents">Parent Guide</Link>
+                    <Link
+                        class="text-slate-500 dark:text-text-secondary hover:text-primary transition-colors text-sm font-medium"
+                        href="/contact">Contact Support</Link>
                 </div>
                 <p class="text-slate-400 dark:text-[#5a6b85] text-sm text-center">
-                    © 2024 Stupidly Smart. Helping future geniuses write their first "Hello World".
+                    © 2025 Stupidly Smart. Helping future geniuses write their first "Hello World".
                 </p>
             </div>
         </footer>
