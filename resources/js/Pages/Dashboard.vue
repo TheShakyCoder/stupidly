@@ -32,7 +32,7 @@ defineProps({
                         <div v-else>
                             You are not subscribed to the current month.
                             <Form action="/basket" method="post">
-                                <input type="hidden" name="month_id" :value="currentMonth.id" />
+                                <input v-if="currentMonth" type="hidden" name="month_id" :value="currentMonth.id" />
                                 <button type="submit">Add to Basket</button>
                             </Form>
                         </div>
