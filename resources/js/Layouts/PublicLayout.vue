@@ -28,12 +28,10 @@ import { Link } from '@inertiajs/vue3';
                             <NavLink
                                 class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700"
                                 href="/pricing">Pricing</NavLink>
-                            <a class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700"
-                                href="#">About</a>
                         </div>
                         <div class="flex gap-2">
                             <Link href="/dashboard"
-                                class="hidden sm:flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-transparent border border-gray-300 dark:border-blue-800 hover:bg-gray-100 dark:hover:bg-blue-900/50 text-sm font-bold leading-normal transition-colors dark:text-white text-gray-900">
+                                class="hidden md:flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-transparent border border-gray-300 dark:border-blue-800 hover:bg-gray-100 dark:hover:bg-blue-900/50 text-sm font-bold leading-normal transition-colors dark:text-white text-gray-900">
                                 <span class="truncate">Login</span>
                             </Link>
                             <Link href="/register"

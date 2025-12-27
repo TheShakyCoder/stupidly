@@ -1,24 +1,22 @@
 <script setup>
 import PublicLayout from '@/Layouts/PublicLayout.vue';
-
+import { Link } from '@inertiajs/vue3';
 
 </script>
 
 <template>
     <PublicLayout>
 
-
-
-
         <section class="w-full max-w-4xl mx-auto px-4 pt-12 pb-6 md:pt-20 md:pb-10 text-center">
             <h1
                 class="text-slate-900 dark:text-white text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-[-0.033em] mb-4">
                 Unlock Your Child's
-                <div class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary">Coding Potential</div>
+                <div class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary">Coding Potential
+                </div>
             </h1>
             <p class="text-slate-500 dark:text-text-secondary text-lg md:text-xl font-medium max-w-2xl mx-auto">
                 One simple plan.
-                <div>Unlimited monthly access to everything your child needs to master code from home.</div>
+            <div>Unlimited monthly access to everything your child needs to master code from home.</div>
             </p>
         </section>
         <section class="w-full max-w-4xl mx-auto px-4 pb-12">
@@ -34,8 +32,8 @@ import PublicLayout from '@/Layouts/PublicLayout.vue';
                             All-Access Pass</h2>
                         <p class="text-slate-500 dark:text-text-secondary mb-8 leading-relaxed">
                             Stop paying per course. Get instant access to our entire library of kid-friendly
-                            Python, JavaScript, and Scratch lessons, plus weekly live workshops with expert
-                            mentors.
+                            Lua, JavaScript, and HTML lessons, plus live sessions with expert
+                            tutors.
                         </p>
                         <div class="flex flex-col gap-4">
                             <div class="flex items-center gap-3">
@@ -43,15 +41,15 @@ import PublicLayout from '@/Layouts/PublicLayout.vue';
                                     class="flex items-center justify-center size-6 rounded-full bg-primary/20 text-primary">
                                     <span class="material-symbols-outlined text-[16px]">videocam</span>
                                 </span>
-                                <span class="text-slate-700 dark:text-gray-200 font-medium">Weekly Live Coding
-                                    Workshops</span>
+                                <span class="text-slate-700 dark:text-gray-200 font-medium">Multiple Live Coding
+                                    Sessions each week</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <span
                                     class="flex items-center justify-center size-6 rounded-full bg-primary/20 text-primary">
                                     <span class="material-symbols-outlined text-[16px]">library_books</span>
                                 </span>
-                                <span class="text-slate-700 dark:text-gray-200 font-medium">100+ Hours of
+                                <span class="text-slate-700 dark:text-gray-200 font-medium">Hours of
                                     Recorded Lessons</span>
                             </div>
                             <div class="flex items-center gap-3">
@@ -78,13 +76,13 @@ import PublicLayout from '@/Layouts/PublicLayout.vue';
                     <div class="absolute top-0 right-0 p-4 opacity-50">
                         <svg fill="none" height="100" viewBox="0 0 100 100" width="100"
                             xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="80" cy="20" r="40" stroke="#195de6" stroke-dasharray="4 4"
-                                stroke-width="2"></circle>
+                            <circle cx="80" cy="20" r="40" stroke="#195de6" stroke-dasharray="4 4" stroke-width="2">
+                            </circle>
                         </svg>
                     </div>
                     <h3
                         class="text-slate-500 dark:text-text-secondary text-sm font-semibold uppercase tracking-widest mb-2">
-                        Monthly Subscription</h3>
+                        Monthly Access</h3>
                     <div class="flex items-baseline justify-center gap-1 mb-2">
                         <span
                             class="text-5xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight">£29</span>
@@ -93,12 +91,12 @@ import PublicLayout from '@/Layouts/PublicLayout.vue';
                     <p class="text-sm text-accent-green font-medium mb-8 bg-accent-green/10 px-3 py-1 rounded-full">
                         Pay monthly. No lock-in.
                     </p>
-                    <button
+                    <Link href="/dashboard"
                         class="w-full bg-primary hover:bg-blue-600 text-white font-bold text-lg h-14 rounded-full shadow-xl shadow-primary/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group">
                         Start Learning Now
                         <span
                             class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
-                    </button>
+                    </Link>
                     <div class="mt-6 flex flex-col gap-2 text-xs text-slate-400 dark:text-[#6b7c93]">
                         <div class="flex items-center justify-center gap-1">
                             <span class="material-symbols-outlined text-[14px]">lock</span>
@@ -120,10 +118,9 @@ import PublicLayout from '@/Layouts/PublicLayout.vue';
                         class="size-12 rounded-full bg-slate-100 dark:bg-[#243047] flex items-center justify-center text-slate-900 dark:text-white mb-4">
                         <span class="material-symbols-outlined">calendar_month</span>
                     </div>
-                    <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">Cancel Anytime</h3>
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">No Tie-in</h3>
                     <p class="text-sm text-slate-500 dark:text-text-secondary">
-                        Life changes, and that's okay. Pause or cancel your subscription instantly from your
-                        dashboard.
+                        Life changes, and that's okay. Only pay for the months you want.
                     </p>
                 </div>
                 <div
@@ -151,15 +148,6 @@ import PublicLayout from '@/Layouts/PublicLayout.vue';
                 </div>
             </div>
         </section>
-        <div class="w-full max-w-4xl mx-auto px-4 py-8 flex justify-center opacity-30">
-            <img alt="Abstract gradient background with blue and green code syntax colors"
-                class="h-2 w-full rounded-full object-cover"
-                data-alt="Abstract gradient background with blue and green code syntax colors"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHTCAIxz-qwcHXIa_Ozb4MNidpm3_j3dDt9kBOxHs1jRSOCGlarBY0-A2hyUxUWGBySkAkW8l94k6kjuPA40sVCDqr9B76CWP9X5siEjt5wHB0Tvda63IDMdTpX51QbBSw_JPvOJ_Gvfvmzqwj5YcLsxZR8ka8rwVc7A3oc5pQx7c2ZfU_s4vILxlItCsqUZlSHt4DWXt-LL9fgJbO9qf28vrDz24bdpydcot7b5YVmTP5wrnRcGBdU5ICCILbPxQlHu8Jb4qXCNI" />
-        </div>
-
-
-
 
 
     </PublicLayout>
