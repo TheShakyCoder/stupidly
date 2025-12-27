@@ -5,9 +5,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 defineProps({
     currentMonth: {
         type: Object,
-        default: () => {
-            payment: { }
-        }
+        default: () => { }
     },
     months: {
         type: Array,
