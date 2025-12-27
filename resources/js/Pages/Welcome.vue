@@ -1,7 +1,14 @@
 <script setup>
-import PublicLayout from '@/Layouts/PublicLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
+import PublicLayout from '@/Layouts/PublicLayout.vue';
+import Course from '@/Components/Course.vue'
 
+defineProps({
+    recent: {
+        type: Array,
+        default: () => []
+    }
+})
 function handleImageError() {
     document.getElementById('screenshot-container')?.classList.add('!hidden');
     document.getElementById('docs-card')?.classList.add('!row-span-1');
@@ -13,12 +20,14 @@ function handleImageError() {
 <template>
 
     <Head title="Welcome to StupidlySmart" description="Coding skills for home-educated children" />
+
     <Head>
         <title>Welcome to StupidlySmart</title>
         <meta name="description" content="Coding skills for home-educated children">
     </Head>
 
     <PublicLayout>
+
         <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
             <div class="layout-container flex grow flex-col">
                 <div class="px-4 flex flex-1 justify-center py-5">
@@ -48,8 +57,10 @@ function handleImageError() {
                                         </h2>
                                     </div>
                                     <div class="flex flex-wrap gap-4">
-                                        <button class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-secondary hover:bg-green-400 text-white text-base font-bold leading-normal tracking-[0.015em] shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:scale-105">
-                                            <span class="material-symbols-outlined group-hover:text-primary transition-colors">play_circle</span>
+                                        <button
+                                            class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-secondary hover:bg-green-400 text-white text-base font-bold leading-normal tracking-[0.015em] shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:scale-105">
+                                            <span
+                                                class="material-symbols-outlined group-hover:text-primary transition-colors">play_circle</span>
                                             <span class="truncate ml-2">Free Lesson</span>
                                         </button>
 
@@ -70,7 +81,8 @@ function handleImageError() {
                                                 style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOb3vObBCuSfZ0O8EpyUXSyEzUGG9Y2Sg-cfeAvwZkW4d3RomKLiCkb6qSYL6kCNEkAr-uryaUlaSjFZUrK010ix6vujNKKT2R8faLiZHFFIAPhwX7_LZGrAi4wdGByvLF1YygQju-sdhL6b2lK_EzJ5oXQGMW2aK0uIbs5b4lqjZgOecnBuolHm63IIaN172FBZf6jnWFZkWZQoluXw6XOHj91ZjtMZdSriMMPMjHHWKcRniP1CkPDCj9PQeRmEB6Bkm89ZQS7L4");'>
                                             </div>
                                         </div>
-                                        <p class="text-sm font-medium dark:text-blue-200 text-gray-600">Trusted by home-educated families</p>
+                                        <p class="text-sm font-medium dark:text-blue-200 text-gray-600">Trusted by
+                                            home-educated families</p>
                                     </div>
 
                                 </div>
@@ -93,8 +105,10 @@ function handleImageError() {
                                             </div>
                                             <div>
                                                 <p
-                                                    class="text-xs text-gray-500 dark:text-blue-200 font-bold uppercase tracking-wider">Coming Soon</p>
-                                                <p class="text-sm font-bold dark:text-white text-gray-900">Tic-Tac-Toe Game</p>
+                                                    class="text-xs text-gray-500 dark:text-blue-200 font-bold uppercase tracking-wider">
+                                                    Coming Soon</p>
+                                                <p class="text-sm font-bold dark:text-white text-gray-900">Tic-Tac-Toe
+                                                    Game</p>
                                             </div>
                                             <div class="ml-auto">
                                                 <span
@@ -181,111 +195,14 @@ function handleImageError() {
                         <div class="flex items-center justify-between mb-10 px-2">
                             <h2
                                 class="text-2xl md:text-3xl font-bold leading-tight tracking-tight dark:text-white text-gray-900">
-                                Popular Courses</h2>
-                            <Link class="flex items-center gap-1 text-primary font-bold hover:underline" href="/courses">
+                                Recent Courses</h2>
+                            <Link class="flex items-center gap-1 text-primary font-bold hover:underline"
+                                href="/courses">
                                 View all <span class="material-symbols-outlined text-sm">arrow_forward</span>
                             </Link>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                            <div
-                                class="flex flex-col rounded-2xl overflow-hidden bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-blue-900 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                                <div class="relative w-full aspect-video bg-cover bg-center overflow-hidden"
-                                    data-alt="Minecraft style blocks and pixelated landscape"
-                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDjlbA75E7C_EKEx5rSjh_YgXW3PCLaZ21IWaVzWR5mEIl6uDCZTZX6svs0VO8wivD2GBqTNR9RGcbhFVB8EnFA-ET2ydia68WBs2vr8hW7rbohuBJBFp9IIwyVZmnPefYSaPcn6ZKT4I69h0vMH_T9Az1cYt_wZjOmqaTaeno5J5oi6wwkN46-1JtHjzynpwhNNRh5FBH9MP4VmCR7A0YWQchVlLopacJ5j324dZXm2zEN7H1LH_8HDO1ldP1ojVLFy7pvyr4sVLc");'>
-                                    <div class="absolute inset-0 bg-blue-900/20 group-hover:bg-black/0 transition-all">
-                                    </div>
-                                    <div
-                                        class="absolute top-3 left-3 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                        Beginner</div>
-                                </div>
-                                <div class="flex flex-col p-6 gap-3 grow">
-                                    <h3
-                                        class="text-xl font-bold leading-tight dark:text-white text-gray-900 group-hover:text-secondary transition-colors">
-                                        Minecraft Modding 101</h3>
-                                    <p class="text-sm dark:text-blue-200 text-gray-600 line-clamp-2 mb-4">
-                                        Learn Java concepts while modifying your favorite game. Build custom blocks and
-                                        items.
-                                    </p>
-                                    <div
-                                        class="mt-auto flex items-center justify-between pt-4 border-t border-gray-100 dark:border-blue-800">
-                                        <div
-                                            class="flex items-center gap-1 text-xs font-medium dark:text-blue-300 text-gray-500">
-                                            <span class="material-symbols-outlined text-base">schedule</span>
-                                            <span>8 Weeks</span>
-                                        </div>
-                                        <button
-                                            class="flex items-center justify-center rounded-full h-8 px-4 bg-transparent border border-secondary text-secondary hover:bg-secondary hover:text-white text-xs font-bold transition-all">
-                                            Explore
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="flex flex-col rounded-2xl overflow-hidden bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-blue-900 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                                <div class="relative w-full aspect-video bg-cover bg-center overflow-hidden"
-                                    data-alt="Code syntax on a computer screen with python logo"
-                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJdz0rIEgbZzz34W8AokmfwSMeFbQj20igBGPAECUQRlrUJBZtTXbQEZQljJ7nE2OMLLxDiPf2AB0HbWRi58RFXdBO1WoLLPRgsNM1ZXeJJpMh07btclbyL-lCUco6sRharLa34Ao30aZ7I7WzRmjtFUX9aEmK19rBr2BVDw3IXlLgO7D__J2GYYUNXHtQtlPTF_oe-BHjxeKSLtM3z0zImgLjlQYefxe3vYffaChB_vPe26L9IrcVlr4ZmtkTnG4GjGmSBZBCsjQ");'>
-                                    <div class="absolute inset-0 bg-blue-900/20 group-hover:bg-black/0 transition-all">
-                                    </div>
-                                    <div
-                                        class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                        Intermediate</div>
-                                </div>
-                                <div class="flex flex-col p-6 gap-3 grow">
-                                    <h3
-                                        class="text-xl font-bold leading-tight dark:text-white text-gray-900 group-hover:text-primary transition-colors">
-                                        Python for Puzzle Solvers</h3>
-                                    <p class="text-sm dark:text-blue-200 text-gray-600 line-clamp-2 mb-4">
-                                        Master logic and syntax by solving increasingly difficult logic puzzles and
-                                        riddles using Python.
-                                    </p>
-                                    <div
-                                        class="mt-auto flex items-center justify-between pt-4 border-t border-gray-100 dark:border-blue-800">
-                                        <div
-                                            class="flex items-center gap-1 text-xs font-medium dark:text-blue-300 text-gray-500">
-                                            <span class="material-symbols-outlined text-base">schedule</span>
-                                            <span>12 Weeks</span>
-                                        </div>
-                                        <button
-                                            class="flex items-center justify-center rounded-full h-8 px-4 bg-transparent border border-primary text-primary hover:bg-primary hover:text-white text-xs font-bold transition-all">
-                                            Explore
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="flex flex-col rounded-2xl overflow-hidden bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-blue-900 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                                <div class="relative w-full aspect-video bg-cover bg-center overflow-hidden"
-                                    data-alt="Colorful abstract web design interface wireframes"
-                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCSlEiy7xUFk6sqTujY9HGaGhktRtnbkQR1QLoSf_d8PnfSX4zB6zVXHAx7wHdeWfQIwGFfuQFjtHlVkJLhi4egLSBPnvLsq15vFOH13EcBEED6MMi2IVPZIrSTewM4KjMtlSgzV-uDmERtGAOIy2mt9RmgZZW2aQCGpzYul1jd6L78-_gqgaeK-m21i_2MZP8SgRe5fwcsGyKgrVwJ7Kui4ADUsAWktLg_hD7dNvqtdwxyULdl0yNTSh5DD2IuJWMN72wimOrq6Js");'>
-                                    <div class="absolute inset-0 bg-blue-900/20 group-hover:bg-black/0 transition-all">
-                                    </div>
-                                    <div
-                                        class="absolute top-3 left-3 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                        Creative</div>
-                                </div>
-                                <div class="flex flex-col p-6 gap-3 grow">
-                                    <h3
-                                        class="text-xl font-bold leading-tight dark:text-white text-gray-900 group-hover:text-accent transition-colors">
-                                        Web Design for Kids</h3>
-                                    <p class="text-sm dark:text-blue-200 text-gray-600 line-clamp-2 mb-4">
-                                        From HTML basics to colorful CSS styling. Build your own portfolio website from
-                                        scratch.
-                                    </p>
-                                    <div
-                                        class="mt-auto flex items-center justify-between pt-4 border-t border-gray-100 dark:border-blue-800">
-                                        <div
-                                            class="flex items-center gap-1 text-xs font-medium dark:text-blue-300 text-gray-500">
-                                            <span class="material-symbols-outlined text-base">schedule</span>
-                                            <span>6 Weeks</span>
-                                        </div>
-                                        <button
-                                            class="flex items-center justify-center rounded-full h-8 px-4 bg-transparent border border-accent text-accent hover:bg-accent hover:text-white text-xs font-bold transition-all">
-                                            Explore
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                            <Course v-for="course in recent" :course="course"></Course>
                         </div>
                     </div>
                 </div>
@@ -311,11 +228,11 @@ function handleImageError() {
                                         <span class="material-symbols-outlined text-sm">star</span>
                                         <span class="material-symbols-outlined text-sm">star</span>
                                     </div>
-                                    <p class="text-sm font-medium italic dark:text-blue-200 text-gray-600">"The only
-                                        curriculum that kept my son engaged! He actually asks to do his coding lessons
-                                        now. The mentors are fantastic."</p>
-                                    <p class="text-xs font-bold uppercase tracking-wider text-primary mt-1">- Sarah,
-                                        Homeschool Mom</p>
+                                    <p class="text-sm font-medium italic dark:text-blue-200 text-gray-600">"Sharif is a
+                                        brilliant teacher and explains things clearly and thoroughly. Ethan is really
+                                        enjoying his lessons so far and learning so much!"</p>
+                                    <p class="text-xs font-bold uppercase tracking-wider text-primary mt-1">- Natalie,
+                                        Homeschool Mum</p>
                                 </div>
                             </div>
                             <div
@@ -343,60 +260,7 @@ function handleImageError() {
                     </div>
                 </div>
             </div>
-            <footer
-                class="w-full bg-surface-light dark:bg-background-dark border-t border-gray-200 dark:border-blue-900">
-                <div class="max-w-4xl mx-auto px-4 sm:px-10 md:px-20 lg:px-40 py-12">
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-                        <div class="col-span-2 md:col-span-1 flex flex-col gap-4">
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined text-secondary text-2xl">terminal</span>
-                                <h3 class="font-bold text-lg dark:text-white text-gray-900">Stupidly Smart</h3>
-                            </div>
-                            <p class="text-sm dark:text-blue-200 text-gray-600">Empowering the next generation of
-                                creators through code.</p>
-                        </div>
-                        <div class="flex flex-col gap-3">
-                            <h4 class="font-bold text-sm uppercase tracking-wider dark:text-white text-gray-900">Learn
-                            </h4>
-                            <a class="text-sm dark:text-blue-200 text-gray-600 hover:text-primary transition-colors"
-                                href="#">Courses</a>
-                            <a class="text-sm dark:text-blue-200 text-gray-600 hover:text-primary transition-colors"
-                                href="#">Curriculum</a>
-                            <a class="text-sm dark:text-blue-200 text-gray-600 hover:text-primary transition-colors"
-                                href="#">Pricing</a>
-                        </div>
-                        <div class="flex flex-col gap-3">
-                            <h4 class="font-bold text-sm uppercase tracking-wider dark:text-white text-gray-900">Support
-                            </h4>
-                            <a class="text-sm dark:text-blue-200 text-gray-600 hover:text-primary transition-colors"
-                                href="#">For Parents</a>
-                            <a class="text-sm dark:text-blue-200 text-gray-600 hover:text-primary transition-colors"
-                                href="#">Help Center</a>
-                            <a class="text-sm dark:text-blue-200 text-gray-600 hover:text-primary transition-colors"
-                                href="#">Contact</a>
-                        </div>
-                        <div class="flex flex-col gap-3">
-                            <h4 class="font-bold text-sm uppercase tracking-wider dark:text-white text-gray-900">Legal
-                            </h4>
-                            <a class="text-sm dark:text-blue-200 text-gray-600 hover:text-primary transition-colors"
-                                href="#">Privacy</a>
-                            <a class="text-sm dark:text-blue-200 text-gray-600 hover:text-primary transition-colors"
-                                href="#">Terms</a>
-                        </div>
-                    </div>
-                    <div
-                        class="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-gray-200 dark:border-blue-900">
-                        <p class="text-xs dark:text-blue-300 text-gray-400">© 2023 Stupidly Smart Inc. All rights
-                            reserved.</p>
-                        <div class="flex gap-4">
-                            <a class="dark:text-blue-300 text-gray-500 hover:text-primary transition-colors"
-                                href="#"><span class="material-symbols-outlined">public</span></a>
-                            <a class="dark:text-blue-300 text-gray-500 hover:text-primary transition-colors"
-                                href="#"><span class="material-symbols-outlined">mail</span></a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+
         </div>
 
 
