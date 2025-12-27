@@ -48,8 +48,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard', [
             'currentMonth' => Month
-                ::query()
-                ->whereBetween('started_at', [
+                ::whereBetween('started_at', [
                     Carbon::now()->startOfMonth(),
                     Carbon::now()->endOfMonth()
                 ])
