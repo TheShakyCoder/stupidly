@@ -72,39 +72,44 @@ Route::middleware([
     });
 
     Route::get('/basket', function () {
-        $months = collect(session('months', []))->map(function ($month) {
-            return ['month_id' => $month];
-        });
         return Inertia::render('Basket', [
-            'months' => $months
+            'months' => collect(session('months', []))->map(function ($month) {
+                return ['month_id' => $month];
+            })
         ]);
     })->name('basket');
 
     Route::post('/checkout', function (Request $request) {
-        $months = session('months', []);
         \Stripe\Stripe::setApiKey(config('stripe.secret'));
-        $lineItems = collect($months)->map(function ($month) {
-            return [
-                'metadata' => [
-                    'month_id' => $month,
-                ],
-                'price' => 'price_1SiwvSGKr7wrsq183cHns0nd',
-                'quantity' => 1
-            ];
-        })->toArray();
+        $months = session('months', []);
         $session = \Stripe\Checkout\Session::create([
-            'line_items' => $lineItems,
+            'line_items' => collect($months)->map(function ($month) {
+                $monthRecord = Month::find($month);
+                return [
+                    'metadata' => [
+                        'month_id' => $month,
+                    ],
+                    'price_data' => [
+                        'currency' => 'gbp',
+                        'unit_amount' => 2900,
+                        'product_data' => [
+                            'name' => Carbon::createFromDate($monthRecord->started_at)->format('F Y'),
+                        ],
+                    ],
+                    'quantity' => 1,
+                ];
+            })->toArray(),
             'mode' => 'payment',
             'success_url' => route('basket'),
             'cancel_url' => route('checkout')
         ]);
-        \Log::info($session->url);
-        return redirect()->away($session->url);
+        return response()->json([
+            'url' => $session->url,
+        ]);
     });
 
     Route::get('/checkout', function () {
         $months = session('months', []);
-        \Log::info($months);
         return Inertia::render('Checkout', [
             'months' => $months
         ]);

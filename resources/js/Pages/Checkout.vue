@@ -1,6 +1,6 @@
 <script setup>
-import { Form } from '@inertiajs/vue3'
-import { onMounted } from 'vue';
+import { router } from '@inertiajs/vue3'
+import axios from 'axios'
 
 defineProps({
     months: {
@@ -9,34 +9,31 @@ defineProps({
     }
 })
 
-var stripe = Stripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
-let elements = null
-let card = null
 
-onMounted(() => {
-    elements = stripe.elements()
-    card = elements.create('card');
-    card.mount('#card-element');
-})
+const startCheckout = async () => {
+    try {
+        const response = await axios.post('/checkout')
 
+        // IMPORTANT: real browser navigation
+        window.location.href = response.data.url
+    } catch (error) {
+        console.error('Checkout failed:', error)
+    }
+}
+
+function submit() {
+    axios.post('/checkout').then(response => {
+        window.location.href = response.data.url;
+    })
+}
 </script>
 
 <template>
-    <Form action="/checkout" method="post" id="payment-form">
-
-        <div class="">
-            <label for="card-element">
-                Credit or debit card
-            </label>
-            <div id="card-element">
-                <!-- a Stripe Element will be inserted here. -->
-            </div>
-
-            <!-- Used to display form errors -->
-            <div id="card-errors"></div>
-        </div>
-        <input type="submit" class="submit" value="Submit Payment">
-    </Form>
+    <div class="checkout">
+        <button type="button" class="px-4 py-2 bg-black text-white rounded" @click="startCheckout">
+            Pay now
+        </button>
+    </div>
 </template>
 
 <style lang="scss" scoped></style>

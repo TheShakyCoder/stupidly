@@ -41,7 +41,15 @@ defineProps({
 
                     <div class="rounded-xl p-8">
                         <h2 class="text-2xl font-bold">Previous Months</h2>
-                        <div v-for="m in months">{{ m }}</div>
+                        <div v-for="m in months" class="flex justify-between">
+                            <div>{{ m.started_at }}</div>
+                            <div>
+                                <Form action="/basket" method="post">
+                                    <input type="hidden" name="month_id" :value="m.id" />
+                                    <button type="submit">Add to Basket</button>
+                                </Form>
+                            </div>
+                        </div>
                     </div>
 
 
