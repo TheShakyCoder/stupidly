@@ -57,8 +57,6 @@ Route::middleware([
                 }
             ])
             ->first();
-
-        \Log::info($currentMonth);
         return Inertia::render('Dashboard', [
             'currentMonth' => $currentMonth,
             'months' => Month::orderBy('started_at')->get(),
@@ -85,7 +83,6 @@ Route::middleware([
     Route::post('/checkout', function (Request $request) {
         $months = session('months', []);
         \Stripe\Stripe::setApiKey(config('stripe.secret'));
-
         $lineItems = collect($months)->map(function ($month) {
             return [
                 'metadata' => [
@@ -95,21 +92,19 @@ Route::middleware([
                 'quantity' => 1
             ];
         })->toArray();
-
-
-
         $session = \Stripe\Checkout\Session::create([
             'line_items' => $lineItems,
             'mode' => 'payment',
             'success_url' => route('basket'),
             'cancel_url' => route('checkout')
         ]);
-
+        \Log::info($session->url);
         return redirect()->away($session->url);
     });
 
     Route::get('/checkout', function () {
         $months = session('months', []);
+        \Log::info($months);
         return Inertia::render('Checkout', [
             'months' => $months
         ]);
