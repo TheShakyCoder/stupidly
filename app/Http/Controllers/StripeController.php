@@ -14,7 +14,7 @@ class StripeController
     {
         // $input = $request->all();
         // $payload = json_decode($request->getContent(), true);
-        \Stripe\Stripe::setApiKey(config('cashier.secret'));
+        \Stripe\Stripe::setApiKey(config('stripe.secret'));
         $payload = @file_get_contents('php://input');
         \Log::info($payload);
         try {
