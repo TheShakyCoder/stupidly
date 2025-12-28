@@ -97,7 +97,7 @@ Route::middleware([
                 ];
             })->toArray(),
             'metadata' => [
-                'months' => $months,
+                'months' => json_encode($months),
                 'user_id' => request()->user()->id
             ],
             'mode' => 'payment',
