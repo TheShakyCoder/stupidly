@@ -31,14 +31,14 @@ class StripeController
             $userId = $session->metadata->user_id;
 
             //  add Payment for each month
+            $amount = $event->amount / count($monthIds);
             foreach ($monthIds as $monthId) {
                 Payment::create([
                     'month_id' => $monthId,
-                    'user_id' => $userId
+                    'user_id' => $userId,
+                    'amount' => $amount
                 ]);
             }
-
-
         }
 
         return response()->json(['received' => true]);

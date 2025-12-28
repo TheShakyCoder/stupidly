@@ -1,6 +1,7 @@
 <script setup>
-import { Form } from '@inertiajs/vue3'
+import { Form, Link } from '@inertiajs/vue3'
 import AppLayout from '@/Layouts/AppLayout.vue';
+import dayjs from 'dayjs';
 
 defineProps({
     currentMonth: {
@@ -28,28 +29,46 @@ defineProps({
 
                     <div class="rounded-xl p-8">
                         <h2 class="text-2xl font-bold">Current Month</h2>
-                        {{ currentMonth }}
-                        <div v-if="currentMonth?.payment">{{ currentMonth.payment }}</div>
-                        <div v-else>
-                            You are not subscribed to the current month.
-                            <Form action="/basket" method="post">
-                                <input v-if="currentMonth" type="hidden" name="month_id" :value="currentMonth.id" />
-                                <button type="submit">Add to Basket</button>
-                            </Form>
+                        <div class="flex justify-between items-center text-lg">
+                            <div class="text-xl">{{ dayjs(currentMonth.started_at).format('MMMM YYYY') }}</div>
+                            <div class="flex items-center space-x-4">
+                                <div v-if="currentMonth?.payments.length === 0" class="flex justify-between">
+                                    <Form action="/basket" method="post">
+                                        <input v-if="currentMonth" type="hidden" name="month_id"
+                                            :value="currentMonth.id" />
+                                        <button type="submit" class="p-4 px-5 rounded bg-green-500 font-bold">Add to
+                                            Basket</button>
+                                    </Form>
+                                </div>
+                                <div v-else>
+                                    <div class="p-4 px-5 rounded bg-gray-500 font-bold">Purchased</div>
+                                </div>
+                                <Link :href="`/months/${currentMonth.id}`" class="underline-offset-4 underline">view
+                                </Link>
+                            </div>
                         </div>
                     </div>
 
                     <div class="rounded-xl p-8">
-                        <h2 class="text-2xl font-bold">Previous Months</h2>
-                        <div v-for="m in months" class="flex justify-between">
-                            <div>{{ m.started_at }}</div>
-                            <div>
-                                <Form action="/basket" method="post">
-                                    <input type="hidden" name="month_id" :value="m.id" />
-                                    <button type="submit">Add to Basket</button>
-                                </Form>
-                            </div>
-                        </div>
+                        <h2 class="text-2xl font-bold">All Months</h2>
+                        <ul class="flex flex-col space-y-4 mt-4 text-lg">
+                            <li v-for="m in months" class="flex justify-between items-center">
+                                <div class="text-xl">{{ dayjs(m.started_at).format('MMMM YYYY') }}</div>
+                                <div class="flex justify-between items-center space-x-4">
+                                    <div v-if="m.payments?.length === 0">
+                                        <Form action="/basket" method="post">
+                                            <input type="hidden" name="month_id" :value="m.id" />
+                                            <button type="submit" class="p-4 px-5 rounded bg-green-500 font-bold">Add to
+                                                Basket</button>
+                                        </Form>
+                                    </div>
+                                    <div v-else>
+                                        <div class="p-4 px-5 rounded bg-gray-500 font-bold">Purchased</div>
+                                    </div>
+                                    <Link :href="`/months/${m.id}`" class="underline-offset-4 underline">view</Link>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
 
 

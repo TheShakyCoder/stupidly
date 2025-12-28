@@ -8,4 +8,6 @@ return [
 
     'webhook_secret' => env('STRIPE_WEBHOOK_SECRET'),
 
+    'fee' => env('STRIPE_FEE')
+
 ];

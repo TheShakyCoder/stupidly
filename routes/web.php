@@ -59,7 +59,11 @@ Route::middleware([
             ->first();
         return Inertia::render('Dashboard', [
             'currentMonth' => $currentMonth,
-            'months' => Month::orderBy('started_at')->get(),
+            'months' => Month::with([
+                'payments' => function ($q) {
+                    $q->where('user_id', request()->user()->id);
+                }
+            ])->orderBy('started_at')->get(),
         ]);
     })->name('dashboard');
 
@@ -88,7 +92,7 @@ Route::middleware([
                 return [
                     'price_data' => [
                         'currency' => 'gbp',
-                        'unit_amount' => 2900,
+                        'unit_amount' => config('stripe.fee'),
                         'product_data' => [
                             'name' => Carbon::createFromDate($monthRecord->started_at)->format('F Y'),
                         ],
