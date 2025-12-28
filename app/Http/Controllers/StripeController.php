@@ -12,6 +12,31 @@ class StripeController
 {
     public function stripeCallback(Request $request)
     {
+        $payload = $request->getContent();
+        \Log::info($payload);
+        $sigHeader = $request->header('Stripe-Signature');
+        $endpointSecret = config('stripe.webhook_secret');
+
+        $event = \Stripe\Webhook::constructEvent(
+            $payload,
+            $sigHeader,
+            $endpointSecret
+        );
+
+        if ($event->type === 'checkout.session.completed') {
+            $session = $event->data->object;
+
+            $monthIds = json_decode($session->metadata->month_ids, true);
+            $userId = $session->metadata->user_id;
+
+            // Grant access, mark months as paid, etc.
+        }
+
+        return response()->json(['received' => true]);
+    }
+
+    public function stripeCallback2(Request $request)
+    {
         // $input = $request->all();
         // $payload = json_decode($request->getContent(), true);
         \Stripe\Stripe::setApiKey(config('stripe.secret'));
