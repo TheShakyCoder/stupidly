@@ -5,6 +5,7 @@
  */
 namespace App\Http\Controllers;
 
+use App\Models\Payment;
 use Illuminate\Http\Request;
 use Str;
 
@@ -26,10 +27,18 @@ class StripeController
         if ($event->type === 'checkout.session.completed') {
             $session = $event->data->object;
 
-            $monthIds = json_decode($session->metadata->month_ids, true);
+            $monthIds = json_decode($session->metadata->months, true);
             $userId = $session->metadata->user_id;
 
-            // Grant access, mark months as paid, etc.
+            //  add Payment for each month
+            foreach ($monthIds as $monthId) {
+                Payment::create([
+                    'month_id' => $monthId,
+                    'user_id' => $userId
+                ]);
+            }
+
+
         }
 
         return response()->json(['received' => true]);

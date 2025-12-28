@@ -101,7 +101,7 @@ Route::middleware([
                 'user_id' => request()->user()->id
             ],
             'mode' => 'payment',
-            'success_url' => route('basket'),
+            'success_url' => route('purchased'),
             'cancel_url' => route('checkout')
         ]);
         return response()->json([
@@ -116,6 +116,11 @@ Route::middleware([
         ]);
     })->name('checkout');
 
+    Route::get('/purchased', function () {
+        session()->flush();
+
+        return to_route('dashboard');
+    })->name('purchased');
 });
 
 // Stripe webhook
