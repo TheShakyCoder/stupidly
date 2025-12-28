@@ -86,9 +86,6 @@ Route::middleware([
             'line_items' => collect($months)->map(function ($month) {
                 $monthRecord = Month::find($month);
                 return [
-                    'metadata' => [
-                        'month_id' => $month,
-                    ],
                     'price_data' => [
                         'currency' => 'gbp',
                         'unit_amount' => 2900,
@@ -99,6 +96,10 @@ Route::middleware([
                     'quantity' => 1,
                 ];
             })->toArray(),
+            'metadata' => [
+                'months' => $months,
+                'user_id' => request()->user()->id
+            ],
             'mode' => 'payment',
             'success_url' => route('basket'),
             'cancel_url' => route('checkout')
