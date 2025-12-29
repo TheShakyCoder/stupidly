@@ -12,6 +12,11 @@ test('anyone can view a month', function () {
     $response->assertInertia(
         fn(AssertableInertia $ai) => $ai
             ->component('Month/Show')
-            ->has('month')
+            ->has(
+                'month',
+                fn(AssertableInertia $ai) => $ai
+                    ->has('lessons')
+                    ->etc()
+            )
     );
 });

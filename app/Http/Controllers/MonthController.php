@@ -11,7 +11,7 @@ class MonthController extends Controller
     public function show(Month $month)
     {
         return Inertia::render('Month/Show', [
-            'month' => $month
+            'month' => $month->load(['lessons'])
         ]);
     }
 }
