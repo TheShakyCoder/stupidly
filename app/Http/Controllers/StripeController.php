@@ -31,8 +31,7 @@ class StripeController
             $monthIds = json_decode($session->metadata->months, true);
             $userId = $session->metadata->user_id;
 
-            //  add Payment for each month
-            $amount = $event->amount / count($monthIds);
+            //  update Payment for each month
             foreach ($monthIds as $monthId) {
                 Payment::update([
                     'month_id' => $monthId,
