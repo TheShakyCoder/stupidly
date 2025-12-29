@@ -6,6 +6,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
+use DB;
 use Illuminate\Http\Request;
 use Str;
 
@@ -39,6 +40,8 @@ class StripeController
                     'amount' => $amount
                 ]);
             }
+
+            DB::table('sessions')->where('user_id', '=', $userId)->delete();
         }
 
         return response()->json(['received' => true]);

@@ -93,7 +93,7 @@ Route::middleware([
         return redirect('/basket');
     });
 
-    Route::post('/checkout', function (Request $request) {
+    Route::post('/checkout', function () {
         \Stripe\Stripe::setApiKey(config('stripe.secret'));
         $months = session('months', []);
         $session = \Stripe\Checkout\Session::create([

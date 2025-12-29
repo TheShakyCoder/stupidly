@@ -2,6 +2,7 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Link, Form } from '@inertiajs/vue3';
 import dayjs from 'dayjs';
+import { ref } from 'vue';
 
 defineProps({
     months: {
@@ -14,15 +15,18 @@ defineProps({
     }
 })
 
+const checkingOut = ref(false)
 
 const startCheckout = async () => {
+    checkingOut.value = true
     try {
         const response = await axios.post('/checkout')
 
-        // IMPORTANT: real browser navigation
         window.location.href = response.data.url
     } catch (error) {
+        // IMPORTANT: real browser navigation
         console.error('Checkout failed:', error)
+        checkingOut.value = false
     }
 }
 </script>
@@ -37,7 +41,7 @@ const startCheckout = async () => {
                     <h1 class="text-2xl mb-4">Basket</h1>
                     <ul class="flex flex-col space-y-8">
                         <li v-for="month in months"
-                            class="border border-gray-500 rounded p-4 px-5 flex justify-between items-center">
+                            class="bg-gray-600 border border-gray-500 rounded p-4 px-5 flex justify-between items-center">
                             <div class="text-4xl">{{ dayjs(month.started_at).format('MMMM YYYY') }}</div>
                             <div class="flex items-center space-x-4">
                                 <div class="flex flex-col items-end">
@@ -58,8 +62,9 @@ const startCheckout = async () => {
                             <div>£{{ (months.length * parseInt(fee) / 100).toFixed(2) }}</div>
                         </li>
                     </ul>
-                    <button type="button" class=" px-4 py-2 bg-green-500 text-white text-xl font-bold rounded"
-                        @click="startCheckout">
+                    <button type="button" class="px-4 py-2  text-white text-xl font-bold rounded"
+                        :class="[checkingOut ? 'bg-gray-500 cursor-progress' : 'bg-green-500 cursor-pointer']"
+                        @click="startCheckout" :disabled="checkingOut">
                         Go to Payment
                     </button>
                 </div>
