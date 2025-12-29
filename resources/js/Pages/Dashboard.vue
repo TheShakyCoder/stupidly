@@ -30,22 +30,25 @@ defineProps({
                 <div class="rounded-xl p-8">
                     <h2 class="text-2xl font-bold">Current Month</h2>
                     <div class="flex justify-between items-center text-lg">
-                        <div class="text-xl">{{ dayjs(currentMonth.started_at).format('MMMM YYYY') }}</div>
+                        <div class="flex space-x-4">
+                            <div class="text-xl">{{ dayjs(currentMonth.started_at).format('MMMM YYYY') }}</div>
+                            <Link :href="`/months/${currentMonth.id}`" class="underline-offset-4 underline">view</Link>
+                        </div>
                         <div class="flex items-center space-x-4">
                             <div v-if="currentMonth?.payments.length === 0" class="flex justify-between">
                                 <Form action="/basket" method="post">
                                     <input v-if="currentMonth" type="hidden" name="month_id" :value="currentMonth.id" />
-                                    <button type="submit" class="p-4 px-5 rounded bg-green-500 font-bold">Add to
+                                    <button type="submit" class="p-3 px-4 rounded bg-green-600 font-bold">Add to
                                         Basket</button>
                                 </Form>
                             </div>
                             <div v-else-if="currentMonth?.payments[0].purchased_at === null">
-                                <div class="p-4 px-5 rounded bg-gray-500 font-bold">In Basket</div>
+                                <div class="p-3 px-4 rounded bg-gray-500 font-bold">In Basket</div>
                             </div>
                             <div v-else>
-                                <div class="p-4 px-5 rounded bg-gray-500 font-bold">Purchased</div>
+                                <div class="p-3 px-4 rounded bg-gray-500 font-bold">Purchased</div>
                             </div>
-                            <Link :href="`/months/${currentMonth.id}`" class="underline-offset-4 underline">view</Link>
+
                         </div>
                     </div>
                 </div>
@@ -54,22 +57,24 @@ defineProps({
                     <h2 class="text-2xl font-bold">All Months</h2>
                     <ul class="flex flex-col space-y-4 mt-4 text-lg">
                         <li v-for="m in months" class="flex justify-between items-center">
-                            <div class="text-xl">{{ dayjs(m.started_at).format('MMMM YYYY') }}</div>
+                            <div class="flex space-x-4">
+                                <div class="text-xl">{{ dayjs(m.started_at).format('MMMM YYYY') }}</div>
+                                <Link :href="`/months/${m.id}`" class="underline-offset-4 underline">view</Link>
+                            </div>
                             <div class="flex justify-between items-center space-x-4">
                                 <div v-if="m.payments?.length === 0">
                                     <Form action="/basket" method="post">
                                         <input type="hidden" name="month_id" :value="m.id" />
-                                        <button type="submit" class="p-4 px-5 rounded bg-green-500 font-bold">Add to
+                                        <button type="submit" class="p-3 px-4 rounded bg-green-600 font-bold">Add to
                                             Basket</button>
                                     </Form>
                                 </div>
                                 <div v-else-if="m.payments[0].purchased_at === null">
-                                    <div class="p-4 px-5 rounded bg-gray-500 font-bold">In Basket</div>
+                                    <div class="p-3 px-4 rounded bg-gray-500 font-bold">In Basket</div>
                                 </div>
                                 <div v-else>
-                                    <div class="p-4 px-5 rounded bg-gray-500 font-bold">Purchased</div>
+                                    <div class="p-3 px-4 rounded bg-gray-500 font-bold">Purchased</div>
                                 </div>
-                                <Link :href="`/months/${m.id}`" class="underline-offset-4 underline">view</Link>
                             </div>
                         </li>
                     </ul>
