@@ -34,7 +34,6 @@ const startCheckout = async () => {
 <template>
     <AppLayout>
         <div class="py-12">
-            {{ fee }} - {{ months.length }}
             <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="rounded-xl p-7 px-8 flex flex-col">
 
