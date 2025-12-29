@@ -67,6 +67,9 @@ const startCheckout = async () => {
                         @click="startCheckout" :disabled="checkingOut">
                         Go to Payment
                     </button>
+                    <span class="text-gray-200 italic">Payments for StupidlySmart are managed by <b>Fig Limited</b> and
+                        will appear as such on all financial
+                        documents.</span>
                 </div>
             </div>
         </div>
