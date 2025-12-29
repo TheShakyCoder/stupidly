@@ -4,12 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Month extends Model
 {
     /** @use HasFactory<\Database\Factories\MonthFactory> */
     use HasFactory;
 
+    protected $dates = ['started_at'];
+
+    public function lessons(): HasMany
+    {
+        return $this->hasMany(Lesson::class);
+    }
+
+    public function recordings(): HasMany
+    {
+        return $this->hasMany(Recording::class);
+    }
 
     public function payments()
     {

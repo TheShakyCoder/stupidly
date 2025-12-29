@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Month;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Hash;
@@ -25,6 +26,11 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+
+        $months = collect(config('seeder.months'));
+        foreach ($months as $month) {
+            Month::create($month);
+        }
 
         $courses = collect(config('seeder.courses'));
         foreach ($courses as $courseKey => $courseData) {
@@ -49,9 +55,13 @@ class DatabaseSeeder extends Seeder
                 $course->skills()->attach($skillModel);
             }
             foreach ($lessons as $lessonData) {
+                $startOfMonth = Carbon::createFromFormat('Y-m-d H:i:s', $lessonData['available_at'])->startOfMonth();
+                $month = Month::where('started_at', $startOfMonth->format('Y-m-d'))->first();
+
                 $course->lessons()->create([
                     'available_at' => $lessonData['available_at'],
-                    'title' => $lessonData['title']
+                    'title' => $lessonData['title'],
+                    'month_id' => $month->id
                 ]);
             }
             foreach ($bullets as $bulletData) {
@@ -59,9 +69,5 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        $months = collect(config('seeder.months'));
-        foreach ($months as $month) {
-            Month::create($month);
-        }
     }
 }

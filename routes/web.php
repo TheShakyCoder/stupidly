@@ -63,7 +63,7 @@ Route::middleware([
                 'payments' => function ($q) {
                     $q->where('user_id', request()->user()->id);
                 }
-            ])->orderBy('started_at')->get(),
+            ])->orderBy('started_at', 'DESC')->get(),
         ]);
     })->name('dashboard');
 
@@ -77,11 +77,21 @@ Route::middleware([
 
     Route::get('/basket', function () {
         return Inertia::render('Basket', [
-            'months' => collect(session('months', []))->map(function ($month) {
-                return ['month_id' => $month];
-            })
+            'months' => collect(session('months', []))->map(function ($m) {
+                return Month::where('id', $m)->with(['lessons', 'recordings'])->first()->toArray();
+            })->toArray(),
+            'fee' => config('stripe.fee')
         ]);
     })->name('basket');
+
+    Route::delete('/basket', function (Request $request) {
+        $session = session('months', []);
+        $session = array_filter($session, function ($m) use ($request) {
+            return $m !== $request->id;
+        });
+        session(['months' => $session]);
+        return redirect('/basket');
+    });
 
     Route::post('/checkout', function (Request $request) {
         \Stripe\Stripe::setApiKey(config('stripe.secret'));
@@ -106,19 +116,12 @@ Route::middleware([
             ],
             'mode' => 'payment',
             'success_url' => route('purchased'),
-            'cancel_url' => route('checkout')
+            'cancel_url' => route('basket')
         ]);
         return response()->json([
             'url' => $session->url,
         ]);
     });
-
-    Route::get('/checkout', function () {
-        $months = session('months', []);
-        return Inertia::render('Checkout', [
-            'months' => $months
-        ]);
-    })->name('checkout');
 
     Route::get('/purchased', function () {
         session()->flush();

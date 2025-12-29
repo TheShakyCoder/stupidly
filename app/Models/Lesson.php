@@ -9,4 +9,9 @@ class Lesson extends Model
 {
     /** @use HasFactory<\Database\Factories\LessonFactory> */
     use HasFactory;
+
+    public function month()
+    {
+        return $this->belongsTo(Month::class);
+    }
 }

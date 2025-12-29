@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Course;
+use App\Models\Month;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,8 +20,10 @@ class LessonFactory extends Factory
     {
         return [
             'course_id' => Course::factory(),
+            'month_id' => Month::factory(),
             'available_at' => $this->faker->dateTimeBetween('-1 month', '+1 month'),
-            'title' => $this->faker->title
+            'title' => $this->faker->title,
+            'path' => $this->faker->url
         ];
     }
 }
