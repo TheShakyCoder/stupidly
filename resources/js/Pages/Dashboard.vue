@@ -23,6 +23,7 @@ defineProps({
                 Dashboard
             </h2>
         </template>
+
         <div class="py-12">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg max-w-4xl mx-auto">
 
@@ -37,6 +38,9 @@ defineProps({
                                     <button type="submit" class="p-4 px-5 rounded bg-green-500 font-bold">Add to
                                         Basket</button>
                                 </Form>
+                            </div>
+                            <div v-else-if="currentMonth?.payments[0].purchased_at === null">
+                                <div class="p-4 px-5 rounded bg-gray-500 font-bold">In Basket</div>
                             </div>
                             <div v-else>
                                 <div class="p-4 px-5 rounded bg-gray-500 font-bold">Purchased</div>
@@ -58,6 +62,9 @@ defineProps({
                                         <button type="submit" class="p-4 px-5 rounded bg-green-500 font-bold">Add to
                                             Basket</button>
                                     </Form>
+                                </div>
+                                <div v-else-if="m.payments[0].purchased_at === null">
+                                    <div class="p-4 px-5 rounded bg-gray-500 font-bold">In Basket</div>
                                 </div>
                                 <div v-else>
                                     <div class="p-4 px-5 rounded bg-gray-500 font-bold">Purchased</div>

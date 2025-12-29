@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import { ref } from 'vue';
 
 defineProps({
-    months: {
+    payments: {
         type: Array,
         default: []
     },
@@ -33,22 +33,23 @@ const startCheckout = async () => {
 
 <template>
     <AppLayout>
+
         <div class="py-12">
             <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="rounded-xl p-7 px-8 flex flex-col">
 
                     <h1 class="text-2xl mb-4">Basket</h1>
                     <ul class="flex flex-col space-y-8">
-                        <li v-for="month in months"
+                        <li v-for="payment in payments"
                             class="bg-gray-600 border border-gray-500 rounded p-4 px-5 flex justify-between items-center">
-                            <div class="text-4xl">{{ dayjs(month.started_at).format('MMMM YYYY') }}</div>
+                            <div class="text-4xl">{{ dayjs(payment.month.started_at).format('MMMM YYYY') }}</div>
                             <div class="flex items-center space-x-4">
                                 <div class="flex flex-col items-end">
-                                    <div>Total Lessons Scheduled: {{ month.lessons.length }}</div>
-                                    <div>Recordings Now Available: {{ month.recordings.length }}</div>
+                                    <div>Total Lessons Scheduled: {{ payment.month.lessons.length }}</div>
+                                    <div>Recordings Now Available: {{ payment.month.recordings.length }}</div>
                                 </div>
-                                <Form action="/basket" method="delete">
-                                    <input type="hidden" name="id" :value="month.id">
+                                <Form action="/payments" method="delete">
+                                    <input type="hidden" name="id" :value="payment.id">
                                     <button type="submit"
                                         class="size-10 text-red-500 dark:bg-red-950 dark:hover:bg-red-900 dark:hover:text-red-400 rounded-full p-4 flex items-center justify-center">
                                         <span class="material-symbols-outlined text-3xl">close</span>
@@ -58,7 +59,7 @@ const startCheckout = async () => {
                         </li>
                         <li class="flex justify-between text-2xl py-8">
                             <div>Total</div>
-                            <div>£{{ (months.length * parseInt(fee) / 100).toFixed(2) }}</div>
+                            <div>£{{ (payments.length * parseInt(fee) / 100).toFixed(2) }}</div>
                         </li>
                     </ul>
                     <button type="button" class="px-4 py-2  text-white text-xl font-bold rounded"

@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->foreignId('month_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->integer('amount');
+            $table->dateTime('purchased_at')->nullable();
             $table->timestamps();
         });
     }

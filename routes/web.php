@@ -2,6 +2,7 @@
 
 use App\Models\Course;
 use App\Models\Month;
+use App\Models\Payment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -68,50 +69,70 @@ Route::middleware([
     })->name('dashboard');
 
     Route::post('/basket', function (Request $request) {
-        $months = session('months', []);
-        array_push($months, $request->month_id);
 
-        session(['months' => array_unique($months)]);
+        Payment::create([
+            'user_id' => $request->user()->id,
+            'month_id' => $request->month_id,
+            'amount' => config('stripe.fee')
+        ]);
+
+        // $months = session('months', []);
+        // array_push($months, $request->month_id);
+        // session(['months' => array_unique($months)]);
         return redirect('/basket');
     });
 
     Route::get('/basket', function () {
         return Inertia::render('Basket', [
-            'months' => collect(session('months', []))->map(function ($m) {
-                return Month::where('id', $m)->with(['lessons', 'recordings'])->first()->toArray();
-            })->toArray(),
+            // 'months' => collect(session('months', []))->map(function ($m) {
+            //     return Month::where('id', $m)->with(['lessons', 'recordings'])->first()->toArray();
+            // })->toArray(),
+            'payments' => Payment::query()
+                ->where('user_id', request()->user()->id)
+                ->whereNull('purchased_at')
+                ->with([
+                    'month' => function ($q) {
+                        $q->with(['lessons', 'recordings']);
+                    }
+                ])
+                ->get(),
             'fee' => config('stripe.fee')
         ]);
     })->name('basket');
 
-    Route::delete('/basket', function (Request $request) {
-        $session = session('months', []);
-        $session = array_filter($session, function ($m) use ($request) {
-            return $m !== $request->id;
-        });
-        session(['months' => $session]);
+    Route::delete('/payments', function (Request $request) {
+        Payment::where('id', $request->id)->whereNull('purchased_at')->delete();
         return redirect('/basket');
     });
 
     Route::post('/checkout', function () {
         \Stripe\Stripe::setApiKey(config('stripe.secret'));
-        $months = session('months', []);
+
+        $months = Month::whereHas('payments', function ($q) {
+            $q
+                ->where('user_id', request()->user()->id)
+                ->whereNull('purchased_at');
+        })
+            ->with(['lessons', 'recordings'])
+            ->get();
+
         $session = \Stripe\Checkout\Session::create([
             'line_items' => collect($months)->map(function ($month) {
-                $monthRecord = Month::find($month);
                 return [
                     'price_data' => [
                         'currency' => 'gbp',
                         'unit_amount' => config('stripe.fee'),
                         'product_data' => [
-                            'name' => Carbon::createFromDate($monthRecord->started_at)->format('F Y'),
+                            'name' => Carbon::createFromDate($month->started_at)->format('F Y'),
                         ],
                     ],
                     'quantity' => 1,
                 ];
             })->toArray(),
             'metadata' => [
-                'months' => json_encode($months),
+                'months' => json_encode($months->map(function ($m) {
+                    return $m->id;
+                })->toArray()),
                 'user_id' => request()->user()->id
             ],
             'mode' => 'payment',
@@ -124,8 +145,6 @@ Route::middleware([
     });
 
     Route::get('/purchased', function () {
-        session()->flush();
-
         return to_route('dashboard');
     })->name('purchased');
 });
