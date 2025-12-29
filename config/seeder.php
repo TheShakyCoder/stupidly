@@ -136,7 +136,7 @@ return [
                 ],
                 [
                     'available_at' => '2026-01-26 14:00:00',
-                    'title' => 'Lesson 3'
+                    'title' => 'Lesson 4'
                 ],
             ]
         ],

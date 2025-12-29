@@ -15,7 +15,7 @@ class Month extends Model
 
     public function lessons(): HasMany
     {
-        return $this->hasMany(Lesson::class);
+        return $this->hasMany(Lesson::class)->orderBy('available_at');
     }
 
     public function recordings(): HasMany

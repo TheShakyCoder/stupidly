@@ -14,4 +14,9 @@ class Lesson extends Model
     {
         return $this->belongsTo(Month::class);
     }
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
 }
