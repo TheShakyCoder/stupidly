@@ -12,11 +12,12 @@ return new class extends Migration {
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('month_id')->constrained();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('month_id')->constrained();
             $table->integer('amount');
             $table->dateTime('purchased_at')->nullable();
             $table->timestamps();
+            $table->unique(['user_id', 'month_id']);
         });
     }
 

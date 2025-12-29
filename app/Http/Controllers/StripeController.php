@@ -34,14 +34,13 @@ class StripeController
             //  add Payment for each month
             $amount = $event->amount / count($monthIds);
             foreach ($monthIds as $monthId) {
-                Payment::create([
+                Payment::update([
                     'month_id' => $monthId,
-                    'user_id' => $userId,
-                    'amount' => $amount
+                    'user_id' => $userId
+                ], [
+                    'purchased_at' => now()
                 ]);
             }
-
-            DB::table('sessions')->where('user_id', '=', $userId)->delete();
         }
 
         return response()->json(['received' => true]);
