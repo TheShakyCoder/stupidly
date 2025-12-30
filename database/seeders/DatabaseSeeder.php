@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Hash;
+use Illuminate\Support\Facades\Http;
 
 class DatabaseSeeder extends Seeder
 {
@@ -68,6 +69,25 @@ class DatabaseSeeder extends Seeder
                 $course->bullets()->create(['name' => $bulletData]);
             }
         }
+
+        // $client = \App\Services\ApiVideo::client();
+
+        // try {
+        //     $livestream = $client->livestreams()->create(new \ApiVideo\Client\Model\LiveStreamCreationPayload([
+        //         'name' => 'Subscriber Live Show',
+        //         'public' => false, // 🔐 critical
+        //     ]));
+
+        //     $livestreamId = $livestream->getLivestreamId();
+        //     $streamKey = $livestream->getStreamKey();
+        //     \Illuminate\Support\Facades\Storage::put('livestream_id.txt', $livestreamId);
+
+        //     $getLiveStream = $client->liveStreams()->get($livestreamId);
+        //     dd($getLiveStream);
+        // } catch (\ApiVideo\Client\Exception\HttpException $e) {
+        //     dump('Warning: Could not create live stream. ' . $e->getMessage());
+
+        // }
 
     }
 }

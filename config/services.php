@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'apivideo' => [
+        'key' => env('API_VIDEO_KEY'),
+    ],
+
 ];
