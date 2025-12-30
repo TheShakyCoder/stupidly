@@ -29,6 +29,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'tutor',
     ];
 
     /**
@@ -65,6 +66,10 @@ class User extends Authenticatable
         ];
     }
 
+    public function isTutor()
+    {
+        return $this->tutor;
+    }
 
     public function months()
     {

@@ -148,6 +148,12 @@ Route::middleware([
     Route::get('/purchased', function () {
         return to_route('dashboard');
     })->name('purchased');
+
+    Route::prefix('tutor')->group(function () {
+        Route::get('/', function () {
+            return Inertia::render('Tutor/Dashboard');
+        })->name('tutor');
+    });
 });
 
 // Stripe webhook

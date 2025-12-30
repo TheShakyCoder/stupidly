@@ -8,6 +8,7 @@ return [
         [
             'name' => 'Sharif Khan',
             'email' => 'sharif.khan@stupidly.uk',
+            'tutor' => true
         ],
     ],
 
