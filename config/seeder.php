@@ -44,8 +44,8 @@ return [
         ],
         'fun-with-flags' => [
             'title' => 'Fun With Flags',
-            'description' => 'Create a fun memory game.',
-            'synopsis' => 'Develop your memory and pattern recognition skills by building an engaging flag-matching game. Learn VueJS reactivity, CSS animations, and game logic while creating colorful, interactive memory cards.',
+            'synopsis' => 'Create a fun memory game.',
+            'description' => 'Develop your memory and pattern recognition skills by building an engaging flag-matching game. Learn VueJS reactivity, CSS animations, and game logic while creating colorful, interactive memory cards.',
             'bullets' => [
                 'the basics of computer logic',
                 'what a constant is, and what a variable is',
@@ -60,8 +60,14 @@ return [
 
         'game-of-life' => [
             'title' => 'Conway\'s Game of Life',
-            'description' => 'Build Conway\'s Game of Life.',
-            'synopsis' => 'Explore cellular automata and emergent behavior by implementing Conway\'s Game of Life. Master P5.js for canvas rendering, VueJS for state management, and complex algorithmic thinking in this iconic simulation.',
+            'synopsis' => 'Build Conway\'s Game of Life.',
+            'description' => 'Explore cellular automata and emergent behavior by implementing Conway\'s Game of Life. Master P5.js for canvas rendering, VueJS for state management, and complex algorithmic thinking in this iconic simulation.',
+            'bullets' => [
+                'how to simulate cellular automata',
+                'rendering with P5.js',
+                'managing state with VueJS',
+                'implementing algorithmic logic'
+            ],
             'level' => 'Intermediate',
             'tutor' => 'Sharif Khan',
             'skills' => ['VueJS', 'P5.js', 'HTML / Tailwind CSS'],
@@ -87,8 +93,14 @@ return [
         ],
         'black-jack' => [
             'title' => 'Black Jack Game',
-            'description' => 'Learn to build a classic Black Jack card game.',
-            'synopsis' => 'Dive into casino game development by creating a fully-featured Black Jack game. Learn card game logic, dealer AI, betting systems, and sophisticated VueJS state management for complex game rules.',
+            'synopsis' => 'Learn to build a classic Black Jack card game.',
+            'description' => 'Dive into casino game development by creating a fully-featured Black Jack game. Learn card game logic, dealer AI, betting systems, and sophisticated VueJS state management for complex game rules.',
+            'bullets' => [
+                'card game logic and rules',
+                'handling dealer logic',
+                'managing betting systems',
+                'complex state management'
+            ],
             'level' => 'Intermediate',
             'tutor' => 'Sharif Khan',
             'skills' => ['VueJS', 'HTML / Tailwind CSS'],
@@ -97,8 +109,14 @@ return [
 
         'convoy' => [
             'title' => 'Convoy Location Tracker',
-            'description' => 'Use a map to keep track of friends in your convoy.',
-            'synopsis' => 'Build a real-time location tracking system for managing convoys. Master Laravel APIs, map integration, WebSocket communications, and complex geolocation features for group coordination.',
+            'synopsis' => 'Use a map to keep track of friends in your convoy.',
+            'description' => 'Build a real-time location tracking system for managing convoys. Master Laravel APIs, map integration, WebSocket communications, and complex geolocation features for group coordination.',
+            'bullets' => [
+                'real-time location tracking',
+                'integrating maps and geolocation',
+                'WebSocket communication',
+                'building APIs with Laravel'
+            ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
             'skills' => ['Laravel / Inertia.js', 'VueJS', 'HTML / Tailwind CSS', 'APIs'],
@@ -106,8 +124,14 @@ return [
         ],
         'game-of-lives-1' => [
             'title' => 'Multi-player Game of Life',
-            'description' => 'Use Lua to remake this classic.',
-            'synopsis' => 'Recreate Conway\'s Game of Life using Lua with real-time multiplayer capabilities. Learn game server architecture, Lua scripting, WebSocket integration, and distributed state synchronization.',
+            'synopsis' => 'Use Lua to remake this classic.',
+            'description' => 'Recreate Conway\'s Game of Life using Lua with real-time multiplayer capabilities. Learn game server architecture, Lua scripting, WebSocket integration, and distributed state synchronization.',
+            'bullets' => [
+                'Lua scripting basics',
+                'game server architecture',
+                'real-time multiplayer networking',
+                'WebSocket integration'
+            ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
             'skills' => ['Lua', 'WebSockets'],
@@ -115,8 +139,14 @@ return [
         ],
         'game-of-lives-2' => [
             'title' => 'Multi-player Game of Life',
-            'description' => 'Use P5.js to remake this classic.',
-            'synopsis' => 'Build a sophisticated multiplayer Game of Life simulation using VueJS, P5.js, and NodeJS. Master real-time synchronization, WebSocket communication, and advanced canvas rendering techniques.',
+            'synopsis' => 'Use P5.js to remake this classic.',
+            'description' => 'Build a sophisticated multiplayer Game of Life simulation using VueJS, P5.js, and NodeJS. Master real-time synchronization, WebSocket communication, and advanced canvas rendering techniques.',
+            'bullets' => [
+                'multiplayer game synchronization',
+                'advanced canvas rendering',
+                'real-time data exchange',
+                'optimizing performance'
+            ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
             'skills' => ['VueJS', 'P5.js', 'WebSockets', 'NodeJS'],
@@ -142,8 +172,14 @@ return [
         ],
         'super-bomberman' => [
             'title' => 'Super Bomberman Game',
-            'description' => 'Build a multi-player version of the classic Bomberman game.',
-            'synopsis' => 'Create an explosive multiplayer Bomberman game using Lua and WebSockets. Learn game physics, collision detection, power-up systems, and real-time multiplayer game mechanics.',
+            'synopsis' => 'Build a multi-player version of the classic Bomberman game.',
+            'description' => 'Create an explosive multiplayer Bomberman game using Lua and WebSockets. Learn game physics, collision detection, power-up systems, and real-time multiplayer game mechanics.',
+            'bullets' => [
+                'game physics and collision detection',
+                'handling power-up systems',
+                'multiplayer game mechanics',
+                'Lua programming for games'
+            ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
             'skills' => ['Lua', 'WebSockets'],
@@ -151,8 +187,14 @@ return [
         ],
         'texas-hold-em' => [
             'title' => 'Texas Hold\'em Game',
-            'description' => 'Build a classic Texas Hold\'em card game for multiple players.',
-            'synopsis' => 'Develop a comprehensive Texas Hold\'em poker game with multiplayer support. Master complex game logic, betting algorithms, hand evaluation, and real-time player synchronization.',
+            'synopsis' => 'Build a classic Texas Hold\'em card game for multiple players.',
+            'description' => 'Develop a comprehensive Texas Hold\'em poker game with multiplayer support. Master complex game logic, betting algorithms, hand evaluation, and real-time player synchronization.',
+            'bullets' => [
+                'poker game rules and logic',
+                'hand evaluation algorithms',
+                'betting and pot management',
+                'real-time player synchronization'
+            ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
             'skills' => ['VueJS', 'HTML / Tailwind CSS', 'WebSockets', 'NodeJS'],
@@ -160,8 +202,14 @@ return [
         ],
         'live-chat' => [
             'title' => 'Live Chat App',
-            'description' => 'Use JavaScript to build a real-time live chat application.',
-            'synopsis' => 'Build a feature-rich real-time chat application with VueJS and NodeJS. Learn WebSocket communication, message persistence, user authentication, and modern chat UI design patterns.',
+            'synopsis' => 'Use JavaScript to build a real-time live chat application.',
+            'description' => 'Build a feature-rich real-time chat application with VueJS and NodeJS. Learn WebSocket communication, message persistence, user authentication, and modern chat UI design patterns.',
+            'bullets' => [
+                'real-time data transfer with WebSockets',
+                'user authentication flows',
+                'persisting messages to database',
+                'modern chat UI design'
+            ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
             'skills' => ['VueJS', 'NodeJS', 'HTML / Tailwind CSS', 'WebSockets'],
@@ -169,8 +217,14 @@ return [
         ],
         'used-car-prices' => [
             'title' => 'Used Car Prices Predictor',
-            'description' => 'Build an app that predicts used car prices using eBay.',
-            'synopsis' => 'Create a machine learning-powered car price prediction system using eBay API data. Master data scraping, price analysis algorithms, API integration, and predictive modeling techniques.',
+            'synopsis' => 'Build an app that predicts used car prices using eBay.',
+            'description' => 'Create a machine learning-powered car price prediction system using eBay API data. Master data scraping, price analysis algorithms, API integration, and predictive modeling techniques.',
+            'bullets' => [
+                'scraping data from APIs',
+                'analyzing pricing trends',
+                'predictive modeling basics',
+                'integrating with eBay API'
+            ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
             'skills' => ['Laravel / Inertia.js', 'APIs'],
@@ -178,8 +232,14 @@ return [
         ],
         'battle-zone' => [
             'title' => 'Battle Zone Game',
-            'description' => 'Create a 3D Battle Zone game using Babylon.js.',
-            'synopsis' => 'Build an immersive 3D tank battle game using Babylon.js. Master 3D graphics programming, physics simulation, camera controls, and advanced game mechanics in a web-based 3D environment.',
+            'synopsis' => 'Create a 3D Battle Zone game using Babylon.js.',
+            'description' => 'Build an immersive 3D tank battle game using Babylon.js. Master 3D graphics programming, physics simulation, camera controls, and advanced game mechanics in a web-based 3D environment.',
+            'bullets' => [
+                '3D graphics with Babylon.js',
+                'physics simulation in 3D',
+                'managing 3D camera controls',
+                'building immersive environments'
+            ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
             'skills' => ['Babylon.js'],
