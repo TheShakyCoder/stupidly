@@ -22,12 +22,16 @@
     <!-- Scripts -->
     <script src="https://js.stripe.com/v3/"></script>
     @routes
-    @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
+    @vite(
+    [ 'resources/css/app.css',
+      'resources/js/app.js',   
+      "resources/js/Pages/{$page['component']}.vue"
+    ])
     @inertiaHead
 </head>
 
 <body
-    class="font-sans antialiased bg-gray-50 text-gray-950 dark:bg-gray-950 dark:text-gray-50 transition-colors duration-200">
+    class="font-sans antialiased relative bg-gray-50 text-gray-950 dark:bg-gray-950 dark:text-gray-50 transition-colors duration-200">
     @inertia
 </body>
 
