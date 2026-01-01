@@ -39,6 +39,7 @@ const user = {
 const navigation = [
     { name: 'Home', route: 'home' },
     { name: 'Dashboard', route: 'dashboard' },
+    { name: 'Profile', route: 'profile.show' },
 ]
 const userNavigation = [
     { name: 'Your Profile', href: '#' },

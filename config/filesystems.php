@@ -41,10 +41,23 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
             'report' => false,
+        ],
+
+        'spaces' => [
+            'driver' => 's3',
+            'key' => env('SPACES_KEY'),
+            'secret' => env('SPACES_SECRET'),
+            'region' => env('SPACES_REGION'),
+            'bucket' => env('SPACES_BUCKET'),
+            'folder' => env('SPACES_FOLDER'),
+            //            'url' => env('SPACES_URL'),
+            'endpoint' => env('SPACES_ENDPOINT'),
+            //            'use_path_style_endpoint' => env('SPACES_USE_PATH_STYLE_ENDPOINT', false),
+            'throw' => false,
         ],
 
         's3' => [
