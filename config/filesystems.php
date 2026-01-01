@@ -54,9 +54,9 @@ return [
             'region' => env('SPACES_REGION'),
             'bucket' => env('SPACES_BUCKET'),
             'folder' => env('SPACES_FOLDER'),
-            //            'url' => env('SPACES_URL'),
+            'url' => env('SPACES_URL'),
             'endpoint' => env('SPACES_ENDPOINT'),
-            //            'use_path_style_endpoint' => env('SPACES_USE_PATH_STYLE_ENDPOINT', false),
+            'use_path_style_endpoint' => env('SPACES_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
 
