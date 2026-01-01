@@ -21,7 +21,7 @@ return [
         'tic-tac-toe' => [
             'title' => 'Tic Tac Toe Game',
             'synopsis' => 'Build a classic Tic Tac Toe game using VueJS, HTML, and CSS.',
-            'description' => 'Learn the fundamentals of game development by creating a classic Tic Tac Toe game. You\'ll master VueJS components, game state management, and interactive UI design while building a fully functional two-player game.',
+            'description' => 'Learn the fundamentals of game development by recreating the classic Tic Tac Toe game. You\'ll master VueJS components, game state management, and interactive UI design while building a fully functional two-player game.',
             'bullets' => [
                 'what a constant is, and what a variable is',
                 'the basics of computer logic',
@@ -46,12 +46,16 @@ return [
                     'available_at' => '2026-01-19 09:30:00',
                     'title' => 'Lesson 3'
                 ],
+                [
+                    'available_at' => '2026-01-26 09:30:00',
+                    'title' => 'Lesson 4'
+                ],
             ]
         ],
         'fun-with-flags' => [
             'title' => 'Fun With Flags',
             'synopsis' => 'Create a fun memory game.',
-            'description' => 'Develop your memory and pattern recognition skills by building an engaging flag-matching game. Learn VueJS reactivity, CSS animations, and game logic while creating colorful, interactive memory cards.',
+            'description' => 'Develop your memory and pattern recognition skills by building an engaging flag-matching game. Learn VueJS reactivity, and game logic while creating colorful, interactive memory cards.',
             'bullets' => [
                 'the basics of computer logic',
                 'what a constant is, and what a variable is',
@@ -62,12 +66,30 @@ return [
             'tutor' => 'Sharif Khan',
             'skills' => ['VueJS', 'HTML / CSS'],
             'image' => '/images/courses/k8-B8e8PAJ9JRM-unsplash.jpg',
+            'lessons' => [
+                [
+                    'available_at' => '2026-01-06 09:30:00',
+                    'title' => 'Lesson 1'
+                ],
+                [
+                    'available_at' => '2026-01-13 09:30:00',
+                    'title' => 'Lesson 2'
+                ],
+                [
+                    'available_at' => '2026-01-20 09:30:00',
+                    'title' => 'Lesson 3'
+                ],
+                [
+                    'available_at' => '2026-01-27 09:30:00',
+                    'title' => 'Lesson 4'
+                ],
+            ]
         ],
 
         'game-of-life' => [
             'title' => 'Conway\'s Game of Life',
             'synopsis' => 'Build Conway\'s Game of Life.',
-            'description' => 'Explore cellular automata and emergent behavior by implementing Conway\'s Game of Life. Master P5.js for canvas rendering, VueJS for state management, and complex algorithmic thinking in this iconic simulation.',
+            'description' => 'Explore cellular automata and emergent behavior by implementing Conway\'s Game of Life. Master P5.js for canvas rendering, VueJS for state management, and applied algorithmic thinking in this iconic simulation.',
             'bullets' => [
                 'how to simulate cellular automata',
                 'rendering with P5.js',
@@ -100,7 +122,7 @@ return [
         'black-jack' => [
             'title' => 'Black Jack Game',
             'synopsis' => 'Learn to build a classic Black Jack card game.',
-            'description' => 'Dive into casino game development by creating a fully-featured Black Jack game. Learn card game logic, dealer AI, betting systems, and sophisticated VueJS state management for complex game rules.',
+            'description' => 'Dive into playing card game development by creating a fully-featured Black Jack game. Learn card game logic, dealer AI, betting systems, and sophisticated VueJS state management for complex game rules.',
             'bullets' => [
                 'card game logic and rules',
                 'handling dealer logic',
@@ -111,16 +133,33 @@ return [
             'tutor' => 'Sharif Khan',
             'skills' => ['VueJS', 'HTML / Tailwind CSS'],
             'image' => '/images/courses/tom-m-UWh8vs4ZMMM-unsplash.jpg',
+            'lessons' => [
+                [
+                    'available_at' => '2026-01-06 11:00:00',
+                    'title' => 'Lesson 1'
+                ],
+                [
+                    'available_at' => '2026-01-13 11:00:00',
+                    'title' => 'Lesson 2'
+                ],
+                [
+                    'available_at' => '2026-01-20 11:00:00',
+                    'title' => 'Lesson 3'
+                ],
+                [
+                    'available_at' => '2026-01-27 11:00:00',
+                    'title' => 'Lesson 4'
+                ],
+            ]
         ],
 
         'convoy' => [
             'title' => 'Convoy Location Tracker',
-            'synopsis' => 'Use a map to keep track of friends in your convoy.',
-            'description' => 'Build a real-time location tracking system for managing convoys. Master Laravel APIs, map integration, WebSocket communications, and complex geolocation features for group coordination.',
+            'synopsis' => 'Use a map to keep track of friends in your convoy while travelling.',
+            'description' => 'Build a real-time location tracking system for managing convoys. Master Laravel APIs, map integration, and complex geolocation features for group coordination.',
             'bullets' => [
                 'real-time location tracking',
                 'integrating maps and geolocation',
-                'WebSocket communication',
                 'building APIs with Laravel'
             ],
             'level' => 'Advanced',
@@ -128,6 +167,7 @@ return [
             'skills' => ['Laravel / Inertia.js', 'VueJS', 'HTML / Tailwind CSS', 'APIs'],
             'image' => '/images/courses/tamas-tuzes-katai-rEn-AdBr3Ig-unsplash.jpg',
         ],
+
         'game-of-lives-1' => [
             'title' => 'Multi-player Game of Life',
             'synopsis' => 'Use Lua to remake this classic.',
@@ -221,21 +261,7 @@ return [
             'skills' => ['VueJS', 'NodeJS', 'HTML / Tailwind CSS', 'WebSockets'],
             'image' => '/images/courses/kuu-akura-pnK6Q-QTHM4-unsplash.jpg',
         ],
-        'used-car-prices' => [
-            'title' => 'Used Car Prices Predictor',
-            'synopsis' => 'Build an app that predicts used car prices using eBay.',
-            'description' => 'Create a machine learning-powered car price prediction system using eBay API data. Master data scraping, price analysis algorithms, API integration, and predictive modeling techniques.',
-            'bullets' => [
-                'scraping data from APIs',
-                'analyzing pricing trends',
-                'predictive modeling basics',
-                'integrating with eBay API'
-            ],
-            'level' => 'Advanced',
-            'tutor' => 'Sharif Khan',
-            'skills' => ['Laravel / Inertia.js', 'APIs'],
-            'image' => '/images/courses/obi-aZKJEvydrNM-unsplash.jpg',
-        ],
+
         'battle-zone' => [
             'title' => 'Battle Zone Game',
             'synopsis' => 'Create a 3D Battle Zone game using Babylon.js.',
