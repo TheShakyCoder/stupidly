@@ -1,12 +1,16 @@
 <?php
 
+use App\Http\Middleware\IsTutor;
 use App\Models\Course;
+use App\Models\Lesson;
 use App\Models\Month;
 use App\Models\Payment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Storage;
+use App\Services\ApiVideo;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -149,10 +153,24 @@ Route::middleware([
         return to_route('dashboard');
     })->name('purchased');
 
-    Route::prefix('tutor')->group(function () {
-        Route::get('/', function () {
-            return Inertia::render('Tutor/Dashboard');
+    Route::get('/live', function (ApiVideo $apiVideo) {
+        $liveStreams = $apiVideo->client()->liveStreams()->list();
+        return Inertia::render('Live', [
+            'liveStreams' => $liveStreams,
+        ]);
+    })->name('live');
+
+    Route::prefix('tutor')->middleware(IsTutor::class)->group(function () {
+
+        Route::get('/', function (ApiVideo $apiVideo) {
+            //  SHOW A LIST OF UPCOMING LESSONS
+            $upcomingLessons = Lesson::where('available_at', '>', Carbon::now())->with(['course'])->get();
+
+            return Inertia::render('Tutor/Dashboard', [
+                'upcomingLessons' => $upcomingLessons,
+            ]);
         })->name('tutor');
+
     });
 });
 
