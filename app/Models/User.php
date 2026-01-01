@@ -66,11 +66,6 @@ class User extends Authenticatable
         ];
     }
 
-    public function isTutor()
-    {
-        return $this->tutor;
-    }
-
     public function months()
     {
         return $this->belongsToMany(Month::class, 'covers')->using(Cover::class);

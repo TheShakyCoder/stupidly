@@ -70,24 +70,7 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        // $client = \App\Services\ApiVideo::client();
 
-        // try {
-        //     $livestream = $client->livestreams()->create(new \ApiVideo\Client\Model\LiveStreamCreationPayload([
-        //         'name' => 'Subscriber Live Show',
-        //         'public' => false, // 🔐 critical
-        //     ]));
-
-        //     $livestreamId = $livestream->getLivestreamId();
-        //     $streamKey = $livestream->getStreamKey();
-        //     \Illuminate\Support\Facades\Storage::put('livestream_id.txt', $livestreamId);
-
-        //     $getLiveStream = $client->liveStreams()->get($livestreamId);
-        //     dd($getLiveStream);
-        // } catch (\ApiVideo\Client\Exception\HttpException $e) {
-        //     dump('Warning: Could not create live stream. ' . $e->getMessage());
-
-        // }
 
     }
 }

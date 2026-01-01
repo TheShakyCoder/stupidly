@@ -10,6 +10,11 @@ return [
             'email' => 'sharif.khan@stupidly.uk',
             'tutor' => true
         ],
+        [
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'tutor' => false
+        ],
     ],
 
     'courses' => [
@@ -268,10 +273,13 @@ return [
 
     'months' => [
         [
-            'started_at' => '2025-12-01'
+            'started_at' => '2026-01-01'
         ],
         [
-            'started_at' => '2026-01-01'
+            'started_at' => '2026-02-01'
+        ],
+        [
+            'started_at' => '2026-03-01'
         ],
     ]
 
