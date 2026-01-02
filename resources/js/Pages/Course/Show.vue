@@ -1,7 +1,6 @@
 <script setup>
 import dayjs from 'dayjs'
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { Link } from '@inertiajs/vue3';
 import { ref } from 'vue'
 
 const props = defineProps({
@@ -54,7 +53,7 @@ const playPreviewVideo = () => {
                                 <span class="material-symbols-outlined text-lg fill-1">star</span>
                                 <span class="text-slate-900 dark:text-white font-bold text-sm">{{ ratings }}</span>
                                 <span class="text-slate-500 dark:text-slate-400 font-normal text-sm ml-1">({{ students
-                                    }}
+                                }}
                                     students)</span>
                             </div>
                             <div class="h-4 w-px bg-slate-300 dark:bg-slate-700 hidden sm:block"></div>
