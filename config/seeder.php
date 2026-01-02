@@ -8,7 +8,8 @@ return [
         [
             'name' => 'Sharif Khan',
             'email' => 'sharif.khan@stupidly.uk',
-            'tutor' => true
+            'tutor' => true,
+            'title' => 'Web Developer'
         ],
         [
             'name' => 'Test User',
@@ -50,6 +51,42 @@ return [
                     'available_at' => '2026-01-26 09:30:00',
                     'title' => 'Lesson 4'
                 ],
+                [
+                    'available_at' => '2026-02-02 09:30:00',
+                    'title' => 'Lesson 5'
+                ],
+                [
+                    'available_at' => '2026-02-09 09:30:00',
+                    'title' => 'Lesson 6'
+                ],
+                [
+                    'available_at' => '2026-02-16 09:30:00',
+                    'title' => 'Lesson 7'
+                ],
+                [
+                    'available_at' => '2026-02-23 09:30:00',
+                    'title' => 'Lesson 8'
+                ],
+                [
+                    'available_at' => '2026-03-02 09:30:00',
+                    'title' => 'Lesson 9'
+                ],
+                [
+                    'available_at' => '2026-03-09 09:30:00',
+                    'title' => 'Lesson 10'
+                ],
+                [
+                    'available_at' => '2026-03-16 09:30:00',
+                    'title' => 'Lesson 11'
+                ],
+                [
+                    'available_at' => '2026-03-23 09:30:00',
+                    'title' => 'Lesson 12'
+                ],
+                [
+                    'available_at' => '2026-03-30 09:30:00',
+                    'title' => 'Lesson 13'
+                ],
             ]
         ],
         'fun-with-flags' => [
@@ -82,6 +119,42 @@ return [
                 [
                     'available_at' => '2026-01-27 09:30:00',
                     'title' => 'Lesson 4'
+                ],
+                [
+                    'available_at' => '2026-02-03 09:30:00',
+                    'title' => 'Lesson 5'
+                ],
+                [
+                    'available_at' => '2026-02-10 09:30:00',
+                    'title' => 'Lesson 6'
+                ],
+                [
+                    'available_at' => '2026-02-17 09:30:00',
+                    'title' => 'Lesson 7'
+                ],
+                [
+                    'available_at' => '2026-02-24 09:30:00',
+                    'title' => 'Lesson 8'
+                ],
+                [
+                    'available_at' => '2026-03-03 09:30:00',
+                    'title' => 'Lesson 9'
+                ],
+                [
+                    'available_at' => '2026-03-10 09:30:00',
+                    'title' => 'Lesson 10'
+                ],
+                [
+                    'available_at' => '2026-03-17 09:30:00',
+                    'title' => 'Lesson 11'
+                ],
+                [
+                    'available_at' => '2026-03-24 09:30:00',
+                    'title' => 'Lesson 12'
+                ],
+                [
+                    'available_at' => '2026-03-31 09:30:00',
+                    'title' => 'Lesson 13'
                 ],
             ]
         ],
@@ -117,6 +190,42 @@ return [
                     'available_at' => '2026-01-26 11:00:00',
                     'title' => 'Lesson 4'
                 ],
+                [
+                    'available_at' => '2026-02-02 11:00:00',
+                    'title' => 'Lesson 5'
+                ],
+                [
+                    'available_at' => '2026-02-09 11:00:00',
+                    'title' => 'Lesson 6'
+                ],
+                [
+                    'available_at' => '2026-02-16 11:00:00',
+                    'title' => 'Lesson 7'
+                ],
+                [
+                    'available_at' => '2026-02-23 11:00:00',
+                    'title' => 'Lesson 8'
+                ],
+                [
+                    'available_at' => '2026-03-02 11:00:00',
+                    'title' => 'Lesson 9'
+                ],
+                [
+                    'available_at' => '2026-03-09 11:00:00',
+                    'title' => 'Lesson 10'
+                ],
+                [
+                    'available_at' => '2026-03-16 11:00:00',
+                    'title' => 'Lesson 11'
+                ],
+                [
+                    'available_at' => '2026-03-23 11:00:00',
+                    'title' => 'Lesson 12'
+                ],
+                [
+                    'available_at' => '2026-03-30 11:00:00',
+                    'title' => 'Lesson 13'
+                ],
             ]
         ],
         'black-jack' => [
@@ -149,6 +258,42 @@ return [
                 [
                     'available_at' => '2026-01-27 11:00:00',
                     'title' => 'Lesson 4'
+                ],
+                [
+                    'available_at' => '2026-02-03 11:00:00',
+                    'title' => 'Lesson 5'
+                ],
+                [
+                    'available_at' => '2026-02-10 11:00:00',
+                    'title' => 'Lesson 6'
+                ],
+                [
+                    'available_at' => '2026-02-17 11:00:00',
+                    'title' => 'Lesson 7'
+                ],
+                [
+                    'available_at' => '2026-02-24 11:00:00',
+                    'title' => 'Lesson 8'
+                ],
+                [
+                    'available_at' => '2026-03-03 11:00:00',
+                    'title' => 'Lesson 9'
+                ],
+                [
+                    'available_at' => '2026-03-10 11:00:00',
+                    'title' => 'Lesson 10'
+                ],
+                [
+                    'available_at' => '2026-03-17 11:00:00',
+                    'title' => 'Lesson 11'
+                ],
+                [
+                    'available_at' => '2026-03-24 11:00:00',
+                    'title' => 'Lesson 12'
+                ],
+                [
+                    'available_at' => '2026-03-31 11:00:00',
+                    'title' => 'Lesson 13'
                 ],
             ]
         ],
@@ -213,6 +358,42 @@ return [
                 [
                     'available_at' => '2026-01-26 14:00:00',
                     'title' => 'Lesson 4'
+                ],
+                [
+                    'available_at' => '2026-02-02 14:00:00',
+                    'title' => 'Lesson 5'
+                ],
+                [
+                    'available_at' => '2026-02-09 14:00:00',
+                    'title' => 'Lesson 6'
+                ],
+                [
+                    'available_at' => '2026-02-16 14:00:00',
+                    'title' => 'Lesson 7'
+                ],
+                [
+                    'available_at' => '2026-02-23 14:00:00',
+                    'title' => 'Lesson 8'
+                ],
+                [
+                    'available_at' => '2026-03-02 14:00:00',
+                    'title' => 'Lesson 9'
+                ],
+                [
+                    'available_at' => '2026-03-09 14:00:00',
+                    'title' => 'Lesson 10'
+                ],
+                [
+                    'available_at' => '2026-03-16 14:00:00',
+                    'title' => 'Lesson 11'
+                ],
+                [
+                    'available_at' => '2026-03-23 14:00:00',
+                    'title' => 'Lesson 12'
+                ],
+                [
+                    'available_at' => '2026-03-30 14:00:00',
+                    'title' => 'Lesson 13'
                 ],
             ]
         ],
@@ -292,6 +473,42 @@ return [
                 [
                     'available_at' => '2026-01-26 15:30:00',
                     'title' => 'Lesson 4'
+                ],
+                [
+                    'available_at' => '2026-02-02 15:30:00',
+                    'title' => 'Lesson 5'
+                ],
+                [
+                    'available_at' => '2026-02-09 15:30:00',
+                    'title' => 'Lesson 6'
+                ],
+                [
+                    'available_at' => '2026-02-16 15:30:00',
+                    'title' => 'Lesson 7'
+                ],
+                [
+                    'available_at' => '2026-02-23 15:30:00',
+                    'title' => 'Lesson 8'
+                ],
+                [
+                    'available_at' => '2026-03-02 15:30:00',
+                    'title' => 'Lesson 9'
+                ],
+                [
+                    'available_at' => '2026-03-09 15:30:00',
+                    'title' => 'Lesson 10'
+                ],
+                [
+                    'available_at' => '2026-03-16 15:30:00',
+                    'title' => 'Lesson 11'
+                ],
+                [
+                    'available_at' => '2026-03-23 15:30:00',
+                    'title' => 'Lesson 12'
+                ],
+                [
+                    'available_at' => '2026-03-30 15:30:00',
+                    'title' => 'Lesson 13'
                 ],
             ]
         ]

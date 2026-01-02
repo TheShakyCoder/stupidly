@@ -1,7 +1,7 @@
 <script setup>
 import { Head } from '@inertiajs/vue3'
 import Course from '@/Components/Course.vue';
-import PublicLayout from '@/Layouts/PublicLayout.vue';
+import AppLayout from '@/Layouts/AppLayout.vue';
 
 const props = defineProps({
     skills: {
@@ -21,7 +21,7 @@ const levels = { Beginner: 'text-green-500', Intermediate: 'text-yellow-500', Ad
         <meta name="description" content="Skills to learn @ StupidlySmart">
     </Head>
 
-    <PublicLayout>
+    <AppLayout>
         <div class="max-w-4xl mx-auto py-6 md:py-6 lg:py-12 pb-24">
             <div class="flex flex-col gap-8 mb-12">
                 <div
@@ -74,9 +74,7 @@ const levels = { Beginner: 'text-green-500', Intermediate: 'text-yellow-500', Ad
             </div>
 
         </div>
-    </PublicLayout>
+    </AppLayout>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

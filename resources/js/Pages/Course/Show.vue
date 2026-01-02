@@ -1,6 +1,6 @@
 <script setup>
 import dayjs from 'dayjs'
-import PublicLayout from '@/Layouts/PublicLayout.vue';
+import AppLayout from '@/Layouts/AppLayout.vue';
 import { Link } from '@inertiajs/vue3';
 import { ref } from 'vue'
 
@@ -23,14 +23,14 @@ const playPreviewVideo = () => {
 </script>
 
 <template>
-    <PublicLayout>
+    <AppLayout>
         <div class="max-w-4xl mx-auto py-8">
             <nav class="mb-8 flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
                 <a class="hover:text-primary transition-colors" href="#">Home</a>
                 <span class="material-symbols-outlined text-sm">chevron_right</span>
                 <a class="hover:text-primary transition-colors" href="#">Courses</a>
                 <span class="material-symbols-outlined text-sm">chevron_right</span>
-                <span class="text-slate-900 dark:text-white font-medium">Scratch for Beginners</span>
+                <span class="text-slate-900 dark:text-white font-medium">{{ course.title }}</span>
             </nav>
             <div
                 class="bg-surface-light dark:bg-[#1a2230] rounded-3xl p-8 lg:p-10 border border-slate-200 dark:border-slate-800 mb-10 relative overflow-hidden shadow-sm">
@@ -54,7 +54,7 @@ const playPreviewVideo = () => {
                                 <span class="material-symbols-outlined text-lg fill-1">star</span>
                                 <span class="text-slate-900 dark:text-white font-bold text-sm">{{ ratings }}</span>
                                 <span class="text-slate-500 dark:text-slate-400 font-normal text-sm ml-1">({{ students
-                                }}
+                                    }}
                                     students)</span>
                             </div>
                             <div class="h-4 w-px bg-slate-300 dark:bg-slate-700 hidden sm:block"></div>
@@ -70,19 +70,7 @@ const playPreviewVideo = () => {
                         <p class="text-slate-600 dark:text-slate-300 text-lg mb-8 leading-relaxed max-w-2xl font-body">
                             {{ course.synopsis }}
                         </p>
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <Link href="/register"
-                                class="px-8 py-4 rounded-xl bg-primary hover:bg-blue-600 text-white font-bold text-lg shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all flex items-center justify-center gap-2 group">
-                                <span
-                                    class="material-symbols-outlined group-hover:-translate-y-0.5 transition-transform">rocket_launch</span>
-                                Register
-                            </Link>
-                            <Link href="/dashboard"
-                                class="px-6 py-4 rounded-xl bg-slate-100 dark:bg-[#243047] hover:bg-slate-200 dark:hover:bg-[#2f3e5b] text-slate-700 dark:text-slate-200 font-bold text-lg transition-all flex items-center justify-center gap-2 border border-transparent hover:border-slate-300 dark:hover:border-slate-600">
-                                <span class="material-symbols-outlined fill-0">bookmark_border</span>
-                                Login
-                            </Link>
-                        </div>
+
                     </div>
                     <div class="w-full lg:w-[450px] shrink-0">
                         <div
@@ -148,28 +136,28 @@ const playPreviewVideo = () => {
                             {{ course.lessons.length }}{{ course.is_ended ? '' : '+' }} Lessons
                         </h2>
                         <ul class="space-y-4">
-
-
                             <li v-for="lesson in course.lessons"
-                                class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-[#243047]/30 border border-primary/30 hover:bg-slate-100 dark:hover:bg-[#243047]/60 transition-colors cursor-pointer group">
+                                class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-[#243047]/30 border border-[#e5e7eb]/30 hover:bg-slate-100 dark:hover:bg-[#243047]/60 transition-colors  group">
                                 <div
                                     class="size-10 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-sm shrink-0 shadow-sm">
-                                    01</div>
+                                    01
+                                </div>
                                 <div class="flex-1">
                                     <h4
                                         class="font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
                                         {{ lesson.title }}</h4>
-                                    <div class="flex items-center gap-3 mt-1">
+
+                                    <a v-if="lesson.path" :href="lesson.path"
+                                        class="flex items-center gap-3 mt-1 cursor-pointer">
                                         <span
                                             class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1"><span
                                                 class="material-symbols-outlined text-[14px]">play_circle</span>
                                             Video</span>
                                         <span class="text-xs text-slate-500 dark:text-slate-400">•</span>
-                                        <span class="text-xs text-slate-500 dark:text-slate-400">5 mins</span>
-                                    </div>
+                                        <span
+                                            class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">play_circle</span>
+                                    </a>
                                 </div>
-                                <span
-                                    class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">play_circle</span>
                             </li>
                         </ul>
                         <button
@@ -195,7 +183,7 @@ const playPreviewVideo = () => {
                                     <span class="material-symbols-outlined text-lg">schedule</span>
                                     Duration
                                 </span>
-                                <span class="font-bold text-slate-900 dark:text-white text-sm">~8 Hours</span>
+                                <span class="font-bold text-slate-900 dark:text-white text-sm">~1 Hour</span>
                             </div>
                             <div
                                 class="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-700/50">
@@ -204,26 +192,12 @@ const playPreviewVideo = () => {
                                     <span class="material-symbols-outlined text-lg">signal_cellular_alt</span>
                                     Level
                                 </span>
-                                <span class="font-bold text-green-500 text-sm uppercase tracking-wider">Beginner</span>
+                                <span class="font-bold text-sm uppercase tracking-wider"
+                                    :class="levels[course.level]">{{ course.level }}</span>
                             </div>
-                            <div
-                                class="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-700/50">
-                                <span
-                                    class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm font-medium">
-                                    <span class="material-symbols-outlined text-lg">folder_open</span>
-                                    Projects
-                                </span>
-                                <span class="font-bold text-slate-900 dark:text-white text-sm">3 Games</span>
-                            </div>
-                            <div class="flex items-center justify-between p-4">
-                                <span
-                                    class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm font-medium">
-                                    <span class="material-symbols-outlined text-lg">military_tech</span>
-                                    XP Reward
-                                </span>
-                                <span class="font-bold text-yellow-500 text-sm">+500 XP</span>
-                            </div>
+
                         </div>
+
                         <div
                             class="p-4 bg-slate-50 dark:bg-[#243047]/30 rounded-2xl mb-6 border border-transparent hover:border-slate-200 dark:hover:border-slate-600 transition-colors cursor-pointer group">
                             <div class="flex items-center justify-between mb-2">
@@ -233,14 +207,16 @@ const playPreviewVideo = () => {
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="size-12 rounded-full bg-cover bg-center border-2 border-white dark:border-slate-600"
-                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBi4YYz4tO4l11KGm2_l6etQpEBLIx1AS8xr6oEWeNGakZNYn-gmlrcokPfNblS4wjtjfW37oeTeWFqwQYVEjsuPpMBkuK0h4K6sYG1R34ztcUw7hnQ2GjSOGYlMRoB7CLkI_uXkW3m1IpflL1jtr0eRh7WHtCtvGfYMQTw0fFLVkChukCOy7vw7o3VeAWYGZYNDF9FqlPpHM_B7PLU9c9zRW-re90wFBH9H-usaQtIUlJwidTLafk3Zf7mEY3aH7GY_IOAKDQZ59o");'>
+                                    :style="`background-image: url( ${course.user.profile_photo_url} );`">
                                 </div>
                                 <div>
-                                    <p class="font-bold text-sm text-slate-900 dark:text-white">Sarah Codey</p>
-                                    <p class="text-xs text-slate-500 dark:text-slate-400">Game Dev Wizard</p>
+                                    <p class="font-bold text-sm text-slate-900 dark:text-white">{{ course.user.name }}
+                                    </p>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">{{ course.user.title }}</p>
                                 </div>
                             </div>
                         </div>
+
                         <div class="mb-6">
                             <p class="text-xs font-bold text-slate-500 uppercase mb-2">Software Needed</p>
                             <a class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-[#243047] transition-colors border border-dashed border-slate-300 dark:border-slate-600"
@@ -260,8 +236,7 @@ const playPreviewVideo = () => {
                             Enroll Now - Free
                             <span class="material-symbols-outlined">arrow_forward</span>
                         </button>
-                        <p class="text-center text-xs text-slate-400 mt-3">30-day money-back guarantee on paid
-                            plans.</p>
+
                     </div>
                 </div>
             </div>
@@ -308,7 +283,7 @@ const playPreviewVideo = () => {
             </div>
         </div>
 
-    </PublicLayout>
+    </AppLayout>
 
 </template>
 

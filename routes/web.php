@@ -9,7 +9,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use Illuminate\Support\Facades\Storage;
 use App\Services\ApiVideo;
 
 Route::get('/', function () {
@@ -60,7 +59,8 @@ Route::middleware([
             ->with([
                 'payments' => function ($q) {
                     $q->where('user_id', request()->user()->id);
-                }
+                },
+                'lessons.course'
             ])
             ->first();
         return Inertia::render('Dashboard', [

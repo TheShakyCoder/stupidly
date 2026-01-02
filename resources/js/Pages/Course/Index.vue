@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import Course from '@/Components/Course.vue';
-import PublicLayout from '@/Layouts/PublicLayout.vue';
+import AppLayout from '@/Layouts/AppLayout.vue';
 import dayjs from 'dayjs'
 
 const props = defineProps({
@@ -31,7 +31,7 @@ const filteredCourses = computed(() => {
     }
 
     // Apply active filter
-    if(activeFilter.value === 'all') {
+    if (activeFilter.value === 'all') {
         return courses;
     }
 
@@ -58,12 +58,13 @@ const filteredCourses = computed(() => {
 </script>
 
 <template>
+
     <Head>
         <title>Courses available @ StupidlySmart</title>
         <meta name="description" content="Courses available @ StupidlySmart">
     </Head>
 
-    <PublicLayout>
+    <AppLayout>
 
         <div class="max-w-4xl mx-auto py-6 md:py-6 lg:py-12 pb-24">
             <div class="flex flex-col gap-8 mb-12">
@@ -84,8 +85,7 @@ const filteredCourses = computed(() => {
                             <div
                                 class="flex w-full flex-1 items-center rounded-xl bg-slate-100 dark:bg-[#243047] h-12 sm:h-full px-4 border border-transparent focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all">
                                 <span class="material-symbols-outlined text-slate-400">search</span>
-                                <input
-                                    v-model="searchQuery"
+                                <input v-model="searchQuery"
                                     class="w-full bg-transparent border-none text-slate-900 dark:text-white placeholder:text-slate-400 focus:ring-0 ml-2"
                                     placeholder="Search topics like 'CSS' or 'Game'..." type="text" />
                             </div>
@@ -99,50 +99,42 @@ const filteredCourses = computed(() => {
                 </div>
 
                 <div class="flex items-center gap-3 overflow-x-auto pb-2 no-scrollbar">
-                    <button
-                        @click="activeFilter = 'all'"
-                        :class="[
-                            'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold shadow-md shrink-0 transition-all',
-                            activeFilter === 'all'
-                                ? 'bg-primary text-white shadow-primary/20'
-                                : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
-                        ]">
+                    <button @click="activeFilter = 'all'" :class="[
+                        'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold shadow-md shrink-0 transition-all',
+                        activeFilter === 'all'
+                            ? 'bg-primary text-white shadow-primary/20'
+                            : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
+                    ]">
                         <span class="material-symbols-outlined text-[20px]">apps</span>
 
                         <span class="hidden sm:inline">All Courses</span>
                     </button>
-                    <button
-                        @click="activeFilter = 'available'"
-                        :class="[
-                            'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all shrink-0',
-                            activeFilter === 'available'
-                                ? 'bg-primary text-white shadow-md shadow-primary/20'
-                                : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
-                        ]">
+                    <button @click="activeFilter = 'available'" :class="[
+                        'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all shrink-0',
+                        activeFilter === 'available'
+                            ? 'bg-primary text-white shadow-md shadow-primary/20'
+                            : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
+                    ]">
                         <span class="material-symbols-outlined text-[20px]">check</span>
 
                         <span class="hidden sm:inline">Available Now</span>
                     </button>
-                    <button
-                        @click="activeFilter = 'scheduled'"
-                        :class="[
-                            'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all shrink-0',
-                            activeFilter === 'scheduled'
-                                ? 'bg-primary text-white shadow-md shadow-primary/20'
-                                : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
-                        ]">
+                    <button @click="activeFilter = 'scheduled'" :class="[
+                        'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all shrink-0',
+                        activeFilter === 'scheduled'
+                            ? 'bg-primary text-white shadow-md shadow-primary/20'
+                            : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
+                    ]">
                         <span class="material-symbols-outlined text-[20px] fill-1">calendar_check</span>
 
                         <span class="hidden sm:inline">Scheduled</span>
                     </button>
-                    <button
-                        @click="activeFilter = 'coming'"
-                        :class="[
-                            'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all shrink-0',
-                            activeFilter === 'coming'
-                                ? 'bg-primary text-white shadow-md shadow-primary/20'
-                                : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
-                        ]">
+                    <button @click="activeFilter = 'coming'" :class="[
+                        'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all shrink-0',
+                        activeFilter === 'coming'
+                            ? 'bg-primary text-white shadow-md shadow-primary/20'
+                            : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
+                    ]">
                         <span class="material-symbols-outlined text-[20px] fill-1">calendar_clock</span>
                         <span class="hidden sm:inline">Coming Soon</span>
                     </button>
@@ -154,9 +146,7 @@ const filteredCourses = computed(() => {
             </div>
 
         </div>
-    </PublicLayout>
+    </AppLayout>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

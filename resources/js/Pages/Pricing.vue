@@ -1,17 +1,17 @@
 <script setup>
-import PublicLayout from '@/Layouts/PublicLayout.vue';
+import AppLayout from '@/Layouts/AppLayout.vue';
 import { Link } from '@inertiajs/vue3';
 
 </script>
 
 <template>
-    <PublicLayout>
+    <AppLayout>
 
         <section class="w-full max-w-4xl mx-auto px-4 pt-12 pb-6 md:pt-20 md:pb-10 text-center">
             <h1
                 class="text-slate-900 dark:text-white text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-[-0.033em] mb-4">
                 Unlock Your Child's
-                <div class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary">Coding Potential
+                <div class="text-transparent bg-clip-text bg-linear-to-r from-secondary to-primary">Coding Potential
                 </div>
             </h1>
             <p class="text-slate-500 dark:text-text-secondary text-lg md:text-xl font-medium max-w-2xl mx-auto">
@@ -150,7 +150,7 @@ import { Link } from '@inertiajs/vue3';
         </section>
 
 
-    </PublicLayout>
+    </AppLayout>
 </template>
 
 <style lang="scss" scoped></style>

@@ -3,7 +3,7 @@ import { Form, Link } from '@inertiajs/vue3'
 import AppLayout from '@/Layouts/AppLayout.vue';
 import dayjs from 'dayjs';
 
-defineProps({
+const props = defineProps({
     currentMonth: {
         type: Object,
         default: () => { }
@@ -13,6 +13,7 @@ defineProps({
         default: () => []
     }
 })
+
 
 </script>
 
@@ -25,62 +26,85 @@ defineProps({
         </template>
 
         <div class="py-12">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg max-w-4xl mx-auto">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                <div class="rounded-xl p-8">
-                    <h2 class="text-2xl font-bold">Current Month</h2>
-                    <div class="flex justify-between items-center text-lg">
-                        <div class="flex space-x-4">
-                            <div class="text-xl">{{ dayjs(currentMonth.started_at).format('MMMM YYYY') }}</div>
-                            <Link :href="`/months/${currentMonth.id}`" class="underline-offset-4 underline">view</Link>
+                    <!-- Left Column: Months -->
+                    <div class="md:col-span-2 space-y-6">
+                        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+                            <div class="p-8">
+                                <h2 class="text-2xl font-bold">Current Month</h2>
+                                <div class="flex justify-between items-center text-lg mt-4">
+                                    <div class="flex space-x-4">
+                                        <div class="text-xl">{{ dayjs(currentMonth.started_at).format('MMMM YYYY') }}
+                                        </div>
+                                        <Link :href="`/months/${currentMonth.id}`" class="underline-offset-4 underline">
+                                            view
+                                        </Link>
+                                    </div>
+                                    <div class="flex items-center space-x-4">
+                                        <div v-if="currentMonth?.payments.length === 0" class="flex justify-between">
+                                            <Form action="/basket" method="post">
+                                                <input v-if="currentMonth" type="hidden" name="month_id"
+                                                    :value="currentMonth.id" />
+                                                <button type="submit"
+                                                    class="p-3 px-4 rounded bg-green-600 font-bold">Add to
+                                                    Basket</button>
+                                            </Form>
+                                        </div>
+                                        <div v-else-if="currentMonth?.payments[0].purchased_at === null">
+                                            <div class="p-3 px-4 rounded bg-gray-500 font-bold">In Basket</div>
+                                        </div>
+                                        <div v-else>
+                                            <div class="p-3 px-4 rounded bg-gray-500 font-bold">Purchased</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <div v-if="currentMonth?.payments.length === 0" class="flex justify-between">
-                                <Form action="/basket" method="post">
-                                    <input v-if="currentMonth" type="hidden" name="month_id" :value="currentMonth.id" />
-                                    <button type="submit" class="p-3 px-4 rounded bg-green-600 font-bold">Add to
-                                        Basket</button>
-                                </Form>
-                            </div>
-                            <div v-else-if="currentMonth?.payments[0].purchased_at === null">
-                                <div class="p-3 px-4 rounded bg-gray-500 font-bold">In Basket</div>
-                            </div>
-                            <div v-else>
-                                <div class="p-3 px-4 rounded bg-gray-500 font-bold">Purchased</div>
-                            </div>
 
+                        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+                            <div class="p-8">
+                                <h2 class="text-2xl font-bold">All Months</h2>
+                                <ul class="flex flex-col space-y-4 mt-4 text-lg">
+                                    <li v-for="m in months" class="flex justify-between items-center">
+                                        <div class="flex space-x-4">
+                                            <div class="text-xl">{{ dayjs(m.started_at).format('MMMM YYYY') }}</div>
+                                            <Link :href="`/months/${m.id}`" class="underline-offset-4 underline">view
+                                            </Link>
+                                        </div>
+                                        <div class="flex justify-between items-center space-x-4">
+                                            <div v-if="m.payments?.length === 0">
+                                                <Form action="/basket" method="post">
+                                                    <input type="hidden" name="month_id" :value="m.id" />
+                                                    <button type="submit"
+                                                        class="p-3 px-4 rounded bg-green-600 font-bold">Add to
+                                                        Basket</button>
+                                                </Form>
+                                            </div>
+                                            <div v-else-if="m.payments[0].purchased_at === null">
+                                                <div class="p-3 px-4 rounded bg-gray-500 font-bold">In Basket</div>
+                                            </div>
+                                            <div v-else>
+                                                <div class="p-3 px-4 rounded bg-gray-500 font-bold">Purchased</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="rounded-xl p-8">
-                    <h2 class="text-2xl font-bold">All Months</h2>
-                    <ul class="flex flex-col space-y-4 mt-4 text-lg">
-                        <li v-for="m in months" class="flex justify-between items-center">
-                            <div class="flex space-x-4">
-                                <div class="text-xl">{{ dayjs(m.started_at).format('MMMM YYYY') }}</div>
-                                <Link :href="`/months/${m.id}`" class="underline-offset-4 underline">view</Link>
+                    <!-- Right Column: Lessons -->
+                    <div class="md:col-span-1">
+                        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+                            <div class="p-6">
+                                <h2 class="text-2xl font-bold mb-4">...</h2>
                             </div>
-                            <div class="flex justify-between items-center space-x-4">
-                                <div v-if="m.payments?.length === 0">
-                                    <Form action="/basket" method="post">
-                                        <input type="hidden" name="month_id" :value="m.id" />
-                                        <button type="submit" class="p-3 px-4 rounded bg-green-600 font-bold">Add to
-                                            Basket</button>
-                                    </Form>
-                                </div>
-                                <div v-else-if="m.payments[0].purchased_at === null">
-                                    <div class="p-3 px-4 rounded bg-gray-500 font-bold">In Basket</div>
-                                </div>
-                                <div v-else>
-                                    <div class="p-3 px-4 rounded bg-gray-500 font-bold">Purchased</div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
+
                 </div>
-
-
             </div>
         </div>
     </AppLayout>

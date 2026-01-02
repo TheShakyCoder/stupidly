@@ -1,6 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
-import PublicLayout from '@/Layouts/PublicLayout.vue';
+import AppLayout from '@/Layouts/AppLayout.vue';
 import Course from '@/Components/Course.vue'
 
 defineProps({
@@ -8,13 +8,7 @@ defineProps({
         type: Array,
         default: () => []
     }
-})
-function handleImageError() {
-    document.getElementById('screenshot-container')?.classList.add('!hidden');
-    document.getElementById('docs-card')?.classList.add('!row-span-1');
-    document.getElementById('docs-card-content')?.classList.add('!flex-row');
-    document.getElementById('background')?.classList.add('!hidden');
-}
+})  
 </script>
 
 <template>
@@ -26,7 +20,7 @@ function handleImageError() {
         <meta name="description" content="Coding skills for home-educated children">
     </Head>
 
-    <PublicLayout>
+    <AppLayout>
 
         <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
             <div class="layout-container flex grow flex-col">
@@ -35,19 +29,19 @@ function handleImageError() {
                         <div class="@container">
                             <div class="flex flex-col-reverse gap-10 py-10 md:flex-row md:items-start">
 
-                                <div class="flex flex-col gap-8 flex-1 md:max-w-60">
+                                <div class="flex flex-col gap-8 flex-1 md:max-w-96">
                                     <div class="flex flex-col gap-4 text-left">
                                         <div
                                             class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 w-fit border border-blue-200 dark:border-blue-800">
                                             <span
                                                 class="material-symbols-outlined text-primary text-sm">rocket_launch</span>
                                             <span class="text-primary text-xs font-bold uppercase tracking-wider">New
-                                                Fall Cohort Open</span>
+                                                Courses Starting Soon</span>
                                         </div>
                                         <h1
                                             class="text-4xl font-black leading-[1.1] tracking-[-0.033em] @[480px]:text-5xl @[864px]:text-6xl dark:text-white text-gray-900">
                                             Unlock Your Child's <span
-                                                class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary">Coding
+                                                class="text-transparent bg-clip-text bg-linear-to-r from-[#3b82f6] to-[#10b981]">Coding
                                                 Superpower</span>
                                         </h1>
                                         <h2
@@ -57,12 +51,12 @@ function handleImageError() {
                                         </h2>
                                     </div>
                                     <div class="flex flex-wrap gap-4">
-                                        <button
+                                        <a target="_blank" href="https://www.youtube.com/watch?v=Ne3HpoZMpX8"
                                             class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-secondary hover:bg-green-400 text-white text-base font-bold leading-normal tracking-[0.015em] shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:scale-105">
                                             <span
                                                 class="material-symbols-outlined group-hover:text-primary transition-colors">play_circle</span>
                                             <span class="truncate ml-2">Free Lesson</span>
-                                        </button>
+                                        </a>
 
                                     </div>
 
@@ -95,7 +89,7 @@ function handleImageError() {
                                             style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhdsEBsYi6yuFOR3DuFyNngkbARKCHxe59D8Dlg3NDOV3svx0VhpjccpiPqn_cTp98GMVt_19FS0CyNYgDt6v-ttd1eCJCghztsdTbiqkNLBLyBBdbmJuPrV1FzT19HzrSXemOZD0Kt2J0j1NUtSuVGv9kP6CPvqDU0VEgjHA7_AtjrWNij6VdqV8Ebuxk-R4MY7sPOO6qDGAlWlSosY5VBoF3VXS0oiE2sKYw1Oa6WHMGQQIl7diyLs4jXF1eHJ1YSl-SS-I182s");'>
                                         </div>
                                         <div
-                                            class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent">
+                                            class="absolute inset-0 bg-linear-to-t from-background-dark/80 to-transparent">
                                         </div>
                                         <div
                                             class="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md border border-gray-200 dark:border-blue-800 flex items-center gap-4">
@@ -103,13 +97,13 @@ function handleImageError() {
                                                 class="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
                                                 <span class="material-symbols-outlined">code</span>
                                             </div>
-                                            <div>
+                                            <Link href="/courses/tic-tac-toe">
                                                 <p
                                                     class="text-xs text-gray-500 dark:text-blue-200 font-bold uppercase tracking-wider">
                                                     Coming Soon</p>
                                                 <p class="text-sm font-bold dark:text-white text-gray-900">Tic-Tac-Toe
                                                     Game</p>
-                                            </div>
+                                            </Link>
                                             <div class="ml-auto">
                                                 <span
                                                     class="material-symbols-outlined text-secondary">check_circle</span>
@@ -267,7 +261,7 @@ function handleImageError() {
 
 
 
-    </PublicLayout>
+    </AppLayout>
 
 
 
