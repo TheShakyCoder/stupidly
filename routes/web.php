@@ -21,6 +21,10 @@ Route::get('/pricing', function () {
     return Inertia::render('Pricing');
 });
 
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+});
+
 Route::get('/privacy', function () {
     return Inertia::render('PrivacyPolicy', [
         'privacy' => File::get(resource_path('markdown/privacy.md'))
