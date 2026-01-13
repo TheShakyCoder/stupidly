@@ -68,7 +68,7 @@ Route::middleware([
             'months' => Month::with([
                 'payments' => function ($q) {
                     $q->where('user_id', request()->user()->id);
-                }
+                }, 'lessons', 'recordings'
             ])->orderBy('started_at', 'DESC')->get(),
         ]);
     })->name('dashboard');

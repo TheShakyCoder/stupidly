@@ -11,10 +11,10 @@ import { Link } from '@inertiajs/vue3';
             <h1
                 class="text-slate-900 dark:text-white text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-[-0.033em] mb-4">
                 Unlock Your Child's
-                <div class="text-transparent bg-clip-text bg-linear-to-r from-secondary to-primary">Coding Potential
+                <div class="text-transparent bg-clip-text bg-linear-to-r to-blue-500 from-green-500">Coding Potential
                 </div>
             </h1>
-            <p class="text-slate-500 dark:text-text-secondary text-lg md:text-xl font-medium max-w-2xl mx-auto">
+            <p class="text-slate-500 dark:text-gray-300 text-lg md:text-xl font-medium max-w-2xl mx-auto">
                 One simple plan.
             <div>Unlimited monthly access to everything your child needs to master code from home.</div>
             </p>
@@ -30,7 +30,7 @@ import { Link } from '@inertiajs/vue3';
                     <div class="relative z-10">
                         <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-4">The
                             All-Access Pass</h2>
-                        <p class="text-slate-500 dark:text-text-secondary mb-8 leading-relaxed">
+                        <p class="text-slate-500 dark:text-gray-300 mb-8 leading-relaxed">
                             Stop paying per course. Get instant access to our entire library of kid-friendly
                             Lua, JavaScript, and HTML lessons, plus live sessions with expert
                             tutors.
@@ -38,7 +38,7 @@ import { Link } from '@inertiajs/vue3';
                         <div class="flex flex-col gap-4">
                             <div class="flex items-center gap-3">
                                 <span
-                                    class="flex items-center justify-center size-6 rounded-full bg-primary/20 text-primary">
+                                    class="flex items-center justify-center size-6 rounded-full bg-gray-200 dark:bg-gray-800 text-primary">
                                     <span class="material-symbols-outlined text-[16px]">videocam</span>
                                 </span>
                                 <span class="text-slate-700 dark:text-gray-200 font-medium">Multiple Live Coding
@@ -46,7 +46,7 @@ import { Link } from '@inertiajs/vue3';
                             </div>
                             <div class="flex items-center gap-3">
                                 <span
-                                    class="flex items-center justify-center size-6 rounded-full bg-primary/20 text-primary">
+                                    class="flex items-center justify-center size-6 rounded-full bg-gray-200 dark:bg-gray-800 text-primary">
                                     <span class="material-symbols-outlined text-[16px]">library_books</span>
                                 </span>
                                 <span class="text-slate-700 dark:text-gray-200 font-medium">Hours of
@@ -54,7 +54,7 @@ import { Link } from '@inertiajs/vue3';
                             </div>
                             <div class="flex items-center gap-3">
                                 <span
-                                    class="flex items-center justify-center size-6 rounded-full bg-primary/20 text-primary">
+                                    class="flex items-center justify-center size-6 rounded-full bg-gray-200 dark:bg-gray-800 text-primary">
                                     <span class="material-symbols-outlined text-[16px]">school</span>
                                 </span>
                                 <span class="text-slate-700 dark:text-gray-200 font-medium">Home-Ed Friendly
@@ -62,7 +62,7 @@ import { Link } from '@inertiajs/vue3';
                             </div>
                             <div class="flex items-center gap-3">
                                 <span
-                                    class="flex items-center justify-center size-6 rounded-full bg-primary/20 text-primary">
+                                    class="flex items-center justify-center size-6 rounded-full bg-gray-200 dark:bg-gray-800 text-primary">
                                     <span class="material-symbols-outlined text-[16px]">groups</span>
                                 </span>
                                 <span class="text-slate-700 dark:text-gray-200 font-medium">Safe Community
@@ -80,24 +80,22 @@ import { Link } from '@inertiajs/vue3';
                             </circle>
                         </svg>
                     </div>
-                    <h3
-                        class="text-slate-500 dark:text-text-secondary text-sm font-semibold uppercase tracking-widest mb-2">
+                    <h3 class="text-slate-500 dark:text-gray-300 text-sm font-semibold uppercase tracking-widest mb-2">
                         Monthly Access</h3>
                     <div class="flex items-baseline justify-center gap-1 mb-2">
                         <span
                             class="text-5xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight">£29</span>
-                        <span class="text-lg text-slate-500 dark:text-text-secondary font-medium">/mo</span>
+                        <span class="text-lg text-slate-500 dark:text-gray-300 font-medium">/mo</span>
                     </div>
                     <p class="text-sm text-accent-green font-medium mb-8 bg-accent-green/10 px-3 py-1 rounded-full">
                         Pay monthly. No lock-in.
                     </p>
                     <Link href="/dashboard"
-                        class="w-full bg-primary hover:bg-blue-600 text-white font-bold text-lg h-14 rounded-full shadow-xl shadow-primary/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group">
+                        class="text-transparent bg-clip-text bg-linear-to-r to-blue-500 from-green-500 w-full font-bold text-lg h-14 rounded-full shadow-xl shadow-primary/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group">
                         Start Learning Now
-                        <span
-                            class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        <span class="material-symbols-outlined ">arrow_forward</span>
                     </Link>
-                    <div class="mt-6 flex flex-col gap-2 text-xs text-slate-400 dark:text-[#6b7c93]">
+                    <div class="mt-6 flex flex-col gap-2 text-xs text-slate-400 dark:text-gray-300">
                         <div class="flex items-center justify-center gap-1">
                             <span class="material-symbols-outlined text-[14px]">lock</span>
                             Secure payment via Stripe
@@ -113,7 +111,7 @@ import { Link } from '@inertiajs/vue3';
         <section class="w-full max-w-4xl mx-auto px-4 py-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
                 <div
-                    class="flex flex-col items-center text-center p-6 rounded-lg border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark hover:border-primary/50 transition-colors">
+                    class="flex flex-col items-center text-center p-6 rounded-lg border border-slate-200 dark:border-border-dark bg-slate-100 dark:bg-[#1a2232] hover:border-primary/50 transition-colors">
                     <div
                         class="size-12 rounded-full bg-slate-100 dark:bg-[#243047] flex items-center justify-center text-slate-900 dark:text-white mb-4">
                         <span class="material-symbols-outlined">calendar_month</span>
@@ -124,7 +122,7 @@ import { Link } from '@inertiajs/vue3';
                     </p>
                 </div>
                 <div
-                    class="flex flex-col items-center text-center p-6 rounded-lg border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark hover:border-primary/50 transition-colors">
+                    class="flex flex-col items-center text-center p-6 rounded-lg border border-slate-200 dark:border-border-dark bg-slate-100 dark:bg-[#1a2232] hover:border-primary/50 transition-colors">
                     <div
                         class="size-12 rounded-full bg-slate-100 dark:bg-[#243047] flex items-center justify-center text-slate-900 dark:text-white mb-4">
                         <span class="material-symbols-outlined">shield</span>
@@ -135,7 +133,7 @@ import { Link } from '@inertiajs/vue3';
                     </p>
                 </div>
                 <div
-                    class="flex flex-col items-center text-center p-6 rounded-lg border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark hover:border-primary/50 transition-colors">
+                    class="flex flex-col items-center text-center p-6 rounded-lg border border-slate-200 dark:border-border-dark bg-slate-100 dark:bg-[#1a2232] hover:border-primary/50 transition-colors">
                     <div
                         class="size-12 rounded-full bg-slate-100 dark:bg-[#243047] flex items-center justify-center text-slate-900 dark:text-white mb-4">
                         <span class="material-symbols-outlined">diversity_1</span>
