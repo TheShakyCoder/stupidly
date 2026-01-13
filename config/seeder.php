@@ -36,55 +36,55 @@ return [
             'preview' => 'https://www.youtube.com/embed/aqz-KE-bpKQ?si=byy4vWLPje2zWu5F',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-05 09:30:00',
+                    'available_at' => '2026-01-26 09:30:00',
                     'title' => 'Lesson 1'
                 ],
                 [
-                    'available_at' => '2026-01-12 09:30:00',
+                    'available_at' => '2026-02-02 09:30:00',
                     'title' => 'Lesson 2'
                 ],
                 [
-                    'available_at' => '2026-01-19 09:30:00',
+                    'available_at' => '2026-02-09 09:30:00',
                     'title' => 'Lesson 3'
                 ],
                 [
-                    'available_at' => '2026-01-26 09:30:00',
+                    'available_at' => '2026-02-16 09:30:00',
                     'title' => 'Lesson 4'
                 ],
                 [
-                    'available_at' => '2026-02-02 09:30:00',
+                    'available_at' => '2026-02-23 09:30:00',
                     'title' => 'Lesson 5'
                 ],
                 [
-                    'available_at' => '2026-02-09 09:30:00',
+                    'available_at' => '2026-03-02 09:30:00',
                     'title' => 'Lesson 6'
                 ],
                 [
-                    'available_at' => '2026-02-16 09:30:00',
+                    'available_at' => '2026-03-09 09:30:00',
                     'title' => 'Lesson 7'
                 ],
                 [
-                    'available_at' => '2026-02-23 09:30:00',
+                    'available_at' => '2026-03-16 09:30:00',
                     'title' => 'Lesson 8'
                 ],
                 [
-                    'available_at' => '2026-03-02 09:30:00',
+                    'available_at' => '2026-03-23 09:30:00',
                     'title' => 'Lesson 9'
                 ],
                 [
-                    'available_at' => '2026-03-09 09:30:00',
+                    'available_at' => '2026-03-30 09:30:00',
                     'title' => 'Lesson 10'
                 ],
                 [
-                    'available_at' => '2026-03-16 09:30:00',
+                    'available_at' => '2026-04-06 09:30:00',
                     'title' => 'Lesson 11'
                 ],
                 [
-                    'available_at' => '2026-03-23 09:30:00',
+                    'available_at' => '2026-04-13 09:30:00',
                     'title' => 'Lesson 12'
                 ],
                 [
-                    'available_at' => '2026-03-30 09:30:00',
+                    'available_at' => '2026-04-20 09:30:00',
                     'title' => 'Lesson 13'
                 ],
             ]
@@ -105,55 +105,55 @@ return [
             'image' => '/images/courses/k8-B8e8PAJ9JRM-unsplash.jpg',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-06 09:30:00',
+                    'available_at' => '2026-01-27 09:30:00',
                     'title' => 'Lesson 1'
                 ],
                 [
-                    'available_at' => '2026-01-13 09:30:00',
+                    'available_at' => '2026-02-03 09:30:00',
                     'title' => 'Lesson 2'
                 ],
                 [
-                    'available_at' => '2026-01-20 09:30:00',
+                    'available_at' => '2026-02-10 09:30:00',
                     'title' => 'Lesson 3'
                 ],
                 [
-                    'available_at' => '2026-01-27 09:30:00',
+                    'available_at' => '2026-02-17 09:30:00',
                     'title' => 'Lesson 4'
                 ],
                 [
-                    'available_at' => '2026-02-03 09:30:00',
+                    'available_at' => '2026-02-24 09:30:00',
                     'title' => 'Lesson 5'
                 ],
                 [
-                    'available_at' => '2026-02-10 09:30:00',
+                    'available_at' => '2026-03-03 09:30:00',
                     'title' => 'Lesson 6'
                 ],
                 [
-                    'available_at' => '2026-02-17 09:30:00',
+                    'available_at' => '2026-03-10 09:30:00',
                     'title' => 'Lesson 7'
                 ],
                 [
-                    'available_at' => '2026-02-24 09:30:00',
+                    'available_at' => '2026-03-17 09:30:00',
                     'title' => 'Lesson 8'
                 ],
                 [
-                    'available_at' => '2026-03-03 09:30:00',
+                    'available_at' => '2026-03-24 09:30:00',
                     'title' => 'Lesson 9'
                 ],
                 [
-                    'available_at' => '2026-03-10 09:30:00',
+                    'available_at' => '2026-03-31 09:30:00',
                     'title' => 'Lesson 10'
                 ],
                 [
-                    'available_at' => '2026-03-17 09:30:00',
+                    'available_at' => '2026-04-07 09:30:00',
                     'title' => 'Lesson 11'
                 ],
                 [
-                    'available_at' => '2026-03-24 09:30:00',
+                    'available_at' => '2026-04-14 09:30:00',
                     'title' => 'Lesson 12'
                 ],
                 [
-                    'available_at' => '2026-03-31 09:30:00',
+                    'available_at' => '2026-04-21 09:30:00',
                     'title' => 'Lesson 13'
                 ],
             ]
@@ -175,55 +175,55 @@ return [
             'image' => '/images/courses/SpaceshipFormation.gif',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-05 11:00:00',
+                    'available_at' => '2026-01-26 11:00:00',
                     'title' => 'Lesson 1'
                 ],
                 [
-                    'available_at' => '2026-01-12 11:00:00',
+                    'available_at' => '2026-02-02 11:00:00',
                     'title' => 'Lesson 2'
                 ],
                 [
-                    'available_at' => '2026-01-19 11:00:00',
+                    'available_at' => '2026-02-09 11:00:00',
                     'title' => 'Lesson 3'
                 ],
                 [
-                    'available_at' => '2026-01-26 11:00:00',
+                    'available_at' => '2026-02-16 11:00:00',
                     'title' => 'Lesson 4'
                 ],
                 [
-                    'available_at' => '2026-02-02 11:00:00',
+                    'available_at' => '2026-02-23 11:00:00',
                     'title' => 'Lesson 5'
                 ],
                 [
-                    'available_at' => '2026-02-09 11:00:00',
+                    'available_at' => '2026-03-02 11:00:00',
                     'title' => 'Lesson 6'
                 ],
                 [
-                    'available_at' => '2026-02-16 11:00:00',
+                    'available_at' => '2026-03-09 11:00:00',
                     'title' => 'Lesson 7'
                 ],
                 [
-                    'available_at' => '2026-02-23 11:00:00',
+                    'available_at' => '2026-03-16 11:00:00',
                     'title' => 'Lesson 8'
                 ],
                 [
-                    'available_at' => '2026-03-02 11:00:00',
+                    'available_at' => '2026-03-23 11:00:00',
                     'title' => 'Lesson 9'
                 ],
                 [
-                    'available_at' => '2026-03-09 11:00:00',
+                    'available_at' => '2026-03-30 11:00:00',
                     'title' => 'Lesson 10'
                 ],
                 [
-                    'available_at' => '2026-03-16 11:00:00',
+                    'available_at' => '2026-04-06 11:00:00',
                     'title' => 'Lesson 11'
                 ],
                 [
-                    'available_at' => '2026-03-23 11:00:00',
+                    'available_at' => '2026-04-13 11:00:00',
                     'title' => 'Lesson 12'
                 ],
                 [
-                    'available_at' => '2026-03-30 11:00:00',
+                    'available_at' => '2026-04-20 11:00:00',
                     'title' => 'Lesson 13'
                 ],
             ]
@@ -244,55 +244,55 @@ return [
             'image' => '/images/courses/tom-m-UWh8vs4ZMMM-unsplash.jpg',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-06 11:00:00',
+                    'available_at' => '2026-01-27 11:00:00',
                     'title' => 'Lesson 1'
                 ],
                 [
-                    'available_at' => '2026-01-13 11:00:00',
+                    'available_at' => '2026-02-03 11:00:00',
                     'title' => 'Lesson 2'
                 ],
                 [
-                    'available_at' => '2026-01-20 11:00:00',
+                    'available_at' => '2026-02-10 11:00:00',
                     'title' => 'Lesson 3'
                 ],
                 [
-                    'available_at' => '2026-01-27 11:00:00',
+                    'available_at' => '2026-02-17 11:00:00',
                     'title' => 'Lesson 4'
                 ],
                 [
-                    'available_at' => '2026-02-03 11:00:00',
+                    'available_at' => '2026-02-24 11:00:00',
                     'title' => 'Lesson 5'
                 ],
                 [
-                    'available_at' => '2026-02-10 11:00:00',
+                    'available_at' => '2026-03-03 11:00:00',
                     'title' => 'Lesson 6'
                 ],
                 [
-                    'available_at' => '2026-02-17 11:00:00',
+                    'available_at' => '2026-03-10 11:00:00',
                     'title' => 'Lesson 7'
                 ],
                 [
-                    'available_at' => '2026-02-24 11:00:00',
+                    'available_at' => '2026-03-17 11:00:00',
                     'title' => 'Lesson 8'
                 ],
                 [
-                    'available_at' => '2026-03-03 11:00:00',
+                    'available_at' => '2026-03-24 11:00:00',
                     'title' => 'Lesson 9'
                 ],
                 [
-                    'available_at' => '2026-03-10 11:00:00',
+                    'available_at' => '2026-03-31 11:00:00',
                     'title' => 'Lesson 10'
                 ],
                 [
-                    'available_at' => '2026-03-17 11:00:00',
+                    'available_at' => '2026-04-07 11:00:00',
                     'title' => 'Lesson 11'
                 ],
                 [
-                    'available_at' => '2026-03-24 11:00:00',
+                    'available_at' => '2026-04-14 11:00:00',
                     'title' => 'Lesson 12'
                 ],
                 [
-                    'available_at' => '2026-03-31 11:00:00',
+                    'available_at' => '2026-04-21 11:00:00',
                     'title' => 'Lesson 13'
                 ],
             ]
@@ -344,55 +344,55 @@ return [
             'image' => '/images/courses/cffc6424ce-vue.png',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-05 14:00:00',
+                    'available_at' => '2026-01-26 14:00:00',
                     'title' => 'Lesson 1'
                 ],
                 [
-                    'available_at' => '2026-01-12 14:00:00',
+                    'available_at' => '2026-02-02 14:00:00',
                     'title' => 'Lesson 2'
                 ],
                 [
-                    'available_at' => '2026-01-19 14:00:00',
+                    'available_at' => '2026-02-09 14:00:00',
                     'title' => 'Lesson 3'
                 ],
                 [
-                    'available_at' => '2026-01-26 14:00:00',
+                    'available_at' => '2026-02-16 14:00:00',
                     'title' => 'Lesson 4'
                 ],
                 [
-                    'available_at' => '2026-02-02 14:00:00',
+                    'available_at' => '2026-02-23 14:00:00',
                     'title' => 'Lesson 5'
                 ],
                 [
-                    'available_at' => '2026-02-09 14:00:00',
+                    'available_at' => '2026-03-02 14:00:00',
                     'title' => 'Lesson 6'
                 ],
                 [
-                    'available_at' => '2026-02-16 14:00:00',
+                    'available_at' => '2026-03-09 14:00:00',
                     'title' => 'Lesson 7'
                 ],
                 [
-                    'available_at' => '2026-02-23 14:00:00',
+                    'available_at' => '2026-03-16 14:00:00',
                     'title' => 'Lesson 8'
                 ],
                 [
-                    'available_at' => '2026-03-02 14:00:00',
+                    'available_at' => '2026-03-23 14:00:00',
                     'title' => 'Lesson 9'
                 ],
                 [
-                    'available_at' => '2026-03-09 14:00:00',
+                    'available_at' => '2026-03-30 14:00:00',
                     'title' => 'Lesson 10'
                 ],
                 [
-                    'available_at' => '2026-03-16 14:00:00',
+                    'available_at' => '2026-04-06 14:00:00',
                     'title' => 'Lesson 11'
                 ],
                 [
-                    'available_at' => '2026-03-23 14:00:00',
+                    'available_at' => '2026-04-13 14:00:00',
                     'title' => 'Lesson 12'
                 ],
                 [
-                    'available_at' => '2026-03-30 14:00:00',
+                    'available_at' => '2026-04-20 14:00:00',
                     'title' => 'Lesson 13'
                 ],
             ]
@@ -459,55 +459,55 @@ return [
             'image' => '/images/courses/paul-pastourmatzis-5FGsEWRn2NQ-unsplash.jpg',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-05 15:30:00',
+                    'available_at' => '2026-01-26 15:30:00',
                     'title' => 'Lesson 1'
                 ],
                 [
-                    'available_at' => '2026-01-12 15:30:00',
+                    'available_at' => '2026-02-02 15:30:00',
                     'title' => 'Lesson 2'
                 ],
                 [
-                    'available_at' => '2026-01-19 15:30:00',
+                    'available_at' => '2026-02-09 15:30:00',
                     'title' => 'Lesson 3'
                 ],
                 [
-                    'available_at' => '2026-01-26 15:30:00',
+                    'available_at' => '2026-02-16 15:30:00',
                     'title' => 'Lesson 4'
                 ],
                 [
-                    'available_at' => '2026-02-02 15:30:00',
+                    'available_at' => '2026-02-23 15:30:00',
                     'title' => 'Lesson 5'
                 ],
                 [
-                    'available_at' => '2026-02-09 15:30:00',
+                    'available_at' => '2026-03-02 15:30:00',
                     'title' => 'Lesson 6'
                 ],
                 [
-                    'available_at' => '2026-02-16 15:30:00',
+                    'available_at' => '2026-03-09 15:30:00',
                     'title' => 'Lesson 7'
                 ],
                 [
-                    'available_at' => '2026-02-23 15:30:00',
+                    'available_at' => '2026-03-16 15:30:00',
                     'title' => 'Lesson 8'
                 ],
                 [
-                    'available_at' => '2026-03-02 15:30:00',
+                    'available_at' => '2026-03-23 15:30:00',
                     'title' => 'Lesson 9'
                 ],
                 [
-                    'available_at' => '2026-03-09 15:30:00',
+                    'available_at' => '2026-03-30 15:30:00',
                     'title' => 'Lesson 10'
                 ],
                 [
-                    'available_at' => '2026-03-16 15:30:00',
+                    'available_at' => '2026-04-06 15:30:00',
                     'title' => 'Lesson 11'
                 ],
                 [
-                    'available_at' => '2026-03-23 15:30:00',
+                    'available_at' => '2026-04-13 15:30:00',
                     'title' => 'Lesson 12'
                 ],
                 [
-                    'available_at' => '2026-03-30 15:30:00',
+                    'available_at' => '2026-04-20 15:30:00',
                     'title' => 'Lesson 13'
                 ],
             ]
@@ -516,13 +516,52 @@ return [
 
     'months' => [
         [
-            'started_at' => '2026-01-01'
+            'started_at' => '2026-01-01',
+            'fee' => 100
         ],
         [
-            'started_at' => '2026-02-01'
+            'started_at' => '2026-02-01',
+            'fee' => 2900
         ],
         [
-            'started_at' => '2026-03-01'
+            'started_at' => '2026-03-01',
+            'fee' => 2900
+        ],
+        [
+            'started_at' => '2026-04-01',
+            'fee' => 2900
+        ],
+        [
+            'started_at' => '2026-05-01',
+            'fee' => 2900
+        ],
+        [
+            'started_at' => '2026-06-01',
+            'fee' => 2900
+        ],
+        [
+            'started_at' => '2026-07-01',
+            'fee' => 900
+        ],
+        [
+            'started_at' => '2026-08-01',
+            'fee' => 900
+        ],
+        [
+            'started_at' => '2026-09-01',
+            'fee' => 2900
+        ],
+        [
+            'started_at' => '2026-10-01',
+            'fee' => 2900
+        ],
+        [
+            'started_at' => '2026-11-01',
+            'fee' => 2900
+        ],
+        [
+            'started_at' => '2026-12-01',
+            'fee' => 900
         ],
     ]
 

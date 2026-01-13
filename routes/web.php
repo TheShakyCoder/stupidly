@@ -74,11 +74,11 @@ Route::middleware([
     })->name('dashboard');
 
     Route::post('/basket', function (Request $request) {
-
+        $month = Month::where('id', $request->month_id)->first();
         Payment::create([
             'user_id' => $request->user()->id,
             'month_id' => $request->month_id,
-            'amount' => config('stripe.fee')
+            'amount' => $month->fee
         ]);
 
         // $months = session('months', []);
