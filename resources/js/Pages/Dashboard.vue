@@ -29,9 +29,11 @@ const removePayment = (id) => {
 <template>
     <AppLayout title="Dashboard">
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                Dashboard
-            </h2>
+            <div class="flex justify-between items-center">
+                <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                    Dashboard
+                </h2>
+            </div>
         </template>
 
         <div class="py-12 bg-background-light dark:bg-background-dark min-h-screen transition-colors duration-300">
@@ -243,6 +245,13 @@ const removePayment = (id) => {
                                 <span class="material-symbols-outlined text-sm">mail</span>
                             </Link>
                         </div>
+
+                        <button @click="router.post('/logout')"
+                            class="flex w-full justify-center bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-600 font-bold py-2 px-4 rounded-xl text-xl transition-colors flex items-center gap-2">
+                            <span class="material-symbols-outlined text-lg">logout</span>
+                            Log Out
+                        </button>
+
                     </div>
 
                 </div>

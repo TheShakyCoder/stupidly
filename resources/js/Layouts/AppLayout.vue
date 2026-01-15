@@ -49,7 +49,7 @@ const user = computed(() => page.props.auth.user);
                                 <span class="truncate">Login</span>
                             </Link>
                             <Link href="/register" v-if="!user"
-                                class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-linear-to-r from-secondary to-primary hover:from-green-400 hover:to-blue-400 text-white text-sm font-bold leading-normal shadow-[0_4px_14px_0_rgba(59,130,246,0.39)] transition-all">
+                                class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-linear-to-r from-green-600 to-blue-500 hover:from-green-500 hover:to-blue-400 text-white text-sm font-bold leading-normal shadow-[0_4px_14px_0_rgba(59,130,246,0.39)] transition-all">
                                 <span class="truncate">Register</span>
                             </Link>
                         </div>
