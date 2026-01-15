@@ -183,13 +183,13 @@ const submit = () => {
                             <div
                                 class="absolute -right-4 -bottom-4 size-32 bg-white/10 rounded-full blur-3xl group-hover:scale-150 transition-transform">
                             </div>
-                            <h3 class="text-xl font-black mb-2 relative z-10">Quick Answers</h3>
+                            <h3 class="text-xl font-black mb-2 relative z-10">Looking for Answers?</h3>
                             <p class="text-white/80 text-sm mb-6 relative z-10 font-medium leading-relaxed">
-                                Most questions about billing, lessons, and schedules can be found in our member dash.
+                                Most questions about billing, lessons, and schedules can be found in the Parent Guide.
                             </p>
-                            <Link href="/pricing"
+                            <Link href="/parent-guide"
                                 class="inline-flex items-center gap-2 bg-white dark:bg-blue-950 text-primary dark:text-white px-6 py-3 rounded-xl font-black text-sm hover:bg-gray-100 dark:hover:bg-blue-900 transition-colors shadow-lg relative z-10">
-                                Pricing & Access
+                                Parent Guide
                                 <span class="material-symbols-outlined text-sm">arrow_forward</span>
                             </Link>
                         </div>
