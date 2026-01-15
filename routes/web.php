@@ -26,6 +26,10 @@ use App\Http\Controllers\ContactController;
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
+Route::get('/parent-guide', function () {
+    return Inertia::render('ParentGuide');
+})->name('parent-guide');
+
 Route::get('/privacy', function () {
     return Inertia::render('PrivacyPolicy', [
         'privacy' => File::get(resource_path('markdown/privacy.md'))

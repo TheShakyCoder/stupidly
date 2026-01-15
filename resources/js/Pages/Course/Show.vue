@@ -53,7 +53,7 @@ const playPreviewVideo = () => {
                                 <span class="material-symbols-outlined text-lg fill-1">star</span>
                                 <span class="text-slate-900 dark:text-white font-bold text-sm">{{ ratings }}</span>
                                 <span class="text-slate-500 dark:text-slate-400 font-normal text-sm ml-1">({{ students
-                                }}
+                                    }}
                                     students)</span>
                             </div>
                             <div class="h-4 w-px bg-slate-300 dark:bg-slate-700 hidden sm:block"></div>
@@ -244,7 +244,7 @@ const playPreviewVideo = () => {
                 <p>© 2024 Stupidly Smart. Learning made fun.</p>
                 <div class="flex gap-6">
                     <a class="hover:text-primary transition-colors" href="#">Curriculum</a>
-                    <a class="hover:text-primary transition-colors" href="#">Parent Guide</a>
+                    <Link class="hover:text-primary transition-colors" href="/parent-guide">Parent Guide</Link>
                     <a class="hover:text-primary transition-colors" href="#">Support</a>
                 </div>
             </div>

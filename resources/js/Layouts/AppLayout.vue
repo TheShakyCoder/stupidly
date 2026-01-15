@@ -82,7 +82,7 @@ const user = computed(() => page.props.auth.user);
                         href="/terms">Terms of Use</Link>
                     <Link
                         class="text-slate-500 dark:text-text-secondary hover:text-primary transition-colors text-sm font-medium"
-                        href="/parents">Parent Guide</Link>
+                        href="/parent-guide">Parent Guide</Link>
                     <Link
                         class="text-slate-500 dark:text-text-secondary hover:text-primary transition-colors text-sm font-medium"
                         href="/contact">Contact Support</Link>
