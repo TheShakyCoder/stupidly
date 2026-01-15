@@ -11,6 +11,6 @@ class Bullet extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
     ];
 }

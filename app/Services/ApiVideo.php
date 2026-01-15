@@ -19,7 +19,7 @@ class ApiVideo
         return new Client(
             $apiUrl,
             $apiKey,
-            new \Symfony\Component\HttpClient\Psr18Client()
+            new \Symfony\Component\HttpClient\Psr18Client
         );
     }
 

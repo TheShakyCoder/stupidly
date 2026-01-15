@@ -1,6 +1,5 @@
 <script setup>
-import { Link, Form } from '@inertiajs/vue3';
-import dayjs from 'dayjs';
+import { Link, Head } from '@inertiajs/vue3';
 import { ref, computed } from 'vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import PaymentListItems from '@/Components/PaymentListItems.vue';
@@ -36,6 +35,11 @@ const startCheckout = async () => {
 </script>
 
 <template>
+
+    <Head>
+        <title>Basket</title>
+        <meta name="description" content="Basket">
+    </Head>
     <AppLayout>
 
         <div

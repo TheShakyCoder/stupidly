@@ -23,7 +23,7 @@ class LessonFactory extends Factory
             'month_id' => Month::factory(),
             'available_at' => $this->faker->dateTimeBetween('-1 month', '+1 month'),
             'title' => $this->faker->title,
-            'path' => $this->faker->url
+            'path' => $this->faker->url,
         ];
     }
 }

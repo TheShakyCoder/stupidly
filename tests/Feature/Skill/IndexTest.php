@@ -1,8 +1,8 @@
 <?php
 
+use App\Models\Course;
 use App\Models\Cover;
 use App\Models\Skill;
-use App\Models\Course;
 use Inertia\Testing\AssertableInertia;
 
 test('anyone can view the list of courses grouped by skill', function () {
@@ -25,9 +25,9 @@ test('anyone can view the list of courses grouped by skill', function () {
     $response = $this->get('/skills');
 
     $response->assertStatus(200)
-        ->assertInertia(fn(AssertableInertia $ai) => $ai
+        ->assertInertia(fn (AssertableInertia $ai) => $ai
             ->component('Skill/Index')
-            ->has('skills', 5, fn(AssertableInertia $ai) => $ai
+            ->has('skills', 5, fn (AssertableInertia $ai) => $ai
                 ->has('name')
                 ->has('courses')
                 ->etc()

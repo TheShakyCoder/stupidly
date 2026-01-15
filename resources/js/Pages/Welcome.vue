@@ -13,8 +13,6 @@ defineProps({
 
 <template>
 
-    <Head title="Welcome to StupidlySmart" description="Coding skills for home-educated children" />
-
     <Head>
         <title>Welcome to StupidlySmart</title>
         <meta name="description" content="Coding skills for home-educated children">

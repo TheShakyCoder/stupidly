@@ -1,7 +1,5 @@
 <?php
 
-use Carbon\Carbon;
-
 return [
 
     'users' => [
@@ -9,12 +7,12 @@ return [
             'name' => 'Sharif Khan',
             'email' => 'sharif.khan@stupidly.uk',
             'tutor' => true,
-            'title' => 'Web Developer'
+            'title' => 'Web Developer',
         ],
         [
             'name' => 'Test User',
             'email' => 'test@example.com',
-            'tutor' => false
+            'tutor' => false,
         ],
     ],
 
@@ -27,7 +25,7 @@ return [
                 'what a constant is, and what a variable is',
                 'the basics of computer logic',
                 'what a loop is and when to use it',
-                'what a condition is and the different ways to code it'
+                'what a condition is and the different ways to code it',
             ],
             'level' => 'Beginner',
             'tutor' => 'Sharif Khan',
@@ -37,57 +35,57 @@ return [
             'lessons' => [
                 [
                     'available_at' => '2026-01-26 09:30:00',
-                    'title' => 'Lesson 1'
+                    'title' => 'Lesson 1',
                 ],
                 [
                     'available_at' => '2026-02-02 09:30:00',
-                    'title' => 'Lesson 2'
+                    'title' => 'Lesson 2',
                 ],
                 [
                     'available_at' => '2026-02-09 09:30:00',
-                    'title' => 'Lesson 3'
+                    'title' => 'Lesson 3',
                 ],
                 [
                     'available_at' => '2026-02-16 09:30:00',
-                    'title' => 'Lesson 4'
+                    'title' => 'Lesson 4',
                 ],
                 [
                     'available_at' => '2026-02-23 09:30:00',
-                    'title' => 'Lesson 5'
+                    'title' => 'Lesson 5',
                 ],
                 [
                     'available_at' => '2026-03-02 09:30:00',
-                    'title' => 'Lesson 6'
+                    'title' => 'Lesson 6',
                 ],
                 [
                     'available_at' => '2026-03-09 09:30:00',
-                    'title' => 'Lesson 7'
+                    'title' => 'Lesson 7',
                 ],
                 [
                     'available_at' => '2026-03-16 09:30:00',
-                    'title' => 'Lesson 8'
+                    'title' => 'Lesson 8',
                 ],
                 [
                     'available_at' => '2026-03-23 09:30:00',
-                    'title' => 'Lesson 9'
+                    'title' => 'Lesson 9',
                 ],
                 [
                     'available_at' => '2026-03-30 09:30:00',
-                    'title' => 'Lesson 10'
+                    'title' => 'Lesson 10',
                 ],
                 [
                     'available_at' => '2026-04-06 09:30:00',
-                    'title' => 'Lesson 11'
+                    'title' => 'Lesson 11',
                 ],
                 [
                     'available_at' => '2026-04-13 09:30:00',
-                    'title' => 'Lesson 12'
+                    'title' => 'Lesson 12',
                 ],
                 [
                     'available_at' => '2026-04-20 09:30:00',
-                    'title' => 'Lesson 13'
+                    'title' => 'Lesson 13',
                 ],
-            ]
+            ],
         ],
         'fun-with-flags' => [
             'title' => 'Fun With Flags',
@@ -97,7 +95,7 @@ return [
                 'the basics of computer logic',
                 'what a constant is, and what a variable is',
                 'what a loop is and when to use it',
-                'how to manage state to keep track of the application'
+                'how to manage state to keep track of the application',
             ],
             'level' => 'Beginner',
             'tutor' => 'Sharif Khan',
@@ -106,57 +104,57 @@ return [
             'lessons' => [
                 [
                     'available_at' => '2026-01-27 09:30:00',
-                    'title' => 'Lesson 1'
+                    'title' => 'Lesson 1',
                 ],
                 [
                     'available_at' => '2026-02-03 09:30:00',
-                    'title' => 'Lesson 2'
+                    'title' => 'Lesson 2',
                 ],
                 [
                     'available_at' => '2026-02-10 09:30:00',
-                    'title' => 'Lesson 3'
+                    'title' => 'Lesson 3',
                 ],
                 [
                     'available_at' => '2026-02-17 09:30:00',
-                    'title' => 'Lesson 4'
+                    'title' => 'Lesson 4',
                 ],
                 [
                     'available_at' => '2026-02-24 09:30:00',
-                    'title' => 'Lesson 5'
+                    'title' => 'Lesson 5',
                 ],
                 [
                     'available_at' => '2026-03-03 09:30:00',
-                    'title' => 'Lesson 6'
+                    'title' => 'Lesson 6',
                 ],
                 [
                     'available_at' => '2026-03-10 09:30:00',
-                    'title' => 'Lesson 7'
+                    'title' => 'Lesson 7',
                 ],
                 [
                     'available_at' => '2026-03-17 09:30:00',
-                    'title' => 'Lesson 8'
+                    'title' => 'Lesson 8',
                 ],
                 [
                     'available_at' => '2026-03-24 09:30:00',
-                    'title' => 'Lesson 9'
+                    'title' => 'Lesson 9',
                 ],
                 [
                     'available_at' => '2026-03-31 09:30:00',
-                    'title' => 'Lesson 10'
+                    'title' => 'Lesson 10',
                 ],
                 [
                     'available_at' => '2026-04-07 09:30:00',
-                    'title' => 'Lesson 11'
+                    'title' => 'Lesson 11',
                 ],
                 [
                     'available_at' => '2026-04-14 09:30:00',
-                    'title' => 'Lesson 12'
+                    'title' => 'Lesson 12',
                 ],
                 [
                     'available_at' => '2026-04-21 09:30:00',
-                    'title' => 'Lesson 13'
+                    'title' => 'Lesson 13',
                 ],
-            ]
+            ],
         ],
 
         'game-of-life' => [
@@ -167,7 +165,7 @@ return [
                 'how to simulate cellular automata',
                 'rendering with P5.js',
                 'managing state with VueJS',
-                'implementing algorithmic logic'
+                'implementing algorithmic logic',
             ],
             'level' => 'Intermediate',
             'tutor' => 'Sharif Khan',
@@ -176,57 +174,57 @@ return [
             'lessons' => [
                 [
                     'available_at' => '2026-01-26 11:00:00',
-                    'title' => 'Lesson 1'
+                    'title' => 'Lesson 1',
                 ],
                 [
                     'available_at' => '2026-02-02 11:00:00',
-                    'title' => 'Lesson 2'
+                    'title' => 'Lesson 2',
                 ],
                 [
                     'available_at' => '2026-02-09 11:00:00',
-                    'title' => 'Lesson 3'
+                    'title' => 'Lesson 3',
                 ],
                 [
                     'available_at' => '2026-02-16 11:00:00',
-                    'title' => 'Lesson 4'
+                    'title' => 'Lesson 4',
                 ],
                 [
                     'available_at' => '2026-02-23 11:00:00',
-                    'title' => 'Lesson 5'
+                    'title' => 'Lesson 5',
                 ],
                 [
                     'available_at' => '2026-03-02 11:00:00',
-                    'title' => 'Lesson 6'
+                    'title' => 'Lesson 6',
                 ],
                 [
                     'available_at' => '2026-03-09 11:00:00',
-                    'title' => 'Lesson 7'
+                    'title' => 'Lesson 7',
                 ],
                 [
                     'available_at' => '2026-03-16 11:00:00',
-                    'title' => 'Lesson 8'
+                    'title' => 'Lesson 8',
                 ],
                 [
                     'available_at' => '2026-03-23 11:00:00',
-                    'title' => 'Lesson 9'
+                    'title' => 'Lesson 9',
                 ],
                 [
                     'available_at' => '2026-03-30 11:00:00',
-                    'title' => 'Lesson 10'
+                    'title' => 'Lesson 10',
                 ],
                 [
                     'available_at' => '2026-04-06 11:00:00',
-                    'title' => 'Lesson 11'
+                    'title' => 'Lesson 11',
                 ],
                 [
                     'available_at' => '2026-04-13 11:00:00',
-                    'title' => 'Lesson 12'
+                    'title' => 'Lesson 12',
                 ],
                 [
                     'available_at' => '2026-04-20 11:00:00',
-                    'title' => 'Lesson 13'
+                    'title' => 'Lesson 13',
                 ],
-            ]
+            ],
         ],
         'black-jack' => [
             'title' => 'Black Jack Game',
@@ -236,7 +234,7 @@ return [
                 'card game logic and rules',
                 'handling dealer logic',
                 'managing betting systems',
-                'complex state management'
+                'complex state management',
             ],
             'level' => 'Intermediate',
             'tutor' => 'Sharif Khan',
@@ -245,57 +243,57 @@ return [
             'lessons' => [
                 [
                     'available_at' => '2026-01-27 11:00:00',
-                    'title' => 'Lesson 1'
+                    'title' => 'Lesson 1',
                 ],
                 [
                     'available_at' => '2026-02-03 11:00:00',
-                    'title' => 'Lesson 2'
+                    'title' => 'Lesson 2',
                 ],
                 [
                     'available_at' => '2026-02-10 11:00:00',
-                    'title' => 'Lesson 3'
+                    'title' => 'Lesson 3',
                 ],
                 [
                     'available_at' => '2026-02-17 11:00:00',
-                    'title' => 'Lesson 4'
+                    'title' => 'Lesson 4',
                 ],
                 [
                     'available_at' => '2026-02-24 11:00:00',
-                    'title' => 'Lesson 5'
+                    'title' => 'Lesson 5',
                 ],
                 [
                     'available_at' => '2026-03-03 11:00:00',
-                    'title' => 'Lesson 6'
+                    'title' => 'Lesson 6',
                 ],
                 [
                     'available_at' => '2026-03-10 11:00:00',
-                    'title' => 'Lesson 7'
+                    'title' => 'Lesson 7',
                 ],
                 [
                     'available_at' => '2026-03-17 11:00:00',
-                    'title' => 'Lesson 8'
+                    'title' => 'Lesson 8',
                 ],
                 [
                     'available_at' => '2026-03-24 11:00:00',
-                    'title' => 'Lesson 9'
+                    'title' => 'Lesson 9',
                 ],
                 [
                     'available_at' => '2026-03-31 11:00:00',
-                    'title' => 'Lesson 10'
+                    'title' => 'Lesson 10',
                 ],
                 [
                     'available_at' => '2026-04-07 11:00:00',
-                    'title' => 'Lesson 11'
+                    'title' => 'Lesson 11',
                 ],
                 [
                     'available_at' => '2026-04-14 11:00:00',
-                    'title' => 'Lesson 12'
+                    'title' => 'Lesson 12',
                 ],
                 [
                     'available_at' => '2026-04-21 11:00:00',
-                    'title' => 'Lesson 13'
+                    'title' => 'Lesson 13',
                 ],
-            ]
+            ],
         ],
 
         'convoy' => [
@@ -305,7 +303,7 @@ return [
             'bullets' => [
                 'real-time location tracking',
                 'integrating maps and geolocation',
-                'building APIs with Laravel'
+                'building APIs with Laravel',
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
@@ -321,7 +319,7 @@ return [
                 'Lua scripting basics',
                 'game server architecture',
                 'real-time multiplayer networking',
-                'WebSocket integration'
+                'WebSocket integration',
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
@@ -336,7 +334,7 @@ return [
                 'multiplayer game synchronization',
                 'advanced canvas rendering',
                 'real-time data exchange',
-                'optimizing performance'
+                'optimizing performance',
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
@@ -345,57 +343,57 @@ return [
             'lessons' => [
                 [
                     'available_at' => '2026-01-26 14:00:00',
-                    'title' => 'Lesson 1'
+                    'title' => 'Lesson 1',
                 ],
                 [
                     'available_at' => '2026-02-02 14:00:00',
-                    'title' => 'Lesson 2'
+                    'title' => 'Lesson 2',
                 ],
                 [
                     'available_at' => '2026-02-09 14:00:00',
-                    'title' => 'Lesson 3'
+                    'title' => 'Lesson 3',
                 ],
                 [
                     'available_at' => '2026-02-16 14:00:00',
-                    'title' => 'Lesson 4'
+                    'title' => 'Lesson 4',
                 ],
                 [
                     'available_at' => '2026-02-23 14:00:00',
-                    'title' => 'Lesson 5'
+                    'title' => 'Lesson 5',
                 ],
                 [
                     'available_at' => '2026-03-02 14:00:00',
-                    'title' => 'Lesson 6'
+                    'title' => 'Lesson 6',
                 ],
                 [
                     'available_at' => '2026-03-09 14:00:00',
-                    'title' => 'Lesson 7'
+                    'title' => 'Lesson 7',
                 ],
                 [
                     'available_at' => '2026-03-16 14:00:00',
-                    'title' => 'Lesson 8'
+                    'title' => 'Lesson 8',
                 ],
                 [
                     'available_at' => '2026-03-23 14:00:00',
-                    'title' => 'Lesson 9'
+                    'title' => 'Lesson 9',
                 ],
                 [
                     'available_at' => '2026-03-30 14:00:00',
-                    'title' => 'Lesson 10'
+                    'title' => 'Lesson 10',
                 ],
                 [
                     'available_at' => '2026-04-06 14:00:00',
-                    'title' => 'Lesson 11'
+                    'title' => 'Lesson 11',
                 ],
                 [
                     'available_at' => '2026-04-13 14:00:00',
-                    'title' => 'Lesson 12'
+                    'title' => 'Lesson 12',
                 ],
                 [
                     'available_at' => '2026-04-20 14:00:00',
-                    'title' => 'Lesson 13'
+                    'title' => 'Lesson 13',
                 ],
-            ]
+            ],
         ],
         'super-bomberman' => [
             'title' => 'Super Bomberman Game',
@@ -405,7 +403,7 @@ return [
                 'game physics and collision detection',
                 'handling power-up systems',
                 'multiplayer game mechanics',
-                'Lua programming for games'
+                'Lua programming for games',
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
@@ -420,7 +418,7 @@ return [
                 'poker game rules and logic',
                 'hand evaluation algorithms',
                 'betting and pot management',
-                'real-time player synchronization'
+                'real-time player synchronization',
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
@@ -435,7 +433,7 @@ return [
                 'real-time data transfer with WebSockets',
                 'user authentication flows',
                 'persisting messages to database',
-                'modern chat UI design'
+                'modern chat UI design',
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
@@ -451,7 +449,7 @@ return [
                 '3D graphics with Babylon.js',
                 'physics simulation in 3D',
                 'managing 3D camera controls',
-                'building immersive environments'
+                'building immersive environments',
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
@@ -460,109 +458,109 @@ return [
             'lessons' => [
                 [
                     'available_at' => '2026-01-26 15:30:00',
-                    'title' => 'Lesson 1'
+                    'title' => 'Lesson 1',
                 ],
                 [
                     'available_at' => '2026-02-02 15:30:00',
-                    'title' => 'Lesson 2'
+                    'title' => 'Lesson 2',
                 ],
                 [
                     'available_at' => '2026-02-09 15:30:00',
-                    'title' => 'Lesson 3'
+                    'title' => 'Lesson 3',
                 ],
                 [
                     'available_at' => '2026-02-16 15:30:00',
-                    'title' => 'Lesson 4'
+                    'title' => 'Lesson 4',
                 ],
                 [
                     'available_at' => '2026-02-23 15:30:00',
-                    'title' => 'Lesson 5'
+                    'title' => 'Lesson 5',
                 ],
                 [
                     'available_at' => '2026-03-02 15:30:00',
-                    'title' => 'Lesson 6'
+                    'title' => 'Lesson 6',
                 ],
                 [
                     'available_at' => '2026-03-09 15:30:00',
-                    'title' => 'Lesson 7'
+                    'title' => 'Lesson 7',
                 ],
                 [
                     'available_at' => '2026-03-16 15:30:00',
-                    'title' => 'Lesson 8'
+                    'title' => 'Lesson 8',
                 ],
                 [
                     'available_at' => '2026-03-23 15:30:00',
-                    'title' => 'Lesson 9'
+                    'title' => 'Lesson 9',
                 ],
                 [
                     'available_at' => '2026-03-30 15:30:00',
-                    'title' => 'Lesson 10'
+                    'title' => 'Lesson 10',
                 ],
                 [
                     'available_at' => '2026-04-06 15:30:00',
-                    'title' => 'Lesson 11'
+                    'title' => 'Lesson 11',
                 ],
                 [
                     'available_at' => '2026-04-13 15:30:00',
-                    'title' => 'Lesson 12'
+                    'title' => 'Lesson 12',
                 ],
                 [
                     'available_at' => '2026-04-20 15:30:00',
-                    'title' => 'Lesson 13'
+                    'title' => 'Lesson 13',
                 ],
-            ]
-        ]
+            ],
+        ],
     ],
 
     'months' => [
         [
             'started_at' => '2026-01-01',
-            'fee' => 100
+            'fee' => 100,
         ],
         [
             'started_at' => '2026-02-01',
-            'fee' => 2900
+            'fee' => 2900,
         ],
         [
             'started_at' => '2026-03-01',
-            'fee' => 2900
+            'fee' => 2900,
         ],
         [
             'started_at' => '2026-04-01',
-            'fee' => 2900
+            'fee' => 2900,
         ],
         [
             'started_at' => '2026-05-01',
-            'fee' => 2900
+            'fee' => 2900,
         ],
         [
             'started_at' => '2026-06-01',
-            'fee' => 2900
+            'fee' => 2900,
         ],
         [
             'started_at' => '2026-07-01',
-            'fee' => 900
+            'fee' => 900,
         ],
         [
             'started_at' => '2026-08-01',
-            'fee' => 900
+            'fee' => 900,
         ],
         [
             'started_at' => '2026-09-01',
-            'fee' => 2900
+            'fee' => 2900,
         ],
         [
             'started_at' => '2026-10-01',
-            'fee' => 2900
+            'fee' => 2900,
         ],
         [
             'started_at' => '2026-11-01',
-            'fee' => 2900
+            'fee' => 2900,
         ],
         [
             'started_at' => '2026-12-01',
-            'fee' => 900
+            'fee' => 900,
         ],
-    ]
+    ],
 
 ];

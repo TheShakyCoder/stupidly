@@ -10,7 +10,7 @@ test('anyone can view a Lesson', function () {
         ->get(sprintf('/lessons/%s', $lesson->id))
 
         ->assertStatus(200)
-        ->assertInertia(fn(AssertableInertia $ai) => $ai
+        ->assertInertia(fn (AssertableInertia $ai) => $ai
             ->component('Lesson/Show')
         );
 });

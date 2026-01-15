@@ -3,10 +3,10 @@
 /**
  * this file handles incoming post requests from Stripe
  */
+
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
-use DB;
 use Illuminate\Http\Request;
 use Str;
 
@@ -64,8 +64,6 @@ class StripeController
         \Log::info($event);
 
         // $method = 'handle' . Str::studly(str_replace('.', '_', $payload['type']));
-
-
 
         // try {
         //     $event = \Stripe\Event::constructFrom($input);

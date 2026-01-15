@@ -17,7 +17,7 @@ class MonthFactory extends Factory
     public function definition(): array
     {
         return [
-            'started_at' => $this->faker->date('Y-m-1')
+            'started_at' => $this->faker->date('Y-m-1'),
         ];
     }
 }

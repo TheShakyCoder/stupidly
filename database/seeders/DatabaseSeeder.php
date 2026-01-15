@@ -5,10 +5,9 @@ namespace Database\Seeders;
 use App\Models\Month;
 use App\Models\User;
 use Carbon\Carbon;
+use Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Hash;
-use Illuminate\Support\Facades\Http;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,7 +25,6 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make(config('auth.user.password')),
             ]);
         }
-
 
         $months = collect(config('seeder.months'));
         foreach ($months as $month) {
@@ -62,15 +60,13 @@ class DatabaseSeeder extends Seeder
                 $course->lessons()->create([
                     'available_at' => $lessonData['available_at'],
                     'title' => $lessonData['title'],
-                    'month_id' => $month->id
+                    'month_id' => $month->id,
                 ]);
             }
             foreach ($bullets as $bulletData) {
                 $course->bullets()->create(['name' => $bulletData]);
             }
         }
-
-
 
     }
 }

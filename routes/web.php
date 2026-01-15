@@ -5,15 +5,15 @@ use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Month;
 use App\Models\Payment;
+use App\Services\ApiVideo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Services\ApiVideo;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-        'recent' => Course::whereHas('lessons')->with(['lessons'])->orderBy('created_at')->limit(3)->get()
+        'recent' => Course::whereHas('lessons')->with(['lessons'])->orderBy('created_at')->limit(3)->get(),
     ]);
 })->name('home');
 
@@ -32,13 +32,13 @@ Route::get('/parent-guide', function () {
 
 Route::get('/privacy', function () {
     return Inertia::render('PrivacyPolicy', [
-        'privacy' => File::get(resource_path('markdown/privacy.md'))
+        'privacy' => File::get(resource_path('markdown/privacy.md')),
     ]);
 });
 
 Route::get('/terms', function () {
     return Inertia::render('TermsOfService', [
-        'terms' => File::get(resource_path('markdown/terms.md'))
+        'terms' => File::get(resource_path('markdown/terms.md')),
     ]);
 });
 
@@ -60,31 +60,31 @@ Route::middleware([
 ])->group(function () {
 
     Route::get('/dashboard', function () {
-        $currentMonth = Month
-            ::whereBetween('started_at', [
+        $currentMonth = Month::whereBetween('started_at', [
                 Carbon::now()->startOfMonth(),
-                Carbon::now()->endOfMonth()
+                Carbon::now()->endOfMonth(),
             ])
             ->with([
                 'payments' => function ($q) {
                     $q->where('user_id', request()->user()->id);
                 },
-                'lessons.course'
+                'lessons.course',
             ])
             ->first();
+
         return Inertia::render('Dashboard', [
             'currentMonth' => $currentMonth,
             'months' => Month::with([
                 'payments' => function ($q) {
                     $q->where('user_id', request()->user()->id);
-                }, 'lessons', 'recordings'
+                }, 'lessons', 'recordings',
             ])->orderBy('started_at', 'DESC')->get(),
         ]);
     })->name('dashboard');
 
     Route::post('/basket', function (Request $request) {
         $month = Month::where('id', $request->month_id)->first();
-        
+
         if ($request->user()->free) {
             Payment::create([
                 'user_id' => $request->user()->id,
@@ -92,13 +92,14 @@ Route::middleware([
                 'amount' => 0,
                 'purchased_at' => Carbon::now(),
             ]);
+
             return redirect()->route('dashboard');
         }
 
         Payment::create([
             'user_id' => $request->user()->id,
             'month_id' => $request->month_id,
-            'amount' => $month->fee
+            'amount' => $month->fee,
         ]);
 
         return redirect('/basket');
@@ -115,15 +116,16 @@ Route::middleware([
                 ->with([
                     'month' => function ($q) {
                         $q->with(['lessons', 'recordings']);
-                    }
+                    },
                 ])
                 ->get(),
-            'fee' => config('stripe.fee')
+            'fee' => config('stripe.fee'),
         ]);
     })->name('basket');
 
     Route::delete('/payments', function (Request $request) {
         Payment::where('id', $request->id)->whereNull('purchased_at')->delete();
+
         return redirect()->back();
     });
 
@@ -155,12 +157,13 @@ Route::middleware([
                 'months' => json_encode($months->map(function ($m) {
                     return $m->id;
                 })->toArray()),
-                'user_id' => request()->user()->id
+                'user_id' => request()->user()->id,
             ],
             'mode' => 'payment',
             'success_url' => route('purchased'),
-            'cancel_url' => route('basket')
+            'cancel_url' => route('basket'),
         ]);
+
         return response()->json([
             'url' => $session->url,
         ]);
@@ -172,6 +175,7 @@ Route::middleware([
 
     Route::get('/live', function (ApiVideo $apiVideo) {
         $liveStreams = $apiVideo->client()->liveStreams()->list();
+
         return Inertia::render('Live', [
             'liveStreams' => $liveStreams,
         ]);

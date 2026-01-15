@@ -1,5 +1,5 @@
 <script setup>
-import { Form, Link, router } from '@inertiajs/vue3'
+import { Form, Link, router, Head } from '@inertiajs/vue3'
 import dayjs from 'dayjs';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import AddToBasketButton from '@/Components/AddToBasketButton.vue';
@@ -27,6 +27,11 @@ const removePayment = (id) => {
 </script>
 
 <template>
+
+    <Head>
+        <title>Dashboard</title>
+        <meta name="description" content="Dashboard">
+    </Head>
     <AppLayout title="Dashboard">
         <template #header>
             <div class="flex justify-between items-center">

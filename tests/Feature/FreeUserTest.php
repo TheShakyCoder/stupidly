@@ -5,9 +5,7 @@ namespace Tests\Feature;
 use App\Models\Month;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use Carbon\Carbon;
 
 class FreeUserTest extends TestCase
 {
@@ -29,7 +27,7 @@ class FreeUserTest extends TestCase
             'month_id' => $month->id,
             'amount' => 0,
         ]);
-        
+
         $payment = \App\Models\Payment::where('user_id', $user->id)->first();
         $this->assertNotNull($payment->purchased_at);
     }

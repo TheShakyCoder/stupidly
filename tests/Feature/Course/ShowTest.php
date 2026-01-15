@@ -9,15 +9,15 @@ test('anyone can view a course', function () {
         ->has(\App\Models\Bullet::factory()->count(4), 'bullets')
         ->create();
 
-    $response = $this->get('/courses/' . $course->key);
+    $response = $this->get('/courses/'.$course->key);
 
     $response->assertStatus(200)
         ->assertInertia(
-            fn(AssertableInertia $ai) => $ai
+            fn (AssertableInertia $ai) => $ai
                 ->component('Course/Show')
                 ->has(
                     'course',
-                    fn(AssertableInertia $ai) => $ai
+                    fn (AssertableInertia $ai) => $ai
                         ->where('key', $course->key)
                         ->where('title', $course->title)
                         ->where('synopsis', $course->synopsis)
@@ -29,7 +29,7 @@ test('anyone can view a course', function () {
                         ->has(
                             'bullets',
                             4,
-                            fn(AssertableInertia $ai) => $ai
+                            fn (AssertableInertia $ai) => $ai
                                 ->has('name')
                                 ->etc()
                         )
