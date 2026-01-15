@@ -84,15 +84,23 @@ Route::middleware([
 
     Route::post('/basket', function (Request $request) {
         $month = Month::where('id', $request->month_id)->first();
+        
+        if ($request->user()->free) {
+            Payment::create([
+                'user_id' => $request->user()->id,
+                'month_id' => $request->month_id,
+                'amount' => 0,
+                'purchased_at' => Carbon::now(),
+            ]);
+            return redirect()->route('dashboard');
+        }
+
         Payment::create([
             'user_id' => $request->user()->id,
             'month_id' => $request->month_id,
             'amount' => $month->fee
         ]);
 
-        // $months = session('months', []);
-        // array_push($months, $request->month_id);
-        // session(['months' => array_unique($months)]);
         return redirect('/basket');
     });
 
@@ -116,7 +124,7 @@ Route::middleware([
 
     Route::delete('/payments', function (Request $request) {
         Payment::where('id', $request->id)->whereNull('purchased_at')->delete();
-        return redirect('/basket');
+        return redirect()->back();
     });
 
     Route::post('/checkout', function () {

@@ -1,5 +1,5 @@
 <script setup>
-import { Form, Link } from '@inertiajs/vue3'
+import { Form, Link, router } from '@inertiajs/vue3'
 import dayjs from 'dayjs';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import AddToBasketButton from '@/Components/AddToBasketButton.vue';
@@ -14,6 +14,15 @@ defineProps({
         default: () => []
     }
 })
+
+const removePayment = (id) => {
+    router.delete('/payments', {
+        data: {
+            id: id
+        },
+        preserveScroll: true
+    })
+}
 
 </script>
 
@@ -85,13 +94,18 @@ defineProps({
                                                     <input v-if="currentMonth" type="hidden" name="month_id"
                                                         :value="currentMonth.id" />
 
-                                                    <AddToBasketButton :fee="currentMonth.fee" />
+                                                    <AddToBasketButton :fee="currentMonth.fee"
+                                                        :is-free="$page.props.auth.user.free" />
                                                 </Form>
                                             </div>
                                             <div v-else-if="currentMonth?.payments[0].purchased_at === null"
                                                 class="w-full sm:w-auto bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-black p-4 px-6 rounded-2xl flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700/50">
                                                 <span class="material-symbols-outlined">shopping_basket</span>
                                                 In Basket
+                                                <button @click="removePayment(currentMonth.payments[0].id)"
+                                                    class="text-red-500 hover:text-red-700 transition-colors ml-2">
+                                                    <span class="material-symbols-outlined">delete</span>
+                                                </button>
                                             </div>
                                             <div v-else
                                                 class="w-full sm:w-auto bg-green-50 dark:bg-green-900/10 text-green-500 dark:text-green-400 font-black p-4 px-6 rounded-2xl flex items-center justify-center gap-2 border border-green-100 dark:border-green-700/50">
@@ -160,17 +174,21 @@ defineProps({
                                         <div v-if="m.payments?.length === 0">
                                             <Form action="/basket" method="post">
                                                 <input type="hidden" name="month_id" :value="m.id" />
-                                                <AddToBasketButton :fee="m.fee" />
+                                                <AddToBasketButton :fee="m.fee" :is-free="$page.props.auth.user.free" />
                                             </Form>
                                         </div>
                                         <div v-else-if="m.payments[0].purchased_at === null"
-                                            class="p-2.5 px-5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-500 font-bold text-sm tracking-wide border border-slate-200 dark:border-slate-700/50">
+                                            class="p-2.5 px-5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-500 font-bold text-sm tracking-wide border border-slate-200 dark:border-slate-700/50 flex items-center gap-2">
                                             In Basket
+                                            <button @click="removePayment(m.payments[0].id)"
+                                                class="text-red-500 hover:text-red-700 transition-colors">
+                                                <span class="material-symbols-outlined text-sm">delete</span>
+                                            </button>
                                         </div>
                                         <div v-else
-                                            class="p-2.5 px-5 rounded-xl bg-blue-50 dark:bg-primary/10 text-primary font-black text-sm uppercase tracking-widest flex items-center gap-2 border border-blue-100 dark:border-primary/20">
+                                            class="w-full sm:w-auto bg-green-50 dark:bg-green-900/10 text-green-500 dark:text-green-400 font-black p-4 px-6 rounded-2xl flex items-center justify-center gap-2 border border-green-100 dark:border-green-700/50">
                                             <span class="material-symbols-outlined text-lg">check_circle</span>
-                                            Paid
+                                            Purchased
                                         </div>
                                     </div>
                                 </li>
