@@ -8,25 +8,19 @@ const form = useForm({
     email: '',
     subject: '',
     message: '',
+    website: '',
 });
 
 const submitted = ref(false);
 
 const submit = () => {
-    // In a real app, we would send the form data here
-    // form.post('/contact', {
-    //     onSuccess: () => {
-    //         submitted.value = true;
-    //         form.reset();
-    //     },
-    // });
-
-    // For now, let's just simulate a success
-    submitted.value = true;
-    setTimeout(() => {
-        submitted.value = false;
-        form.reset();
-    }, 5000);
+    form.post('/contact', {
+        preserveScroll: true,
+        onSuccess: () => {
+            submitted.value = true;
+            form.reset();
+        },
+    });
 };
 </script>
 
@@ -60,7 +54,7 @@ const submit = () => {
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
 
                     <!-- Contact Form Card -->
-                    <div class="md:col-span-7 lg:col-span-8">
+                    <div class="md:col-span-7 lg:col-span-7">
                         <div
                             class="bg-white dark:bg-[#151b28] border border-slate-200 dark:border-white/10 rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl transition-all h-full">
                             <div class="p-8 md:p-12">
@@ -118,6 +112,13 @@ const submit = () => {
                                         <span
                                             class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
                                     </button>
+
+                                    <!-- Honeypot -->
+                                    <div class="hidden">
+                                        <label for="website">Website</label>
+                                        <input type="text" id="website" v-model="form.website" tabindex="-1"
+                                            autocomplete="off">
+                                    </div>
                                 </form>
 
                                 <div v-else
@@ -140,7 +141,7 @@ const submit = () => {
                     </div>
 
                     <!-- Sidebar Info Cards -->
-                    <div class="md:col-span-5 lg:col-span-4 space-y-6">
+                    <div class="md:col-span-5 lg:col-span-5 space-y-6">
                         <!-- Direct Info -->
                         <div
                             class="bg-slate-100 dark:bg-[#1a2232] border border-slate-200 dark:border-white/5 rounded-2xl p-8 shadow-sm">
@@ -155,21 +156,22 @@ const submit = () => {
                                         <div
                                             class="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">
                                             Email Us</div>
-                                        <div class="text-slate-900 dark:text-white font-bold">hello@stupidlysmart.uk
+                                        <div class="text-slate-900 dark:text-white font-bold">
+                                            support@stupidly.uk
                                         </div>
                                     </div>
                                 </div>
                                 <div class="flex gap-4">
                                     <div
                                         class="size-12 bg-white dark:bg-[#243047] rounded-xl flex items-center justify-center text-secondary shadow-sm border border-slate-200 dark:border-white/5">
-                                        <span class="material-symbols-outlined">forum</span>
+                                        <span class="material-symbols-outlined">phone</span>
                                     </div>
                                     <div>
                                         <div
                                             class="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">
-                                            Discord Support</div>
+                                            Call / WhatsApp</div>
                                         <div class="text-slate-900 dark:text-white font-bold underline cursor-pointer">
-                                            Join our Community</div>
+                                            07515 382159</div>
                                     </div>
                                 </div>
                             </div>
@@ -205,9 +207,9 @@ const submit = () => {
                                     Environment</span>
                             </div>
                             <div
-                                class="flex items-center gap-3 p-4 bg-white/50 dark:bg-[#1a2232]/50 backdrop-blur-sm rounded-xl border border-dashed border-slate-300 dark:border-white/10 transition-colors hover:border-primary/50">
+                                class="flex items-center gap-3 p-4 bg-white/50 dark:bg-[#1a2232]/50 backdrop-blur-sm rounded-xl border border-dashed border-slate-300 dark:border-white/10 transition-colors hover:border-secondary/50">
                                 <div
-                                    class="size-8 rounded-lg bg-blue-50 dark:bg-primary/10 flex items-center justify-center text-primary">
+                                    class="size-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-primary">
                                     <span class="material-symbols-outlined text-lg">encrypted</span>
                                 </div>
                                 <span

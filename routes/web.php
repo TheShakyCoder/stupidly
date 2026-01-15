@@ -21,9 +21,10 @@ Route::get('/pricing', function () {
     return Inertia::render('Pricing');
 });
 
-Route::get('/contact', function () {
-    return Inertia::render('Contact');
-});
+use App\Http\Controllers\ContactController;
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/privacy', function () {
     return Inertia::render('PrivacyPolicy', [
