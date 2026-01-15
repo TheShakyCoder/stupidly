@@ -67,7 +67,7 @@ const startCheckout = async () => {
                             <p class="text-gray-500 dark:text-slate-400 mb-8 max-w-xs text-lg">
                                 Ready to start your learning journey? Add some courses to see them here!
                             </p>
-                            <Link href="/dashboard"
+                            <Link href="/courses"
                                 class="inline-flex items-center px-8 py-4 bg-primary hover:bg-blue-600 text-white font-black rounded-full transition-all shadow-lg hover:shadow-blue-500/40 transform hover:-translate-y-0.5">
                                 Explore Courses
                             </Link>
@@ -124,7 +124,7 @@ const startCheckout = async () => {
 
                                         <button type="button"
                                             class="w-full mt-6 py-4 px-6 rounded-2xl text-white text-xl font-black transition-all flex items-center justify-center gap-2 group/btn relative overflow-hidden active:scale-95 shadow-xl hover:shadow-primary/30"
-                                            :class="[checkingOut || !canCheckout ? 'bg-gray-300 dark:bg-slate-800 text-gray-500 dark:text-slate-600 cursor-not-allowed' : 'bg-linear-to-r from-secondary to-primary hover:from-green-400 hover:to-blue-400 cursor-pointer']"
+                                            :class="[checkingOut || !canCheckout ? 'bg-gray-300 dark:bg-slate-800 text-gray-500 dark:text-slate-600 cursor-not-allowed' : 'bg-linear-to-r from-green-600 to-blue-600 cursor-pointer']"
                                             @click="startCheckout" :disabled="checkingOut || !canCheckout">
                                             <div
                                                 class="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity">
@@ -144,7 +144,7 @@ const startCheckout = async () => {
                                             class="flex items-center justify-center gap-2 text-[10px] text-gray-400 dark:text-slate-500 uppercase tracking-[0.2em] font-black mt-6">
                                             <span
                                                 class="material-symbols-outlined text-sm text-secondary">encrypted</span>
-                                            Secure Payments by Fig
+                                            Secure Payments by Stripe
                                         </div>
                                     </div>
                                 </div>

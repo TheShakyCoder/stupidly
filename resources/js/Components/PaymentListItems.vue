@@ -43,7 +43,7 @@ defineProps({
             <Form action="/payments" method="delete">
                 <input type="hidden" name="id" :value="payment.id">
                 <button type="submit"
-                    class="cursor-pointer size-12 text-gray-400 hover:text-red-500 bg-gray-50 dark:bg-slate-800/50 hover:bg-red-50 dark:hover:bg-red-500/20 rounded-xl flex items-center justify-center transition-all transform hover:rotate-12">
+                    class="cursor-pointer size-12 text-red-400 hover:text-red-500 bg-gray-50 dark:bg-slate-800/50 hover:bg-red-50 dark:hover:bg-red-500/20 rounded-xl flex items-center justify-center transition-all transform hover:rotate-12">
                     <span class="material-symbols-outlined">delete</span>
                 </button>
             </Form>
