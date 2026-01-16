@@ -83,12 +83,24 @@ const lessonsByDay = computed(() => {
                                                     lesson.title }}
                                                 </div>
                                             </div>
-                                            <!--<div class="ml-auto">-->
-                                            <!--    <Link :href="route('lessons.show', lesson.id)"-->
-                                            <!--        class="text-blue-600 hover:underline text-sm whitespace-nowrap">-->
-                                            <!--        View-->
-                                            <!--    </Link>-->
-                                            <!--</div>-->
+                                            <div class="ml-auto flex items-center space-x-2">
+                                                <a v-if="lesson.google_meet_link" :href="lesson.google_meet_link"
+                                                    target="_blank"
+                                                    class="text-blue-600 hover:underline text-sm whitespace-nowrap">
+                                                    Join Meet
+                                                </a>
+                                                <a v-else-if="$page.props.auth.user?.tutor"
+                                                    :href="route('lessons.google-meet.create', lesson.id)"
+                                                    class="text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 whitespace-nowrap">
+                                                    Create Meet
+                                                </a>
+                                                <!--
+                                                <Link :href="route('lessons.show', lesson.id)"
+                                                    class="text-blue-600 hover:underline text-sm whitespace-nowrap">
+                                                    View
+                                                </Link>
+                                                -->
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>

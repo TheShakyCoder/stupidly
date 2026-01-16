@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('month_id')->constrained();
             $table->string('title');
             $table->text('path')->nullable();
+            $table->string('google_meet_link')->nullable();
             $table->dateTime('available_at');
             $table->timestamps();
         });

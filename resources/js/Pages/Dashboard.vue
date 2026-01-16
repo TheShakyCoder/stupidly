@@ -102,7 +102,7 @@ const removePayment = (id) => {
                                                         :value="currentMonth.id" />
 
                                                     <AddToBasketButton :fee="currentMonth.fee"
-                                                        :is-free="$page.props.auth.user.free" />
+                                                        :is-free="!!$page.props.auth.user.free" />
                                                 </Form>
                                             </div>
                                             <div v-else-if="currentMonth?.payments[0].purchased_at === null"
@@ -181,7 +181,8 @@ const removePayment = (id) => {
                                         <div v-if="m.payments?.length === 0">
                                             <Form action="/basket" method="post">
                                                 <input type="hidden" name="month_id" :value="m.id" />
-                                                <AddToBasketButton :fee="m.fee" :is-free="$page.props.auth.user.free" />
+                                                <AddToBasketButton :fee="m.fee"
+                                                    :is-free="!!$page.props.auth.user.free" />
                                             </Form>
                                         </div>
                                         <div v-else-if="m.payments[0].purchased_at === null"

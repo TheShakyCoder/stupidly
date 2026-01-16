@@ -8,10 +8,6 @@ const props = defineProps({
     payments: {
         type: Array,
         default: []
-    },
-    fee: {
-        type: String,
-        default: "0"
     }
 })
 
