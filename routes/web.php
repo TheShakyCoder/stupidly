@@ -145,7 +145,7 @@ Route::middleware([
                 return [
                     'price_data' => [
                         'currency' => 'gbp',
-                        'unit_amount' => config('stripe.fee'),
+                        'unit_amount' => $month->fee,
                         'product_data' => [
                             'name' => Carbon::createFromDate($month->started_at)->format('F Y'),
                         ],
@@ -193,6 +193,9 @@ Route::middleware([
         })->name('tutor');
 
     });
+
+    Route::get('/lessons/{lesson}/google-meet/connect', [\App\Http\Controllers\GoogleMeetController::class, 'create'])->name('lessons.google-meet.create');
+    Route::get('/auth/google/meet/callback', [\App\Http\Controllers\GoogleMeetController::class, 'store']);
 });
 
 // Stripe webhook
