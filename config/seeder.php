@@ -34,7 +34,7 @@ return [
             'preview' => 'https://www.youtube.com/embed/aqz-KE-bpKQ?si=byy4vWLPje2zWu5F',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-16 12:45:00',
+                    'available_at' => '2026-01-16 14:30:00',
                     'title' => 'Lesson 0',
                 ],
                 [
