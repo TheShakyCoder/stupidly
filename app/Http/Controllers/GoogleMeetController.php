@@ -16,7 +16,7 @@ class GoogleMeetController extends Controller
         session(['google_meet_lesson_id' => $lesson->id]);
 
         return Socialite::driver('google')
-            ->scopes(['https://www.googleapis.com/auth/calendar.events'])
+            ->scopes(['openid', 'profile', 'email', 'https://www.googleapis.com/auth/calendar'])
             ->with(['access_type' => 'offline', 'prompt' => 'consent select_account'])
             ->redirect();
     }

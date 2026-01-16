@@ -25,6 +25,18 @@ const lessonsByDay = computed(() => {
         return acc;
     }, {});
 });
+
+const canJoinLesson = (lesson) => {
+    if (!lesson.google_meet_link) return false;
+    const start = dayjs(lesson.available_at);
+    // lesson is available 5 minutes before start
+    const fiveMinutesBefore = start.subtract(5, 'minute');
+    // and 60 minutes after start
+    const sixtyMinutesAfter = start.add(60, 'minute');
+    const now = dayjs();
+
+    return now.isAfter(fiveMinutesBefore) && now.isBefore(sixtyMinutesAfter);
+}
 </script>
 
 <template>
@@ -84,12 +96,12 @@ const lessonsByDay = computed(() => {
                                                 </div>
                                             </div>
                                             <div class="ml-auto flex items-center space-x-2">
-                                                <a v-if="lesson.google_meet_link" :href="lesson.google_meet_link"
+                                                <a v-if="canJoinLesson(lesson)" :href="lesson.google_meet_link"
                                                     target="_blank"
                                                     class="text-blue-600 hover:underline text-sm whitespace-nowrap">
                                                     Join Meet
                                                 </a>
-                                                <a v-else-if="$page.props.auth.user?.tutor"
+                                                <a v-else-if="$page.props.auth.user?.tutor && !lesson.google_meet_link && dayjs(lesson.available_at).isSame(dayjs(), 'day')"
                                                     :href="route('lessons.google-meet.create', lesson.id)"
                                                     class="text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 whitespace-nowrap">
                                                     Create Meet
