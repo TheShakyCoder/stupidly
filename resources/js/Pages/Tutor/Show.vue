@@ -24,6 +24,8 @@ defineProps({
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="relative h-48 bg-indigo-600">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=2070"
+                            class="w-full h-full object-cover mix-blend-overlay" alt="Cover Image">
                         <div class="absolute -bottom-12 left-8">
                             <img :src="tutor.user.profile_photo_url" :alt="tutor.user.name"
                                 class="h-32 w-32 rounded-full border-4 border-white object-cover shadow-lg">
