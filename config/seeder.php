@@ -9,6 +9,28 @@ return [
             'tutor' => [
                 'title' => 'Web Developer',
                 'bio' => 'Sharif has over 25 years of experience in the web development industry. He has worked for a variety of clients, from startups to large corporations, in many capacities. He is passionate about teaching and helping others learn to code, and has spent much of his time teaching home-educated children.',
+                'links' => [
+                    [
+                        'name' => 'My Website',
+                        'type' => 'url',
+                        'value' => 'https://www.sharifkhan.co.uk',
+                    ],
+                    [
+                        'name' => 'Email Me',
+                        'type' => 'email',
+                        'value' => 'sharif.khan@stupidly.uk',
+                    ],
+                    [
+                        'name' => 'Phone Me',
+                        'type' => 'phone',
+                        'value' => '+447515382159',
+                    ],
+                    [
+                        'name' => 'WhatsApp Me',
+                        'type' => 'whatsapp',
+                        'value' => '+447515382159',
+                    ],
+                ],
             ]
         ],
         [

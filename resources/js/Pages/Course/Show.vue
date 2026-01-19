@@ -54,7 +54,7 @@ const playPreviewVideo = () => {
                                 <span class="material-symbols-outlined text-lg fill-1">star</span>
                                 <span class="text-slate-900 dark:text-white font-bold text-sm">{{ ratings }}</span>
                                 <span class="text-slate-500 dark:text-slate-400 font-normal text-sm ml-1">({{ students
-                                    }}
+                                }}
                                     students)</span>
                             </div>
                             <div class="h-4 w-px bg-slate-300 dark:bg-slate-700 hidden sm:block"></div>
@@ -199,11 +199,9 @@ const playPreviewVideo = () => {
                         </div>
 
                         <Link :href="`/tutors/${course.tutor.id}`"
-                            class="p-4 bg-slate-50 dark:bg-[#243047]/30 rounded-2xl mb-6 border border-transparent hover:border-slate-200 dark:hover:border-slate-600 transition-colors cursor-pointer group">
+                            class="flex flex-col    p-4 bg-slate-50 dark:bg-[#243047]/30 rounded-2xl mb-6 border border-transparent hover:border-slate-200 dark:hover:border-slate-600 transition-colors cursor-pointer group">
                             <div class="flex items-center justify-between mb-2">
                                 <p class="text-xs font-bold text-slate-500 uppercase">Your Instructor</p>
-                                <span
-                                    class="material-symbols-outlined text-slate-400 text-sm group-hover:text-primary transition-colors">arrow_outward</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="size-12 rounded-full bg-cover bg-center border-2 border-white dark:border-slate-600"
@@ -218,19 +216,16 @@ const playPreviewVideo = () => {
                             </div>
                         </Link>
 
-                        <div class="mb-6">
-                            <p class="text-xs font-bold text-slate-500 uppercase mb-2">Software Needed</p>
-                            <a class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-[#243047] transition-colors border border-dashed border-slate-300 dark:border-slate-600"
-                                href="#">
-                                <div
-                                    class="size-8 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold text-xs">
-                                    S</div>
-                                <div class="flex-1">
-                                    <p class="text-sm font-bold text-slate-900 dark:text-white">Scratch</p>
-                                    <p class="text-xs text-slate-500">Free • Browser-based</p>
-                                </div>
-                                <span class="material-symbols-outlined text-slate-400 text-sm">open_in_new</span>
-                            </a>
+                        <div class="mb-6" v-if="course.requirements && course.requirements.length">
+                            <p class="text-xs font-bold text-slate-500 uppercase mb-2">You need to be able to</p>
+                            <ul class="space-y-2">
+                                <li v-for="req in course.requirements" :key="req.id"
+                                    class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-[#243047]/30 border border-slate-200 dark:border-slate-700/50">
+                                    <span
+                                        class="material-symbols-outlined text-green-500 text-lg mt-0.5">check_circle</span>
+                                    <span class="text-sm text-slate-700 dark:text-slate-300">{{ req.name }}</span>
+                                </li>
+                            </ul>
                         </div>
                         <button
                             class="w-full py-4 rounded-xl bg-primary hover:bg-blue-600 text-white font-bold transition-colors shadow-lg shadow-primary/20 flex items-center justify-center gap-2">

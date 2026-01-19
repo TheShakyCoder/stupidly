@@ -25,4 +25,9 @@ class Tutor extends Model
     {
         return $this->hasMany(Course::class);
     }
+
+    public function socialLinks()
+    {
+        return $this->hasMany(SocialLink::class);
+    }
 }

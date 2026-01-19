@@ -29,10 +29,12 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make(config('auth.user.password')),
             ]);
             if ($tutor) {
-                $user->tutor()->create([
+                $tutorModel = $user->tutor()->create([
                     'title' => $tutor['title'],
                     'bio' => $tutor['bio'],
                 ]);
+
+                $tutorModel->socialLinks()->createMany($tutor['links']);
             }
         }
 

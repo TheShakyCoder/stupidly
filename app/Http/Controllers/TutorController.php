@@ -23,7 +23,7 @@ class TutorController extends Controller
      */
     public function show(Tutor $tutor)
     {
-        $tutor->load(['user']);
+        $tutor->load(['user', 'socialLinks']);
 
         return Inertia::render('Tutor/Show', [
             'tutor' => $tutor,
