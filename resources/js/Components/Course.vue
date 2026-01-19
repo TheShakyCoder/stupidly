@@ -36,7 +36,7 @@ const ratings = (props.course.ratings && props.course.ratings.length) ? (props.c
                 </span>
             </div>
             <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">{{ course.title || course.name
-                }}</h3>
+            }}</h3>
             <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2 mb-4">{{ course.synopsis || '' }}</p>
             <div
                 class="mt-auto pt-4 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-between">
@@ -50,8 +50,9 @@ const ratings = (props.course.ratings && props.course.ratings.length) ? (props.c
                         +{{ course.enrolled_count || '1k' }}</div>-->
                 </div>
                 <Link :href="`/courses/${course.key}`"
-                    class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-colors">
-                    <span class="material-symbols-outlined block">play_arrow</span>
+                    class="w-full py-3 bg-primary/10 hover:bg-primary text-primary hover:text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-colors">
+                    <span>View Course</span>
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
                 </Link>
             </div>
         </div>
