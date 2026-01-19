@@ -48,7 +48,6 @@ Route::resource('lessons', \App\Http\Controllers\LessonController::class)->only(
 Route::resource('months', \App\Http\Controllers\MonthController::class)->only(['show']);
 Route::resource('tutors', \App\Http\Controllers\TutorController::class)->only(['index', 'show']);
 
-Route::get('/{page}', [PageController::class, 'page'])->name('page');
 
 Route::middleware([
     'auth:sanctum',
@@ -198,3 +197,4 @@ Route::middleware([
 // Stripe webhook
 Route::post('/stripe/callback', [\App\Http\Controllers\StripeController::class, 'stripeCallback']);
 
+// Route::get('/{page}', [PageController::class, 'page'])->name('page');

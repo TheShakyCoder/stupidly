@@ -54,7 +54,7 @@ const playPreviewVideo = () => {
                                 <span class="material-symbols-outlined text-lg fill-1">star</span>
                                 <span class="text-slate-900 dark:text-white font-bold text-sm">{{ ratings }}</span>
                                 <span class="text-slate-500 dark:text-slate-400 font-normal text-sm ml-1">({{ students
-                                }}
+                                    }}
                                     students)</span>
                             </div>
                             <div class="h-4 w-px bg-slate-300 dark:bg-slate-700 hidden sm:block"></div>
@@ -102,7 +102,7 @@ const playPreviewVideo = () => {
                                 class="size-10 rounded-xl bg-blue-500/20 text-blue-500 flex items-center justify-center">
                                 <span class="material-symbols-outlined">school</span>
                             </div>
-                            What you will master
+                            You will learn
                         </h2>
                         <ul class="grid sm:grid-cols-2 gap-y-4 gap-x-6">
                             <li v-for="bullet in course.bullets" class="flex gap-3 items-start">
@@ -140,12 +140,25 @@ const playPreviewVideo = () => {
                                 class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-[#243047]/30 border border-[#e5e7eb]/30 hover:bg-slate-100 dark:hover:bg-[#243047]/60 transition-colors  group">
                                 <div
                                     class="size-10 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-sm shrink-0 shadow-sm">
-                                    01
+                                    <div
+                                        class="size-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold flex-shrink-0">
+                                        <svg viewBox="0 0 24 24" class="size-8" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line x1="12" y1="12" x2="12" y2="8"
+                                                :style="{ transform: `rotate(${(dayjs(lesson.available_at).hour() % 12) * 30 + dayjs(lesson.available_at).minute() * 0.5}deg)`, transformOrigin: '12px 12px' }" />
+                                            <line x1="12" y1="12" x2="12" y2="5"
+                                                :style="{ transform: `rotate(${dayjs(lesson.available_at).minute() * 6}deg)`, transformOrigin: '12px 12px' }" />
+                                        </svg>
+                                    </div>
                                 </div>
                                 <div class="flex-1">
                                     <h4
                                         class="font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
                                         {{ lesson.title }}</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                                        Available at: {{ lesson.available_at }}
+                                    </p>
 
                                     <a v-if="lesson.path" :href="lesson.path"
                                         class="flex items-center gap-3 mt-1 cursor-pointer">
@@ -160,11 +173,6 @@ const playPreviewVideo = () => {
                                 </div>
                             </li>
                         </ul>
-                        <button
-                            class="w-full mt-4 py-3 text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-primary transition-colors flex items-center justify-center gap-1">
-                            Show all 8 lessons
-                            <span class="material-symbols-outlined">expand_more</span>
-                        </button>
                     </div>
                 </div>
                 <div class="flex flex-col gap-6">
@@ -183,7 +191,7 @@ const playPreviewVideo = () => {
                                     <span class="material-symbols-outlined text-lg">schedule</span>
                                     Duration
                                 </span>
-                                <span class="font-bold text-slate-900 dark:text-white text-sm">~1 Hour</span>
+                                <span class="font-bold text-slate-900 dark:text-white text-sm">~30 minutes</span>
                             </div>
                             <div
                                 class="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-700/50">
@@ -227,24 +235,16 @@ const playPreviewVideo = () => {
                                 </li>
                             </ul>
                         </div>
-                        <button
+                        <Link href="/dashboard"
                             class="w-full py-4 rounded-xl bg-primary hover:bg-blue-600 text-white font-bold transition-colors shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
                             Enroll Now - Free
                             <span class="material-symbols-outlined">arrow_forward</span>
-                        </button>
+                        </Link>
 
                     </div>
                 </div>
             </div>
-            <div
-                class="mt-20 py-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
-                <p>© 2024 Stupidly Smart. Learning made fun.</p>
-                <div class="flex gap-6">
-                    <a class="hover:text-primary transition-colors" href="#">Curriculum</a>
-                    <Link class="hover:text-primary transition-colors" href="/parent-guide">Parent Guide</Link>
-                    <a class="hover:text-primary transition-colors" href="#">Support</a>
-                </div>
-            </div>
+
         </div>
 
         <!-- Video Modal -->
