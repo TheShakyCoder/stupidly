@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,34 +10,24 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
-
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
-
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    protected $appends = [
+        'profile_photo_url',
+    ];
+
     protected $fillable = [
         'name',
         'email',
         'password',
-        'tutor',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
@@ -45,20 +35,6 @@ class User extends Authenticatable
         'two_factor_secret',
     ];
 
-    /**
-     * The accessors to append to the model's array form.
-     *
-     * @var array<int, string>
-     */
-    protected $appends = [
-        'profile_photo_url',
-    ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
     protected function casts(): array
     {
         return [
@@ -70,5 +46,49 @@ class User extends Authenticatable
     public function months()
     {
         return $this->belongsToMany(Month::class, 'covers')->using(Cover::class);
+    }
+
+    public function tutor()
+    {
+        return $this->hasOne(Tutor::class);
+    }
+
+    /**
+     * Update the user's profile photo.
+     *
+     * @param  \Illuminate\Http\UploadedFile  $photo
+     * @param  string  $storagePath
+     * @return void
+     */
+    public function updateProfilePhoto(\Illuminate\Http\UploadedFile $photo, $storagePath = 'profile-photos')
+    {
+        tap($this->profile_photo_path, function ($previous) use ($photo, $storagePath) {
+            $this->forceFill([
+                'profile_photo_path' => $photo->store(
+                    $storagePath, ['disk' => $this->profilePhotoDisk()]
+                ),
+            ])->save();
+
+            if ($previous) {
+                \Illuminate\Support\Facades\Storage::disk($this->profilePhotoDisk())->delete($previous);
+            }
+        });
+    }
+
+    /**
+     * Get the URL to the user's profile photo.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+    protected function profilePhotoUrl(): \Illuminate\Database\Eloquent\Casts\Attribute
+    {
+        return \Illuminate\Database\Eloquent\Casts\Attribute::get(function (): string {
+            return $this->profile_photo_path
+                    ? \Illuminate\Support\Facades\Storage::disk($this->profilePhotoDisk())->temporaryUrl(
+                        $this->profile_photo_path,
+                        now()->addMinutes(60)
+                      )
+                    : $this->defaultProfilePhotoUrl();
+        });
     }
 }

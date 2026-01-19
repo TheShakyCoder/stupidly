@@ -1,7 +1,8 @@
 <script setup>
 import dayjs from 'dayjs'
-import AppLayout from '@/Layouts/AppLayout.vue';
 import { ref } from 'vue'
+import { Link } from '@inertiajs/vue3'
+import AppLayout from '@/Layouts/AppLayout.vue';
 
 const props = defineProps({
     course: {
@@ -197,7 +198,7 @@ const playPreviewVideo = () => {
 
                         </div>
 
-                        <div
+                        <Link :href="`/tutors/${course.tutor.id}`"
                             class="p-4 bg-slate-50 dark:bg-[#243047]/30 rounded-2xl mb-6 border border-transparent hover:border-slate-200 dark:hover:border-slate-600 transition-colors cursor-pointer group">
                             <div class="flex items-center justify-between mb-2">
                                 <p class="text-xs font-bold text-slate-500 uppercase">Your Instructor</p>
@@ -206,15 +207,16 @@ const playPreviewVideo = () => {
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="size-12 rounded-full bg-cover bg-center border-2 border-white dark:border-slate-600"
-                                    :style="`background-image: url( ${course.user.profile_photo_url} );`">
+                                    :style="`background-image: url( ${course.tutor.user.profile_photo_url} );`">
                                 </div>
                                 <div>
-                                    <p class="font-bold text-sm text-slate-900 dark:text-white">{{ course.user.name }}
+                                    <p class="font-bold text-sm text-slate-900 dark:text-white">{{
+                                        course.tutor.user.name }}
                                     </p>
-                                    <p class="text-xs text-slate-500 dark:text-slate-400">{{ course.user.title }}</p>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">{{ course.tutor.title }}</p>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
 
                         <div class="mb-6">
                             <p class="text-xs font-bold text-slate-500 uppercase mb-2">Software Needed</p>

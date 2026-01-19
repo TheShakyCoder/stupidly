@@ -1,15 +1,19 @@
 <?php
 
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 use App\Http\Middleware\IsTutor;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Month;
 use App\Models\Payment;
+use App\Http\Controllers\PricingController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PageController;
 use App\Services\ApiVideo;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -17,11 +21,7 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-Route::get('/pricing', function () {
-    return Inertia::render('Pricing');
-});
-
-use App\Http\Controllers\ContactController;
+Route::get('/pricing', [PricingController::class, 'index'])->name('pricing');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
@@ -46,12 +46,9 @@ Route::resource('courses', \App\Http\Controllers\CourseController::class)->only(
 Route::resource('skills', \App\Http\Controllers\SkillController::class)->only(['index']);
 Route::resource('lessons', \App\Http\Controllers\LessonController::class)->only(['show']);
 Route::resource('months', \App\Http\Controllers\MonthController::class)->only(['show']);
+Route::resource('tutors', \App\Http\Controllers\TutorController::class)->only(['index', 'show']);
 
-Route::get('/tutors', function () {
-    return Inertia::render('Tutor/Index', [
-        'tutors' => \App\Models\Tutor::paginate(10),
-    ]);
-});
+Route::get('/{page}', [PageController::class, 'page'])->name('page');
 
 Route::middleware([
     'auth:sanctum',
@@ -200,3 +197,4 @@ Route::middleware([
 
 // Stripe webhook
 Route::post('/stripe/callback', [\App\Http\Controllers\StripeController::class, 'stripeCallback']);
+

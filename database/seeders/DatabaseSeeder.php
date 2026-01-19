@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Month;
+use App\Models\Skill;
+use App\Models\Tutor;
 use App\Models\User;
 use Carbon\Carbon;
 use Hash;
@@ -20,10 +22,23 @@ class DatabaseSeeder extends Seeder
     {
         $users = collect(config('seeder.users'));
         foreach ($users as $userData) {
-            User::create([
+            $tutor = $userData['tutor'] ?? null;
+            unset($userData['tutor']);
+            $user = User::create([
                 ...$userData,
                 'password' => Hash::make(config('auth.user.password')),
             ]);
+            if ($tutor) {
+                $user->tutor()->create([
+                    'title' => $tutor['title'],
+                    'bio' => $tutor['bio'],
+                ]);
+            }
+        }
+
+        $skills = collect(config('seeder.skills'));
+        foreach ($skills as $skillName) {
+            Skill::create(['name' => $skillName]);
         }
 
         $months = collect(config('seeder.months'));
@@ -37,20 +52,29 @@ class DatabaseSeeder extends Seeder
             $skills = $courseData['skills'] ?? [];
             $lessons = $courseData['lessons'] ?? [];
             $bullets = $courseData['bullets'] ?? [];
-            unset($courseData['tutor'], $courseData['skills'], $courseData['lessons'], $courseData['bullets']);
+            $requirements = $courseData['requirements'] ?? [];
+            unset(
+                $courseData['tutor'], 
+                $courseData['skills'], 
+                $courseData['lessons'], 
+                $courseData['bullets'],
+                $courseData['requirements']
+            );
 
             $course = \App\Models\Course::create(
-                array_merge(['key' => $courseKey, 'user_id' => User::where('name', $tutor)->first()->id], $courseData)
+                array_merge(['key' => $courseKey, 'tutor_id' => Tutor::whereHas('user', function ($query) use ($tutor) {
+                    $query->where('name', $tutor);
+                })->first()->id], $courseData)
             );
 
             if ($tutor) {
                 $userModel = User::firstOrCreate(['name' => $tutor]);
-                $course->user()->associate($userModel);
+                $course->tutor()->associate($userModel);
                 $course->save();
             }
 
             foreach ($skills as $skillName) {
-                $skillModel = \App\Models\Skill::firstOrCreate(['name' => $skillName]);
+                $skillModel = Skill::firstOrCreate(['name' => $skillName]);
                 $course->skills()->attach($skillModel);
             }
             foreach ($lessons as $lessonData) {
@@ -65,6 +89,10 @@ class DatabaseSeeder extends Seeder
             }
             foreach ($bullets as $bulletData) {
                 $course->bullets()->create(['name' => $bulletData]);
+            }
+
+            foreach ($requirements as $requirementData) {
+                $course->requirements()->create(['name' => $requirementData]);
             }
         }
 

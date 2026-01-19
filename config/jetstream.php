@@ -76,6 +76,6 @@ return [
     |
     */
 
-    'profile_photo_disk' => 'spaces',
+    'profile_photo_disk' => env('FILESYSTEM_DISK', 'spaces'),
 
 ];

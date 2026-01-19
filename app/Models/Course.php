@@ -21,9 +21,9 @@ class Course extends Model
         'level',
     ];
 
-    public function user()
+    public function tutor()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Tutor::class);
     }
 
     public function ratings()
@@ -49,6 +49,11 @@ class Course extends Model
     public function lessons()
     {
         return $this->hasMany(Lesson::class);
+    }
+
+    public function requirements()
+    {
+        return $this->hasMany(Requirement::class);
     }
 
     public function getRouteKeyName(): string

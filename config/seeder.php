@@ -6,14 +6,23 @@ return [
         [
             'name' => 'Sharif Khan',
             'email' => 'sharif.khan@stupidly.uk',
-            'tutor' => true,
-            'title' => 'Web Developer',
+            'tutor' => [
+                'title' => 'Web Developer',
+                'bio' => 'Sharif has over 25 years of experience in the web development industry. He has worked for a variety of clients, from startups to large corporations, in many capacities. He is passionate about teaching and helping others learn to code, and has spent much of his time teaching home-educated children.',
+            ]
         ],
         [
             'name' => 'Test User',
             'email' => 'test@example.com',
-            'tutor' => false,
         ],
+    ],
+
+    'skills' => [
+        'HTML / CSS',
+        'JavaScript',
+        'VueJS',
+        'P5.js',
+        'Tailwind CSS',
     ],
 
     'courses' => [
@@ -24,8 +33,12 @@ return [
             'bullets' => [
                 'what a constant is, and what a variable is',
                 'the basics of computer logic',
-                'what a loop is and when to use it',
                 'what a condition is and the different ways to code it',
+                'how to import and use images'
+            ],
+            'requirements' => [
+                'use a computer with a keyboard and mouse',
+                'have access to the website play.vuejs.org',
             ],
             'level' => 'Beginner',
             'tutor' => 'Sharif Khan',
@@ -53,38 +66,6 @@ return [
                     'available_at' => '2026-02-23 09:30:00',
                     'title' => 'Lesson 5',
                 ],
-                [
-                    'available_at' => '2026-03-02 09:30:00',
-                    'title' => 'Lesson 6',
-                ],
-                [
-                    'available_at' => '2026-03-09 09:30:00',
-                    'title' => 'Lesson 7',
-                ],
-                [
-                    'available_at' => '2026-03-16 09:30:00',
-                    'title' => 'Lesson 8',
-                ],
-                [
-                    'available_at' => '2026-03-23 09:30:00',
-                    'title' => 'Lesson 9',
-                ],
-                [
-                    'available_at' => '2026-03-30 09:30:00',
-                    'title' => 'Lesson 10',
-                ],
-                [
-                    'available_at' => '2026-04-06 09:30:00',
-                    'title' => 'Lesson 11',
-                ],
-                [
-                    'available_at' => '2026-04-13 09:30:00',
-                    'title' => 'Lesson 12',
-                ],
-                [
-                    'available_at' => '2026-04-20 09:30:00',
-                    'title' => 'Lesson 13',
-                ],
             ],
         ],
         'fun-with-flags' => [
@@ -96,6 +77,11 @@ return [
                 'what a constant is, and what a variable is',
                 'what a loop is and when to use it',
                 'how to manage state to keep track of the application',
+                'how to import and use images'
+            ],
+            'requirements' => [
+                'use a computer with a keyboard and mouse',
+                'have access to the website play.vuejs.org',
             ],
             'level' => 'Beginner',
             'tutor' => 'Sharif Khan',
@@ -122,38 +108,6 @@ return [
                     'available_at' => '2026-02-24 09:30:00',
                     'title' => 'Lesson 5',
                 ],
-                [
-                    'available_at' => '2026-03-03 09:30:00',
-                    'title' => 'Lesson 6',
-                ],
-                [
-                    'available_at' => '2026-03-10 09:30:00',
-                    'title' => 'Lesson 7',
-                ],
-                [
-                    'available_at' => '2026-03-17 09:30:00',
-                    'title' => 'Lesson 8',
-                ],
-                [
-                    'available_at' => '2026-03-24 09:30:00',
-                    'title' => 'Lesson 9',
-                ],
-                [
-                    'available_at' => '2026-03-31 09:30:00',
-                    'title' => 'Lesson 10',
-                ],
-                [
-                    'available_at' => '2026-04-07 09:30:00',
-                    'title' => 'Lesson 11',
-                ],
-                [
-                    'available_at' => '2026-04-14 09:30:00',
-                    'title' => 'Lesson 12',
-                ],
-                [
-                    'available_at' => '2026-04-21 09:30:00',
-                    'title' => 'Lesson 13',
-                ],
             ],
         ],
 
@@ -166,6 +120,11 @@ return [
                 'rendering with P5.js',
                 'managing state with VueJS',
                 'implementing algorithmic logic',
+            ],
+            'requirements' => [
+                'use a computer with a keyboard and mouse',
+                'download and install a code editor',
+                'download and install Node.js',
             ],
             'level' => 'Intermediate',
             'tutor' => 'Sharif Khan',
@@ -192,38 +151,6 @@ return [
                     'available_at' => '2026-02-23 11:00:00',
                     'title' => 'Lesson 5',
                 ],
-                [
-                    'available_at' => '2026-03-02 11:00:00',
-                    'title' => 'Lesson 6',
-                ],
-                [
-                    'available_at' => '2026-03-09 11:00:00',
-                    'title' => 'Lesson 7',
-                ],
-                [
-                    'available_at' => '2026-03-16 11:00:00',
-                    'title' => 'Lesson 8',
-                ],
-                [
-                    'available_at' => '2026-03-23 11:00:00',
-                    'title' => 'Lesson 9',
-                ],
-                [
-                    'available_at' => '2026-03-30 11:00:00',
-                    'title' => 'Lesson 10',
-                ],
-                [
-                    'available_at' => '2026-04-06 11:00:00',
-                    'title' => 'Lesson 11',
-                ],
-                [
-                    'available_at' => '2026-04-13 11:00:00',
-                    'title' => 'Lesson 12',
-                ],
-                [
-                    'available_at' => '2026-04-20 11:00:00',
-                    'title' => 'Lesson 13',
-                ],
             ],
         ],
         'black-jack' => [
@@ -235,6 +162,11 @@ return [
                 'handling dealer logic',
                 'managing betting systems',
                 'complex state management',
+            ],
+            'requirements' => [
+                'use a computer with a keyboard and mouse',
+                'download and install a code editor',
+                'download and install Node.js and related tools',
             ],
             'level' => 'Intermediate',
             'tutor' => 'Sharif Khan',
@@ -261,38 +193,6 @@ return [
                     'available_at' => '2026-02-24 11:00:00',
                     'title' => 'Lesson 5',
                 ],
-                [
-                    'available_at' => '2026-03-03 11:00:00',
-                    'title' => 'Lesson 6',
-                ],
-                [
-                    'available_at' => '2026-03-10 11:00:00',
-                    'title' => 'Lesson 7',
-                ],
-                [
-                    'available_at' => '2026-03-17 11:00:00',
-                    'title' => 'Lesson 8',
-                ],
-                [
-                    'available_at' => '2026-03-24 11:00:00',
-                    'title' => 'Lesson 9',
-                ],
-                [
-                    'available_at' => '2026-03-31 11:00:00',
-                    'title' => 'Lesson 10',
-                ],
-                [
-                    'available_at' => '2026-04-07 11:00:00',
-                    'title' => 'Lesson 11',
-                ],
-                [
-                    'available_at' => '2026-04-14 11:00:00',
-                    'title' => 'Lesson 12',
-                ],
-                [
-                    'available_at' => '2026-04-21 11:00:00',
-                    'title' => 'Lesson 13',
-                ],
             ],
         ],
 
@@ -304,6 +204,12 @@ return [
                 'real-time location tracking',
                 'integrating maps and geolocation',
                 'building APIs with Laravel',
+            ],
+            'requirements' => [
+                'use a computer with a keyboard and mouse',
+                'download and install a code editor',
+                'download and install Node.js and related tools',
+                'download and install Laravel and related tools',
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',

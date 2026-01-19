@@ -19,8 +19,8 @@ return new class extends Migration
             $table->text('synopsis')->nullable();
             $table->string('image')->nullable();
             $table->string('preview')->nullable();
-            $table->foreignId('user_id');
-            $table->enum('level', ['Beginner', 'Intermediate', 'Advanced'])->default('Beginner');
+            $table->foreignId('tutor_id');
+            $table->enum('level', ['Scratch', 'Beginner', 'Intermediate', 'Advanced'])->default('Beginner');
             $table->timestamps();
         });
     }
