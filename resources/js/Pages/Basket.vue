@@ -65,11 +65,11 @@ const startCheckout = async () => {
                             </div>
                             <h2 class="text-2xl font-black text-gray-900 dark:text-white mb-3">Your basket is empty</h2>
                             <p class="text-gray-500 dark:text-slate-400 mb-8 max-w-xs text-lg">
-                                Ready to start your learning journey? Add some courses to see them here!
+                                Ready to start your learning journey? Add some Months to see them here!
                             </p>
-                            <Link href="/courses"
+                            <Link href="/dashboard"
                                 class="inline-flex items-center px-8 py-4 bg-primary hover:bg-blue-600 text-white font-black rounded-full transition-all shadow-lg hover:shadow-blue-500/40 transform hover:-translate-y-0.5">
-                                Explore Courses
+                                View Months
                             </Link>
                         </div>
 
