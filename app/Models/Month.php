@@ -34,6 +34,7 @@ class Month extends Model
     {
         return $this->belongsToMany(User::class, 'covers')->using(Payment::class);
     }
+    
     public function getIsPurchasedAttribute()
     {
         return auth()->check() && $this->payments()->where('user_id', auth()->id())->exists();

@@ -110,14 +110,14 @@ const isVideoAvailable = (lesson) => {
                                                         class="text-blue-600 hover:underline text-sm whitespace-nowrap">
                                                         Join Meet
                                                     </a>
-                                                    <a v-else-if="$page.props.auth.user?.tutor && !lesson.google_meet_link && dayjs(lesson.available_at).isSame(dayjs(), 'day')"
+                                                    <a v-else-if="$page.props.auth.user?.is_tutor && !lesson.path && !lesson.google_meet_link && dayjs(lesson.available_at).isSame(dayjs(), 'day')"
                                                         :href="route('lessons.google-meet.create', lesson.id)"
-                                                        class="text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 whitespace-nowrap">
+                                                        class="bg-linear-to-r from-green-700 to-blue-600 hover:from-green-600 hover:to-blue-500 text-white px-3 py-1 rounded whitespace-nowrap">
                                                         Create Meet
                                                     </a>
                                                     <a v-if="month.is_purchased && lesson.path && isVideoAvailable(lesson)"
                                                         :href="lesson.path" target="_blank"
-                                                        class="text-sm bg-linear-to-r from-green-600 to-blue-500 hover:from-green-500 hover:to-blue-400 text-white px-3 py-1 rounded whitespace-nowrap flex items-center gap-1">
+                                                        class="bg-linear-to-r from-green-700 to-blue-600 hover:from-green-600 hover:to-blue-500 text-white px-3 py-1 rounded whitespace-nowrap flex items-center gap-1">
                                                         <span
                                                             class="material-symbols-outlined text-sm">play_circle</span>
                                                         Watch Video

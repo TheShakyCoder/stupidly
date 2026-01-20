@@ -20,6 +20,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $appends = [
         'profile_photo_url',
+        'is_tutor',
     ];
 
     protected $fillable = [
@@ -51,6 +52,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function tutor()
     {
         return $this->hasOne(Tutor::class);
+    }
+
+    public function getIsTutorAttribute()
+    {
+        return auth()->check() && $this->tutor()->exists();
     }
 
     /**
