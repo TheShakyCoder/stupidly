@@ -37,7 +37,12 @@ return [
         ],
         [
             'name' => 'Test User',
-            'email' => 'test@example.com',
+            'email' => 'sharif.khan@mac.com',
+        ],
+        [
+            'name' => 'Free User',
+            'email' => 'sharif.khan@gmail.com',
+            'free' => true,
         ],
     ],
 
