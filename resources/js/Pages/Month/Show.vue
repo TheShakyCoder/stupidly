@@ -37,6 +37,12 @@ const canJoinLesson = (lesson) => {
 
     return now.isAfter(fiveMinutesBefore) && now.isBefore(sixtyMinutesAfter);
 }
+
+const isVideoAvailable = (lesson) => {
+    const start = dayjs(lesson.available_at);
+    const fiveMinutesBefore = start.subtract(5, 'minute');
+    return dayjs().isAfter(fiveMinutesBefore);
+}
 </script>
 
 <template>
@@ -88,30 +94,35 @@ const canJoinLesson = (lesson) => {
                                                         :style="{ transform: `rotate(${dayjs(lesson.available_at).minute() * 6}deg)`, transformOrigin: '12px 12px' }" />
                                                 </svg>
                                             </div>
-                                            <div class="overflow-hidden">
-                                                <div class="text-sm font-medium truncate">{{ lesson.course?.title }}
+
+                                            <div class="flex flex-col">
+
+                                                <div class="overflow-hidden">
+                                                    <div class="text-sm font-medium truncate">{{ lesson.course?.title }}
+                                                    </div>
+                                                    <div class="text-sm text-gray-500 dark:text-gray-300 truncate">{{
+                                                        lesson.title }}
+                                                    </div>
                                                 </div>
-                                                <div class="text-sm text-gray-500 dark:text-gray-300 truncate">{{
-                                                    lesson.title }}
+                                                <div class="ml-auto flex items-center space-x-2">
+                                                    <a v-if="canJoinLesson(lesson)" :href="lesson.google_meet_link"
+                                                        target="_blank"
+                                                        class="text-blue-600 hover:underline text-sm whitespace-nowrap">
+                                                        Join Meet
+                                                    </a>
+                                                    <a v-else-if="$page.props.auth.user?.tutor && !lesson.google_meet_link && dayjs(lesson.available_at).isSame(dayjs(), 'day')"
+                                                        :href="route('lessons.google-meet.create', lesson.id)"
+                                                        class="text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 whitespace-nowrap">
+                                                        Create Meet
+                                                    </a>
+                                                    <a v-if="month.is_purchased && lesson.path && isVideoAvailable(lesson)"
+                                                        :href="lesson.path" target="_blank"
+                                                        class="text-sm bg-linear-to-r from-green-600 to-blue-500 hover:from-green-500 hover:to-blue-400 text-white px-3 py-1 rounded whitespace-nowrap flex items-center gap-1">
+                                                        <span
+                                                            class="material-symbols-outlined text-sm">play_circle</span>
+                                                        Watch Video
+                                                    </a>
                                                 </div>
-                                            </div>
-                                            <div class="ml-auto flex items-center space-x-2">
-                                                <a v-if="canJoinLesson(lesson)" :href="lesson.google_meet_link"
-                                                    target="_blank"
-                                                    class="text-blue-600 hover:underline text-sm whitespace-nowrap">
-                                                    Join Meet
-                                                </a>
-                                                <a v-else-if="$page.props.auth.user?.tutor && !lesson.google_meet_link && dayjs(lesson.available_at).isSame(dayjs(), 'day')"
-                                                    :href="route('lessons.google-meet.create', lesson.id)"
-                                                    class="text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 whitespace-nowrap">
-                                                    Create Meet
-                                                </a>
-                                                <!--
-                                                <Link :href="route('lessons.show', lesson.id)"
-                                                    class="text-blue-600 hover:underline text-sm whitespace-nowrap">
-                                                    View
-                                                </Link>
-                                                -->
                                             </div>
                                         </li>
                                     </ul>

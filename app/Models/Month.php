@@ -13,6 +13,8 @@ class Month extends Model
 
     protected $dates = ['started_at'];
 
+    protected $appends = ['is_purchased'];
+
     public function lessons(): HasMany
     {
         return $this->hasMany(Lesson::class)->orderBy('available_at');
@@ -31,5 +33,9 @@ class Month extends Model
     public function users()
     {
         return $this->belongsToMany(User::class, 'covers')->using(Payment::class);
+    }
+    public function getIsPurchasedAttribute()
+    {
+        return auth()->check() && $this->payments()->where('user_id', auth()->id())->exists();
     }
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('preview')->nullable();
             $table->foreignId('tutor_id');
+            $table->string('duration');
             $table->enum('level', ['Scratch', 'Beginner', 'Intermediate', 'Advanced'])->default('Beginner');
             $table->timestamps();
         });

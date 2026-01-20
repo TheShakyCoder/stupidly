@@ -64,6 +64,7 @@ return [
             ],
             'level' => 'Beginner',
             'tutor' => 'Sharif Khan',
+            'duration' => '~30 minutes',
             'skills' => ['VueJS', 'HTML / CSS'],
             'image' => '/images/courses/solstice-hannan--yhBOqHOr0c-unsplash.jpg',
             'preview' => 'https://www.youtube.com/embed/aqz-KE-bpKQ?si=byy4vWLPje2zWu5F',
@@ -107,6 +108,7 @@ return [
             ],
             'level' => 'Beginner',
             'tutor' => 'Sharif Khan',
+            'duration' => '~30 minutes',
             'skills' => ['VueJS', 'HTML / CSS'],
             'image' => '/images/courses/k8-B8e8PAJ9JRM-unsplash.jpg',
             'lessons' => [
@@ -150,6 +152,7 @@ return [
             ],
             'level' => 'Intermediate',
             'tutor' => 'Sharif Khan',
+            'duration' => '~60 minutes',
             'skills' => ['VueJS', 'P5.js', 'HTML / Tailwind CSS'],
             'image' => '/images/courses/SpaceshipFormation.gif',
             'lessons' => [
@@ -192,6 +195,7 @@ return [
             ],
             'level' => 'Intermediate',
             'tutor' => 'Sharif Khan',
+            'duration' => '~60 minutes',
             'skills' => ['VueJS', 'HTML / Tailwind CSS'],
             'image' => '/images/courses/tom-m-UWh8vs4ZMMM-unsplash.jpg',
             'lessons' => [
@@ -235,6 +239,7 @@ return [
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
+            'duration' => '~60 minutes',
             'skills' => ['Laravel / Inertia.js', 'VueJS', 'HTML / Tailwind CSS', 'APIs'],
             'image' => '/images/courses/tamas-tuzes-katai-rEn-AdBr3Ig-unsplash.jpg',
         ],
@@ -251,6 +256,7 @@ return [
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
+            'duration' => '~60 minutes',
             'skills' => ['Lua', 'WebSockets'],
             'image' => '/images/courses/cffc6424ce-lua.jpg',
         ],
@@ -266,6 +272,7 @@ return [
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
+            'duration' => '~60 minutes',
             'skills' => ['VueJS', 'P5.js', 'WebSockets', 'NodeJS'],
             'image' => '/images/courses/cffc6424ce-vue.png',
             'lessons' => [
@@ -289,38 +296,6 @@ return [
                     'available_at' => '2026-02-23 14:00:00',
                     'title' => 'Lesson 5',
                 ],
-                [
-                    'available_at' => '2026-03-02 14:00:00',
-                    'title' => 'Lesson 6',
-                ],
-                [
-                    'available_at' => '2026-03-09 14:00:00',
-                    'title' => 'Lesson 7',
-                ],
-                [
-                    'available_at' => '2026-03-16 14:00:00',
-                    'title' => 'Lesson 8',
-                ],
-                [
-                    'available_at' => '2026-03-23 14:00:00',
-                    'title' => 'Lesson 9',
-                ],
-                [
-                    'available_at' => '2026-03-30 14:00:00',
-                    'title' => 'Lesson 10',
-                ],
-                [
-                    'available_at' => '2026-04-06 14:00:00',
-                    'title' => 'Lesson 11',
-                ],
-                [
-                    'available_at' => '2026-04-13 14:00:00',
-                    'title' => 'Lesson 12',
-                ],
-                [
-                    'available_at' => '2026-04-20 14:00:00',
-                    'title' => 'Lesson 13',
-                ],
             ],
         ],
         'super-bomberman' => [
@@ -335,6 +310,7 @@ return [
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
+            'duration' => '~60 minutes',
             'skills' => ['Lua', 'WebSockets'],
             'image' => '/images/courses/Bomberman_game.png',
         ],
@@ -350,6 +326,7 @@ return [
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
+            'duration' => '~60 minutes',
             'skills' => ['VueJS', 'HTML / Tailwind CSS', 'WebSockets', 'NodeJS'],
             'image' => '/images/courses/michal-parzuchowski-U8n_O7rEq7o-unsplash.jpg',
         ],
@@ -365,6 +342,7 @@ return [
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
+            'duration' => '~60 minutes',
             'skills' => ['VueJS', 'NodeJS', 'HTML / Tailwind CSS', 'WebSockets'],
             'image' => '/images/courses/kuu-akura-pnK6Q-QTHM4-unsplash.jpg',
         ],
@@ -381,6 +359,7 @@ return [
             ],
             'level' => 'Advanced',
             'tutor' => 'Sharif Khan',
+            'duration' => '~60 minutes',
             'skills' => ['Babylon.js'],
             'image' => '/images/courses/paul-pastourmatzis-5FGsEWRn2NQ-unsplash.jpg',
             'lessons' => [
@@ -403,38 +382,6 @@ return [
                 [
                     'available_at' => '2026-02-23 15:30:00',
                     'title' => 'Lesson 5',
-                ],
-                [
-                    'available_at' => '2026-03-02 15:30:00',
-                    'title' => 'Lesson 6',
-                ],
-                [
-                    'available_at' => '2026-03-09 15:30:00',
-                    'title' => 'Lesson 7',
-                ],
-                [
-                    'available_at' => '2026-03-16 15:30:00',
-                    'title' => 'Lesson 8',
-                ],
-                [
-                    'available_at' => '2026-03-23 15:30:00',
-                    'title' => 'Lesson 9',
-                ],
-                [
-                    'available_at' => '2026-03-30 15:30:00',
-                    'title' => 'Lesson 10',
-                ],
-                [
-                    'available_at' => '2026-04-06 15:30:00',
-                    'title' => 'Lesson 11',
-                ],
-                [
-                    'available_at' => '2026-04-13 15:30:00',
-                    'title' => 'Lesson 12',
-                ],
-                [
-                    'available_at' => '2026-04-20 15:30:00',
-                    'title' => 'Lesson 13',
                 ],
             ],
         ],
