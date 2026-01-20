@@ -110,17 +110,17 @@ const isVideoAvailable = (lesson) => {
                                                     </div>
                                                 </div>
                                                 <div class="ml-auto flex items-center space-x-2">
-                                                    <a v-if="canJoinLesson(lesson)" :href="lesson.google_meet_link"
-                                                        target="_blank"
-                                                        class="text-blue-600 hover:underline text-sm whitespace-nowrap">
-                                                        Join Meet
+                                                    <a v-if="canJoinLesson(lesson) && (month.is_purchased || $page.props.auth.user?.is_tutor)"
+                                                        :href="lesson.google_meet_link" target="_blank"
+                                                        class="bg-linear-to-r from-green-700 to-blue-600 hover:from-green-600 hover:to-blue-500 text-white px-3 py-1 rounded whitespace-nowrap">
+                                                        Join Lesson
                                                     </a>
                                                     <a v-else-if="$page.props.auth.user?.is_tutor && !lesson.path && !lesson.google_meet_link && dayjs(lesson.available_at).isSame(dayjs(), 'day')"
                                                         :href="route('lessons.google-meet.create', lesson.id)"
                                                         class="bg-linear-to-r from-green-700 to-blue-600 hover:from-green-600 hover:to-blue-500 text-white px-3 py-1 rounded whitespace-nowrap">
                                                         Create Meet
                                                     </a>
-                                                    <a v-if="month.is_purchased && lesson.path && isVideoAvailable(lesson)"
+                                                    <a v-if="(month.is_purchased || $page.props.auth.user?.is_tutor) && lesson.path && isVideoAvailable(lesson)"
                                                         :href="lesson.path" target="_blank"
                                                         class="bg-linear-to-r from-green-700 to-blue-600 hover:from-green-600 hover:to-blue-500 text-white px-3 py-1 rounded whitespace-nowrap flex items-center gap-1">
                                                         <span
