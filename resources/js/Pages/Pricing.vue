@@ -68,6 +68,14 @@ import { Link } from '@inertiajs/vue3';
                                 <span class="text-slate-700 dark:text-gray-200 font-medium">Safe Community
                                     Access</span>
                             </div>
+                            <div class="flex items-center gap-3">
+                                <span
+                                    class="flex items-center justify-center size-6 rounded-full bg-gray-200 dark:bg-gray-800 text-primary">
+                                    <span class="material-symbols-outlined text-[16px]">lock</span>
+                                </span>
+                                <span class="text-slate-700 dark:text-gray-200 font-medium">Permanent Access to
+                                    Purchased Content</span>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         foreach ($users as $userData) {
             $tutor = $userData['tutor'] ?? null;
             unset($userData['tutor']);
+            $userData['email_verified_at'] = isset($userData['email_verified_at']) && $userData['email_verified_at'] ? now() : null;
             $user = User::create([
                 ...$userData,
                 'password' => Hash::make(config('auth.user.password')),

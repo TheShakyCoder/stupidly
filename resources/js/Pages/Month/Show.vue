@@ -85,8 +85,12 @@ const isVideoAvailable = (lesson) => {
                                             class="flex items-center space-x-3 bg-gray-50 dark:bg-gray-700 p-3 rounded-lg">
                                             <div
                                                 class="size-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold flex-shrink-0">
-                                                <svg viewBox="0 0 24 24" class="size-8" fill="none"
+                                                <svg viewBox="0 0 24 24" class="size-8" fill="none" role="img"
+                                                    :aria-label="dayjs(lesson.available_at).format('h:mma')"
                                                     stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                                    <title>{{ dayjs(lesson.available_at).format('h:mma') }}</title>
+                                                    <desc>Clock showing {{ dayjs(lesson.available_at).format('h:mma') }}
+                                                    </desc>
                                                     <circle cx="12" cy="12" r="10" />
                                                     <line x1="12" y1="12" x2="12" y2="8"
                                                         :style="{ transform: `rotate(${(dayjs(lesson.available_at).hour() % 12) * 30 + dayjs(lesson.available_at).minute() * 0.5}deg)`, transformOrigin: '12px 12px' }" />
@@ -100,8 +104,9 @@ const isVideoAvailable = (lesson) => {
                                                 <div class="overflow-hidden">
                                                     <div class="text-sm font-medium truncate">{{ lesson.course?.title }}
                                                     </div>
-                                                    <div class="text-sm text-gray-500 dark:text-gray-300 truncate">{{
-                                                        lesson.title }}
+                                                    <div class="text-sm text-gray-500 dark:text-gray-300 truncate">
+                                                        {{ dayjs(lesson.available_at).format('h:mm a') }} - {{
+                                                            lesson.title }}
                                                     </div>
                                                 </div>
                                                 <div class="ml-auto flex items-center space-x-2">
@@ -131,6 +136,8 @@ const isVideoAvailable = (lesson) => {
                                     class="text-gray-500 text-center py-4 text-sm">
                                     No upcoming lessons.
                                 </div>
+                                <p>For any lessons due today, a link to the live stream or pre-recorded video will be
+                                    shown 5 minutes before the lesson is due to start.</p>
                             </div>
                         </div>
                     </div>

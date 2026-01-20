@@ -207,36 +207,6 @@ const removePayment = (id) => {
                     <!-- Right Column: Stats & Actions -->
                     <div class="md:col-span-1 space-y-6">
                         <div
-                            class="bg-white/80 dark:bg-slate-900/60 backdrop-blur-md rounded-2xl p-8 border border-gray-200 dark:border-white/10 shadow-xl">
-                            <h2 class="text-xl font-black text-gray-900 dark:text-white tracking-tight mb-6">Course
-                                Progress
-                            </h2>
-
-                            <div class="space-y-6">
-                                <div
-                                    class="p-4 bg-background-light dark:bg-slate-800/50 rounded-2xl border border-gray-100 dark:border-white/5">
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span
-                                            class="text-xs font-black uppercase tracking-widest text-gray-400 dark:text-slate-500">Active
-                                            Lessons</span>
-                                        <span class="text-primary font-black">---</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
-                                        <div class="bg-primary h-full rounded-full" style="width: 0%"></div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="text-center p-6 border-2 border-dashed border-gray-200 dark:border-slate-800 rounded-2xl">
-                                    <span
-                                        class="material-symbols-outlined text-4xl text-gray-300 dark:text-slate-700 mb-2">analytics</span>
-                                    <p class="text-sm text-gray-500 dark:text-slate-500 italic">Advanced analytics
-                                        coming soon
-                                        for future geniuses.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
                             class="bg-linear-to-br from-primary to-blue-700 rounded-2xl p-8 text-white shadow-xl relative overflow-hidden group">
                             <div
                                 class="absolute -right-4 -bottom-4 size-32 bg-white/10 rounded-full blur-3xl group-hover:scale-150 transition-transform">

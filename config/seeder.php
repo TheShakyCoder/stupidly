@@ -6,6 +6,8 @@ return [
         [
             'name' => 'Sharif Khan',
             'email' => 'sharif.khan@stupidly.uk',
+            'admin' => true,
+            'email_verified_at' => true,
             'tutor' => [
                 'title' => 'Web Developer',
                 'bio' => 'Sharif has over 25 years of experience in the web development industry. He has worked for a variety of clients, from startups to large corporations, in many capacities. He is passionate about teaching and helping others learn to code, and has spent much of his time teaching home-educated children.',
