@@ -32,12 +32,6 @@ const submit = () => {
             <AuthenticationCardLogo />
         </template>
 
-        <div class="rounded bg-red-950 text-red-50 p-8 px-10">
-            <h1 class="text-2xl font-bold">Important!</h1>
-            <p>Registration will be available from 4th January 2026. Lessons begin on 5th January and the times are
-                available
-                for viewing on the Month pages now.</p>
-        </div>
         <form @submit.prevent="submit">
             <div>
                 <InputLabel for="name" value="Name" />
@@ -73,9 +67,9 @@ const submit = () => {
                         <Checkbox id="terms" v-model:checked="form.terms" name="terms" required />
 
                         <div class="ms-2">
-                            I agree to the <a target="_blank" :href="route('terms.show')"
+                            I agree to the <a target="_blank" :href="route('terms')"
                                 class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">Terms
-                                of Service</a> and <a target="_blank" :href="route('policy.show')"
+                                of Service</a> and <a target="_blank" :href="route('privacy')"
                                 class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">Privacy
                                 Policy</a>
                         </div>

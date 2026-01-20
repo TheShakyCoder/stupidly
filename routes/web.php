@@ -34,13 +34,13 @@ Route::get('/privacy', function () {
     return Inertia::render('PrivacyPolicy', [
         'privacy' => File::get(resource_path('markdown/privacy.md')),
     ]);
-});
+})->name('privacy');
 
-Route::get('/terms', function () {
+Route::get('/terms-of-service', function () {
     return Inertia::render('TermsOfService', [
         'terms' => File::get(resource_path('markdown/terms.md')),
     ]);
-});
+})->name('terms');
 
 Route::resource('courses', \App\Http\Controllers\CourseController::class)->only(['index', 'show']);
 Route::resource('skills', \App\Http\Controllers\SkillController::class)->only(['index']);
