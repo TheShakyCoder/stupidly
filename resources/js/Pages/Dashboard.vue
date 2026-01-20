@@ -206,8 +206,35 @@ const removePayment = (id) => {
 
                     <!-- Right Column: Stats & Actions -->
                     <div class="md:col-span-1 space-y-6">
+
                         <div
-                            class="bg-linear-to-br from-primary to-blue-700 rounded-2xl p-8 text-white shadow-xl relative overflow-hidden group">
+                            class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-200 dark:border-slate-700/50 flex flex-col items-center text-center">
+                            <img v-if="$page.props.auth.user.profile_photo_path"
+                                :src="$page.props.auth.user.profile_photo_url" :alt="$page.props.auth.user.name"
+                                class="size-20 rounded-full object-cover mb-4 border-2 border-primary/10" />
+                            <img v-else :src="$page.props.auth.user.profile_photo_url"
+                                class="size-20 rounded-full bg-primary/10 flex items-center justify-center text-primary text-3xl font-black mb-4" />
+
+                            <h3 class="font-bold text-gray-900 dark:text-white text-lg">{{ $page.props.auth.user.name }}
+                            </h3>
+                            <p class="text-sm text-gray-500 dark:text-slate-400 font-medium">{{
+                                $page.props.auth.user.email }}
+                            </p>
+                            <Link :href="route('profile.show')"
+                                class="mt-4 inline-flex items-center gap-1 text-sm font-bold text-white hover:text-blue-200 transition-colors">
+                                Edit Profile
+                                <span class="material-symbols-outlined text-sm">edit</span>
+                            </Link>
+                        </div>
+
+                        <button @click="router.post('/logout')"
+                            class="flex w-full justify-center bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-600 font-bold py-2 px-4 rounded-xl text-xl transition-colors flex items-center gap-2">
+                            <span class="material-symbols-outlined text-lg">logout</span>
+                            Log Out
+                        </button>
+
+                        <div
+                            class="bg-linear-to-br from-blue-500 to-blue-700 rounded-2xl p-8 text-white shadow-xl relative overflow-hidden group">
                             <div
                                 class="absolute -right-4 -bottom-4 size-32 bg-white/10 rounded-full blur-3xl group-hover:scale-150 transition-transform">
                             </div>
@@ -221,12 +248,6 @@ const removePayment = (id) => {
                                 <span class="material-symbols-outlined text-sm">mail</span>
                             </Link>
                         </div>
-
-                        <button @click="router.post('/logout')"
-                            class="flex w-full justify-center bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-600 font-bold py-2 px-4 rounded-xl text-xl transition-colors flex items-center gap-2">
-                            <span class="material-symbols-outlined text-lg">logout</span>
-                            Log Out
-                        </button>
 
                     </div>
 

@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, ref, watch, onMounted } from 'vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import AuthenticationCard from '@/Components/AuthenticationCard.vue';
 import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
@@ -12,14 +12,42 @@ const props = defineProps({
 const form = useForm({});
 
 const submit = () => {
-    form.post(route('verification.send'));
+    form.post(route('verification.send'), {
+        onStart: () => startCountdown(),
+    });
 };
 
 const verificationLinkSent = computed(() => props.status === 'verification-link-sent');
+
+const countDown = ref(0);
+
+const startCountdown = () => {
+    countDown.value = 60;
+    const interval = setInterval(() => {
+        countDown.value--;
+        if (countDown.value === 0) {
+            clearInterval(interval);
+        }
+    }, 1000);
+};
+
+watch(verificationLinkSent, (newVal) => {
+    if (newVal) {
+        startCountdown();
+    }
+});
+
+onMounted(() => {
+    startCountdown();
+});
 </script>
 
 <template>
-    <Head title="Email Verification" />
+
+    <Head>
+        <title>Email Verification</title>
+        <meta name="description" content="Email Verification">
+    </Head>
 
     <AuthenticationCard>
         <template #logo>
@@ -27,7 +55,9 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
         </template>
 
         <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-            Before continuing, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
+            Before continuing, could you verify your email address by clicking on the link we just emailed to you? If
+            you didn't
+            receive the email, we will gladly send you another.
         </div>
 
         <div v-if="verificationLinkSent" class="mb-4 font-medium text-sm text-green-600 dark:text-green-400">
@@ -36,23 +66,18 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
 
         <form @submit.prevent="submit">
             <div class="mt-4 flex items-center justify-between">
-                <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Resend Verification Email
+                <PrimaryButton :class="{ 'opacity-25': form.processing || countDown > 0 }"
+                    :disabled="form.processing || countDown > 0">
+                    {{ countDown > 0 ? 'Resend in ' + countDown + 's' : 'Resend Verification Email' }}
                 </PrimaryButton>
 
                 <div>
-                    <Link
-                        :href="route('profile.show')"
-                        class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
-                    >
+                    <Link :href="route('profile.show')"
+                        class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                         Edit Profile</Link>
 
-                    <Link
-                        :href="route('logout')"
-                        method="post"
-                        as="button"
-                        class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800 ms-2"
-                    >
+                    <Link :href="route('logout')" method="post" as="button"
+                        class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800 ms-2">
                         Log Out
                     </Link>
                 </div>

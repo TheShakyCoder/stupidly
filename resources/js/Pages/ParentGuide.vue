@@ -12,6 +12,10 @@ const faqs = [
         answer: "Absolutely. Safety is our top priority. We provide a moderated environment where interactions are monitored to ensure a positive and secure learning space for all students. All our tutors are DBS checked."
     },
     {
+        question: "What exactly am I paying for?",
+        answer: "Each and every payment gives you access to that months live lessons and recordings - permanently. Each lesson is designed to help your child think analytically, creatively and logically."
+    },
+    {
         question: "What equipment do we need?",
         answer: "A standard computer or laptop (Windows, Mac, or Linux) with a stable internet connection is all you need. iPads and tablets are not recommended for the best coding experience but can be used to view the lessons."
     },
