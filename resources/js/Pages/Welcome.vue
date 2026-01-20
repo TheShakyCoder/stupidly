@@ -50,7 +50,7 @@ defineProps({
                                     </div>
                                     <div class="flex flex-wrap gap-4">
                                         <a target="_blank" href="https://www.youtube.com/watch?v=Ne3HpoZMpX8"
-                                            class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-secondary hover:bg-green-400 text-white text-base font-bold leading-normal tracking-[0.015em] shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:scale-105">
+                                            class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-linear-to-r from-green-600 to-blue-500 hover:from-green-500 hover:to-blue-400 text-white text-base font-bold leading-normal tracking-[0.015em] shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:scale-105">
                                             <span
                                                 class="material-symbols-outlined group-hover:text-primary transition-colors">play_circle</span>
                                             <span class="truncate ml-2">Free Lesson</span>
