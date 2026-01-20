@@ -227,6 +227,12 @@ const removePayment = (id) => {
                             </Link>
                         </div>
 
+                        <Link v-if="$page.props.auth.user.admin" :href="route('admin.users.index')"
+                            class="flex w-full justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-xl text-xl transition-colors flex items-center gap-2">
+                            <span class="material-symbols-outlined text-lg">admin_panel_settings</span>
+                            Admin Panel
+                        </Link>
+
                         <button @click="router.post('/logout')"
                             class="flex w-full justify-center bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-600 font-bold py-2 px-4 rounded-xl text-xl transition-colors flex items-center gap-2">
                             <span class="material-symbols-outlined text-lg">logout</span>

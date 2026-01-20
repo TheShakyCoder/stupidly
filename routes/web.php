@@ -192,6 +192,10 @@ Route::middleware([
 
     Route::get('/lessons/{lesson}/google-meet/connect', [\App\Http\Controllers\GoogleMeetController::class, 'create'])->name('lessons.google-meet.create');
     Route::get('/auth/google/callback', [\App\Http\Controllers\GoogleMeetController::class, 'store']);
+
+    Route::prefix('admin')->middleware(\App\Http\Middleware\IsAdmin::class)->name('admin.')->group(function () {
+        Route::resource('users', \App\Http\Controllers\AdminUserController::class);
+    });
 });
 
 // Stripe webhook
