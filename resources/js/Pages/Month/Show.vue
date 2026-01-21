@@ -98,7 +98,8 @@ const weekDeps = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
                 <div
                     class="lg:col-span-2 bg-white dark:bg-slate-800 overflow-hidden shadow-xl rounded-2xl border border-gray-200 dark:border-slate-700/50">
                     <div class="p-6">
-                        <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Schedule</h2>
+                        <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">{{
+                            dayjs(month.started_at).format('MMMM YYYY') }}</h2>
 
                         <!-- Calendar Header -->
                         <div class="grid grid-cols-7 mb-2">
@@ -155,10 +156,10 @@ const weekDeps = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
                                             {{ dayjs(lesson.available_at).format('ddd, MMM D @ h:mm a') }}
                                         </div>
                                         <div class="text-sm font-medium text-gray-900 dark:text-gray-200 mt-1">
-                                            {{ lesson.title }}
+                                            {{ lesson.course.title }}
                                         </div>
                                         <div class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-                                            {{ lesson.course.title }}
+                                            {{ lesson.title }}
                                         </div>
                                     </div>
                                     <a v-if="canJoinLesson(lesson) && (month.is_purchased || $page.props.auth.user?.is_tutor)"
