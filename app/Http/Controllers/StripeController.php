@@ -35,7 +35,7 @@ class StripeController
             foreach ($monthIds as $monthId) {
                 Payment::where('month_id', $monthId)
                     ->where('user_id', $userId)
-                    ->update(['purchased_at' => now()]);
+                    ->update(['purchased_at' => now(), 'session_id' => $session->id]);
             }
         }
 
