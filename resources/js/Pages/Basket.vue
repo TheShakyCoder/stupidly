@@ -152,12 +152,14 @@ const startCheckout = async () => {
 
                             <div
                                 class="bg-blue-50/50 dark:bg-blue-900/20 rounded-2xl p-6 border border-blue-100 dark:border-blue-900/20 backdrop-blur-sm">
-                                <p class="text-sm text-blue-900/70 dark:text-blue-200/60 leading-relaxed font-medium">
+                                <p
+                                    class="text-sm text-blue-900/70 dark:text-blue-200/60 leading-relaxed font-medium flex">
                                     <span class="material-symbols-outlined text-sm align-middle mr-1">info</span>
-                                    Payments for <strong
-                                        class="text-blue-900 dark:text-blue-200 font-black">StupidlySmart</strong> are
-                                    managed by
-                                    <strong class="text-blue-900 dark:text-blue-200 font-black">Fig Limited</strong>.
+                                    <span class="pl-3"><b>StupidlySmart</b> has joined a growing community of Stripe
+                                        users
+                                        committed to carbon
+                                        removal and scaling
+                                        technologies to combat climate change. <br />Thank you.</span>
                                 </p>
                             </div>
                         </div>
