@@ -40,7 +40,7 @@ class GoogleMeetController extends Controller
 
         $event = new Event([
             'summary' => $lesson->title ?? 'Lesson',
-            'description' => $lesson->course->title ?? 'Lesson via StupidlySmart',
+            'description' => $lesson->course->title ?? 'Lesson via ' . config('app.name'),
             'start' => [
                 'dateTime' => \Carbon\Carbon::parse($lesson->available_at)->toRfc3339String(),
                 'timeZone' => 'Europe/London', // Should probably config this

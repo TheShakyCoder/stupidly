@@ -30,6 +30,7 @@ const submit = () => {
     <AuthenticationCard>
         <template #logo>
             <AuthenticationCardLogo />
+            <p class="text-center text-xl font-bold">Student Registration</p>
         </template>
 
         <form @submit.prevent="submit">

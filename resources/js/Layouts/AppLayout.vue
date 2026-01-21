@@ -17,10 +17,10 @@ const user = computed(() => page.props.auth.user);
                 <header class="flex items-center justify-between whitespace-nowrap px-6 py-3">
                     <NavLink href="/" class="flex items-center gap-3">
                         <div class="size-8 text-secondary flex items-center justify-center">
-                            <span class="material-symbols-outlined text-3xl">terminal</span>
+                            <img src="images/logo.png" :alt="page.props.app_name + ' Logo'">
                         </div>
                         <h2 class="text-lg font-bold leading-tight tracking-[-0.015em] dark:text-white text-gray-900">
-                            Stupidly Smart</h2>
+                            {{ page.props.app_name }}</h2>
                     </NavLink>
                     <div class="flex flex-1 justify-end items-center gap-4 sm:gap-8">
                         <div class="hidden md:flex items-center gap-6">

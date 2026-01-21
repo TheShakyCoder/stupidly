@@ -89,7 +89,8 @@ const removePayment = (id) => {
 
                                             <Link :href="`/months/${currentMonth.id}`"
                                                 class="inline-flex items-center gap-1.5 text-sm font-bold text-gray-500 hover:text-primary dark:text-slate-400 dark:hover:text-white transition-colors group/link">
-                                                View details
+                                                View Month
+
                                                 <span
                                                     class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_right_alt</span>
                                             </Link>
@@ -169,7 +170,7 @@ const removePayment = (id) => {
 
                                             <Link :href="`/months/${m.id}`"
                                                 class="inline-flex items-center gap-1.5 text-sm font-bold text-gray-500 hover:text-primary dark:text-slate-400 dark:hover:text-white transition-colors group/link">
-                                                View details
+                                                View Month
                                                 <span
                                                     class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_right_alt</span>
                                             </Link>
@@ -195,7 +196,6 @@ const removePayment = (id) => {
                                         </div>
                                         <div v-else
                                             class="w-full sm:w-auto bg-green-50 dark:bg-green-900/10 text-green-500 dark:text-green-400 font-black p-4 px-6 rounded-2xl flex items-center justify-center gap-2 border border-green-100 dark:border-green-700/50">
-                                            <span class="material-symbols-outlined text-lg">check_circle</span>
                                             Purchased
                                         </div>
                                     </div>
