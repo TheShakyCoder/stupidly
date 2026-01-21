@@ -54,7 +54,7 @@ const playPreviewVideo = () => {
                                 <span class="material-symbols-outlined text-lg fill-1">star</span>
                                 <span class="text-slate-900 dark:text-white font-bold text-sm">{{ ratings }}</span>
                                 <span class="text-slate-500 dark:text-slate-400 font-normal text-sm ml-1">({{ students
-                                }}
+                                    }}
                                     students)</span>
                             </div>
                             <div class="h-4 w-px bg-slate-300 dark:bg-slate-700 hidden sm:block"></div>
@@ -191,8 +191,7 @@ const playPreviewVideo = () => {
                                     <span class="material-symbols-outlined text-lg">schedule</span>
                                     Duration
                                 </span>
-                                <span class="font-bold text-slate-900 dark:text-white text-sm">{{ course.duration
-                                    }}</span>
+                                <span class="font-bold text-slate-900 dark:text-white text-sm">~60 minutes</span>
                             </div>
                             <div
                                 class="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-700/50">

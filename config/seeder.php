@@ -48,13 +48,55 @@ return [
 
     'skills' => [
         'HTML / CSS',
-        'JavaScript',
+        'HTML / Tailwind CSS',
         'VueJS',
         'P5.js',
-        'Tailwind CSS',
     ],
 
     'courses' => [
+        'flappy-bird' => [
+            'title' => 'Flappy Bird Game',
+            'synopsis' => 'Build a classic Flappy Bird game Scratch.',
+            'description' => 'Learn the fundamentals of game development by recreating the classic Flappy Bird game. You\'ll learn game state management and interactive UI design while building a fully functional fun game.',
+            'bullets' => [
+                'how to code visually',
+                'what a constant is, and what a variable is',
+                'the basics of computer logic',
+                'what a condition is and the different ways to code it',
+                'how to import and use images in Scratch'
+            ],
+            'requirements' => [
+                'use a computer with a keyboard and mouse',
+                'have access to the website scratch.mit.edu',
+            ],
+            'level' => 'Scratch',
+            'tutor' => 'Sharif Khan',
+            'skills' => ['Scratch'],
+            'image' => '/images/courses/flappy.jpeg',
+            'preview' => '',
+            'lessons' => [
+                [
+                    'available_at' => '2026-01-29 09:30:00',
+                    'title' => 'Lesson 1',
+                ],
+                [
+                    'available_at' => '2026-02-05 09:30:00',
+                    'title' => 'Lesson 2',
+                ],
+                [
+                    'available_at' => '2026-02-12 09:30:00',
+                    'title' => 'Lesson 3',
+                ],
+                [
+                    'available_at' => '2026-02-19 09:30:00',
+                    'title' => 'Lesson 4',
+                ],
+                [
+                    'available_at' => '2026-02-26 09:30:00',
+                    'title' => 'Lesson 5',
+                ],
+            ],
+        ],
         'tic-tac-toe' => [
             'title' => 'Tic Tac Toe Game',
             'synopsis' => 'Build a classic Tic Tac Toe game using VueJS, HTML, and CSS.',
@@ -76,23 +118,23 @@ return [
             'preview' => 'https://www.youtube.com/embed/aqz-KE-bpKQ?si=byy4vWLPje2zWu5F',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-26 09:30:00',
+                    'available_at' => '2026-01-26 13:30:00',
                     'title' => 'Lesson 1',
                 ],
                 [
-                    'available_at' => '2026-02-02 09:30:00',
+                    'available_at' => '2026-02-02 13:30:00',
                     'title' => 'Lesson 2',
                 ],
                 [
-                    'available_at' => '2026-02-09 09:30:00',
+                    'available_at' => '2026-02-09 13:30:00',
                     'title' => 'Lesson 3',
                 ],
                 [
-                    'available_at' => '2026-02-16 09:30:00',
+                    'available_at' => '2026-02-16 13:30:00',
                     'title' => 'Lesson 4',
                 ],
                 [
-                    'available_at' => '2026-02-23 09:30:00',
+                    'available_at' => '2026-02-23 13:30:00',
                     'title' => 'Lesson 5',
                 ],
             ],
@@ -118,23 +160,23 @@ return [
             'image' => '/images/courses/k8-B8e8PAJ9JRM-unsplash.jpg',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-27 09:30:00',
+                    'available_at' => '2026-01-28 13:30:00',
                     'title' => 'Lesson 1',
                 ],
                 [
-                    'available_at' => '2026-02-03 09:30:00',
+                    'available_at' => '2026-02-04 13:30:00',
                     'title' => 'Lesson 2',
                 ],
                 [
-                    'available_at' => '2026-02-10 09:30:00',
+                    'available_at' => '2026-02-11 13:30:00',
                     'title' => 'Lesson 3',
                 ],
                 [
-                    'available_at' => '2026-02-17 09:30:00',
+                    'available_at' => '2026-02-18 13:30:00',
                     'title' => 'Lesson 4',
                 ],
                 [
-                    'available_at' => '2026-02-24 09:30:00',
+                    'available_at' => '2026-02-25 13:30:00',
                     'title' => 'Lesson 5',
                 ],
             ],
@@ -161,23 +203,23 @@ return [
             'image' => '/images/courses/SpaceshipFormation.gif',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-26 11:00:00',
+                    'available_at' => '2026-01-26 15:00:00',
                     'title' => 'Lesson 1',
                 ],
                 [
-                    'available_at' => '2026-02-02 11:00:00',
+                    'available_at' => '2026-02-02 15:00:00',
                     'title' => 'Lesson 2',
                 ],
                 [
-                    'available_at' => '2026-02-09 11:00:00',
+                    'available_at' => '2026-02-09 15:00:00',
                     'title' => 'Lesson 3',
                 ],
                 [
-                    'available_at' => '2026-02-16 11:00:00',
+                    'available_at' => '2026-02-16 15:00:00',
                     'title' => 'Lesson 4',
                 ],
                 [
-                    'available_at' => '2026-02-23 11:00:00',
+                    'available_at' => '2026-02-23 15:00:00',
                     'title' => 'Lesson 5',
                 ],
             ],
@@ -203,23 +245,23 @@ return [
             'image' => '/images/courses/tom-m-UWh8vs4ZMMM-unsplash.jpg',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-27 11:00:00',
+                    'available_at' => '2026-01-28 15:00:00',
                     'title' => 'Lesson 1',
                 ],
                 [
-                    'available_at' => '2026-02-03 11:00:00',
+                    'available_at' => '2026-02-04 15:00:00',
                     'title' => 'Lesson 2',
                 ],
                 [
-                    'available_at' => '2026-02-10 11:00:00',
+                    'available_at' => '2026-02-11 15:00:00',
                     'title' => 'Lesson 3',
                 ],
                 [
-                    'available_at' => '2026-02-17 11:00:00',
+                    'available_at' => '2026-02-18 15:00:00',
                     'title' => 'Lesson 4',
                 ],
                 [
-                    'available_at' => '2026-02-24 11:00:00',
+                    'available_at' => '2026-02-25 15:00:00',
                     'title' => 'Lesson 5',
                 ],
             ],
@@ -275,28 +317,28 @@ return [
             'tutor' => 'Sharif Khan',
             'skills' => ['VueJS', 'P5.js', 'WebSockets', 'NodeJS'],
             'image' => '/images/courses/cffc6424ce-vue.png',
-            'lessons' => [
-                [
-                    'available_at' => '2026-01-26 14:00:00',
-                    'title' => 'Lesson 1',
-                ],
-                [
-                    'available_at' => '2026-02-02 14:00:00',
-                    'title' => 'Lesson 2',
-                ],
-                [
-                    'available_at' => '2026-02-09 14:00:00',
-                    'title' => 'Lesson 3',
-                ],
-                [
-                    'available_at' => '2026-02-16 14:00:00',
-                    'title' => 'Lesson 4',
-                ],
-                [
-                    'available_at' => '2026-02-23 14:00:00',
-                    'title' => 'Lesson 5',
-                ],
-            ],
+            // 'lessons' => [
+            //     [
+            //         'available_at' => '2026-01-29 09:30:00',
+            //         'title' => 'Lesson 1',
+            //     ],
+            //     [
+            //         'available_at' => '2026-02-05 09:30:00',
+            //         'title' => 'Lesson 2',
+            //     ],
+            //     [
+            //         'available_at' => '2026-02-12 09:30:00',
+            //         'title' => 'Lesson 3',
+            //     ],
+            //     [
+            //         'available_at' => '2026-02-19 09:30:00',
+            //         'title' => 'Lesson 4',
+            //     ],
+            //     [
+            //         'available_at' => '2026-02-26 09:30:00',
+            //         'title' => 'Lesson 5',
+            //     ],
+            // ],
         ],
         'super-bomberman' => [
             'title' => 'Super Bomberman Game',
@@ -360,23 +402,23 @@ return [
             'image' => '/images/courses/paul-pastourmatzis-5FGsEWRn2NQ-unsplash.jpg',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-26 15:30:00',
+                    'available_at' => '2026-01-29 11:00:00',
                     'title' => 'Lesson 1',
                 ],
                 [
-                    'available_at' => '2026-02-02 15:30:00',
+                    'available_at' => '2026-02-05 11:00:00',
                     'title' => 'Lesson 2',
                 ],
                 [
-                    'available_at' => '2026-02-09 15:30:00',
+                    'available_at' => '2026-02-12 11:00:00',
                     'title' => 'Lesson 3',
                 ],
                 [
-                    'available_at' => '2026-02-16 15:30:00',
+                    'available_at' => '2026-02-19 11:00:00',
                     'title' => 'Lesson 4',
                 ],
                 [
-                    'available_at' => '2026-02-23 15:30:00',
+                    'available_at' => '2026-02-26 11:00:00',
                     'title' => 'Lesson 5',
                 ],
             ],
