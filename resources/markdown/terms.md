@@ -24,7 +24,7 @@ By accessing or using the website, you agree to these Terms. If you do not agree
 
 ## 2. Who Operates the Website
 
-The website is operated by **Stupidly Ltd**.
+The website is operated by **Sharif Khan**.
 
 For questions about these Terms, you can contact:
 **Email:** support@stupidly.uk
@@ -60,7 +60,7 @@ Content may be changed, removed, or updated at any time without notice.
 ## 5. Intellectual Property
 
 Unless stated otherwise:
-- All content on the website is owned by or licensed to **Stupidly Ltd**
+- All content on the website is owned by or licensed to **Sharif Khan**
 - You may view and use content for personal, non-commercial purposes
 
 You must not copy, reproduce, or redistribute content without permission, except where allowed by law.
@@ -117,5 +117,5 @@ Any disputes will be subject to the exclusive jurisdiction of the courts of Engl
 
 If you have questions about these Terms, contact:
 
-**Stupidly Ltd**  
+**Sharif Khan**  
 Email: support@stupidly.uk
