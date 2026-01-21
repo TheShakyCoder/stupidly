@@ -79,7 +79,7 @@ const user = computed(() => page.props.auth.user);
                         href="/privacy">Privacy Policy</Link>
                     <Link
                         class="text-slate-500 dark:text-text-secondary hover:text-primary transition-colors text-sm font-medium"
-                        href="/terms">Terms of Use</Link>
+                        href="/terms-of-service">Terms of Service</Link>
                     <Link
                         class="text-slate-500 dark:text-text-secondary hover:text-primary transition-colors text-sm font-medium"
                         href="/parent-guide">Parent Guide</Link>
