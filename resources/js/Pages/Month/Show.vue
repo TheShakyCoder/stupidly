@@ -139,26 +139,39 @@ const weekDeps = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
                     </div>
                 </div>
 
-                <!-- Right Column: Info / Legend (Can remain as is or be updated) -->
+                <!-- Right Column: All Lessons -->
                 <div class="space-y-8">
-                    <!-- Legend / Info -->
                     <div
                         class="bg-white dark:bg-slate-800 overflow-hidden shadow-xl rounded-2xl border border-gray-200 dark:border-slate-700/50 p-6">
-                        <h3 class="font-bold text-lg mb-4 text-gray-900 dark:text-white">Legend</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
-                                <span class="size-3 rounded-full bg-blue-600"></span>
-                                Today
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
-                                <span
-                                    class="size-3 rounded-md bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/30"></span>
-                                Lesson
+                        <h3 class="font-bold text-lg mb-4 text-gray-900 dark:text-white">All Lessons</h3>
+
+                        <div v-if="month.lessons" class="space-y-4">
+                            <div v-for="lesson in month.lessons" :key="lesson.id"
+                                class="border-b border-gray-100 dark:border-gray-700 pb-2 last:border-0 last:pb-0">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <div
+                                            class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide">
+                                            {{ dayjs(lesson.available_at).format('ddd, MMM D @ h:mm a') }}
+                                        </div>
+                                        <div class="text-sm font-medium text-gray-900 dark:text-gray-200 mt-1">
+                                            {{ lesson.title }}
+                                        </div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                                            {{ lesson.course.title }}
+                                        </div>
+                                    </div>
+                                    <a v-if="canJoinLesson(lesson) && (month.is_purchased || $page.props.auth.user?.is_tutor)"
+                                        :href="lesson.google_meet_link" target="_blank"
+                                        class="inline-flex items-center justify-center px-3 py-1.5 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition shrink-0 ml-2">
+                                        Join
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">
-                            Click on a lesson to view details and join the session.
-                        </p>
+                        <div v-else class="text-sm text-gray-500 dark:text-gray-400">
+                            No lessons scheduled.
+                        </div>
                     </div>
                 </div>
             </div>
