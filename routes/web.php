@@ -193,6 +193,9 @@ Route::middleware([
     Route::get('/lessons/{lesson}/google-meet/connect', [\App\Http\Controllers\GoogleMeetController::class, 'create'])->name('lessons.google-meet.create');
     Route::get('/auth/google/callback', [\App\Http\Controllers\GoogleMeetController::class, 'store']);
 
+    Route::get('/lessons/{lesson}/watch', [\App\Http\Controllers\LessonController::class, 'watch'])->name('lessons.watch');
+    Route::get('/lessons/{lesson}/playlist', [\App\Http\Controllers\LessonController::class, 'playlist'])->name('lessons.playlist');
+
     Route::prefix('admin')->middleware(\App\Http\Middleware\IsAdmin::class)->name('admin.')->group(function () {
         Route::get('/dashboard', function () {
             return Inertia::render('Admin/Dashboard');

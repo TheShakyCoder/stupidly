@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue';
+import { Link } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
@@ -191,7 +192,7 @@ const weekDeps = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
                     <div>
                         <span class="text-xs font-bold uppercase text-gray-500 dark:text-gray-400">Course</span>
                         <div class="text-lg font-semibold text-gray-900 dark:text-white">{{ selectedLesson.course.title
-                            }}</div>
+                        }}</div>
                     </div>
 
                     <div>
@@ -226,11 +227,12 @@ const weekDeps = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
                         Create Meet
                     </a>
 
-                    <a v-if="(month.is_purchased || $page.props.auth.user?.is_tutor) && selectedLesson.path && isVideoAvailable(selectedLesson)"
-                        :href="selectedLesson.path" target="_blank"
+                    <Link
+                        v-if="(month.is_purchased || $page.props.auth.user?.is_tutor) && selectedLesson.path && isVideoAvailable(selectedLesson)"
+                        :href="route('lessons.watch', selectedLesson.id)"
                         class="inline-flex items-center justify-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition">
                         Watch Video
-                    </a>
+                    </Link>
 
                     <SecondaryButton @click="closeLessonModal">
                         Close
