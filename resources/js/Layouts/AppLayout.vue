@@ -29,9 +29,6 @@ const user = computed(() => page.props.auth.user);
                                 href="/courses">Courses</NavLink>
                             <NavLink
                                 class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700"
-                                href="/skills">Skills</NavLink>
-                            <NavLink
-                                class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700"
                                 href="/pricing">Pricing</NavLink>
                         </div>
 

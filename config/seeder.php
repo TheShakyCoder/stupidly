@@ -38,10 +38,12 @@ return [
         [
             'name' => 'Test User',
             'email' => 'sharif.khan@mac.com',
+            'email_verified_at' => true,
         ],
         [
             'name' => 'Free User',
             'email' => 'sharif.khan@gmail.com',
+            'email_verified_at' => true,
             'free' => true,
         ],
     ],
@@ -74,28 +76,7 @@ return [
             'skills' => ['Scratch'],
             'image' => '/images/courses/flappy.jpeg',
             'preview' => '',
-            'lessons' => [
-                [
-                    'available_at' => '2026-01-29 09:30:00',
-                    'title' => 'Lesson 1',
-                ],
-                [
-                    'available_at' => '2026-02-05 09:30:00',
-                    'title' => 'Lesson 2',
-                ],
-                [
-                    'available_at' => '2026-02-12 09:30:00',
-                    'title' => 'Lesson 3',
-                ],
-                [
-                    'available_at' => '2026-02-19 09:30:00',
-                    'title' => 'Lesson 4',
-                ],
-                [
-                    'available_at' => '2026-02-26 09:30:00',
-                    'title' => 'Lesson 5',
-                ],
-            ],
+            
         ],
         'tic-tac-toe' => [
             'title' => 'Tic Tac Toe Game',
@@ -354,6 +335,28 @@ return [
             'tutor' => 'Sharif Khan',
             'skills' => ['Lua', 'WebSockets'],
             'image' => '/images/courses/Bomberman_game.png',
+            'lessons' => [
+                [
+                    'available_at' => '2026-01-29 09:30:00',
+                    'title' => 'Lesson 1',
+                ],
+                [
+                    'available_at' => '2026-02-05 09:30:00',
+                    'title' => 'Lesson 2',
+                ],
+                [
+                    'available_at' => '2026-02-12 09:30:00',
+                    'title' => 'Lesson 3',
+                ],
+                [
+                    'available_at' => '2026-02-19 09:30:00',
+                    'title' => 'Lesson 4',
+                ],
+                [
+                    'available_at' => '2026-02-26 09:30:00',
+                    'title' => 'Lesson 5',
+                ],
+            ],
         ],
         'texas-hold-em' => [
             'title' => 'Texas Hold\'em Game',

@@ -16,7 +16,7 @@ The detailed policy below explains this more formally.
 
 ## 1. Who We Are
 
-This website is operated by **Stupidly Ltd**.
+This website is operated by **Sharif Khan**.
 
 For the purposes of UK data protection law, we are the **data controller**. This means we decide how and why your personal data is processed.
 
@@ -168,5 +168,5 @@ This policy may be updated from time to time. Any changes will be published on t
 
 For questions about this policy or your personal data, contact:
 
-**Stupidly Ltd**  
+**Sharif Khan**  
 Email: support@stupidly.uk
