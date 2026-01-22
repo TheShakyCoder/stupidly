@@ -14,10 +14,10 @@ import { Link } from '@inertiajs/vue3';
                 <div class="text-transparent bg-clip-text bg-linear-to-r to-blue-500 from-green-500">Coding Potential
                 </div>
             </h1>
-            <p class="text-slate-500 dark:text-gray-300 text-lg md:text-xl font-medium max-w-2xl mx-auto">
+            <div class="text-slate-500 dark:text-gray-300 text-lg md:text-xl font-medium max-w-2xl mx-auto">
                 One simple plan.
             <div>Unlimited monthly access to everything your child needs to master code from home.</div>
-            </p>
+            </div>
         </section>
         <section class="w-full max-w-4xl mx-auto px-4 pb-12">
             <div

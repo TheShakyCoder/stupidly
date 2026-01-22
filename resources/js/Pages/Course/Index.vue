@@ -102,7 +102,7 @@ const filteredCourses = computed(() => {
                     <button @click="activeFilter = 'all'" :class="[
                         'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold shadow-md shrink-0 transition-all',
                         activeFilter === 'all'
-                            ? 'bg-primary text-white shadow-primary/20'
+                            ? 'bg-linear-to-r from-green-600 to-blue-500 hover:from-green-500 hover:to-blue-400 text-white shadow-primary/20'
                             : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
                     ]">
                         <span class="material-symbols-outlined text-[20px]">apps</span>
@@ -112,7 +112,7 @@ const filteredCourses = computed(() => {
                     <button @click="activeFilter = 'available'" :class="[
                         'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all shrink-0',
                         activeFilter === 'available'
-                            ? 'bg-primary text-white shadow-md shadow-primary/20'
+                            ? 'bg-linear-to-r from-green-600 to-blue-500 hover:from-green-500 hover:to-blue-400 text-white shadow-md shadow-primary/20'
                             : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
                     ]">
                         <span class="material-symbols-outlined text-[20px]">check</span>
@@ -122,7 +122,7 @@ const filteredCourses = computed(() => {
                     <button @click="activeFilter = 'scheduled'" :class="[
                         'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all shrink-0',
                         activeFilter === 'scheduled'
-                            ? 'bg-primary text-white shadow-md shadow-primary/20'
+                            ? 'bg-linear-to-r from-green-600 to-blue-500 hover:from-green-500 hover:to-blue-400 text-white shadow-md shadow-primary/20'
                             : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
                     ]">
                         <span class="material-symbols-outlined text-[20px] fill-1">calendar_check</span>
@@ -132,7 +132,7 @@ const filteredCourses = computed(() => {
                     <button @click="activeFilter = 'coming'" :class="[
                         'flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all shrink-0',
                         activeFilter === 'coming'
-                            ? 'bg-primary text-white shadow-md shadow-primary/20'
+                            ? 'bg-linear-to-r from-green-600 to-blue-500 hover:from-green-500 hover:to-blue-400 text-white shadow-md shadow-primary/20'
                             : 'bg-surface-light dark:bg-[#243047] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#2f3e5b]'
                     ]">
                         <span class="material-symbols-outlined text-[20px] fill-1">calendar_clock</span>
