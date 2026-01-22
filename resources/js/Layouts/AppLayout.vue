@@ -17,7 +17,7 @@ const user = computed(() => page.props.auth.user);
                 <header class="flex items-center justify-between whitespace-nowrap px-6 py-3">
                     <NavLink href="/" class="flex items-center gap-3">
                         <div class="size-8 text-secondary flex items-center justify-center">
-                            <img src="images/logo.png" :alt="page.props.app_name + ' Logo'">
+                            <img src="/images/logo.png" :alt="page.props.app_name + ' Logo'">
                         </div>
                         <h2 class="text-lg font-bold leading-tight tracking-[-0.015em] dark:text-white text-gray-900">
                             {{ page.props.app_name }}</h2>
