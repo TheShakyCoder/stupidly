@@ -112,6 +112,10 @@ import { Link } from '@inertiajs/vue3';
                             <span class="material-symbols-outlined text-[14px]">verified</span>
                             14-day money-back guarantee
                         </div>
+                        <div class="flex items-center justify-center gap-1">
+                            <span class="material-symbols-outlined text-[14px]">percent_discount</span>
+                            Frequent offers available
+                        </div>
                     </div>
                 </div>
             </div>
