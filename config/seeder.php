@@ -36,12 +36,12 @@ return [
             ]
         ],
         [
-            'name' => 'Test User',
+            'name' => 'Test Student',
             'email' => 'sharif.khan@mac.com',
             'email_verified_at' => true,
         ],
         [
-            'name' => 'Free User',
+            'name' => 'Free Student',
             'email' => 'sharif.khan@gmail.com',
             'email_verified_at' => true,
             'free' => true,
