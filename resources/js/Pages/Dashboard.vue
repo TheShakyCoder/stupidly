@@ -227,7 +227,7 @@ const removePayment = (id) => {
                             </Link>
                         </div>
 
-                        <Link v-if="$page.props.auth.user.admin" :href="route('admin.users.index')"
+                        <Link v-if="$page.props.auth.user.admin" :href="route('admin.dashboard')"
                             class="flex w-full justify-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-xl text-xl transition-colors flex items-center gap-2">
                             <span class="material-symbols-outlined text-lg">admin_panel_settings</span>
                             Admin Panel

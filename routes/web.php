@@ -194,7 +194,14 @@ Route::middleware([
     Route::get('/auth/google/callback', [\App\Http\Controllers\GoogleMeetController::class, 'store']);
 
     Route::prefix('admin')->middleware(\App\Http\Middleware\IsAdmin::class)->name('admin.')->group(function () {
+        Route::get('/dashboard', function () {
+            return Inertia::render('Admin/Dashboard');
+        })->name('dashboard');
+
         Route::resource('users', \App\Http\Controllers\AdminUserController::class);
+        Route::get('/lessons/{lesson}/preview', [\App\Http\Controllers\AdminLessonController::class, 'preview'])->name('lessons.preview');
+        Route::get('/lessons/{lesson}/playlist', [\App\Http\Controllers\AdminLessonController::class, 'playlist'])->name('lessons.playlist');
+        Route::resource('lessons', \App\Http\Controllers\AdminLessonController::class);
     });
 });
 

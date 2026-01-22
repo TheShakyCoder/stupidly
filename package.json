@@ -27,6 +27,7 @@
         "@headlessui/vue": "^1.7.23",
         "@heroicons/vue": "^2.2.0",
         "dayjs": "^1.11.19",
+        "hls.js": "^1.6.15",
         "vue3-markdown": "^1.2.17"
     }
 }
