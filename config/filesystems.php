@@ -55,7 +55,7 @@ return [
             'bucket' => env('SPACES_BUCKET'),
             'folder' => env('SPACES_FOLDER'),
             'url' => env('SPACES_URL'),
-            'endpoint' => 'https://'.env('SPACES_REGION').'.digitaloceanspaces.com',
+            'endpoint' => env('SPACES_ENDPOINT'),
             'use_path_style_endpoint' => env('SPACES_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
