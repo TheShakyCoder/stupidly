@@ -76,7 +76,7 @@ class AdminLessonController extends Controller
             // Construct the FQDN prefix
             $bucket = config('filesystems.disks.spaces.bucket');
             $region = config('filesystems.disks.spaces.region');
-            $fqdn = "https://{$bucket}.{$region}.digitaloceanspaces.com";
+            $fqdn = config('filesystems.disks.spaces.endpoint');
 
             foreach ($request->file('folder') as $file) {
                 $filename = $file->getClientOriginalName();
@@ -154,7 +154,7 @@ class AdminLessonController extends Controller
             // Construct the FQDN prefix
             $bucket = config('filesystems.disks.spaces.bucket');
             $region = config('filesystems.disks.spaces.region');
-            $fqdn = "https://{$bucket}.{$region}.digitaloceanspaces.com";
+            $fqdn = config('filesystems.disks.spaces.endpoint');
             
             $newPath = null;
 
