@@ -45,54 +45,22 @@ class AdminLessonController extends Controller
             'month_id' => 'required|exists:months,id',
             'title' => 'required|string|max:255',
             'available_at' => 'required|date',
-            'folder' => 'required|array', // Expecting an array of files/metadata
-            'folder.*' => 'file',
+            'filename' => 'required|string',
         ]);
 
-        $path = null;
+        $uuid = Str::uuid();
+        $folderName = $uuid->toString();
+        
+        $envFolder = config('filesystems.disks.spaces.folder');
+        $storagePath = $envFolder ? "{$envFolder}/{$folderName}" : $folderName;
+        
+        // Construct the FQDN prefix
+        $bucket = config('filesystems.disks.spaces.bucket');
+        $region = config('filesystems.disks.spaces.region');
+        $fqdn = "https://{$bucket}.{$region}.digitaloceanspaces.com";
 
-        if ($request->hasFile('folder')) {
-            $uuid = Str::uuid();
-            $folderName = $uuid->toString();
-            // Prefix with SPACES_FOLDER not needed if handled by filesystem config, 
-            // but requirements said "each environment should store in the SPACES_FOLDER in .env"
-            // The 'spaces' disk in config/filesystems.php uses 'root' => env('SPACES_FOLDER'), 
-            // so we just store relative to that.
-            
-            // Wait, looking at config/filesystems.php provided earlier:
-            // 'folder' => env('SPACES_FOLDER'), 
-            // But 'root' is NOT set for 'spaces' disk in the file content I saw. 
-            // It had 'bucket', 'key', 'secret', etc. and a custom 'folder' key.
-            // The 'driver' => 's3' doesn't automatically use 'folder' config key as root.
-            // Usually 'root' is the key for root directory.
-            // However, looking at the provided config/filesystems.php:
-            // 'spaces' => [ ..., 'folder' => env('SPACES_FOLDER'), ... ]
-            // This 'folder' key seems custom or handled by a service provider?
-            // Or maybe I should respect it manually.
-            
-            $envFolder = config('filesystems.disks.spaces.folder');
-            $storagePath = $envFolder ? "{$envFolder}/{$folderName}" : $folderName;
-            
-            // Construct the FQDN prefix
-            $bucket = config('filesystems.disks.spaces.bucket');
-            $region = config('filesystems.disks.spaces.region');
-            $fqdn = config('filesystems.disks.spaces.endpoint');
-
-            foreach ($request->file('folder') as $file) {
-                $filename = $file->getClientOriginalName();
-                // Store file with 'private' visibility
-                Storage::disk('spaces')->putFileAs($storagePath, $file, $filename, 'private');
-
-                if (Str::endsWith($filename, '.m3u8')) {
-                    // Store the Path including FQDN
-                    $path = "{$fqdn}/{$storagePath}/{$filename}";
-                }
-            }
-        }
-
-        if (!$path) {
-             return back()->withErrors(['folder' => 'No .m3u8 file found in the uploaded folder.']);
-        }
+        $filename = $validated['filename'];
+        $path = "{$fqdn}/{$storagePath}/{$filename}";
 
         Lesson::create([
             'course_id' => $validated['course_id'],
@@ -102,7 +70,8 @@ class AdminLessonController extends Controller
             'path' => $path,
         ]);
 
-        return to_route('admin.lessons.index');
+        return to_route('admin.lessons.index')
+            ->with('flash.banner', "Lesson created! Please upload your '{$filename}' and segments to the folder: {$folderName}");
     }
 
     /**
@@ -127,25 +96,19 @@ class AdminLessonController extends Controller
             'month_id' => 'required|exists:months,id',
             'title' => 'required|string|max:255',
             'available_at' => 'required|date',
-            'folder' => 'nullable|array',
-            'folder.*' => 'file',
+            'filename' => 'nullable|string',
         ]);
 
-        if ($request->hasFile('folder')) {
-             // Delete old connection if exists? 
-             if ($lesson->path) {
-                 // Clean up logic needs to handle full URL now
-                 // Assuming path is a URL, parse it to get directory
-                 $pathPath = parse_url($lesson->path, PHP_URL_PATH);
-                 // remove leading slash
-                 $key = ltrim($pathPath, '/');
-                 $directory = dirname($key);
-                 
-                 if ($directory && $directory !== '.' && $directory !== '/') {
-                     Storage::disk('spaces')->deleteDirectory($directory);
-                 }
-             }
+        $updateData = [
+            'course_id' => $validated['course_id'],
+            'month_id' => $validated['month_id'],
+            'title' => $validated['title'],
+            'available_at' => $validated['available_at'],
+        ];
 
+        $bannerMessage = null;
+
+        if (!empty($validated['filename'])) {
             $uuid = Str::uuid();
             $folderName = $uuid->toString();
             $envFolder = config('filesystems.disks.spaces.folder');
@@ -154,35 +117,24 @@ class AdminLessonController extends Controller
             // Construct the FQDN prefix
             $bucket = config('filesystems.disks.spaces.bucket');
             $region = config('filesystems.disks.spaces.region');
-            $fqdn = config('filesystems.disks.spaces.endpoint');
+            $fqdn = "https://{$bucket}.{$region}.digitaloceanspaces.com";
             
-            $newPath = null;
-
-            foreach ($request->file('folder') as $file) {
-                $filename = $file->getClientOriginalName();
-                Storage::disk('spaces')->putFileAs($storagePath, $file, $filename, 'private');
-
-                if (Str::endsWith($filename, '.m3u8')) {
-                    $newPath = "{$fqdn}/{$storagePath}/{$filename}";
-                }
-            }
+            $filename = $validated['filename'];
+            $newPath = "{$fqdn}/{$storagePath}/{$filename}";
             
-            if ($newPath) {
-                $lesson->path = $newPath;
-            } else {
-                 return back()->withErrors(['folder' => 'No .m3u8 file found in the uploaded folder.']);
-            }
+            $updateData['path'] = $newPath;
+            $bannerMessage = "Lesson updated! Please upload your '{$filename}' and segments to the NEW folder: {$folderName}";
         }
 
-        $lesson->update([
-            'course_id' => $validated['course_id'],
-            'month_id' => $validated['month_id'],
-            'title' => $validated['title'],
-            'available_at' => $validated['available_at'],
-            'path' => $lesson->path, // In case it was updated above
-        ]);
+        $lesson->update($updateData);
 
-        return to_route('admin.lessons.index');
+        $redirect = to_route('admin.lessons.index');
+        
+        if ($bannerMessage) {
+            $redirect->with('flash.banner', $bannerMessage);
+        }
+
+        return $redirect;
     }
 
     /**

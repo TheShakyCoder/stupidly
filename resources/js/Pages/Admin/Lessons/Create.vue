@@ -48,26 +48,10 @@
                             </div>
 
                             <div>
-                                <label class="block font-medium text-sm text-gray-700 dark:text-gray-300">Lesson Video Folder (Upload Content)</label>
-                                <div class="mt-1 flex items-center">
-                                    <input 
-                                        type="file" 
-                                        @change="handleFolderUpload"
-                                        webkitdirectory 
-                                        directory 
-                                        multiple 
-                                        class="block w-full text-sm text-gray-500 dark:text-gray-400
-                                            file:mr-4 file:py-2 file:px-4
-                                            file:rounded-full file:border-0
-                                            file:text-sm file:font-semibold
-                                            file:bg-blue-50 file:text-blue-700
-                                            hover:file:bg-blue-100
-                                            dark:file:bg-slate-700 dark:file:text-blue-300
-                                        "
-                                    />
-                                </div>
-                                <p class="text-xs text-gray-500 mt-1">Select the folder containing the .m3u8 file and segments.</p>
-                                <div v-if="form.errors.folder" class="text-red-500 text-xs mt-1">{{ form.errors.folder }}</div>
+                                <label class="block font-medium text-sm text-gray-700 dark:text-gray-300">Filename (e.g. video.m3u8)</label>
+                                <input v-model="form.filename" type="text" placeholder="playlist.m3u8" class="mt-1 block w-full border-gray-300 dark:border-slate-700 dark:bg-slate-900 dark:text-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" />
+                                <p class="text-xs text-gray-500 mt-1">Enter the main .m3u8 filename. You will be given a folder name to upload your files to after creation.</p>
+                                <div v-if="form.errors.filename" class="text-red-500 text-xs mt-1">{{ form.errors.filename }}</div>
                             </div>
 
                             <div class="flex items-center justify-end mt-4">
@@ -99,17 +83,10 @@ const form = useForm({
     month_id: '',
     title: '',
     available_at: '',
-    folder: [],
+    filename: '',
 });
 
-const handleFolderUpload = (event) => {
-    // Convert FileList to Array
-    form.folder = Array.from(event.target.files);
-};
-
 const submit = () => {
-    form.post(route('admin.lessons.store'), {
-        forceFormData: true,
-    });
+    form.post(route('admin.lessons.store'));
 };
 </script>

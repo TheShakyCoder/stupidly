@@ -48,29 +48,14 @@
                             </div>
 
                             <div>
-                                <label class="block font-medium text-sm text-gray-700 dark:text-gray-300">Replace Video Folder (Optional)</label>
+                                <label class="block font-medium text-sm text-gray-700 dark:text-gray-300">Replace Video (Optional)</label>
                                 <div class="mt-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
                                     Current Path: {{ lesson.path }}
                                 </div>
-                                <div class="mt-1 flex items-center">
-                                    <input 
-                                        type="file" 
-                                        @change="handleFolderUpload"
-                                        webkitdirectory 
-                                        directory 
-                                        multiple 
-                                        class="block w-full text-sm text-gray-500 dark:text-gray-400
-                                            file:mr-4 file:py-2 file:px-4
-                                            file:rounded-full file:border-0
-                                            file:text-sm file:font-semibold
-                                            file:bg-blue-50 file:text-blue-700
-                                            hover:file:bg-blue-100
-                                            dark:file:bg-slate-700 dark:file:text-blue-300
-                                        "
-                                    />
-                                </div>
-                                <p class="text-xs text-gray-500 mt-1">Upload a new folder to replace existing files.</p>
-                                <div v-if="form.errors.folder" class="text-red-500 text-xs mt-1">{{ form.errors.folder }}</div>
+                                <label class="block font-medium text-xs text-gray-500 dark:text-gray-400 mt-2">New Filename</label>
+                                <input v-model="form.filename" type="text" placeholder="Start new folder with this filename..." class="mt-1 block w-full border-gray-300 dark:border-slate-700 dark:bg-slate-900 dark:text-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" />
+                                <p class="text-xs text-gray-500 mt-1">Entering a filename will generate a NEW folder. You will need to upload your files to the new folder.</p>
+                                <div v-if="form.errors.filename" class="text-red-500 text-xs mt-1">{{ form.errors.filename }}</div>
                             </div>
 
                             <div class="flex items-center justify-end mt-4">
@@ -103,16 +88,10 @@ const form = useForm({
     month_id: props.lesson.month_id,
     title: props.lesson.title,
     available_at: props.lesson.available_at,
-    folder: [],
+    filename: '',
 });
 
-const handleFolderUpload = (event) => {
-    form.folder = Array.from(event.target.files);
-};
-
 const submit = () => {
-    form.post(route('admin.lessons.update', props.lesson.id), {
-        forceFormData: true,
-    });
+    form.post(route('admin.lessons.update', props.lesson.id));
 };
 </script>
