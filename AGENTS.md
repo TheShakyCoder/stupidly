@@ -416,3 +416,10 @@ $pages->assertNoJavascriptErrors()->assertNoConsoleLogs();
 
 - Always use Tailwind CSS v3 - verify you're using only classes supported by this version.
 </laravel-boost-guidelines>
+
+
+## General Rules
+
+always prefix composer commands with `ddev`
+always prefix npm commands with `ddev`
+always change 'php artisan' to 'ddev artisan'

@@ -56,6 +56,7 @@ return [
             'folder' => env('SPACES_FOLDER'),
             'url' => env('SPACES_URL'),
             'endpoint' => env('SPACES_ENDPOINT'),
+            'domain' => env('SPACES_DOMAIN'),
             'use_path_style_endpoint' => env('SPACES_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],

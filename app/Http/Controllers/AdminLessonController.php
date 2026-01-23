@@ -55,9 +55,10 @@ class AdminLessonController extends Controller
         $storagePath = $envFolder ? "{$envFolder}/{$folderName}" : $folderName;
         
         // Construct the FQDN prefix
+        $domain = config('filesystems.disks.spaces.domain');
         $bucket = config('filesystems.disks.spaces.bucket');
         $region = config('filesystems.disks.spaces.region');
-        $fqdn = "https://{$bucket}.{$region}.digitaloceanspaces.com";
+        $fqdn = "https://{$bucket}.{$region}.{$domain}";
 
         $filename = $validated['filename'];
         $path = "{$fqdn}/{$storagePath}/{$filename}";
@@ -115,9 +116,10 @@ class AdminLessonController extends Controller
             $storagePath = $envFolder ? "{$envFolder}/{$folderName}" : $folderName;
             
             // Construct the FQDN prefix
+            $domain = config('filesystems.disks.spaces.domain');
             $bucket = config('filesystems.disks.spaces.bucket');
             $region = config('filesystems.disks.spaces.region');
-            $fqdn = "https://{$bucket}.{$region}.digitaloceanspaces.com";
+            $fqdn = "https://{$bucket}.{$region}.{$domain}";
             
             $filename = $validated['filename'];
             $newPath = "{$fqdn}/{$storagePath}/{$filename}";
