@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->date('started_at');
             $table->integer('fee');
+            $table->integer('fee_recordings')->default(900);
             $table->timestamps();
         });
     }

@@ -13,7 +13,18 @@ class Month extends Model
 
     protected $dates = ['started_at'];
 
-    protected $appends = ['is_purchased'];
+    protected $casts = [
+        'fee' => 'integer',
+        'fee_recordings' => 'integer',
+    ];
+
+    protected $fillable = [
+        'started_at',
+        'fee',
+        'fee_recordings',
+    ];
+
+    protected $appends = ['is_purchased', 'purchase_tier'];
 
     public function lessons(): HasMany
     {
@@ -37,6 +48,23 @@ class Month extends Model
     
     public function getIsPurchasedAttribute()
     {
-        return auth()->check() && $this->payments()->where('user_id', auth()->id())->exists();
+        return auth()->check() && $this->payments()
+            ->where('user_id', auth()->id())
+            ->whereNotNull('purchased_at')
+            ->exists();
+    }
+
+    public function getPurchaseTierAttribute()
+    {
+        if (!auth()->check()) {
+            return null;
+        }
+
+        $payment = $this->payments()
+            ->where('user_id', auth()->id())
+            ->whereNotNull('purchased_at')
+            ->first();
+
+        return $payment ? $payment->tier : null;
     }
 }

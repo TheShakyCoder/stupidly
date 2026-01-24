@@ -22,6 +22,7 @@ defineProps({
             <div>
                 <h3 class="text-xl font-black text-gray-900 dark:text-white leading-tight mb-1">
                     {{ dayjs(payment.month.started_at).format('MMMM YYYY') }}
+                    <span class="text-sm font-bold text-primary ml-2">({{ payment.tier == 1 ? 'Recordings' : 'FullAccess' }})</span>
                 </h3>
                 <div class="flex flex-wrap gap-x-5 gap-y-1 mt-1">
                     <div class="flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-slate-400">
@@ -38,7 +39,7 @@ defineProps({
 
         <div class="flex items-center justify-between w-full sm:w-auto gap-8 shrink-0">
             <div class="text-3xl font-black text-gray-900 dark:text-white tracking-tighter">
-                £{{ (payment.month.fee / 100).toFixed(0) }}
+                £{{ (payment.amount / 100).toFixed(0) }}
             </div>
             <Form action="/payments" method="delete">
                 <input type="hidden" name="id" :value="payment.id">

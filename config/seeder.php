@@ -431,11 +431,13 @@ return [
     'months' => [
         [
             'started_at' => '2026-01-01',
-            'fee' => 100,
+            'fee' => 200,
+            'fee_recordings' => 100,
         ],
         [
             'started_at' => '2026-02-01',
-            'fee' => 2900,
+            'fee' => 1900,
+            'fee_recordings' => 900,
         ],
     ],
 

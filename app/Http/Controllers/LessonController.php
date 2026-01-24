@@ -20,8 +20,19 @@ class LessonController extends Controller
     public function watch(Lesson $lesson)
     {
         $user = auth()->user();
-        if (!$user->is_tutor && !$lesson->month->is_purchased) {
-            abort(403, 'You must purchase this month to watch the lesson.');
+        $isAllowed = $user->is_tutor;
+
+        if (!$isAllowed) {
+            if (!$lesson->month->is_purchased) {
+                abort(403, 'You must purchase this month to watch the lesson.');
+            }
+
+            // Tier 1 (Recordings only) can only watch past lessons
+            if ($lesson->month->purchase_tier == 1 && $lesson->available_at >= now()) {
+                abort(403, 'Your current plan only covers lesson recordings.');
+            }
+
+            $isAllowed = true;
         }
 
         return Inertia::render('Lesson/Watch', [
@@ -33,8 +44,19 @@ class LessonController extends Controller
     public function playlist(Lesson $lesson)
     {
         $user = auth()->user();
-        if (!$user->is_tutor && !$lesson->month->is_purchased) {
-             abort(403);
+        $isAllowed = $user->is_tutor;
+
+        if (!$isAllowed) {
+            if (!$lesson->month->is_purchased) {
+                return abort(403);
+            }
+
+            // Tier 1 (Recordings only) can only access past lessons
+            if ($lesson->month->purchase_tier == 1 && $lesson->available_at >= now()) {
+                return abort(403, 'Your current plan only covers lesson recordings.');
+            }
+            
+            $isAllowed = true;
         }
 
         if (!$lesson->path) {

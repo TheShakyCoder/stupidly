@@ -163,7 +163,7 @@ const weekDeps = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
                                             {{ lesson.title }}
                                         </div>
                                     </div>
-                                    <a v-if="canJoinLesson(lesson) && (month.is_purchased || $page.props.auth.user?.is_tutor)"
+                                    <a v-if="canJoinLesson(lesson) && (month.purchase_tier == 2 || $page.props.auth.user?.is_tutor)"
                                         :href="lesson.google_meet_link" target="_blank"
                                         class="inline-flex items-center justify-center px-3 py-1.5 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition shrink-0 ml-2">
                                         Join
@@ -192,7 +192,7 @@ const weekDeps = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
                     <div>
                         <span class="text-xs font-bold uppercase text-gray-500 dark:text-gray-400">Course</span>
                         <div class="text-lg font-semibold text-gray-900 dark:text-white">{{ selectedLesson.course.title
-                        }}</div>
+                            }}</div>
                     </div>
 
                     <div>
@@ -215,7 +215,7 @@ const weekDeps = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
             <template #footer>
                 <div v-if="selectedLesson" class="flex gap-2">
-                    <a v-if="canJoinLesson(selectedLesson) && (month.is_purchased || $page.props.auth.user?.is_tutor)"
+                    <a v-if="canJoinLesson(selectedLesson) && (month.purchase_tier == 2 || $page.props.auth.user?.is_tutor)"
                         :href="selectedLesson.google_meet_link" target="_blank"
                         class="inline-flex items-center justify-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-25 transition">
                         Join Lesson

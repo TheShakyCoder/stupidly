@@ -1,8 +1,8 @@
 <script setup>
-import { Form, Link, router, Head } from '@inertiajs/vue3'
+import { Link, router, Head } from '@inertiajs/vue3'
 import dayjs from 'dayjs';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import AddToBasketButton from '@/Components/AddToBasketButton.vue';
+import MonthPaymentButton from '@/Components/MonthPaymentButton.vue';
 
 defineProps({
     currentMonth: {
@@ -24,6 +24,14 @@ const removePayment = (id) => {
     })
 }
 
+const addToBasket = (month_id, tier) => {
+    console.log(month_id, tier);
+    router.post('/basket', {
+        month_id: month_id,
+        tier: tier
+    })
+}
+
 </script>
 
 <template>
@@ -42,7 +50,7 @@ const removePayment = (id) => {
         </template>
 
         <div class="py-12 bg-background-light dark:bg-background-dark min-h-screen transition-colors duration-300">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto px-4 sm:px-0">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
                     <!-- Left Column: Months -->
@@ -60,7 +68,7 @@ const removePayment = (id) => {
                                     <div class="flex items-center justify-between mb-6">
                                         <h2
                                             class="text-xs uppercase tracking-[0.2em] font-black text-primary dark:text-primary/80">
-                                            Current Billing Period</h2>
+                                            Current Month</h2>
 
                                     </div>
 
@@ -72,7 +80,7 @@ const removePayment = (id) => {
                                                 {{ dayjs(currentMonth.started_at).format('MMMM YYYY') }}
                                             </h3>
 
-                                            <div class="flex flex-wrap gap-x-5 gap-y-1 mt-1">
+                                            <div class="flex flex-col gap-y-1 mt-1">
                                                 <div
                                                     class="flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-slate-400">
                                                     <span
@@ -96,31 +104,9 @@ const removePayment = (id) => {
                                             </Link>
                                         </div>
 
-                                        <div class="flex items-center gap-4 w-full sm:w-auto">
-                                            <div v-if="currentMonth?.payments.length === 0" class="w-full sm:w-auto">
-                                                <Form action="/basket" method="post">
-                                                    <input v-if="currentMonth" type="hidden" name="month_id"
-                                                        :value="currentMonth.id" />
 
-                                                    <AddToBasketButton :fee="currentMonth.fee"
-                                                        :is-free="!!$page.props.auth.user.free" />
-                                                </Form>
-                                            </div>
-                                            <div v-else-if="currentMonth?.payments[0].purchased_at === null"
-                                                class="w-full sm:w-auto bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-black p-4 px-6 rounded-2xl flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700/50">
-                                                <span class="material-symbols-outlined">shopping_basket</span>
-                                                In Basket
-                                                <button @click="removePayment(currentMonth.payments[0].id)"
-                                                    class="text-red-500 hover:text-red-700 transition-colors ml-2">
-                                                    <span class="material-symbols-outlined">delete</span>
-                                                </button>
-                                            </div>
-                                            <div v-else
-                                                class="w-full sm:w-auto bg-green-50 dark:bg-green-900/10 text-green-500 dark:text-green-400 font-black p-4 px-6 rounded-2xl flex items-center justify-center gap-2 border border-green-100 dark:border-green-700/50">
-                                                <span class="material-symbols-outlined">verified</span>
-                                                Purchased
-                                            </div>
-                                        </div>
+                                        <MonthPaymentButton :current-month="currentMonth" @addToBasket="addToBasket" @removePayment="removePayment" />
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +130,7 @@ const removePayment = (id) => {
                             <ul class="divide-y divide-gray-100 dark:divide-white/5">
                                 <li v-for="m in months" :key="m.id"
                                     class="group p-6 sm:px-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
-                                    <div class="flex items-center gap-5">
+                                    <div class="flex items-center gap-4">
                                         <div
                                             class="size-12 bg-gray-100 dark:bg-slate-800 rounded-xl flex items-center justify-center text-gray-400 dark:text-slate-500 group-hover:bg-primary group-hover:text-white transition-all">
                                             <span class="material-symbols-outlined">event</span>
@@ -153,7 +139,7 @@ const removePayment = (id) => {
                                             <span class="text-lg font-bold text-gray-900 dark:text-white">{{
                                                 dayjs(m.started_at).format('MMMM YYYY') }}</span>
 
-                                            <div class="flex flex-wrap gap-x-5 gap-y-1 mt-1">
+                                            <div class="flex flex-col gap-y-1 mt-1">
                                                 <div
                                                     class="flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-slate-400">
                                                     <span
@@ -177,28 +163,8 @@ const removePayment = (id) => {
                                         </div>
                                     </div>
 
-                                    <div
-                                        class="flex justify-between items-center w-full sm:w-auto gap-6 transition-transform group-hover:translate-x-1">
-                                        <div v-if="m.payments?.length === 0">
-                                            <Form action="/basket" method="post">
-                                                <input type="hidden" name="month_id" :value="m.id" />
-                                                <AddToBasketButton :fee="m.fee"
-                                                    :is-free="!!$page.props.auth.user.free" />
-                                            </Form>
-                                        </div>
-                                        <div v-else-if="m.payments[0].purchased_at === null"
-                                            class="p-2.5 px-5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-500 font-bold text-sm tracking-wide border border-slate-200 dark:border-slate-700/50 flex items-center gap-2">
-                                            In Basket
-                                            <button @click="removePayment(m.payments[0].id)"
-                                                class="text-red-500 hover:text-red-700 transition-colors">
-                                                <span class="material-symbols-outlined text-sm">delete</span>
-                                            </button>
-                                        </div>
-                                        <div v-else
-                                            class="w-full sm:w-auto bg-green-50 dark:bg-green-900/10 text-green-500 dark:text-green-400 font-black p-4 px-6 rounded-2xl flex items-center justify-center gap-2 border border-green-100 dark:border-green-700/50">
-                                            Purchased
-                                        </div>
-                                    </div>
+                                    <MonthPaymentButton :current-month="m" @addToBasket="addToBasket" @removePayment="removePayment" />
+
                                 </li>
                             </ul>
                         </div>

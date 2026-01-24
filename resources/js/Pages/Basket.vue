@@ -96,7 +96,7 @@ const startCheckout = async () => {
                                         <div class="flex justify-between text-gray-600 dark:text-slate-400 font-medium">
                                             <span>Subtotal</span>
                                             <span class="font-bold text-gray-900 dark:text-white">£{{
-                                                (payments.reduce((total, payment) => total + payment.month.fee, 0) /
+                                                (payments.reduce((total, payment) => total + payment.amount, 0) /
                                                     100).toFixed(0)}}</span>
                                         </div>
                                         <div class="flex justify-between text-gray-600 dark:text-slate-400 font-medium">
@@ -117,7 +117,7 @@ const startCheckout = async () => {
                                             </div>
                                             <div
                                                 class="text-4xl font-black text-gray-900 dark:text-white tracking-tighter">
-                                                £{{(payments.reduce((total, payment) => total + payment.month.fee, 0) /
+                                                £{{(payments.reduce((total, payment) => total + payment.amount, 0) /
                                                     100).toFixed(0)}}
                                             </div>
                                         </div>

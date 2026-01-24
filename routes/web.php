@@ -79,23 +79,26 @@ Route::middleware([
     })->name('dashboard');
 
     Route::post('/basket', function (Request $request) {
-        $month = Month::where('id', $request->month_id)->first();
-
         if ($request->user()->free) {
             Payment::create([
                 'user_id' => $request->user()->id,
                 'month_id' => $request->month_id,
                 'amount' => 0,
+                'tier' => 2,
                 'purchased_at' => Carbon::now(),
             ]);
-
             return redirect()->route('dashboard');
         }
+
+        $month = Month::where('id', $request->month_id)->first();
+        $tier = $request->input('tier', 2);
+        $amount = ($tier == 1) ? $month->fee_recordings : $month->fee;
 
         Payment::create([
             'user_id' => $request->user()->id,
             'month_id' => $request->month_id,
-            'amount' => $month->fee,
+            'amount' => $amount,
+            'tier' => $tier,
         ]);
 
         return redirect('/basket');
@@ -103,9 +106,6 @@ Route::middleware([
 
     Route::get('/basket', function () {
         return Inertia::render('Basket', [
-            // 'months' => collect(session('months', []))->map(function ($m) {
-            //     return Month::where('id', $m)->with(['lessons', 'recordings'])->first()->toArray();
-            // })->toArray(),
             'payments' => Payment::query()
                 ->where('user_id', request()->user()->id)
                 ->whereNull('purchased_at')
@@ -128,30 +128,27 @@ Route::middleware([
     Route::post('/checkout', function () {
         \Stripe\Stripe::setApiKey(config('stripe.secret'));
 
-        $months = Month::whereHas('payments', function ($q) {
-            $q
-                ->where('user_id', request()->user()->id)
-                ->whereNull('purchased_at');
-        })
-            ->with(['lessons', 'recordings'])
+        $payments = Payment::where('user_id', request()->user()->id)
+            ->whereNull('purchased_at')
+            ->with(['month.lessons', 'month.recordings'])
             ->get();
 
         $session = \Stripe\Checkout\Session::create([
-            'line_items' => collect($months)->map(function ($month) {
+            'line_items' => collect($payments)->map(function ($payment) {
                 return [
                     'price_data' => [
                         'currency' => 'gbp',
-                        'unit_amount' => $month->fee,
+                        'unit_amount' => $payment->amount,
                         'product_data' => [
-                            'name' => Carbon::createFromDate($month->started_at)->format('F Y'),
+                            'name' => Carbon::createFromDate($payment->month->started_at)->format('F Y') . ' (' . ($payment->tier == 1 ? 'Recordings' : 'Live Access') . ')',
                         ],
                     ],
                     'quantity' => 1,
                 ];
             })->toArray(),
             'metadata' => [
-                'months' => json_encode($months->map(function ($m) {
-                    return $m->id;
+                'payments' => json_encode($payments->map(function ($p) {
+                    return $p->id;
                 })->toArray()),
                 'user_id' => request()->user()->id,
             ],
@@ -202,6 +199,7 @@ Route::middleware([
         })->name('dashboard');
 
         Route::resource('users', \App\Http\Controllers\AdminUserController::class);
+        Route::resource('months', \App\Http\Controllers\AdminMonthController::class)->only(['index', 'edit', 'update']);
         Route::get('/lessons/{lesson}/preview', [\App\Http\Controllers\AdminLessonController::class, 'preview'])->name('lessons.preview');
         Route::get('/lessons/{lesson}/playlist', [\App\Http\Controllers\AdminLessonController::class, 'playlist'])->name('lessons.playlist');
         Route::resource('lessons', \App\Http\Controllers\AdminLessonController::class);

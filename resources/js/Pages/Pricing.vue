@@ -16,106 +16,113 @@ import { Link } from '@inertiajs/vue3';
             </h1>
             <div class="text-slate-500 dark:text-gray-300 text-lg md:text-xl font-medium max-w-2xl mx-auto">
                 One simple plan.
-            <div>Unlimited monthly access to everything your child needs to master code from home.</div>
+                <div>Unlimited monthly access to everything your child needs to master code from home.</div>
             </div>
         </section>
-        <section class="w-full max-w-4xl mx-auto px-4 pb-12">
-            <div
-                class="relative flex flex-col md:flex-row bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark rounded-xl md:rounded-lg overflow-hidden shadow-2xl shadow-black/20">
+        <section class="w-full max-w-6xl mx-auto px-4 pb-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tier 1: Recordings Only -->
                 <div
-                    class="flex-1 p-8 md:p-12 flex flex-col justify-center relative overflow-hidden bg-slate-50 dark:bg-[#151b28]">
-                    <div class="absolute inset-0 opacity-10 pointer-events-none"
-                        style="background-image: radial-gradient(#344465 1px, transparent 1px); background-size: 24px 24px;">
-                    </div>
-                    <div class="relative z-10">
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-4">The
-                            All-Access Pass</h2>
-                        <p class="text-slate-500 dark:text-gray-300 mb-8 leading-relaxed">
-                            Stop paying per course. Get instant access to our entire library of kid-friendly
-                            Lua, JavaScript, and HTML lessons, plus live sessions with expert
-                            tutors.
-                        </p>
-                        <div class="flex flex-col gap-4">
-                            <div class="flex items-center gap-3">
-                                <span
-                                    class="flex items-center justify-center size-6 rounded-full bg-gray-200 dark:bg-gray-800 text-primary">
-                                    <span class="material-symbols-outlined text-[16px]">videocam</span>
-                                </span>
-                                <span class="text-slate-700 dark:text-gray-200 font-medium">Multiple Live Coding
-                                    Sessions each week</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span
-                                    class="flex items-center justify-center size-6 rounded-full bg-gray-200 dark:bg-gray-800 text-primary">
-                                    <span class="material-symbols-outlined text-[16px]">library_books</span>
-                                </span>
-                                <span class="text-slate-700 dark:text-gray-200 font-medium">Hours of
-                                    Recorded Lessons</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span
-                                    class="flex items-center justify-center size-6 rounded-full bg-gray-200 dark:bg-gray-800 text-primary">
-                                    <span class="material-symbols-outlined text-[16px]">school</span>
-                                </span>
-                                <span class="text-slate-700 dark:text-gray-200 font-medium">Home-Ed Friendly
-                                    Schedule</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span
-                                    class="flex items-center justify-center size-6 rounded-full bg-gray-200 dark:bg-gray-800 text-primary">
-                                    <span class="material-symbols-outlined text-[16px]">groups</span>
-                                </span>
-                                <span class="text-slate-700 dark:text-gray-200 font-medium">Safe Community
-                                    Access</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <span
-                                    class="flex items-center justify-center size-6 rounded-full bg-gray-200 dark:bg-gray-800 text-primary">
-                                    <span class="material-symbols-outlined text-[16px]">lock</span>
-                                </span>
-                                <span class="text-slate-700 dark:text-gray-200 font-medium">Permanent Access to
-                                    Purchased Content</span>
-                            </div>
+                    class="flex flex-col bg-white dark:bg-[#1a2232] border border-slate-200 dark:border-border-dark rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow">
+                    <div class="p-8 flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Recordings Access</h3>
+                        <p class="text-slate-500 dark:text-gray-400 text-sm mb-6">Perfect for self-paced learning and
+                            review.</p>
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-4xl font-black text-slate-900 dark:text-white">£9</span>
+                            <span class="text-slate-500 dark:text-gray-400 font-medium">/mo</span>
                         </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                Access to all lesson recordings
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                Permanent access to purchased months
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-slate-400 dark:text-gray-500 line-through">
+                                <span class="material-symbols-outlined text-sm">block</span>
+                                Join live sessions
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6 border-t border-slate-100 dark:border-white/5">
+                        <Link href="/dashboard"
+                            class="block w-full py-3 text-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                            Get Started
+                        </Link>
                     </div>
                 </div>
+
+                <!-- Tier 2: Live Access (Featured) -->
                 <div
-                    class="w-full md:w-[380px] bg-slate-100 dark:bg-[#1a2232] border-t md:border-t-0 md:border-l border-slate-200 dark:border-border-dark p-8 md:p-12 flex flex-col justify-center items-center text-center relative">
-                    <div class="absolute top-0 right-0 p-4 opacity-50">
-                        <svg fill="none" height="100" viewBox="0 0 100 100" width="100"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="80" cy="20" r="40" stroke="#195de6" stroke-dasharray="4 4" stroke-width="2">
-                            </circle>
-                        </svg>
+                    class="flex flex-col bg-white dark:bg-[#151b28] border-2 border-primary rounded-2xl overflow-hidden shadow-2xl relative transform md:-translate-y-4">
+                    <div
+                        class="absolute top-0 right-0 bg-primary text-white text-[10px] font-black px-3 py-1 uppercase tracking-widest rounded-bl-xl">
+                        Most Popular</div>
+                    <div class="p-8 flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">The Live Access Pass</h3>
+                        <p class="text-slate-500 dark:text-gray-400 text-sm mb-6">The complete experience with live
+                            interaction.</p>
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-4xl font-black text-slate-900 dark:text-white">£19</span>
+                            <span class="text-slate-500 dark:text-gray-400 font-medium">/mo</span>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-2 text-sm text-slate-700 dark:text-gray-200 font-semibold">
+                                <span class="material-symbols-outlined text-primary text-lg">verified</span>
+                                <b>Everything in Recordings</b>
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                Access to all live sessions
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                Tutor Interaction
+                            </li>
+                        </ul>
                     </div>
-                    <h3 class="text-slate-500 dark:text-gray-300 text-sm font-semibold uppercase tracking-widest mb-2">
-                        Monthly Access</h3>
-                    <div class="flex items-baseline justify-center gap-1 mb-2">
-                        <span
-                            class="text-5xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight">£29</span>
-                        <span class="text-lg text-slate-500 dark:text-gray-300 font-medium">/mo</span>
+                    <div class="p-6 border-t border-slate-100 dark:border-white/5">
+                        <Link href="/dashboard"
+                            class="block w-full py-4 text-center rounded-xl bg-primary text-white font-black shadow-lg shadow-primary/25 hover:bg-blue-600 transition-all hover:scale-[1.02]">
+                            Get Started
+                        </Link>
                     </div>
-                    <p class="text-sm text-accent-green font-medium mb-8 bg-accent-green/10 px-3 py-1 rounded-full">
-                        Pay monthly. No lock-in.
-                    </p>
-                    <Link href="/dashboard"
-                        class="text-transparent bg-clip-text bg-linear-to-r to-blue-500 from-green-500 w-full font-bold text-lg h-14 rounded-full shadow-xl shadow-primary/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group">
-                        Start Learning Now
-                        <span class="material-symbols-outlined ">arrow_forward</span>
-                    </Link>
-                    <div class="mt-6 flex flex-col gap-2 text-xs text-slate-400 dark:text-gray-300">
-                        <div class="flex items-center justify-center gap-1">
-                            <span class="material-symbols-outlined text-[14px]">lock</span>
-                            Secure payment via Stripe
+                </div>
+
+                <!-- Tier 3: 1-2-1 Lessons -->
+                <div
+                    class="flex flex-col bg-white dark:bg-[#1a2232] border border-slate-200 dark:border-border-dark rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow">
+                    <div class="p-8 flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">1-2-1 Coaching</h3>
+                        <p class="text-slate-500 dark:text-gray-400 text-sm mb-6">Personalized sessions for accelerated
+                            progress.</p>
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-4xl font-black text-slate-900 dark:text-white">£29</span>
+                            <span class="text-slate-500 dark:text-gray-400 font-medium">/lesson</span>
                         </div>
-                        <div class="flex items-center justify-center gap-1">
-                            <span class="material-symbols-outlined text-[14px]">verified</span>
-                            14-day money-back guarantee
-                        </div>
-                        <div class="flex items-center justify-center gap-1">
-                            <span class="material-symbols-outlined text-[14px]">percent_discount</span>
-                            Frequent offers available
-                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                Personalized learning path
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                Direct tutor support
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                Flexible scheduling
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6 border-t border-slate-100 dark:border-white/5">
+                        <Link href="/contact"
+                            class="block w-full py-3 text-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                            Enquire Now
+                        </Link>
                     </div>
                 </div>
             </div>
