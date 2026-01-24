@@ -51,7 +51,7 @@ const removePayment = (paymentId) => {
                     <div class="flex flex-col">
                         <span class="text-3xl"><span class="text-sm align-top mr-0.5">£</span>{{ parseInt(currentMonth.fee /
                             100).toFixed(0) }}</span>
-                        <span class="text-xs">All&nbsp;Access</span>
+                        <span class="text-xs">Live&nbsp;Access</span>
                     </div>
                 </button>
             </span>

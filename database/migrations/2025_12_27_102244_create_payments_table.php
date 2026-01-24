@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('month_id')->constrained();
-            $table->enum('tier', ['Free','Recordings', 'Live Access']);
+            $table->enum('tier', ['Free', 'Recordings', 'Live Access']);
             $table->integer('amount');
             $table->dateTime('purchased_at')->nullable();
             $table->string('session_id')->nullable();

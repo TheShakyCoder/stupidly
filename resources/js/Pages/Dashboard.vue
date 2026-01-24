@@ -25,7 +25,6 @@ const removePayment = (id) => {
 }
 
 const addToBasket = (month_id, tier) => {
-    console.log(month_id, tier);
     router.post('/basket', {
         month_id: month_id,
         tier: tier

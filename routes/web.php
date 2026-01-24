@@ -84,15 +84,15 @@ Route::middleware([
                 'user_id' => $request->user()->id,
                 'month_id' => $request->month_id,
                 'amount' => 0,
-                'tier' => 2,
+                'tier' => 'Free',
                 'purchased_at' => Carbon::now(),
             ]);
             return redirect()->route('dashboard');
         }
 
         $month = Month::where('id', $request->month_id)->first();
-        $tier = $request->input('tier', 2);
-        $amount = ($tier == 1) ? $month->fee_recordings : $month->fee;
+        $tier = $request->input('tier');
+        $amount = ($tier == 'Recordings') ? $month->fee_recordings : $month->fee;
 
         Payment::create([
             'user_id' => $request->user()->id,
