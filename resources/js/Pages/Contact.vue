@@ -38,8 +38,8 @@ const submit = () => {
                 <div class="relative z-10">
                     <h1
                         class="text-slate-900 dark:text-white text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-6">
-                        Get in <span
-                            class="text-transparent bg-clip-text bg-linear-to-r to-blue-500 from-green-500">Touch</span>
+                        Get <span
+                            class="text-transparent bg-clip-text bg-linear-to-r to-blue-500 from-green-500">in Touch</span>
                     </h1>
                     <p
                         class="text-slate-500 dark:text-gray-300 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
@@ -179,7 +179,7 @@ const submit = () => {
 
                         <!-- FAQ Redirect -->
                         <div
-                            class="bg-linear-to-br from-primary to-blue-700 rounded-2xl p-8 text-white shadow-xl relative overflow-hidden group">
+                            class="bg-linear-to-br from-blue-800 to-blue-700 rounded-2xl p-8 text-white shadow-xl relative overflow-hidden group">
                             <div
                                 class="absolute -right-4 -bottom-4 size-32 bg-white/10 rounded-full blur-3xl group-hover:scale-150 transition-transform">
                             </div>
@@ -188,7 +188,7 @@ const submit = () => {
                                 Most questions about billing, lessons, and schedules can be found in the Parent Guide.
                             </p>
                             <Link href="/parent-guide"
-                                class="inline-flex items-center gap-2 bg-white dark:bg-blue-950 text-primary dark:text-white px-6 py-3 rounded-xl font-black text-sm hover:bg-gray-100 dark:hover:bg-blue-900 transition-colors shadow-lg relative z-10">
+                                class="inline-flex items-center gap-2 bg-white dark:bg-blue-950 text-blue-600 dark:text-white px-6 py-3 rounded-xl font-black text-sm hover:bg-gray-100 dark:hover:bg-blue-900 transition-colors shadow-lg relative z-10">
                                 Parent Guide
                                 <span class="material-symbols-outlined text-sm">arrow_forward</span>
                             </Link>
