@@ -28,12 +28,12 @@ class StripeController
         if ($event->type === 'checkout.session.completed') {
             $session = $event->data->object;
 
-            $monthIds = json_decode($session->metadata->months, true);
+            $paymentIds = json_decode($session->metadata->payments, true);
             $userId = $session->metadata->user_id;
 
             //  update Payment for each month
-            foreach ($monthIds as $monthId) {
-                Payment::where('month_id', $monthId)
+            foreach ($paymentIds as $paymentId) {
+                Payment::where('id', $paymentId)
                     ->where('user_id', $userId)
                     ->update(['purchased_at' => now(), 'session_id' => $session->id]);
             }
