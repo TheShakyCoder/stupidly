@@ -39,7 +39,7 @@ const removePayment = (paymentId) => {
             <span v-else class="isolate inline-flex rounded-md shadow-sm dark:shadow-none">
                 <!-- user.free === false -->
                 <button type="button" @click="addToBasket(currentMonth.id, 'Recordings')"
-                    class="transition-all transform hover:scale-110 active:scale-95 -ml-px inline-flex items-center rounded-l-md bg-blue-50 dark:bg-blue-900/10 text-blue-500 dark:text-blue-400 font-black p-4 px-5 text-sm font-semibold text-gray-900 focus:z-10 dark:bg-green-900 dark:text-white">
+                    class="transition-all transform hover:scale-110 active:scale-95 -ml-px inline-flex items-center rounded-l-xl bg-green-400 dark:bg-blue-900/10 text-blue-500 dark:text-blue-400 font-black p-4 px-5 text-sm font-semibold text-gray-900 focus:z-10 dark:bg-green-900 dark:text-white">
                     <div class="flex flex-col">
                         <span class="text-3xl"><span class="text-sm align-top mr-0.5">£</span>{{
                             parseInt(currentMonth.fee_recordings / 100).toFixed(0) }}</span>
@@ -47,7 +47,7 @@ const removePayment = (paymentId) => {
                     </div>
                 </button>
                 <button type="button" @click="addToBasket(currentMonth.id, 'Live Access')"
-                    class="transition-all transform hover:scale-110 active:scale-95 -ml-px inline-flex items-center rounded-r-md bg-white p-4 px-5 text-sm font-semibold text-gray-900 focus:z-10 dark:bg-green-600 dark:text-white">
+                    class="transition-all transform hover:scale-110 active:scale-95 -ml-px inline-flex items-center rounded-r-xl bg-green-600 p-4 px-5 text-sm font-semibold text-white focus:z-10 dark:bg-green-600 dark:text-white">
                     <div class="flex flex-col">
                         <span class="text-3xl"><span class="text-sm align-top mr-0.5">£</span>{{ parseInt(currentMonth.fee /
                             100).toFixed(0) }}</span>

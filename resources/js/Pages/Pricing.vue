@@ -15,8 +15,8 @@ import { Link } from '@inertiajs/vue3';
                 </div>
             </h1>
             <div class="text-slate-500 dark:text-gray-300 text-lg md:text-xl font-medium max-w-2xl mx-auto">
-                One simple plan.
-                <div>Unlimited monthly access to everything your child needs to master code from home.</div>
+                One plan. Three options.
+                <div>Monthly access to everything your child needs to master code from home.</div>
             </div>
         </section>
         <section class="w-full max-w-6xl mx-auto px-4 pb-12">
