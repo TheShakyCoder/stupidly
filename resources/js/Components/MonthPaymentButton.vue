@@ -77,7 +77,7 @@ const removePayment = (paymentId) => {
                 <span class="material-symbols-outlined">verified</span>
                 <div class="flex flex-col">
                     <span>Purchased</span>
-                    <span class="text-sm font-normal">({{ currentMonth.payments[0]?.tier == 1 ? 'Recordings' : 'Live Access'}})</span>
+                    <span class="text-sm font-normal">({{ currentMonth.payments[0]?.tier }})</span>
                 </div>
     
             </div>
