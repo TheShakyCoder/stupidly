@@ -125,7 +125,7 @@ defineProps({
                             </h2>
                             <p
                                 class="text-base md:text-lg font-normal leading-normal max-w-[600px] dark:text-blue-200 text-gray-600">
-                                We make learning to code fun, safe, and effective for homeschoolers with a platform
+                                We make learning to code fun, safe, and effective for home-educators with a platform
                                 built for curiosity.
                             </p>
                         </div>
