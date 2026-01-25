@@ -12,7 +12,7 @@ const props = defineProps({
     },
 });
 
-const activeFilter = ref('all');
+const activeFilter = ref('scheduled');
 const searchQuery = ref('');
 
 const filteredCourses = computed(() => {
