@@ -1,3 +1,26 @@
+<script setup>
+import AppLayout from '@/Layouts/AppLayout.vue';
+import { useForm, Link } from '@inertiajs/vue3';
+
+const props = defineProps({
+    lesson: Object,
+    courses: Array,
+    months: Array,
+});
+
+const form = useForm({
+    _method: 'PUT',
+    course_id: props.lesson.course_id,
+    month_id: props.lesson.month_id,
+    title: props.lesson.title,
+    available_at: props.lesson.available_at,
+});
+
+const submit = () => {
+    form.post(route('admin.lessons.update', props.lesson.id));
+};
+</script>
+
 <template>
     <AppLayout title="Edit Lesson">
         <template #header>
@@ -48,14 +71,9 @@
                             </div>
 
                             <div>
-                                <label class="block font-medium text-sm text-gray-700 dark:text-gray-300">Replace Video (Optional)</label>
                                 <div class="mt-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
                                     Current Path: {{ lesson.path }}
                                 </div>
-                                <label class="block font-medium text-xs text-gray-500 dark:text-gray-400 mt-2">New Filename</label>
-                                <input v-model="form.filename" type="text" placeholder="Start new folder with this filename..." class="mt-1 block w-full border-gray-300 dark:border-slate-700 dark:bg-slate-900 dark:text-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" />
-                                <p class="text-xs text-gray-500 mt-1">Entering a filename will generate a NEW folder. You will need to upload your files to the new folder.</p>
-                                <div v-if="form.errors.filename" class="text-red-500 text-xs mt-1">{{ form.errors.filename }}</div>
                             </div>
 
                             <div class="flex items-center justify-end mt-4">
@@ -72,26 +90,3 @@
     </AppLayout>
 </template>
 
-<script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
-import { useForm, Link } from '@inertiajs/vue3';
-
-const props = defineProps({
-    lesson: Object,
-    courses: Array,
-    months: Array,
-});
-
-const form = useForm({
-    _method: 'PUT',
-    course_id: props.lesson.course_id,
-    month_id: props.lesson.month_id,
-    title: props.lesson.title,
-    available_at: props.lesson.available_at,
-    filename: '',
-});
-
-const submit = () => {
-    form.post(route('admin.lessons.update', props.lesson.id));
-};
-</script>

@@ -62,7 +62,7 @@
                                         {{ new Date(lesson.available_at).toLocaleString() }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
-                                        <Link v-if="lesson.signed_path" :href="route('admin.lessons.preview', lesson.id)"
+                                        <Link v-if="lesson.signed_path && lesson.is_video_available" :href="route('admin.lessons.preview', lesson.id)"
                                             class="text-green-600 hover:text-green-900 dark:text-green-400 dark:hover:text-green-300">
                                             Play
                                         </Link>

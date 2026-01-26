@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('path')->nullable();
             $table->string('google_meet_link')->nullable();
             $table->dateTime('available_at');
+            $table->boolean('is_video_available')->default(false);
             $table->timestamps();
         });
     }

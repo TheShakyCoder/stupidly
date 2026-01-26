@@ -45,7 +45,6 @@ class AdminLessonController extends Controller
             'month_id' => 'required|exists:months,id',
             'title' => 'required|string|max:255',
             'available_at' => 'required|date',
-            'filename' => 'required|string',
         ]);
 
         $uuid = Str::uuid();
@@ -53,6 +52,10 @@ class AdminLessonController extends Controller
         
         $envFolder = config('filesystems.disks.spaces.folder');
         $storagePath = $envFolder ? "{$envFolder}/{$folderName}" : $folderName;
+
+        if (!Storage::disk('spaces')->exists($storagePath)) {
+            Storage::disk('spaces')->makeDirectory($storagePath);
+        }
         
         // Construct the FQDN prefix
         $domain = config('filesystems.disks.spaces.domain');
@@ -60,7 +63,7 @@ class AdminLessonController extends Controller
         $region = config('filesystems.disks.spaces.region');
         $fqdn = "https://{$bucket}.{$region}.{$domain}";
 
-        $filename = $validated['filename'];
+        $filename = 'index.m3u8';
         $path = "{$fqdn}/{$storagePath}/{$filename}";
 
         Lesson::create([
@@ -97,7 +100,6 @@ class AdminLessonController extends Controller
             'month_id' => 'required|exists:months,id',
             'title' => 'required|string|max:255',
             'available_at' => 'required|date',
-            'filename' => 'nullable|string',
         ]);
 
         $updateData = [
@@ -107,13 +109,16 @@ class AdminLessonController extends Controller
             'available_at' => $validated['available_at'],
         ];
 
-        $bannerMessage = null;
-
-        if (!empty($validated['filename'])) {
+        $filename = 'index.m3u8';
+        if(!$lesson->path) {
             $uuid = Str::uuid();
             $folderName = $uuid->toString();
             $envFolder = config('filesystems.disks.spaces.folder');
             $storagePath = $envFolder ? "{$envFolder}/{$folderName}" : $folderName;
+
+            if (!Storage::disk('spaces')->exists($storagePath)) {
+                Storage::disk('spaces')->makeDirectory($storagePath);
+            }
             
             // Construct the FQDN prefix
             $domain = config('filesystems.disks.spaces.domain');
@@ -121,21 +126,17 @@ class AdminLessonController extends Controller
             $region = config('filesystems.disks.spaces.region');
             $fqdn = "https://{$bucket}.{$region}.{$domain}";
             
-            $filename = $validated['filename'];
             $newPath = "{$fqdn}/{$storagePath}/{$filename}";
-            
             $updateData['path'] = $newPath;
-            $bannerMessage = "Lesson updated! Please upload your '{$filename}' and segments to the NEW folder: {$folderName}";
+
+            
         }
-
-        $lesson->update($updateData);
-
-        $redirect = to_route('admin.lessons.index');
         
-        if ($bannerMessage) {
-            $redirect->with('flash.banner', $bannerMessage);
-        }
-
+        $lesson->update($updateData);
+        
+        $bannerMessage = "Lesson updated! Please upload your '{$filename}' and segments to the NEW folder: {$lesson->path}";
+        $redirect = to_route('admin.lessons.index');
+        $redirect->with('flash.banner', $bannerMessage);
         return $redirect;
     }
 
@@ -145,13 +146,13 @@ class AdminLessonController extends Controller
     public function destroy(Lesson $lesson)
     {
         if ($lesson->path) {
-             $pathPath = parse_url($lesson->path, PHP_URL_PATH);
-             $key = ltrim($pathPath, '/');
-             $directory = dirname($key);
+            $pathPath = parse_url($lesson->path, PHP_URL_PATH);
+            $key = ltrim($pathPath, '/');
+            $directory = dirname($key);
 
-             if ($directory && $directory !== '.' && $directory !== '/') {
-                 Storage::disk('spaces')->deleteDirectory($directory);
-             }
+            if ($directory && $directory !== '.' && $directory !== '/') {
+                Storage::disk('spaces')->deleteDirectory($directory);
+            }
         }
 
         $lesson->delete();
