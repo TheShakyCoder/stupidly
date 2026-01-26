@@ -14,6 +14,7 @@ const form = useForm({
     month_id: props.lesson.month_id,
     title: props.lesson.title,
     available_at: props.lesson.available_at,
+    is_video_available: Boolean(props.lesson.is_video_available),
 });
 
 const submit = () => {
@@ -68,6 +69,13 @@ const submit = () => {
                                 <label class="block font-medium text-sm text-gray-700 dark:text-gray-300">Available At</label>
                                 <input v-model="form.available_at" type="datetime-local" class="mt-1 block w-full border-gray-300 dark:border-slate-700 dark:bg-slate-900 dark:text-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" />
                                 <div v-if="form.errors.available_at" class="text-red-500 text-xs mt-1">{{ form.errors.available_at }}</div>
+                            </div>
+
+                            <div class="block">
+                                <label class="flex items-center">
+                                    <input v-model="form.is_video_available" type="checkbox" class="rounded border-gray-300 dark:border-slate-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:bg-slate-900" />
+                                    <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">Video Available</span>
+                                </label>
                             </div>
 
                             <div>

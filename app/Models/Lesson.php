@@ -18,6 +18,11 @@ class Lesson extends Model
         'path',
         'available_at',
         'google_meet_link',
+        'is_video_available',
+    ];
+
+    protected $casts = [
+        'is_video_available' => 'boolean',
     ];
 
     protected $appends = [

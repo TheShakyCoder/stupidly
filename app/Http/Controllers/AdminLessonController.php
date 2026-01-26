@@ -45,6 +45,7 @@ class AdminLessonController extends Controller
             'month_id' => 'required|exists:months,id',
             'title' => 'required|string|max:255',
             'available_at' => 'required|date',
+            'is_video_available' => 'boolean|nullable',
         ]);
 
         $uuid = Str::uuid();
@@ -53,9 +54,7 @@ class AdminLessonController extends Controller
         $envFolder = config('filesystems.disks.spaces.folder');
         $storagePath = $envFolder ? "{$envFolder}/{$folderName}" : $folderName;
 
-        if (!Storage::disk('spaces')->exists($storagePath)) {
-            Storage::disk('spaces')->makeDirectory($storagePath);
-        }
+        Storage::disk('spaces')->makeDirectory($storagePath);
         
         // Construct the FQDN prefix
         $domain = config('filesystems.disks.spaces.domain');
@@ -71,6 +70,7 @@ class AdminLessonController extends Controller
             'month_id' => $validated['month_id'],
             'title' => $validated['title'],
             'available_at' => $validated['available_at'],
+            'is_video_available' => $validated['is_video_available'] ?? false,
             'path' => $path,
         ]);
 
@@ -100,6 +100,7 @@ class AdminLessonController extends Controller
             'month_id' => 'required|exists:months,id',
             'title' => 'required|string|max:255',
             'available_at' => 'required|date',
+            'is_video_available' => 'boolean|nullable',
         ]);
 
         $updateData = [
@@ -107,6 +108,7 @@ class AdminLessonController extends Controller
             'month_id' => $validated['month_id'],
             'title' => $validated['title'],
             'available_at' => $validated['available_at'],
+            'is_video_available' => $validated['is_video_available'] ?? false,
         ];
 
         $filename = 'index.m3u8';
@@ -116,9 +118,7 @@ class AdminLessonController extends Controller
             $envFolder = config('filesystems.disks.spaces.folder');
             $storagePath = $envFolder ? "{$envFolder}/{$folderName}" : $folderName;
 
-            if (!Storage::disk('spaces')->exists($storagePath)) {
-                Storage::disk('spaces')->makeDirectory($storagePath);
-            }
+            Storage::disk('spaces')->makeDirectory($storagePath);
             
             // Construct the FQDN prefix
             $domain = config('filesystems.disks.spaces.domain');

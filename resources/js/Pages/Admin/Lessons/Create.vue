@@ -47,6 +47,13 @@
                                 <div v-if="form.errors.available_at" class="text-red-500 text-xs mt-1">{{ form.errors.available_at }}</div>
                             </div>
 
+                            <div class="block">
+                                <label class="flex items-center">
+                                    <input v-model="form.is_video_available" type="checkbox" class="rounded border-gray-300 dark:border-slate-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:bg-slate-900" />
+                                    <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">Video Available</span>
+                                </label>
+                            </div>
+
                             <div class="flex items-center justify-end mt-4">
                                 <Link :href="route('admin.lessons.index')" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 underline mr-4">Cancel</Link>
                                 <button type="submit" :disabled="form.processing" class="inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150" :class="{ 'opacity-25': form.processing }">
@@ -75,6 +82,7 @@ const form = useForm({
     month_id: '',
     title: '',
     available_at: '',
+    is_video_available: false,
 });
 
 const submit = () => {
