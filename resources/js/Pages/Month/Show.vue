@@ -168,6 +168,12 @@ const weekDeps = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
                                         class="inline-flex items-center justify-center px-3 py-1.5 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition shrink-0 ml-2">
                                         Join
                                     </a>
+                                    <Link
+                                        v-if="(month.is_purchased || $page.props.auth.user?.is_tutor) && lesson.is_video_available && isVideoAvailable(lesson)"
+                                        :href="route('lessons.watch', lesson.id)"
+                                        class="inline-flex items-center justify-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition">
+                                        Watch Video
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -228,7 +234,7 @@ const weekDeps = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
                     </a>
 
                     <Link
-                        v-if="(month.is_purchased || $page.props.auth.user?.is_tutor) && selectedLesson.path && isVideoAvailable(selectedLesson)"
+                        v-if="(month.is_purchased || $page.props.auth.user?.is_tutor) && selectedLesson.is_video_available && isVideoAvailable(selectedLesson)"
                         :href="route('lessons.watch', selectedLesson.id)"
                         class="inline-flex items-center justify-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition">
                         Watch Video
