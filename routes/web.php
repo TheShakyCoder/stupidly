@@ -65,6 +65,7 @@ Route::middleware([
                     $q->where('user_id', request()->user()->id);
                 },
                 'lessons.course',
+                'recordings.course',
             ])
             ->first();
 
