@@ -1,19 +1,18 @@
 <template>
     <AppLayout title="Courses">
-        <template #header>
-            <div class="flex items-center justify-between">
-                <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                    Courses
-                </h2>
-                <Link :href="route('admin.courses.create')"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors">
-                    Create Course
-                </Link>
-            </div>
-        </template>
-
         <div class="py-12 bg-gray-100 dark:bg-gray-900 transition-colors">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <!-- Header -->
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                        Courses
+                    </h2>
+                    <Link :href="route('admin.courses.create')"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors">
+                        Create Course
+                    </Link>
+                </div>
+
                 <div
                     class="bg-white dark:bg-slate-800 overflow-hidden shadow-xl sm:rounded-lg p-6 transition-colors border border-gray-200 dark:border-slate-700/50">
                     <div class="overflow-x-auto">
