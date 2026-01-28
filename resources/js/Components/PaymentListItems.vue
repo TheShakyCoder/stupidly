@@ -1,6 +1,5 @@
 <script setup>
 import dayjs from 'dayjs';
-import { defineProps } from 'vue';
 import { Form } from '@inertiajs/vue3';
 
 defineProps({
