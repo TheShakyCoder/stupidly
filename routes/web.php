@@ -200,6 +200,7 @@ Route::middleware([
         })->name('dashboard');
 
         Route::resource('users', \App\Http\Controllers\AdminUserController::class);
+        Route::resource('courses', \App\Http\Controllers\AdminCourseController::class);
         Route::resource('months', \App\Http\Controllers\AdminMonthController::class)->only(['index', 'edit', 'update']);
         Route::get('/lessons/{lesson}/preview', [\App\Http\Controllers\AdminLessonController::class, 'preview'])->name('lessons.preview');
         Route::get('/lessons/{lesson}/playlist', [\App\Http\Controllers\AdminLessonController::class, 'playlist'])->name('lessons.playlist');

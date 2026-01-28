@@ -41,6 +41,22 @@
                         </div>
                     </Link>
 
+                    <!-- Courses Card -->
+                    <Link :href="route('admin.courses.index')"
+                        class="transform transition duration-300 hover:scale-105">
+                        <div
+                            class="bg-white dark:bg-slate-800 overflow-hidden shadow-xl sm:rounded-lg p-6 border border-gray-200 dark:border-slate-700/50 flex items-center justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Courses</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Manage available courses.</p>
+                            </div>
+                            <div
+                                class="p-3 bg-amber-100 dark:bg-amber-900/30 rounded-full text-amber-600 dark:text-amber-400">
+                                <span class="material-symbols-outlined text-3xl">menu_book</span>
+                            </div>
+                        </div>
+                    </Link>
+
                     <!-- Months Card -->
                     <Link :href="route('admin.months.index')" class="transform transition duration-300 hover:scale-105">
                         <div
