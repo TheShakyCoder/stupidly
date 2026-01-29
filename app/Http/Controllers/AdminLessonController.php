@@ -118,8 +118,14 @@ class AdminLessonController extends Controller
             $envFolder = config('filesystems.disks.spaces.folder');
             $storagePath = $envFolder ? "{$envFolder}/{$folderName}" : $folderName;
 
+            // NOTE: This only works on DO Spaces
             // Storage::disk('spaces')->makeDirectory($storagePath);
             
+            Storage::disk('spaces')->put(
+                "{$storagePath}/upload.txt",
+                file_get_contents(storage_path('app/private/upload.txt'))
+            );
+
             // Construct the FQDN prefix
             $domain = config('filesystems.disks.spaces.domain');
             $bucket = config('filesystems.disks.spaces.bucket');
