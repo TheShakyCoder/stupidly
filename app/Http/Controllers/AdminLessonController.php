@@ -118,7 +118,7 @@ class AdminLessonController extends Controller
             $envFolder = config('filesystems.disks.spaces.folder');
             $storagePath = $envFolder ? "{$envFolder}/{$folderName}" : $folderName;
 
-            Storage::disk('spaces')->makeDirectory($storagePath);
+            // Storage::disk('spaces')->makeDirectory($storagePath);
             
             // Construct the FQDN prefix
             $domain = config('filesystems.disks.spaces.domain');
