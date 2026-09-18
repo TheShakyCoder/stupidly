@@ -6,23 +6,83 @@
   <meta name="google-adsense-account" content="ca-pub-3326354836489064">
   <title>Stupidly</title>
   <style>
+    :root {
+      color-scheme: dark;
+    }
     body {
       margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       font-family: system-ui, sans-serif;
       background: #111;
       color: #fff;
+      padding: 4rem 1.5rem;
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
     }
     h1 {
-      font-size: 2rem;
+      font-size: 2.25rem;
       font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    p.lead {
+      color: #aaa;
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.5rem;
+    }
+    li a {
+      display: block;
+      padding: 0.9rem 1.1rem;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    li a:hover {
+      border-color: #555;
+      background: #1a1a1a;
+    }
+    li a span {
+      display: block;
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 0.15rem;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to Stupidly</h1>
+  <main>
+    <h1>Welcome to Stupidly</h1>
+    <p class="lead">Stupidly is a resource for websites &mdash; explore demo sites built with it below.</p>
+
+    <h2>Demo Sites</h2>
+    <ul>
+      <li><a href="https://sweets.stupidly.uk/">Sweet Retailer<span>sweets.stupidly.uk</span></a></li>
+      <li><a href="https://candles.stupidly.uk/">Candles Shop<span>candles.stupidly.uk</span></a></li>
+      <li><a href="https://accountants.stupidly.uk/">Accountants<span>accountants.stupidly.uk</span></a></li>
+      <li><a href="https://nails.stupidly.uk/">Nail Salon<span>nails.stupidly.uk</span></a></li>
+      <li><a href="https://coffeebar.stupidly.uk/">Coffee Bar<span>coffeebar.stupidly.uk</span></a></li>
+      <li><a href="https://restaurant.stupidly.uk/">Restaurant<span>restaurant.stupidly.uk</span></a></li>
+      <li><a href="https://florist.stupidly.uk/">Florist<span>florist.stupidly.uk</span></a></li>
+      <li><a href="https://estateagent.stupidly.uk/">Estate Agent<span>estateagent.stupidly.uk</span></a></li>
+      <li><a href="https://hairdresser.stupidly.uk/">Hairdresser<span>hairdresser.stupidly.uk</span></a></li>
+      <li><a href="https://coffee.stupidly.uk/">Coffee Roasters<span>coffee.stupidly.uk</span></a></li>
+    </ul>
+  </main>
 </body>
 </html>
