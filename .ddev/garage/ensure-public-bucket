@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+#ddev-generated
+set -euo pipefail
+
+ddev_command="${DDEV_EXECUTABLE:-ddev}"
+public="${GARAGE_DEFAULT_BUCKET_PUBLIC:-true}"
+bucket="${GARAGE_DEFAULT_BUCKET:-garage}"
+env_file="${DDEV_APPROOT}/.ddev/.env.garage"
+
+if [ -f "${env_file}" ]; then
+  public="$(${ddev_command} dotenv get .ddev/.env.garage --garage-default-bucket-public)"
+  bucket="$(${ddev_command} dotenv get .ddev/.env.garage --garage-default-bucket)"
+fi
+
+if [ "${public}" != "true" ]; then
+  exit 0
+fi
+
+for attempt in $(seq 1 30); do
+  if "${ddev_command}" exec --quiet --service garage --raw -- \
+    /garage -c /etc/garage.toml bucket website --allow "${bucket}" >/dev/null 2>&1; then
+    echo "Garage website access enabled: https://${bucket}.${DDEV_SITENAME}.${DDEV_TLD}:3902"
+    exit 0
+  fi
+
+  sleep 1
+done
+
+echo "Unable to enable Garage website access for bucket '${bucket}'." >&2
+exit 1

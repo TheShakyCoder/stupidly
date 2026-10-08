@@ -1,0 +1,11 @@
+#ddev-generated
+#ddev-silent-no-warn
+# additional_hostnames is disabled for this project: there is no DNS here and
+# `garage.smart.ddev.site` is not in /etc/hosts, so DDEV would need sudo to add
+# it. The add-on also exposes the S3 API on the primary host at port 3900
+# (http://smart.ddev.site:3900), which is enough for the app and the browser.
+additional_hostnames: []
+
+hooks:
+  post-start:
+    - exec-host: bash "${DDEV_APPROOT}/.ddev/garage/ensure-public-bucket"

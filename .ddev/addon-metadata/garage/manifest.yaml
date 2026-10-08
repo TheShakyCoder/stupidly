@@ -1,0 +1,30 @@
+name: garage
+repository: daniel-heg/ddev-garage
+version: v0.1.1
+install_date: "2026-10-08T13:46:43+01:00"
+project_files:
+    - docker-compose.garage.yaml
+    - garage/ensure-public-bucket
+    - commands/host/garage
+global_files: []
+removal_actions:
+    - |
+      #ddev-description:Remove generated Garage runtime configuration
+      for file in \
+        "${DDEV_APPROOT}/.ddev/config.garage.yaml" \
+        "${DDEV_APPROOT}/.ddev/garage/garage.toml" \
+        "${DDEV_APPROOT}/.ddev/config.garage.yaml.template" \
+        "${DDEV_APPROOT}/.ddev/garage/garage.toml.template"
+      do
+        if [ ! -f "${file}" ]; then
+          continue
+        fi
+
+        if grep -q '#ddev-generated' "${file}"; then
+          rm -f "${file}"
+        else
+          echo "Preserving modified file: ${file}"
+        fi
+      done
+
+      rmdir "${DDEV_APPROOT}/.ddev/garage" 2>/dev/null || true
