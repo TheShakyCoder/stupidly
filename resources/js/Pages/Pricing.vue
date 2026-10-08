@@ -22,7 +22,7 @@ import { Link } from '@inertiajs/vue3';
         <section class="w-full max-w-6xl mx-auto px-4 pb-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Tier 1: Recordings Only -->
-                <div
+                <!-- <div
                     class="flex flex-col bg-white dark:bg-[#1a2232] border border-slate-200 dark:border-border-dark rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow">
                     <div class="p-8 flex-grow">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Recordings Access</h3>
@@ -53,6 +53,39 @@ import { Link } from '@inertiajs/vue3';
                             Get Started
                         </Link>
                     </div>
+                </div> -->
+
+<!-- Tier 1: Full Live Access -->
+                <div
+                    class="flex flex-col bg-white dark:bg-[#1a2232] border border-slate-200 dark:border-border-dark rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow">
+                    <div class="p-8 flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Pay-As-You-Go</h3>
+                        <p class="text-slate-500 dark:text-gray-400 text-sm mb-6">Join live sessions at your own pace.</p>
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-4xl font-black text-slate-900 dark:text-white">£9</span>
+                            <span class="text-slate-500 dark:text-gray-400 font-medium">/lesson</span>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                Focus on what's needed
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                Learn with like-minded peers
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                No long-term commitment
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6 border-t border-slate-100 dark:border-white/5">
+                        <Link href="/calendar"
+                            class="block w-full py-3 text-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                            Check Availability
+                        </Link>
+                    </div>
                 </div>
 
                 <!-- Tier 2: Live Access (Featured) -->
@@ -62,17 +95,17 @@ import { Link } from '@inertiajs/vue3';
                         class="absolute top-0 right-0 bg-primary text-white text-[10px] font-black px-3 py-1 uppercase tracking-widest rounded-bl-xl">
                         Most Popular</div>
                     <div class="p-8 flex-grow">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">The Live Access Pass</h3>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Live Access Pass</h3>
                         <p class="text-slate-500 dark:text-gray-400 text-sm mb-6">The complete experience with live
                             interaction.</p>
                         <div class="flex items-baseline gap-1 mb-6">
-                            <span class="text-4xl font-black text-slate-900 dark:text-white">£19</span>
-                            <span class="text-slate-500 dark:text-gray-400 font-medium">/mo</span>
+                            <span class="text-4xl font-black text-slate-900 dark:text-white">£29</span>
+                            <span class="text-slate-500 dark:text-gray-400 font-medium">/month</span>
                         </div>
                         <ul class="space-y-4">
                             <li class="flex items-center gap-2 text-sm text-slate-700 dark:text-gray-200 font-semibold">
                                 <span class="material-symbols-outlined text-primary text-lg">verified</span>
-                                <b>Everything in Recordings</b>
+                                <b>Everything in Pay-As-You-Go</b>
                             </li>
                             <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
                                 <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
@@ -80,7 +113,7 @@ import { Link } from '@inertiajs/vue3';
                             </li>
                             <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
                                 <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
-                                Tutor Interaction
+                                Live tutor interaction
                             </li>
                         </ul>
                     </div>
@@ -96,25 +129,28 @@ import { Link } from '@inertiajs/vue3';
                 <div
                     class="flex flex-col bg-white dark:bg-[#1a2232] border border-slate-200 dark:border-border-dark rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow">
                     <div class="p-8 flex-grow">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">1-2-1 Coaching</h3>
-                        <p class="text-slate-500 dark:text-gray-400 text-sm mb-6">Personalized sessions for accelerated
-                            progress.</p>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">1-2-1 Computer Science</h3>
+                        <p class="text-slate-500 dark:text-gray-400 text-sm mb-6">UK Curriculum based tuition</p>
                         <div class="flex items-baseline gap-1 mb-6">
-                            <span class="text-4xl font-black text-slate-900 dark:text-white">£29</span>
-                            <span class="text-slate-500 dark:text-gray-400 font-medium">/lesson</span>
+                            <span class="text-4xl font-black text-slate-900 dark:text-white">£58</span>
+                            <span class="text-slate-500 dark:text-gray-400 font-medium">/lesson*</span>
                         </div>
                         <ul class="space-y-3">
                             <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
                                 <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
-                                Personalized learning path
+                                Free computer° with remote support
                             </li>
                             <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
                                 <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
-                                Direct tutor support
+                                48 week course, guaranteed 3 hours per week minimum
                             </li>
                             <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
                                 <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
-                                Flexible scheduling
+                                Extra 12 hours as needed.
+                            </li>
+                            <li class="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                Other programmable devices provided
                             </li>
                         </ul>
                     </div>
@@ -126,6 +162,8 @@ import { Link } from '@inertiajs/vue3';
                     </div>
                 </div>
             </div>
+            <p class="mt-4"><small class="text-slate-500 dark:text-gray-400 text-xs">* Minimum 156 hours, £900 pcm x 10 months = £57.69 / lesson</small></p>
+            <p class=""><small class="text-slate-500 dark:text-gray-400 text-xs">° Raspberry Pi + accessories, keyboard, mouse and monitor</small></p>
         </section>
         <section class="w-full max-w-4xl mx-auto px-4 py-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">

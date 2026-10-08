@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Month;
+use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -18,6 +19,7 @@ class FreeUserTest extends TestCase
 
         $response = $this->actingAs($user)->post('/basket', [
             'month_id' => $month->id,
+            'tier' => 'Free',
         ]);
 
         $response->assertRedirect(route('dashboard'));
@@ -28,7 +30,7 @@ class FreeUserTest extends TestCase
             'amount' => 0,
         ]);
 
-        $payment = \App\Models\Payment::where('user_id', $user->id)->first();
+        $payment = Payment::where('user_id', $user->id)->first();
         $this->assertNotNull($payment->purchased_at);
     }
 
@@ -39,6 +41,7 @@ class FreeUserTest extends TestCase
 
         $response = $this->actingAs($user)->post('/basket', [
             'month_id' => $month->id,
+            'tier' => 'Live Access',
         ]);
 
         $response->assertRedirect('/basket');

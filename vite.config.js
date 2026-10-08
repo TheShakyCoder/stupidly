@@ -12,10 +12,18 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
             ],
+            ssr: 'resources/js/ssr.js',
             refresh: true,
         }),
         vue({
             template: {
+                // Vue keeps template comments as comment nodes in dev but strips
+                // them from production builds. The SSR bundle is always a
+                // production build, so without this the dev client hydrates
+                // extra comment nodes that the server-rendered HTML never had.
+                compilerOptions: {
+                    comments: false,
+                },
                 transformAssetUrls: {
                     base: null,
                     includeAbsolute: false,

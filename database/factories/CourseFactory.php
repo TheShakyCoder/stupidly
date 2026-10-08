@@ -2,10 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\Course;
+use App\Models\Tutor;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Course>
+ * @extends Factory<Course>
  */
 class CourseFactory extends Factory
 {
@@ -20,7 +23,8 @@ class CourseFactory extends Factory
             'key' => $this->faker->unique()->slug(),
             'title' => $this->faker->sentence(),
             'description' => $this->faker->paragraph(),
-            'user_id' => \App\Models\User::factory(),
+            'tutor_id' => Tutor::factory(),
+            'user_id' => User::factory(),
             'level' => $this->faker->randomElement(['Beginner', 'Intermediate', 'Advanced']),
         ];
     }

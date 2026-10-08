@@ -4,7 +4,8 @@
     "name": "stupid-smart",
     "type": "module",
     "scripts": {
-        "build": "vite build",
+        "build": "vite build && vite build --ssr",
+        "build:ssr": "vite build --ssr",
         "dev": "vite"
     },
     "devDependencies": {

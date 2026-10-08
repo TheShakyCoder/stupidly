@@ -33,7 +33,7 @@ return [
                         'value' => '+447515382159',
                     ],
                 ],
-            ]
+            ],
         ],
         [
             'name' => 'Test Student',
@@ -65,7 +65,7 @@ return [
                 'what a constant is, and what a variable is',
                 'the basics of computer logic',
                 'what a condition is and the different ways to code it',
-                'how to import and use images in Scratch'
+                'how to import and use images in Scratch',
             ],
             'requirements' => [
                 'use a computer with a keyboard and mouse',
@@ -76,7 +76,7 @@ return [
             'skills' => ['Scratch'],
             'image' => '/images/courses/flappy.jpeg',
             'preview' => '',
-            
+
         ],
         'tic-tac-toe' => [
             'title' => 'Tic Tac Toe Game',
@@ -86,7 +86,7 @@ return [
                 'what a constant is, and what a variable is',
                 'the basics of computer logic',
                 'what a condition is and the different ways to code it',
-                'how to import and use images'
+                'how to import and use images',
             ],
             'requirements' => [
                 'use a computer with a keyboard and mouse',
@@ -99,23 +99,23 @@ return [
             'preview' => '',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-26 13:30:00',
+                    'available_at' => '2027-02-01 09:30:00',
                     'title' => 'Lesson 1',
                 ],
                 [
-                    'available_at' => '2026-02-02 13:30:00',
+                    'available_at' => '2027-02-08 09:30:00',
                     'title' => 'Lesson 2',
                 ],
                 [
-                    'available_at' => '2026-02-09 13:30:00',
+                    'available_at' => '2027-02-15 09:30:00',
                     'title' => 'Lesson 3',
                 ],
                 [
-                    'available_at' => '2026-02-16 13:30:00',
+                    'available_at' => '2027-02-22 09:30:00',
                     'title' => 'Lesson 4',
                 ],
                 [
-                    'available_at' => '2026-02-23 13:30:00',
+                    'available_at' => '2027-03-01 09:30:00',
                     'title' => 'Lesson 5',
                 ],
             ],
@@ -129,7 +129,7 @@ return [
                 'what a constant is, and what a variable is',
                 'what a loop is and when to use it',
                 'how to manage state to keep track of the application',
-                'how to import and use images'
+                'how to import and use images',
             ],
             'requirements' => [
                 'use a computer with a keyboard and mouse',
@@ -141,23 +141,23 @@ return [
             'image' => '/images/courses/k8-B8e8PAJ9JRM-unsplash.jpg',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-28 13:30:00',
+                    'available_at' => '2027-02-01 11:00:00',
                     'title' => 'Lesson 1',
                 ],
                 [
-                    'available_at' => '2026-02-04 13:30:00',
+                    'available_at' => '2027-02-08 11:00:00',
                     'title' => 'Lesson 2',
                 ],
                 [
-                    'available_at' => '2026-02-11 13:30:00',
+                    'available_at' => '2027-02-15 11:00:00',
                     'title' => 'Lesson 3',
                 ],
                 [
-                    'available_at' => '2026-02-18 13:30:00',
+                    'available_at' => '2027-02-22 11:00:00',
                     'title' => 'Lesson 4',
                 ],
                 [
-                    'available_at' => '2026-02-25 13:30:00',
+                    'available_at' => '2027-03-01 11:00:00',
                     'title' => 'Lesson 5',
                 ],
             ],
@@ -184,23 +184,23 @@ return [
             'image' => '/images/courses/SpaceshipFormation.gif',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-26 15:00:00',
+                    'available_at' => '2027-02-01 13:00:00',
                     'title' => 'Lesson 1',
                 ],
                 [
-                    'available_at' => '2026-02-02 15:00:00',
+                    'available_at' => '2027-02-08 13:00:00',
                     'title' => 'Lesson 2',
                 ],
                 [
-                    'available_at' => '2026-02-09 15:00:00',
+                    'available_at' => '2027-02-15 13:00:00',
                     'title' => 'Lesson 3',
                 ],
                 [
-                    'available_at' => '2026-02-16 15:00:00',
+                    'available_at' => '2027-02-22 13:00:00',
                     'title' => 'Lesson 4',
                 ],
                 [
-                    'available_at' => '2026-02-23 15:00:00',
+                    'available_at' => '2027-03-01 13:00:00',
                     'title' => 'Lesson 5',
                 ],
             ],
@@ -226,23 +226,23 @@ return [
             'image' => '/images/courses/tom-m-UWh8vs4ZMMM-unsplash.jpg',
             'lessons' => [
                 [
-                    'available_at' => '2026-01-28 15:00:00',
+                    'available_at' => '2027-02-01 15:30:00',
                     'title' => 'Lesson 1',
                 ],
                 [
-                    'available_at' => '2026-02-04 15:00:00',
+                    'available_at' => '2027-02-08 15:30:00',
                     'title' => 'Lesson 2',
                 ],
                 [
-                    'available_at' => '2026-02-11 15:00:00',
+                    'available_at' => '2027-02-15 15:30:00',
                     'title' => 'Lesson 3',
                 ],
                 [
-                    'available_at' => '2026-02-18 15:00:00',
+                    'available_at' => '2027-02-22 15:30:00',
                     'title' => 'Lesson 4',
                 ],
                 [
-                    'available_at' => '2026-02-25 15:00:00',
+                    'available_at' => '2027-03-01 15:30:00',
                     'title' => 'Lesson 5',
                 ],
             ],
@@ -335,28 +335,28 @@ return [
             'tutor' => 'Sharif Khan',
             'skills' => ['Lua', 'WebSockets'],
             'image' => '/images/courses/Bomberman_game.png',
-            'lessons' => [
-                [
-                    'available_at' => '2026-01-29 09:30:00',
-                    'title' => 'Lesson 1',
-                ],
-                [
-                    'available_at' => '2026-02-05 09:30:00',
-                    'title' => 'Lesson 2',
-                ],
-                [
-                    'available_at' => '2026-02-12 09:30:00',
-                    'title' => 'Lesson 3',
-                ],
-                [
-                    'available_at' => '2026-02-19 09:30:00',
-                    'title' => 'Lesson 4',
-                ],
-                [
-                    'available_at' => '2026-02-26 09:30:00',
-                    'title' => 'Lesson 5',
-                ],
-            ],
+            // 'lessons' => [
+            //     [
+            //         'available_at' => '2026-01-29 09:30:00',
+            //         'title' => 'Lesson 1',
+            //     ],
+            //     [
+            //         'available_at' => '2026-02-05 09:30:00',
+            //         'title' => 'Lesson 2',
+            //     ],
+            //     [
+            //         'available_at' => '2026-02-12 09:30:00',
+            //         'title' => 'Lesson 3',
+            //     ],
+            //     [
+            //         'available_at' => '2026-02-19 09:30:00',
+            //         'title' => 'Lesson 4',
+            //     ],
+            //     [
+            //         'available_at' => '2026-02-26 09:30:00',
+            //         'title' => 'Lesson 5',
+            //     ],
+            // ],
         ],
         'texas-hold-em' => [
             'title' => 'Texas Hold\'em Game',
@@ -403,39 +403,44 @@ return [
             'tutor' => 'Sharif Khan',
             'skills' => ['Babylon.js'],
             'image' => '/images/courses/paul-pastourmatzis-5FGsEWRn2NQ-unsplash.jpg',
-            'lessons' => [
-                [
-                    'available_at' => '2026-01-29 11:00:00',
-                    'title' => 'Lesson 1',
-                ],
-                [
-                    'available_at' => '2026-02-05 11:00:00',
-                    'title' => 'Lesson 2',
-                ],
-                [
-                    'available_at' => '2026-02-12 11:00:00',
-                    'title' => 'Lesson 3',
-                ],
-                [
-                    'available_at' => '2026-02-19 11:00:00',
-                    'title' => 'Lesson 4',
-                ],
-                [
-                    'available_at' => '2026-02-26 11:00:00',
-                    'title' => 'Lesson 5',
-                ],
-            ],
+            // 'lessons' => [
+            //     [
+            //         'available_at' => '2026-01-29 11:00:00',
+            //         'title' => 'Lesson 1',
+            //     ],
+            //     [
+            //         'available_at' => '2026-02-05 11:00:00',
+            //         'title' => 'Lesson 2',
+            //     ],
+            //     [
+            //         'available_at' => '2026-02-12 11:00:00',
+            //         'title' => 'Lesson 3',
+            //     ],
+            //     [
+            //         'available_at' => '2026-02-19 11:00:00',
+            //         'title' => 'Lesson 4',
+            //     ],
+            //     [
+            //         'available_at' => '2026-02-26 11:00:00',
+            //         'title' => 'Lesson 5',
+            //     ],
+            // ],
         ],
     ],
 
     'months' => [
         [
-            'started_at' => '2026-01-01',
-            'fee' => 200,
+            'started_at' => '2027-01-01',
+            'fee' => 0,
             'fee_recordings' => 100,
         ],
         [
-            'started_at' => '2026-02-01',
+            'started_at' => '2027-02-01',
+            'fee' => 1900,
+            'fee_recordings' => 900,
+        ],
+        [
+            'started_at' => '2027-03-01',
             'fee' => 1900,
             'fee_recordings' => 900,
         ],

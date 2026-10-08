@@ -2,13 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\Month;
+use App\Models\Tutor;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Month>
+ * @extends Factory<Tutor>
  */
-class MonthFactory extends Factory
+class TutorFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +19,9 @@ class MonthFactory extends Factory
     public function definition(): array
     {
         return [
-            'started_at' => $this->faker->date('Y-m-1'),
-            'fee' => $this->faker->numberBetween(200, 1900),
+            'user_id' => User::factory(),
+            'title' => $this->faker->jobTitle(),
+            'bio' => $this->faker->paragraph(),
         ];
     }
 }
