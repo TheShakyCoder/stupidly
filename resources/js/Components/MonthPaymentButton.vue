@@ -25,7 +25,7 @@ const removePayment = (paymentId) => {
 
         <template v-if="currentMonth?.payments?.length === 0">
             <!-- payments.lenth === 0 -->
-    
+
             <span v-if="$page.props.auth.user.free" class="isolate inline-flex rounded-md shadow-sm dark:shadow-none">
                 <!-- user.free === true -->
                 <button type="button" @click="addToBasket(currentMonth.id, 'Free')"
@@ -33,28 +33,21 @@ const removePayment = (paymentId) => {
                     FREE
                 </button>
             </span>
-    
+
             <span v-else class="isolate inline-flex rounded-md shadow-sm dark:shadow-none">
                 <!-- user.free === false -->
-                <button type="button" @click="addToBasket(currentMonth.id, 'Recordings')"
-                    class="transition-all transform hover:scale-110 active:scale-95 -ml-px inline-flex items-center rounded-l-xl bg-green-400 dark:bg-blue-900/10 text-blue-500 dark:text-blue-400 font-black p-4 px-5 text-sm font-semibold text-gray-900 focus:z-10 dark:bg-green-900 dark:text-white">
+                <button type="button" @click="addToBasket(currentMonth.id, 'Live Access')"
+                    class="transition-all transform hover:scale-110 active:scale-95 -ml-px inline-flex items-center rounded-xl bg-green-600 p-4 px-5 text-sm font-semibold text-white focus:z-10 dark:bg-green-600 dark:text-white">
                     <div class="flex flex-col">
                         <span class="text-3xl"><span class="text-sm align-top mr-0.5">£</span>{{
-                            parseInt(currentMonth.fee_recordings / 100).toFixed(0) }}</span>
-                        <span class="text-xs">Recordings</span>
-                    </div>
-                </button>
-                <button type="button" @click="addToBasket(currentMonth.id, 'Live Access')"
-                    class="transition-all transform hover:scale-110 active:scale-95 -ml-px inline-flex items-center rounded-r-xl bg-green-600 p-4 px-5 text-sm font-semibold text-white focus:z-10 dark:bg-green-600 dark:text-white">
-                    <div class="flex flex-col">
-                        <span class="text-3xl"><span class="text-sm align-top mr-0.5">£</span>{{ parseInt(currentMonth.fee /
-                            100).toFixed(0) }}</span>
-                        <span class="text-xs">Live&nbsp;Access</span>
+                            parseInt(currentMonth.fee /
+                                100).toFixed(0) }}</span>
+                        <span class="text-xs">Live&nbsp;Access<br>& Recordings</span>
                     </div>
                 </button>
             </span>
         </template>
-    
+
         <template v-else>
             <!-- payments.length === 1 -->
             <!-- in basket -->
@@ -66,7 +59,7 @@ const removePayment = (paymentId) => {
                 </button>
                 <div class="flex flex-col">
                     <span>In Basket</span>
-                    <span class="text-sm font-normal">({{ currentMonth.payments[0].tier == 1 ? 'Recordings' : 'Live Access'}})</span>
+                    <span class="text-sm font-normal">Live Access</span>
                 </div>
             </span>
             <!-- purchased -->
@@ -77,7 +70,7 @@ const removePayment = (paymentId) => {
                     <span>Purchased</span>
                     <span class="text-sm font-normal">({{ currentMonth.payments[0]?.tier }})</span>
                 </div>
-    
+
             </div>
         </template>
     </span>

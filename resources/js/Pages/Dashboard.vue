@@ -65,9 +65,12 @@ const addToBasket = (month_id, tier) => {
                                 class="relative bg-white dark:bg-slate-900/60 backdrop-blur-md overflow-hidden shadow-2xl border border-gray-200 dark:border-white/10 rounded-2xl transition-all">
                                 <div class="p-8">
                                     <div class="flex items-center justify-between mb-6">
-                                        <h2
+                                        <h2 v-if="currentMonth.started_at <= dayjs()"
                                             class="text-xs uppercase tracking-[0.2em] font-black text-primary dark:text-primary/80">
                                             Current Month</h2>
+                                        <h2 v-else
+                                            class="text-xs uppercase tracking-[0.2em] font-black text-primary dark:text-primary/80">
+                                            Upcoming Month</h2>
 
                                     </div>
 
@@ -104,8 +107,9 @@ const addToBasket = (month_id, tier) => {
                                         </div>
 
 
-                                        <MonthPaymentButton :current-month="currentMonth" @addToBasket="addToBasket" @removePayment="removePayment" />
-                                        
+                                        <MonthPaymentButton :current-month="currentMonth" @addToBasket="addToBasket"
+                                            @removePayment="removePayment" />
+
                                     </div>
                                 </div>
                             </div>
@@ -145,12 +149,12 @@ const addToBasket = (month_id, tier) => {
                                                         class="material-symbols-outlined text-lg text-secondary">school</span>
                                                     {{ m.lessons?.length || 0 }} Lessons
                                                 </div>
-                                                <div
+                                                <!-- <div
                                                     class="flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-slate-400">
                                                     <span
                                                         class="material-symbols-outlined text-lg text-accent">videocam</span>
                                                     {{ m.recordings?.length || 0 }} Recordings
-                                                </div>
+                                                </div> -->
                                             </div>
 
                                             <Link :href="`/months/${m.id}`"
@@ -162,7 +166,8 @@ const addToBasket = (month_id, tier) => {
                                         </div>
                                     </div>
 
-                                    <MonthPaymentButton :current-month="m" @addToBasket="addToBasket" @removePayment="removePayment" />
+                                    <MonthPaymentButton :current-month="m" @addToBasket="addToBasket"
+                                        @removePayment="removePayment" />
 
                                 </li>
                             </ul>

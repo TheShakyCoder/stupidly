@@ -56,10 +56,8 @@ Route::middleware([
 ])->group(function () {
 
     Route::get('/dashboard', function () {
-        $currentMonth = Month::whereBetween('started_at', [
-                Carbon::now()->startOfMonth(),
-                Carbon::now()->endOfMonth(),
-            ])
+        $currentMonth = Month::where('started_at', '>=', Carbon::now()->startOfMonth())
+            ->orderBy('started_at', 'ASC')
             ->with([
                 'payments' => function ($q) {
                     $q->where('user_id', request()->user()->id);
@@ -74,7 +72,9 @@ Route::middleware([
             'months' => Month::with([
                 'payments' => function ($q) {
                     $q->where('user_id', request()->user()->id);
-                }, 'lessons', 'recordings',
+                },
+                'lessons',
+                'recordings',
             ])->orderBy('started_at', 'DESC')->get(),
         ]);
     })->name('dashboard');
