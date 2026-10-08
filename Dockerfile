@@ -15,6 +15,9 @@
 #
 # No secrets and no .env are copied in: every credential is supplied at run
 # time (APP_KEY, DB_*, SPACES_*, STRIPE_*, GOOGLE_*, MAIL_*, INERTIA_SSR_URL).
+#
+# The web container applies database migrations on boot (see
+# docker-entrypoint.sh); the SSR container reuses the image but skips them.
 # ---------------------------------------------------------------------------
 
 # ------------------------------- vendor ------------------------------------
@@ -193,6 +196,8 @@ SH
 
 WORKDIR /var/www/html
 
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+
 COPY . .
 
 COPY --from=vendor /app/vendor ./vendor
@@ -213,7 +218,7 @@ RUN php artisan package:discover --ansi \
     && chown -R www-data:www-data /var/www/html \
     && find app bootstrap config database public resources routes -type d -exec chmod 755 {} + \
     && find app bootstrap config database public resources routes -type f -exec chmod 644 {} + \
-    && chmod 755 artisan \
+    && chmod 755 artisan /usr/local/bin/docker-entrypoint.sh \
     && chmod -R ug+rwX storage bootstrap/cache
 
 # 80: nginx. 13714: the Inertia SSR renderer, used when this image's command is
@@ -223,4 +228,5 @@ EXPOSE 80 13714
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
     CMD curl -fsS http://127.0.0.1/up || exit 1
 
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
