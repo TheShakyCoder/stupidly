@@ -9,15 +9,22 @@
 #           (public/build) *and* the SSR bundle (bootstrap/ssr)
 #   app     php-fpm + nginx + a Node runtime
 #
-# Node ships in the final image because the Inertia SSR renderer runs from a
-# second container built from this same image, overriding the command with
-# `node bootstrap/ssr/ssr.js`.
+# Node ships in the final image because the Inertia SSR renderer is run from
+# this same image. By default supervisord keeps `node bootstrap/ssr/ssr.js`
+# running next to nginx and php-fpm, so a single container renders pages
+# server-side; Inertia reaches it over loopback (INERTIA_SSR_URL below).
+# Set SSR_IN_CONTAINER=false to opt out, which is what you want when the
+# renderer runs as its own service: deploy the image a second time with the
+# command overridden to `node bootstrap/ssr/ssr.js`, expose port 13714 on it,
+# and point INERTIA_SSR_URL at that service instead of 127.0.0.1.
 #
 # No secrets and no .env are copied in: every credential is supplied at run
 # time (APP_KEY, DB_*, SPACES_*, STRIPE_*, GOOGLE_*, MAIL_*, INERTIA_SSR_URL).
 #
 # The web container applies database migrations on boot (see
-# docker-entrypoint.sh); the SSR container reuses the image but skips them.
+# docker-entrypoint.sh); a dedicated SSR container reuses the image but skips
+# them, because the entrypoint only bootstraps the database for the default
+# supervisord command.
 # ---------------------------------------------------------------------------
 
 # ------------------------------- vendor ------------------------------------
@@ -74,7 +81,10 @@ FROM php:8.4-fpm-bookworm AS app
 ENV APP_ENV=production \
     APP_DEBUG=false \
     LOG_CHANNEL=stderr \
-    NODE_ENV=production
+    NODE_ENV=production \
+    SSR_IN_CONTAINER=true \
+    INERTIA_SSR_ENABLED=true \
+    INERTIA_SSR_URL=http://127.0.0.1:13714
 
 # OPcache is already compiled into the base image, so it only needs tuning.
 # pdo_mysql is not covered by composer's platform requirements; pcntl lets the
@@ -191,6 +201,25 @@ stdout_logfile=/dev/stdout
 stdout_logfile_maxbytes=0
 stderr_logfile=/dev/stderr
 stderr_logfile_maxbytes=0
+
+; The Inertia SSR renderer. It is started after php-fpm and nginx so a
+; request can never arrive before the web server is listening; if it does
+; stop, Inertia quietly falls back to client-side rendering until supervisord
+; brings it back. SSR_IN_CONTAINER=false leaves it to a dedicated service.
+[program:ssr]
+command=/usr/local/bin/node /var/www/html/bootstrap/ssr/ssr.js
+directory=/var/www/html
+user=www-data
+autostart=%(ENV_SSR_IN_CONTAINER)s
+autorestart=true
+startsecs=3
+priority=20
+stopasgroup=true
+killasgroup=true
+stdout_logfile=/dev/stdout
+stdout_logfile_maxbytes=0
+stderr_logfile=/dev/stderr
+stderr_logfile_maxbytes=0
 SUPERVISOR
 SH
 
@@ -221,8 +250,8 @@ RUN php artisan package:discover --ansi \
     && chmod 755 artisan /usr/local/bin/docker-entrypoint.sh \
     && chmod -R ug+rwX storage bootstrap/cache
 
-# 80: nginx. 13714: the Inertia SSR renderer, used when this image's command is
-# overridden with `node bootstrap/ssr/ssr.js`.
+# 80: nginx. 13714: the Inertia SSR renderer, which supervisord runs inside
+# this container by default and which a dedicated SSR service exposes instead.
 EXPOSE 80 13714
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \

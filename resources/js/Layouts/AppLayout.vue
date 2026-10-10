@@ -16,17 +16,19 @@ const user = computed(() => page.props.auth.user);
                 class="pointer-events-auto max-w-4xl mx-auto bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md rounded-full shadow-lg border border-blue-100 dark:border-blue-900">
                 <header class="flex items-center justify-between whitespace-nowrap px-6 py-3">
                     <NavLink href="/" class="flex items-center gap-3">
-                        <div class="size-8 text-secondary flex items-center justify-center">
-                            <img src="/images/logo.png" :alt="page.props.app_name + ' Logo'">
-                        </div>
-                        <h2 class="text-lg font-bold leading-tight tracking-[-0.015em] dark:text-white text-gray-900">
-                            {{ page.props.app_name }}</h2>
+                        <h2 class="text-xl font-bold leading-tight tracking-[-0.015em] dark:text-white text-gray-900">
+                            <img src="/images/smart-logo.png" alt="Stupidly Smart Logo"
+                                class="h-12 mr-2 inline-block" />
+                        </h2>
                     </NavLink>
                     <div class="flex flex-1 justify-end items-center gap-4 sm:gap-8">
                         <div class="hidden md:flex items-center gap-6">
                             <NavLink
                                 class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700"
                                 href="/courses">Courses</NavLink>
+                            <NavLink
+                                class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700"
+                                href="/tutors">Tutors</NavLink>
                             <NavLink
                                 class="text-sm font-medium leading-normal hover:text-primary transition-colors dark:text-white text-gray-700"
                                 href="/pricing">Pricing</NavLink>
